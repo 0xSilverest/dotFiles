@@ -34,7 +34,7 @@ main = do
 
 backgroundColor   = "#202020"
 middleColor       = "#AEAEAE"
-foregroundColor   = "#aaffaa"
+foregroundColor   = "#851685"
 
 myConfig = def
   { borderWidth        = 4
@@ -47,8 +47,8 @@ myConfig = def
   , manageHook         = manageDocks
   , modMask            = mod4Mask
   , normalBorderColor  = middleColor
-  , terminal           = "alacritty"
-  , workspaces         = [ "browse", "emacs", "term", "read", "etc" ]
+  , terminal           = "konsole"
+  , workspaces         = [ "browser", "vim", "term", "read", "etc" ]
   }
 
 myXmobarPP xmobarPipe = defaultPP

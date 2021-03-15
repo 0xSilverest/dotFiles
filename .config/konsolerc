@@ -1,0 +1,34 @@
+[DownloadDialog Settings]
+HDMI-A-0 eDP Height 1080=494
+HDMI-A-0 eDP Width 1920=700
+
+[Favorite Profiles]
+Favorites=Breath2.profile
+
+[MainWindow]
+HDMI-A-0 Height 1080=1048
+HDMI-A-0 Height 1920x1080=521
+HDMI-A-0 Width 1920=1908
+HDMI-A-0 Width 1920x1080=951
+HDMI-A-0 XPosition=6
+HDMI-A-0 XPosition 1920x1080=6
+HDMI-A-0 YPosition=26
+HDMI-A-0 YPosition 1920x1080=553
+HDMI-A-0 eDP Height 1080=1050
+HDMI-A-0 eDP Height 1920x1080=521
+HDMI-A-0 eDP Width 1920=951
+HDMI-A-0 eDP Width 1920x1080=951
+HDMI-A-0 eDP XPosition=2014
+HDMI-A-0 eDP XPosition 1920x1080=6
+HDMI-A-0 eDP YPosition=24
+HDMI-A-0 eDP YPosition 1920x1080=553
+State=AAAA/wAAAAD9AAAAAAAABQAAAAPQAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+eDP Height 1080=1048
+eDP Height 1920x1080=521
+eDP Width 1920=1908
+eDP Width 1920x1080=951
+eDP XPosition=6
+eDP XPosition 1920x1080=6
+eDP YPosition=26
+eDP YPosition 1920x1080=26

@@ -17,23 +17,16 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/sda"; 
 
   networking.hostName = "nixos"; # Define your hostname.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Africa/Casablanca";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp0s3.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -41,13 +34,6 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-
-  # Configure keymap in X11
-
-
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -89,35 +75,73 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     wget 
-     vim
-     firefox
-     curl
-     git
-     rofi
-     dbus	
-     fish
-     alacritty 
-     xterm
-     networkmanager_dmenu
-     networkmanagerapplet
-     nitrogen
-     xcape
-     xorg.xkbcomp
-     xorg.xmodmap
-     xorg.xrandr
-     tldr
-     tree
-     haskellPackages.brittany
-     haskellPackages.cabal2nix
-     haskellPackages.cabal-install
-     haskellPackages.ghc
-     haskellPackages.haskell-language-server 
-     haskellPackages.hoogle
-     haskellPackages.nix-tree
-     haskellPackages.xmobar
-     font-awesome-ttf
-     material-design-icons
+    wget 
+
+    # Browsers
+    brave
+    
+    # Text editors
+    vim
+    vi
+    nvim
+    emacs
+
+    # Shell
+    fish
+    zsh
+    
+    # Network
+    networkmanager_dmenu
+    networkmanagerapplet
+    nitrogen
+
+    #display 
+    xcape
+    xorg.xkbcomp
+    xorg.xmodmap
+    xorg.xrandr
+
+    # xmonad
+    haskellPackages.xmobar
+    rofi
+    material-design-icons
+    
+    #terminals
+    konsole
+    alacritty 
+
+    #terminal tools
+    curl
+    git    
+    tldr
+    tree
+    dbus	
+
+    # terminal fonts
+    fira-code
+    font-awesome-ttf
+
+    # compilers
+    ghc
+    gcc
+    python
+    python3
+    python39
+
+    # GHC Tools
+    haskellPackages.brittany
+    haskellPackages.cabal2nix
+    haskellPackages.cabal-install
+    haskellPackages.ghc
+    haskellPackages.haskell-language-server 
+    haskellPackages.hoogle
+    haskellPackages.nix-tree
+    haskellPackages.latex
+
+    # Vim Plugins
+    vimPlugins.latex-box
+    vimPlugins.vim-latex-live-preview
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
