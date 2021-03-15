@@ -75,32 +75,40 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget 
-
     # Browsers
     brave
-    
-    # Text editors
+    firefox
+    ungoogle-chromium
+    vimb
+
+    # Editors
     vim
     vi
     nvim
     emacs
+    jetbrains.idea-community
+    android-studio
 
     # Shell
     fish
     zsh
+    bash
     
     # Network
     networkmanager_dmenu
     networkmanagerapplet
     nitrogen
 
-    #display 
+    # Display 
     xcape
     xorg.xkbcomp
     xorg.xmodmap
     xorg.xrandr
 
+    # Wine
+    wine
+    lutris
+    
     # xmonad
     haskellPackages.xmobar
     rofi
@@ -111,15 +119,17 @@
     alacritty 
 
     #terminal tools
+    wget 
     curl
-    git    
     tldr
     tree
     dbus	
+    vifm
 
     # terminal fonts
     fira-code
     font-awesome-ttf
+    jetbrains-mono
 
     # compilers
     ghc
@@ -127,7 +137,11 @@
     python
     python3
     python39
-
+    ruby_2_7
+    ruby
+    sqlite
+    nodejs
+    
     # GHC Tools
     haskellPackages.brittany
     haskellPackages.cabal2nix
@@ -142,6 +156,34 @@
     vimPlugins.latex-box
     vimPlugins.vim-latex-live-preview
 
+    # Git
+    git
+    git-secrets
+
+    # Latex
+    texlive.combined.scheme-full
+    texlab
+    biber
+    tikzit
+
+    # Gaming
+    steam
+    steamPackages.steam
+    steamPackages.steam-runtime
+    
+    # Emulators
+    pcsx2
+    pcsxr
+    dolphinEmu
+    virtualbox
+
+    # etc
+    okular
+    ebook_tools
+    graphviz
+    plantuml 
+    zip
+    htop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
