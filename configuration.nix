@@ -74,7 +74,44 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [   
+    # Network
+    networkmanager_dmenu
+    networkmanagerapplet
+    
+    # Display 
+    xcape
+    xorg.xkbcomp
+    xorg.xmodmap
+    xorg.xrandr
+   
+    # xmonad
+    haskellPackages.xmobar
+    rofi
+    material-design-icons
+    nitrogen
+
+    #terminals
+    konsole
+    alacritty 
+
+    #terminal tools
+    wget 
+    curl
+    tldr
+    tree
+    dbus	
+    vifm
+
+    # terminal fonts
+    fira-code
+    font-awesome-ttf
+    jetbrains-mono
+
+    # Wine
+    wine
+    lutris 
+
     # Browsers
     brave
     firefox
@@ -93,44 +130,7 @@
     fish
     zsh
     bash
-    
-    # Network
-    networkmanager_dmenu
-    networkmanagerapplet
-    nitrogen
-
-    # Display 
-    xcape
-    xorg.xkbcomp
-    xorg.xmodmap
-    xorg.xrandr
-
-    # Wine
-    wine
-    lutris
-    
-    # xmonad
-    haskellPackages.xmobar
-    rofi
-    material-design-icons
-    
-    #terminals
-    konsole
-    alacritty 
-
-    #terminal tools
-    wget 
-    curl
-    tldr
-    tree
-    dbus	
-    vifm
-
-    # terminal fonts
-    fira-code
-    font-awesome-ttf
-    jetbrains-mono
-
+  
     # compilers
     ghc
     gcc
@@ -141,7 +141,7 @@
     ruby
     sqlite
     nodejs
-    
+
     # GHC Tools
     haskellPackages.brittany
     haskellPackages.cabal2nix
@@ -178,12 +178,15 @@
     virtualbox
 
     # etc
+    nodePackages.npm
+    fzf
     okular
     ebook_tools
     graphviz
     plantuml 
     zip
     htop
+    qbittorrent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
