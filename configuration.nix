@@ -75,6 +75,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [   
+    # Package bois
+    nodePackages.npm
+
     # Network
     networkmanager_dmenu
     networkmanagerapplet
@@ -175,14 +178,18 @@
     pcsx2
     pcsxr
     dolphinEmu
+
+    # HyperVisors
     virtualbox
+    kvm
+    docker
 
     # Video players
     mpv
     vlc
 
-    # etc
-    nodePackages.npm
+    # etc 
+    obs-studio 
     fzf
     cmus
     libreoffice
