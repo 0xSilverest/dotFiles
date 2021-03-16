@@ -177,9 +177,15 @@
     dolphinEmu
     virtualbox
 
+    # Video players
+    mpv
+    vlc
+
     # etc
     nodePackages.npm
     fzf
+    cmus
+    libreoffice
     okular
     ebook_tools
     graphviz
@@ -187,6 +193,10 @@
     zip
     htop
     qbittorrent
+    gimp
+    inkscape
+    kdenlive
+    blender
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

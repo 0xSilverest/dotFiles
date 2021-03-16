@@ -11,6 +11,9 @@ vim -c PlugUpdate
 vim -c "CocInstall coc-metals"
 vim -c "CocInstall coc-texlab"
 vim -c "CocInstall coc-pyright"
+vim -c "CocInstall coc-python"
+vim -c "CocInstall coc-rls"
 vim -c "CocInstall coc-rust-analyzer"
-
+vim -c "CocInstall coc-json"
+vim -c "CocInstall coc-todolist"
 
