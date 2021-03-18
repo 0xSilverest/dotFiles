@@ -22,7 +22,7 @@ removedKeys XConfig {modMask = modm} =
   ]
 
 addedKeys :: XConfig l -> [((KeyMask, KeySym), X ())]
-addedKeys conf@(XConfig {modMask = modm}) =
+addedKeys conf@XConfig {modMask = modm} =
   [ -- Application launcher
     ((modm, xK_space) , spawn "rofi -show")
 
@@ -45,10 +45,10 @@ addedKeys conf@(XConfig {modMask = modm}) =
   , ((modm .|. shiftMask, xK_t), sendMessage NextLayout)
 
   -- Directional navigation of windows
-  , ((modm, xK_l), windowGo R False)
-  , ((modm, xK_h), windowGo L False)
-  , ((modm, xK_k), windowGo U False)
-  , ((modm, xK_j), windowGo D False)
+  , ((modm, xK_R), windowGo R False)
+  , ((modm, xK_L), windowGo L False)
+  , ((modm, xK_U), windowGo U False)
+  , ((modm, xK_D), windowGo D False)
 
    -- Expand and shrink windows
   , ((modm .|. controlMask,                xK_l), sendMessage $ ExpandTowards R)

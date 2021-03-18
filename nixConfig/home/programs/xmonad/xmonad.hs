@@ -22,8 +22,7 @@ import MyKeyBindings
 main :: IO ()
 main = do
   xmobarPipe <- spawnPipe xmobarCommand
-  xmonad
-    -- $ withNavigation2DConfig def { layoutNavigation = [("BSP", hybridNavigation)] }
+  xmonad 
     $ myConfig { logHook = dynamicLogWithPP $ myXmobarPP xmobarPipe }
 
 
@@ -64,7 +63,7 @@ myXmobarPP xmobarPipe = defaultPP
 
 xmobarCommand :: String
 xmobarCommand =
-  intercalate " "
+  unwords
     [ "xmobar"
     , "-d"
     , "-B", stringed backgroundColor
@@ -73,5 +72,6 @@ xmobarCommand =
       where stringed x = "\"" ++ x ++ "\""
 
 -- with spacing
-myLayoutHook = (spacing 10 $ avoidStruts (tall ||| GridRatio (4/3) ||| Full )) ||| smartBorders Full
+myLayoutHook = spacing 10 (avoidStruts (tall ||| GridRatio (4/3) ||| Full )) ||| smartBorders Full
                    where tall = Tall 1 (3/100) (1/2) 
+
