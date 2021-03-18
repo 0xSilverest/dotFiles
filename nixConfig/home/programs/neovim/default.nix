@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  plugins = pkgs.vimPlugins // custom-plugins;
+  plugins = pkgs.vimPlugins; 
 
   overriddenPlugins = with pkgs; [];
 
