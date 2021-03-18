@@ -15,7 +15,7 @@ let
   fishConfig = ''
     bind \t accept-autosuggestion
     set fish_greeting
-  '' + fzfConfig + themeConfig;
+  '' + fzfConfig; 
 in
 {
   programs.fish = {
