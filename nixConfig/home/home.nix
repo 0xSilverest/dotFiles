@@ -10,6 +10,9 @@ let
         dbus	
         vifm
 
+       # Wine 
+        lutris 
+
         # Browsers
         brave
         firefox
@@ -17,7 +20,7 @@ let
 
         # Editors
         vim
-        neovim 
+        #neovim 
         jetbrains.idea-community
         android-studio
 
@@ -93,7 +96,7 @@ let
 
   compilers = with pkgs; [
     ghc
-    gcc 
+    #gcc 
     python3 
     ruby
     sqlite
@@ -115,6 +118,7 @@ let
     rofi 
     nitrogen
   ];
+
 
   haskellPkgs = with pkgs.haskellPackages; [ 
     brittany

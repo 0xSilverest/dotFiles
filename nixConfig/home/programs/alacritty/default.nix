@@ -20,8 +20,7 @@
         normal = {
           family = "Fira Code";
           style = "Light";
-        };
-        size = fontSize;
+        }; 
       };
       selection.save_to_clipboard = true;
       shell.program = "${pkgs.fish}/bin/fish";

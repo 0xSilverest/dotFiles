@@ -6,7 +6,6 @@ let
     set -x SKIM_DEFAULT_COMMAND "rg --files || fd || find ."
   '';
 
- customPlugins = pkgs.callPackage ./plugins.nix {};
 
   fenv = {
     name = "foreign-env";
@@ -21,6 +20,7 @@ in
   programs.fish = {
     enable = true;
     plugins = [ customPlugins fenv ];
+
     promptInit = ''
       eval (direnv hook fish)
       any-nix-shell fish --info-right | source
