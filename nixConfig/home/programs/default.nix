@@ -7,5 +7,4 @@
   ./alacritty
   ./networkmanager
   ./taffybar
-  ./openGl
 ]

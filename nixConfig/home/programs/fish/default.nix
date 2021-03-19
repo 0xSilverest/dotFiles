@@ -5,7 +5,6 @@ let
     set -x FZF_DEFAULT_OPTS "--preview='bat {} --color=always'" \n
   '';
 
- customPlugins = pkgs.callPackage ./plugins.nix {};
 
   fenv = {
     name = "foreign-env";
@@ -20,7 +19,7 @@ in
 {
   programs.fish = {
     enable = true;
-    plugins = [ customPlugins.theme fenv ];
+    plugins = [ fenv ];
     promptInit = ''
       eval (direnv hook fish)
       any-nix-shell fish --info-right | source
@@ -34,5 +33,5 @@ in
     shellInit = fishConfig;
   };
 
-  xdg.configFile."fish/functions/fish_prompt.fish".text = customPlugins.prompt;
+  #xdg.configFile."fish/functions/fish_prompt.fish".text = customPlugins.prompt;
 }

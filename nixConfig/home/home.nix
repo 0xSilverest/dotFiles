@@ -11,8 +11,7 @@ let
         dbus	
         vifm
 
-        # Wine
-        wine
+        # Wine 
         lutris 
 
         # Browsers
@@ -23,7 +22,7 @@ let
 
         # Editors
         vim
-        neovim 
+        #neovim 
         jetbrains.idea-community
         android-studio
 
@@ -39,8 +38,7 @@ let
 
         # Latex
         texlive.combined.scheme-full
-        texlab
-        biber
+        texlab 
         tikzit   
 
         # HyperVisors
@@ -93,14 +91,14 @@ let
 
   compilers = with pkgs; [
     ghc
-    gcc 
+    #gcc 
     python3 
     ruby
     sqlite
     nodejs
-    unstable.jdk
-    unstable.sbt
-    unstable.scala
+    jdk
+    sbt
+    scala
   ];
 
   xmonadPkgs = with pkgs; [
@@ -110,13 +108,13 @@ let
     xorg.xkbcomp
     xorg.xmodmap
     xorg.xrandr  
-    taffybar
+    taffybar 
     rofi 
     nitrogen
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
-    taffybar
+    
     brittany
     cabal2nix                
     cabal-install
@@ -147,10 +145,10 @@ let
     dolphinEmu
     wineWowPackages.stable
     lutris 
-    steam-run-native
-    (steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
-    (steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
-    (steam.override { withJava = true; })
+    #steam-run-native
+    #(steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
+    #(steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
+    #(steam.override { withJava = true; })
   ];
 
   in
@@ -161,11 +159,11 @@ let
     allowUnfree = true;
   };
 
-  #imports = (import ./programs) ++ ++ [(import ./development)];
+  imports = (import ./programs) ;
 
   xdg.enable = true;
 
-  programs.steam.enable = true;
+ 
 
   home = {
     username      = "silverest";
