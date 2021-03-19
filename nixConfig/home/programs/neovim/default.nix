@@ -3,8 +3,6 @@
 let
   plugins = pkgs.vimPlugins; 
 
-  overriddenPlugins = with pkgs; [];
-
   vimPlugins = with plugins; [
         # Theme
         onedark-vim
@@ -37,7 +35,7 @@ let
         vim-scala
         vim-surround
         ale
-      ] ++ overridenPlugins;
+      ];
 
       
   baseConfig    = builtins.readFile ./config.vim;

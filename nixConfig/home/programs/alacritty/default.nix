@@ -18,7 +18,7 @@
       };
       font = {
         normal = {
-          family = "Fira Code ";
+          family = "Fira Code";
           style = "Light";
         };
         size = fontSize;

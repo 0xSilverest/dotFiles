@@ -6,6 +6,4 @@
   ./xmonad
   ./alacritty
   ./networkmanager
-  ./taffybar
-  ./openGl
 ]

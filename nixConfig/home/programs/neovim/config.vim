@@ -5,12 +5,9 @@ nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 " theme config
 set termguicolors
 syntax enable
-colorscheme dark_purple
+colorscheme onedark
 let g:airline_theme='kolor'
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-let g:python3='usr/bin/python3'
-let g:python2='usr/lib/python2.7'
 
 " haskell config
 setlocal formatprg=hindent

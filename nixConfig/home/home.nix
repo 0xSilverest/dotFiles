@@ -2,7 +2,6 @@
 
 let 
     defaultPkgs = with pkgs; [    
-        konsole
         alacritty 
         wget 
         curl
@@ -11,14 +10,9 @@ let
         dbus	
         vifm
 
-        # Wine
-        wine
-        lutris 
-
         # Browsers
         brave
         firefox
-        ungoogled-chromium
         vimb
 
         # Editors
@@ -39,8 +33,7 @@ let
 
         # Latex
         texlive.combined.scheme-full
-        texlab
-        biber
+        texlab 
         tikzit   
 
         # HyperVisors
@@ -62,6 +55,13 @@ let
         inkscape
         kdenlive
         blender
+
+        # Audio things
+        playerctl
+        pavucontrol
+        paprefs
+        pasystray
+        playerctl
 
         # etc 
         fzf
@@ -98,9 +98,9 @@ let
     ruby
     sqlite
     nodejs
-    unstable.jdk
-    unstable.sbt
-    unstable.scala
+    jdk
+    sbt
+    scala
   ];
 
   xmonadPkgs = with pkgs; [
@@ -111,12 +111,12 @@ let
     xorg.xmodmap
     xorg.xrandr  
     taffybar
+    stalonetray
     rofi 
     nitrogen
   ];
 
-  haskellPkgs = with pkgs.haskellPackages; [
-    taffybar
+  haskellPkgs = with pkgs.haskellPackages; [ 
     brittany
     cabal2nix                
     cabal-install
@@ -124,6 +124,7 @@ let
     haskell-language-server    
     nix-tree
     latex
+    hlint
   ];
 
   taffybarPkgs = with pkgs; [
@@ -147,10 +148,10 @@ let
     dolphinEmu
     wineWowPackages.stable
     lutris 
-    steam-run-native
-    (steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
-    (steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
-    (steam.override { withJava = true; })
+    #steam-run-native
+    #(steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
+    #(steam.override { withPrimus = true; extraPkgs = pkgs: [ bumblebee glxinfo ]; nativeOnly = true; }).run
+    #(steam.override { withJava = true; })
   ];
 
   in
@@ -161,11 +162,11 @@ let
     allowUnfree = true;
   };
 
-  #imports = (import ./programs) ++ ++ [(import ./development)];
+  imports = (import ./programs) ++ (import ./services);
 
   xdg.enable = true;
 
-  programs.steam.enable = true;
+  #programs.steam.enable = true;
 
   home = {
     username      = "silverest";
@@ -201,8 +202,6 @@ let
       enable = true;
       enableFishIntegration = true;
     };
-
-    gpg.enable = true;
 
     htop = {
       enable = true;

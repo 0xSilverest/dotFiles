@@ -9,10 +9,6 @@ sudo cp system/configuration.nix /etc/nixos/
 sudo cp -r system/wm/ /etc/nixos/
 sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 
-mkdir -p $HOME/.config/polybar/logs
-touch $HOME/.config/polybar/logs/bottom.log
-touch $HOME/.config/polybar/logs/top.log
-
 mkdir -p $HOME/.config/nixpkgs/
 cp -r home/* $HOME/.config/nixpkgs/
 nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager

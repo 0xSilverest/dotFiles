@@ -22,12 +22,6 @@
   # Set your time zone.
   time.timeZone = "Africa/Casablanca";
 
-  environment.systemPackages = with pkgs; [
-    wget
-    vim
-    git
-  ];
-
   networking.useDHCP = false;
   networking.interfaces.enp0s3.useDHCP = true;
 
@@ -56,6 +50,7 @@
   environment.systemPackages = with pkgs; [
     pciutils 
     binutils
+    git
     wget
     vim
     home-manager
@@ -82,7 +77,7 @@
   };
 
   nix = {
-    autoOptimiseStore = truel;
+    autoOptimiseStore = true;
 
     gc = {
         automatic = true;
