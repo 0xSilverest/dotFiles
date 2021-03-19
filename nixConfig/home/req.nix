@@ -161,11 +161,7 @@ let
     allowUnfree = true;
   };
 
-  nixpkgs.overlays = [
-    (import ./overlays/beauty-line)
-  ];
-
-  imports = (import ./programs) ++ (import ./services) ++ [(import ./development)];
+  #imports = (import ./programs) ++ ++ [(import ./development)];
 
   xdg.enable = true;
 

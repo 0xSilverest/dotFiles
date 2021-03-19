@@ -8,13 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Depends where you setup
-      ./machineConf.nix
+
       # WM configs
       ./wm/xmonad.nix
     ];
 
-  
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true; 
 
   networking.hostName = "silverest"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -53,11 +53,17 @@
      shell = pkgs.fish;
   };
 
+  environment.systemPackages = with pkgs; [
+    pciutils binutils gcc wget git ruby perl python curl links2
+    firefox-bin brave rxvt_unicode xorg.xbacklight xclip xorg.xdpyinfo
+    compton rofi feh im-plugin redshift lm_sensors
+  ];
+
 
   fonts.fonts = with pkgs; [
-    fira-code;
-    source-sans-pro;
-    jetbrains-mono;
+    fira-code
+    source-sans-pro
+    jetbrains-mono
   ];
 
   programs.fish.enable = true;
