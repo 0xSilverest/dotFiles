@@ -54,9 +54,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pciutils binutils gcc wget git ruby perl python curl links2
-    firefox-bin brave rxvt_unicode xorg.xbacklight xclip xorg.xdpyinfo
-    compton rofi feh im-plugin redshift lm_sensors
+    pciutils 
+    binutils
+    wget
+    vim
+    home-manager
   ];
 
 

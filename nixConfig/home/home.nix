@@ -170,7 +170,7 @@ let
   home = {
     username      = "silverest";
     homeDirectory = "/home/silverest";
-    stateVersion  = "21.09";
+    stateVersion  = "20.09";
 
     packages = defaultPkgs ++ gitPkgs ++ gamingPkgs ++ haskellPkgs ++ xmonadPkgs ++ taffybarPkgs ++ compilers ++ lsps ++ fonts;
 
