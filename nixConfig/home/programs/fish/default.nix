@@ -6,6 +6,7 @@ let
     set -x SKIM_DEFAULT_COMMAND "rg --files || fd || find ."
   '';
 
+   customPlugins = pkgs.callPackage ./plugins.nix {};
 
   fenv = {
     name = "foreign-env";
@@ -32,6 +33,4 @@ in
     };
     shellInit = fishConfig;
   };
-
-  xdg.configFile."fish/functions/fish_prompt.fish".text = customPlugins.prompt;
 }
