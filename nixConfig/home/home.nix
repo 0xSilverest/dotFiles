@@ -169,9 +169,7 @@ let
 
   nixpkgs.overlays = [
     (import ./overlays/dconf2nix.nix)
-    (import ./overlays/manix.nix)
     (import ./overlays/taffybar.nix)
-    (import ./overlays/vim-plugins.nix)
   ];
 
   imports = (import ./programs) ++ (import ./services);  
