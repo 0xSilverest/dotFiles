@@ -1,4 +1,4 @@
 [
-  ./taffybar
+  ./polybar
   ./networkmanager
 ]

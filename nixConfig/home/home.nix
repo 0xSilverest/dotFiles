@@ -2,6 +2,8 @@
 
 let 
     defaultPkgs = with pkgs; [    
+        
+        # Terminal and stuff
         alacritty 
         wget 
         curl
@@ -9,8 +11,10 @@ let
         tree
         dbus	
         vifm
+        nnn
+        neofetch
 
-       # Wine 
+        # Wine 
         lutris 
 
         # Browsers
@@ -19,8 +23,7 @@ let
         vimb
 
         # Editors
-        vim
-        #neovim 
+        vim 
         jetbrains.idea-community
         android-studio
 
@@ -28,7 +31,10 @@ let
         fish
         zsh
         bash
-        
+
+        # File manager 
+        Dolphin
+
         # DevTools
         postman
         newman
@@ -67,6 +73,7 @@ let
         playerctl
 
         # etc 
+        dmenu
         fzf
         cmus
         libreoffice
@@ -81,6 +88,14 @@ let
         binutils-unwrapped
   ];
 
+  gnomePkgs = with pkgs.gnome3; [
+    eog            
+    evince         
+    gnome-calendar 
+    nautilus       
+  ];
+
+
   gitPkgs = with pkgs.gitAndTools; [ 
     git-secrets
     diff-so-fancy
@@ -94,13 +109,7 @@ let
     metals
   ];
 
-  compilers = with pkgs; [
-    ghc
-    #gcc 
-    python3 
-    ruby
-    sqlite
-    nodejs
+  compilers = with pkgs; [   
     jdk
     sbt
     scala
@@ -113,8 +122,6 @@ let
     xorg.xkbcomp
     xorg.xmodmap
     xorg.xrandr  
-    taffybar
-    stalonetray
     rofi 
     nitrogen
   ];
@@ -134,10 +141,6 @@ let
   taffybarPkgs = with pkgs; [
     font-awesome-ttf
     material-design-icons
-  ];
-
-  nodePkgs = with pkgs.nodePackages; [
-    npm
   ];
 
   fonts = with pkgs; [
@@ -177,7 +180,7 @@ let
     homeDirectory = "/home/silverest";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gamingPkgs ++ haskellPkgs ++ xmonadPkgs ++ taffybarPkgs ++ compilers ++ lsps ++ fonts;
+    packages = defaultPkgs ++ gitPkgs ++ gamingPkgs ++ haskellPkgs ++ xmonadPkgs ++ gnomePkgs ++ polybarPkgs ++ compilers ++ lsps ++ fonts;
 
     sessionVariables = {
       DISPLAY = ":0";
