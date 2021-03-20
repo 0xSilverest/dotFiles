@@ -46,13 +46,6 @@ let
     label = %{A1:${openCalendar}:}%time%%{A}
   '';
 
-  github = ''
-    [module/clickable-github]
-    inherit = module/github
-    token = ''${file:${config.xdg.configHome}/polybar/github-notifications-token}
-    label = %{A1:${openGithub}:}  %notifications%%{A}
-  '';
-
   mpris = ''
     [module/mpris]
     type = custom/script
@@ -75,11 +68,9 @@ let
     tail = true
   '';
 
-  customMods = mainBar + bctl + cal + github + mpris + xmonad;
+  customMods = mainBar + bctl + cal + mpris + xmonad;
 in
 {
-  xdg.configFile."polybar/github-notifications-token".source = ../../secrets/github-notifications-token;
-
   services.polybar = {
     enable = true;
     package = mypolybar;
