@@ -23,7 +23,8 @@
   time.timeZone = "Africa/Casablanca";
 
   networking.useDHCP = false;
-  networking.interfaces.enp0s3.useDHCP = true;
+  networking.interfaces.enp2s0f1.useDHCP = true;
+  networking.interfaces.wlp3s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
