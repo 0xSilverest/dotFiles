@@ -17,7 +17,7 @@
 
       libinput = {
         enable = true;
-        touchpad.disableWhileTyping = true;
+        #touchpad.disableWhileTyping = true;
       };
 
       serverLayoutSection = ''
