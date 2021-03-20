@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pulls
-Issues
-Marketplace
-Explore
- 
-@Silverest12 
-gvolpe
-/
-nix-config
-7
-66
-16
-Code
-Issues
-Pull requests
-Discussions
-Actions
-Projects
-Wiki
-More
-nix-config/home/programs/xmonad/config.hs
-@gvolpe
-gvolpe replace betterlockscreen with multilockscreen
-Latest commit fa6bcdc 8 days ago
- History
- 1 contributor
-527 lines (475 sloc)  23.6 KB
- 
 import           Control.Monad                         ( replicateM_ )
 import           Data.Foldable                         ( traverse_ )
 import           Data.Monoid
