@@ -30,10 +30,7 @@ let
         # Shell
         fish
         zsh
-        bash
-
-        # File manager 
-        Dolphin
+        bash 
 
         # DevTools
         postman
@@ -63,7 +60,7 @@ let
         gimp
         inkscape
         kdenlive
-        blender
+        #blender
 
         # Audio things
         playerctl
@@ -138,7 +135,7 @@ let
     hlint
   ];
 
-  taffybarPkgs = with pkgs; [
+  polybarPkgs = with pkgs; [
     font-awesome-ttf
     material-design-icons
   ];
@@ -163,7 +160,7 @@ let
 
   in
 {
-  programs.home-manager.enable = true;
+  #programs.home-manager.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;

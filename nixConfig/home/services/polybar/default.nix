@@ -1,4 +1,4 @@
-{ mainBar, openCalendar, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   browser = "${pkgs.firefox-beta-bin}/bin/firefox";
@@ -43,7 +43,7 @@ let
   cal = ''
     [module/clickable-date]
     inherit = module/date
-    label = %{A1:${openCalendar}:}%time%%{A}
+    label = %{A1}%time%%{A}
   '';
 
   mpris = ''
@@ -68,7 +68,7 @@ let
     tail = true
   '';
 
-  customMods = mainBar + bctl + cal + mpris + xmonad;
+  customMods = bctl + cal + mpris + xmonad;
 in
 {
   services.polybar = {
