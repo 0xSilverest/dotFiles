@@ -525,15 +525,4 @@ myEventHook = docksEventHook <+> ewmhDesktopsEventHook <+> fullscreenEventHook
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
 myLogHook = fadeInactiveLogHook 0.9
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
