@@ -13,6 +13,7 @@ let
         vifm
         nnn
         neofetch
+        killall
 
         # Wine 
         lutris 
@@ -81,6 +82,10 @@ let
         qbittorrent
         xclip
         prettyping
+
+        # Nix things
+        manix
+        taffybar
 
         binutils-unwrapped
   ];
@@ -160,33 +165,40 @@ let
 
   in
 {
-  #programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.overlays = [
+    (import ./overlays/dconf2nix.nix)
+    (import ./overlays/manix.nix)
+    (import ./overlays/taffybar.nix)
+    (import ./overlays/vim-plugins.nix)
+  ];
 
-  imports = (import ./programs) ++ (import ./services);
+  imports = (import ./programs) ++ (import ./services);  
 
   xdg.enable = true;
-
-  #programs.steam.enable = true;
 
   home = {
     username      = "silverest";
     homeDirectory = "/home/silverest";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gamingPkgs ++ haskellPkgs ++ xmonadPkgs ++ gnomePkgs ++ polybarPkgs ++ compilers ++ lsps ++ fonts;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs;
 
     sessionVariables = {
-      DISPLAY = ":0";
       EDITOR = "nvim";
     };
   };
 
   # notifications about home-manager news
   news.display = "silent";
+
+  # temporarily disable it until there is a fix upstream
+  manual = {
+    json.enable = false;
+    html.enable = false;
+    manpages.enable = false;
+  };
 
   programs = {
     bat.enable = true;
@@ -207,6 +219,8 @@ let
       enableFishIntegration = true;
     };
 
+    gpg.enable = true;
+
     htop = {
       enable = true;
       sortDescending = true;
@@ -219,6 +233,15 @@ let
 
   services = {
     flameshot.enable = true;
+
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 1800;
+      enableSshSupport = true;
+    };
+
+    taffybar.enable = true;
   };
 
 }
+

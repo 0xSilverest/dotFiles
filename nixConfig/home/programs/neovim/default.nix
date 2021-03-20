@@ -17,8 +17,8 @@ let
         nerdtree-git-plugin
 
         # Coc Plugins
-        coc-json
         coc-nvim
+        coc-json 
         coc-metals
         coc-vimtex
         coc-neco
