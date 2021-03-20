@@ -43,13 +43,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.silverest = {
      isNormalUser = true;
-     extraGroups = [  "docker" "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      shell = pkgs.fish;
   };
 
   environment.systemPackages = with pkgs; [
-    pciutils 
-    binutils
     git
     wget
     vim
