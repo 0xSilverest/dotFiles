@@ -1,21 +1,19 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PackageImports #-}
 
-import System.Information.Battery
-import System.Information.CPU
+import System.Taffybar.Information.Battery
+import System.Taffybar.Information.CPU
 import System.Taffybar
-import System.Taffybar.Battery
+import System.Taffybar.Information.Battery
 import System.Taffybar.FreedesktopNotifications
-import System.Taffybar.MPRIS2
-import System.Taffybar.Pager
-import System.Taffybar.SimpleClock
-import System.Taffybar.Systray
-import System.Taffybar.TaffyPager
-import System.Taffybar.Widgets.PollingGraph
-import System.Taffybar.Widgets.PollingLabel
+import System.Taffybar.Information.MPRIS2
+import System.Taffybar.Support.PagerHints
+import System.Taffybar.Widget.SimpleClock
+import System.Taffybar.Widget.Generic.PollingGraph
+import System.Taffybar.Widget.Generic.PollingLabel
 
 import Control.Exception (throwIO)
-import Data.Aeson
+import Data.Version
 import Data.Char
 import Data.List
 import Data.Maybe
