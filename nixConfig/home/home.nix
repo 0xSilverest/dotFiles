@@ -251,7 +251,7 @@ let
   };
   
   home-manager = {
-      home.file.".config/polybar/launch.sh".source = lib.mkDefault ../../users/shared/.config/polybar/launch.sh;
+      home.file.".config/polybar/launch.sh".source = lib.mkDefault ../../.config/polybar/launch.sh;
       home.file.".config/polybar/config".source = ../../.config/polybar/config;
       home.file.".config/polybar/gpmdp.sh".source = ../../.config/polybar/gpmdp.sh;
       home.file.".config/polybar/spotify.sh".source = ../../.config/polybar/spotify.sh;
