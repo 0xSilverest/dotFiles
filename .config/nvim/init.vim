@@ -4,8 +4,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neovim/node-client/'
-Plug 'shapeoflambda/dark-purple.vim'
+Plug 'neovim/node-client'
+Plug 'joshdick/onedark'
 
 " File Management
 Plug 'preservim/nerdtree'
@@ -56,7 +56,7 @@ nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 " theme config
 set termguicolors
 syntax enable
-colorscheme dark_purple
+colorscheme onedark
 let g:airline_theme='kolor'
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
