@@ -17,7 +17,7 @@ in
 
     services.polybar = {
       enable = true;
-      packages = myPolyBar;
+      package = myPolyBar;
       
     };
 }
