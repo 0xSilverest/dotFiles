@@ -99,7 +99,7 @@ myConfig =
         , barHeight     = 50
         , widgetSpacing = 1
         }
-  in  withBatteryRefresh . withLogServer . withToggleServer  toTaffyConfig $ taffyCfg
+  in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ taffyCfg
 
 ------------- Volume status ---------------
 
@@ -139,5 +139,3 @@ getVolume :: IO Text
 getVolume = parseVolume <&> \case
   (_, AudioOff) -> volIcon 0 <> " Mute"
   (v, AudioOn)  -> volIcon v <> T.pack (" " <> show v <> "%")
-
------------------------------------------.

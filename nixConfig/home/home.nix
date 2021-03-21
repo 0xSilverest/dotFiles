@@ -86,7 +86,8 @@ let
         # Nix things
         manix
         taffybar
-
+        pkg-config
+          
         binutils-unwrapped
   ];
 
@@ -128,6 +129,18 @@ let
     nitrogen
   ];
 
+  taffybarPkgs = with pkgs.haskellPackages; [
+    gtk-sni-tray
+    gtk-strut
+    gi-xlib
+    gi-gtk-hs
+    gi-dbusmenugtk3
+    gi-dbusmenu
+    gi-cairo-render
+    gi-cairo
+    gi-cairo-connector
+    status-notifier-item
+  ];
 
   haskellPkgs = with pkgs.haskellPackages; [ 
     brittany
@@ -165,13 +178,9 @@ let
 
   in
 {
+  nixpkgs.config.allowUnfree=true; 
   programs.home-manager.enable = true;
-
-  nixpkgs.overlays = [
-    (import ./overlays/dconf2nix.nix)
-    (import ./overlays/taffybar.nix)
-  ];
-
+ 
   imports = (import ./programs) ++ (import ./services);  
 
   xdg.enable = true;
@@ -181,7 +190,7 @@ let
     homeDirectory = "/home/silverest";
     stateVersion  = "20.09";
 
-    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs;
+    packages = defaultPkgs ++ gitPkgs ++ gnomePkgs ++ haskellPkgs ++ xmonadPkgs ++ taffybarPkgs;
 
     sessionVariables = {
       EDITOR = "nvim";

@@ -5,9 +5,9 @@ set +x
 export PINNED_NIX_PKGS="https://github.com/NixOS/nixpkgs/archive/916ee862e87.tar.gz"
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 
-sudo cp configuration.nix /etc/nixos/
-sudo cp -r wm/ /etc/nixos/
-sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
+#sudo cp configuration.nix /etc/nixos/
+#sudo cp -r wm/ /etc/nixos/
+#sudo nixos-rebuild -I nixpkgs=$PINNED_NIX_PKGS switch --upgrade
 
 mkdir -p $HOME/.config/nixpkgs/
 cp -r home/* $HOME/.config/nixpkgs/
