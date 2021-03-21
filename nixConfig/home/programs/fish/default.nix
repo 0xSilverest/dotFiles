@@ -24,7 +24,9 @@ in
 
     promptInit = ''
       eval (direnv hook fish)
+      nix-shell -p any-nix-shell
       any-nix-shell fish --info-right | source
+      neofetch
     '';
     shellAliases = {
       ll   = "ls -a";

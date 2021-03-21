@@ -1,141 +1,235 @@
-{-# LANGUAGE LambdaCase, OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PackageImports #-}
 
-module Main where
+import System.Information.Battery
+import System.Information.CPU
+import System.Taffybar
+import System.Taffybar.Battery
+import System.Taffybar.FreedesktopNotifications
+import System.Taffybar.MPRIS2
+import System.Taffybar.Pager
+import System.Taffybar.SimpleClock
+import System.Taffybar.Systray
+import System.Taffybar.TaffyPager
+import System.Taffybar.Widgets.PollingGraph
+import System.Taffybar.Widgets.PollingLabel
 
-import           Control.Exception              ( SomeException
-                                                , try
-                                                )
-import           Data.Functor                   ( (<&>)
-                                                , void
-                                                )
-import           Data.Text                      ( Text )
-import qualified Data.Text                      as T
-import           GI.Gtk                         ( Widget
-                                                , toWidget
-                                                , widgetShowAll
-                                                )
-import           System.Taffybar
-import           System.Taffybar.Context        ( TaffybarConfig(..)
-                                                , TaffyIO
-                                                )
-import           System.Taffybar.Hooks
-import           System.Taffybar.Information.CPU2
-import           System.Taffybar.Information.Memory
-import           System.Taffybar.SimpleConfig
-import           System.Taffybar.Util           ( runCommandFromPath )
-import           System.Taffybar.Widget
-import           System.Taffybar.Widget.Generic.PollingGraph
-import           System.Taffybar.Widget.Generic.PollingLabel
-import           System.Taffybar.Widget.Util
+import Control.Exception (throwIO)
+import Data.Aeson
+import Data.Char
+import Data.List
+import Data.Maybe
+import Data.Monoid
+import Safe
+import System.Process
+import qualified "gtk" Graphics.UI.Gtk as Gtk
+import qualified Data.Text as T
+import qualified System.IO as IO
+
+data Resolution = HD | UHD
+data Device     = Desktop | Laptop
 
 main :: IO ()
-main = dyreTaffybar . appendHook notifySystemD $ myConfig
+main = do
+  let dev     = Desktop
+      res     = HD
+      clock   = textClockNew Nothing ("<span fgcolor='" ++ colors "white" ++ "'>" ++ fontAwesome "\xf017  " ++ "%a %b %_d %I:%M</span>") 1
+      -- pager   = taffyPagerNew defaultPagerConfig
+      pager   = taffyPagerNew myPagerConfig
+      tray    = systrayNew
+      music   = customW 1 musicString
+      battery = customW 30 batString
+      vol     = customW 1 volString
+      notify  = notifyAreaNew myNotificationConfig
+      sep     = textW . colorize (colors "darkgrey") "" $ "  /  "
+      buffer  = textW "  "
 
-transparent, yellow1, yellow2, green1, green2, taffyBlue
-  :: (Double, Double, Double, Double)
-transparent = (0.0, 0.0, 0.0, 0.0)
-yellow1 = (0.9453125, 0.63671875, 0.2109375, 1.0)
-yellow2 = (0.9921875, 0.796875, 0.32421875, 1.0)
-green1 = (0, 1, 0, 1)
-green2 = (1, 0, 1, 0.5)
-taffyBlue = (0.129, 0.588, 0.953, 1)
+      batDev Desktop = []
+      batDev Laptop  = [battery, sep]
 
-myGraphConfig :: GraphConfig
-myGraphConfig = defaultGraphConfig { graphPadding         = 0
-                                   , graphBorderWidth     = 0
-                                   , graphWidth           = 75
-                                   , graphBackgroundColor = transparent
-                                   }
+      monitorDev Desktop x = x
+      monitorDev Laptop x  = x { monitorNumber = 1 }
 
-netCfg :: GraphConfig
-netCfg = myGraphConfig { graphDataColors = [yellow1, yellow2]
-                       , graphLabel      = Just "net"
+      startW  = [pager]
+      endW    = [tray, buffer, clock, sep]
+             ++ batDev dev
+             ++ [vol, sep, music, buffer, notify]
+
+  defaultTaffybar
+    . monitorDev dev
+    $ defaultTaffybarConfig { startWidgets  = startW
+                            , endWidgets    = endW
+                            , barHeight     = barSize res
+                            , barPosition   = Top
+                            , widgetSpacing = 0
+                            }
+
+myPagerConfig =
+   defaultPagerConfig { activeWindow     = colorize (colors "yellow") ""
+                                            . escape
+                       , activeLayout     = escape
+                       , activeWorkspace  = colorize (colors "blue") ""
+                                          . escape . wrap "[" "]"
+                       , hiddenWorkspace  = colorize (colors "white") ""
+                                          . escape
+                       , visibleWorkspace = colorize (colors "darkgreen") ""
+                                          . escape
+                       , urgentWorkspace  = colorize (colors "darkmagenta") ""
+                                          . escape
+                       , widgetSep        = " : "
                        }
+myNotificationConfig :: NotificationConfig
+myNotificationConfig = defaultNotificationConfig { notificationFormatter = myFormatter
+                                                 , notificationMaxLength = 40
+                                                 }
 
-memCfg :: GraphConfig
-memCfg = myGraphConfig { graphDataColors = [taffyBlue]
-                       , graphLabel      = Just "mem"
-                       }
+myFormatter :: Notification -> String
+myFormatter note = msg
+  where
+    msg = case T.null (noteBody note) of
+            True -> T.unpack $ noteSummary note
+            False -> T.unpack
+                   $ mconcat [ mconcat ["<span fgcolor='", T.pack (colors "red"), "'>"]
+                             , noteSummary note
+                             , " | "
+                             , noteBody note
+                             , "</span>"
+                             ]
 
-cpuCfg :: GraphConfig
-cpuCfg = myGraphConfig { graphDataColors = [green1, green2]
-                       , graphLabel      = Just "cpu"
-                       }
+-- | Returns text as a widget
+textW :: String -> IO Gtk.Widget
+textW x = do
+    label <- Gtk.labelNew (Nothing :: Maybe String)
+    Gtk.labelSetMarkup label x
 
-memCallback :: IO [Double]
-memCallback = do
-  mi <- parseMeminfo
-  return [memoryUsedRatio mi]
+    let l = Gtk.toWidget label
 
-cpuCallback :: IO [Double]
-cpuCallback = getCPULoad "cpu"
+    Gtk.widgetShowAll l
+    return l
 
-notifySystemD = void $ runCommandFromPath ["systemd-notify", "--ready"]
+-- | A simple textual battery widget that auto-updates once every
+-- polling period (specified in seconds).
+customW :: Double -- ^ Poll period in seconds
+        -> IO String
+        -> IO Gtk.Widget
+customW interval f = do
+    l <- pollingLabelNew "" interval f
+    Gtk.widgetShowAll l
+    return l
 
-myConfig :: TaffybarConfig
-myConfig =
-  let myWorkspacesConfig = defaultWorkspacesConfig
-        { minIcons        = 1
-        , widgetGap       = 0
-        , showWorkspaceFn = hideEmpty
-        }
-      workspaces = workspacesNew myWorkspacesConfig
-      bat        = textBatteryNew "$percentage$%"
-      cpu        = pollingGraphNew cpuCfg 1 cpuCallback
-      mem        = pollingGraphNew memCfg 1 memCallback
-      net        = networkGraphNew netCfg Nothing
-      netmon     = networkMonitorNew defaultNetFormat Nothing
-      clock      = textClockNew Nothing "📅 %b %_d 🕐 %_H:%M" 1.0
-      layout     = layoutNew defaultLayoutConfig
-      windowsW   = windowsNew defaultWindowsConfig
-      tray       = sniTrayNew
-      taffyCfg   = defaultSimpleTaffyConfig
-        { startWidgets  = workspaces : map (>>= buildContentsBox) [layout, windowsW]
-        , centerWidgets = map (>>= buildContentsBox) [mpris2New]
-        , endWidgets    = map (>>= buildContentsBox)
-                            [bat, batteryIconNew, volumeNew, clock, tray, cpu, mem, net, netmon]
-        , barPosition   = Top
-        , barPadding    = 10
-        , barHeight     = 50
-        , widgetSpacing = 1
-        }
-  in  withBatteryRefresh . withLogServer . withToggleServer . toTaffyConfig $ taffyCfg
+-- | Returns the MPRIS string.
+musicString :: IO String
+musicString = do
+    (_, artist, _) <- readProcessWithExitCode "playerctl" ["metadata", "artist"] []
+    (_, album, _) <- readProcessWithExitCode "playerctl" ["metadata", "album"] []
+    (_, title, _) <- readProcessWithExitCode "playerctl" ["metadata", "title"] []
 
-------------- Volume status ---------------
+    let format = escape . take 90 $ title ++ " - " ++ album ++ " - " ++ artist
+        music  = colorize
+                 (colors "darkblue")
+                 ""
+                 (fontAwesome "\xf001  " ++ format)
 
-volumeNew :: TaffyIO Widget
-volumeNew = do
-  label <- pollingLabelNew 1 tryGetVolume
-  widgetShowAll label
-  toWidget label
+    return music
 
-data AudioStatus = AudioOn | AudioOff deriving (Eq, Show)
+-- | Returns the battery text
+batString :: IO String
+batString = do
+    batList <- fmap (headMay . filter (isInfixOf "battery") . lines)
+             . readProcess "upower" ["-e"]
+             $ []
+    batInfo <- readProcess "upower" ["-i", fromMaybe "" batList] []
 
--- could use the alsa-mixer package but that requires a fork of taffybar to add the package; not today.
-parseVolume :: IO (Int, AudioStatus)
-parseVolume = do
-  runCommandFromPath ["amixer", "get", "Master"] >>= \case
-    Left _  -> return (0, AudioOff)
-    Right s ->
-      let raw    = takeWhile (/= '\n') $ dropWhile (/= '[') s
-          volume = read $ takeWhile (/= '%') $ drop 1 (takeWhile (/= ' ') raw)
-          status = case takeWhile (/= ']') $ drop 2 (dropWhile (/= ' ') raw) of
-                     "on" -> AudioOn
-                     _    -> AudioOff
-      in return (volume, status)
+    let batPercent = filter (/= ' ')
+                   . dropWhile (not . isNumber)
+                   . fromMaybe ""
+                   . headMay
+                   . filter (isInfixOf "percentage:")
+                   . lines
+                   $ batInfo
+        batState = fmap toUpper
+                 . filter (/= ' ')
+                 . dropWhile (/= ' ')
+                 . dropWhile (== ' ')
+                 . fromMaybe ""
+                 . headMay
+                 . filter (isInfixOf "state:")
+                 . lines
+                 $ batInfo
+        charge :: String -> String
+        charge x
+            | isInfixOf "DISCHARGING" x = "-"
+            | isInfixOf "CHARGING" x    = "+"
+            | isInfixOf "UNKNOWN" x     = "+"
+            | otherwise                 = ""
+        battery = colorize (colors "darkred") ""
+                . (flip (++) (charge batState))
+                . batteryIcon
+                $ batPercent
 
-volIcon :: Int -> Text
-volIcon x | x == 0 = "🔇"
-          | x < 30 = "🔈"
-          | x < 60 = "🔉"
-          | True   = "🔊"
+    return battery
 
-tryGetVolume :: IO Text
-tryGetVolume = (try getVolume :: IO (Either SomeException Text)) <&> \case
-  Left _  -> "Error"
-  Right x -> x
+-- | Returns the volume string.
+volString :: IO String
+volString = do
+    output1 <- readProcess "amixer" ["sget", "Master"] []
+    output2 <- readProcess "egrep" ["-o", "[0-9]+%\\] \\[[a-z]+\\]"] output1
+    output3 <- readProcess "head" ["-n", "1"] output2
 
-getVolume :: IO Text
-getVolume = parseVolume <&> \case
-  (_, AudioOff) -> volIcon 0 <> " Mute"
-  (v, AudioOn)  -> volIcon v <> T.pack (" " <> show v <> "%")
+    let volume = colorize (colors "darkmagenta") "" . volumeIcon $ output3
+
+    return volume
+
+-- | Get the correct icon for the battery
+volumeIcon :: String -> String
+volumeIcon x
+    | mute == "[off]"  = fontAwesome "\xf026  " ++ "MUTE"
+    | read volNum > 50 = fontAwesome "\xf028  " ++ volNum ++ "%"
+    | read volNum > 0  = fontAwesome "\xf027  " ++ volNum ++ "%"
+    | otherwise        = fontAwesome "\xf026  " ++ volNum ++ "%"
+  where
+    mute   = dropWhile (/= '[') . reverse . dropWhile (/= ']') . reverse $ x
+    volNum = takeWhile (/= '%') x
+
+-- | Get the correct icon for the battery
+batteryIcon :: String -> String
+batteryIcon x
+    | bat > 90  = fontAwesome "\xf240  " ++ show bat ++ "%"
+    | bat > 60  = fontAwesome "\xf241  " ++ show bat ++ "%"
+    | bat > 40  = fontAwesome "\xf242  " ++ show bat ++ "%"
+    | bat > 10  = fontAwesome "\xf243  " ++ show bat ++ "%"
+    | otherwise = fontAwesome "\xf244  " ++ show bat ++ "%"
+  where
+    bat = read . reverse . takeWhile (/= ' ') . drop 1 . dropWhile (/= '%') . reverse $ x
+
+-- | Change the font to font awesome here
+fontAwesome :: String -> String
+fontAwesome x = "<span font_desc='FontAwesome'>" ++ x ++ "</span>"
+
+-- | Size of the bar
+barSize :: Resolution -> Int
+barSize HD  = 25
+barSize UHD = 55
+
+colors :: String -> String
+colors "background"  = "#282828"
+colors "foreground"  = "#ebdbb2"
+colors "black"       = "#282828"
+colors "darkgrey"    = "#928374"
+colors "darkred"     = "#cc241d"
+colors "red"         = "#fb4934"
+colors "darkgreen"   = "#98971a"
+colors "green"       = "#b8bb26"
+colors "darkyellow"  = "#d79921"
+colors "yellow"      = "#fabd2f"
+colors "darkblue"    = "#458588"
+-- colors "blue"        = "#83a598"
+colors "blue"        = "#51AFEF"
+
+colors "brightblue"  = "#2e9ef4"
+colors "darkmagenta" = "#b16286"
+colors "magenta"     = "#d3869b"
+colors "darkcyan"    = "#689d6a"
+colors "cyan"        = "#8ec07c"
+colors "lightgrey"   = "#a89984"
+colors "white"       = "#ebdbb2" 
