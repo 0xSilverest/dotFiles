@@ -13,8 +13,27 @@
       ./wm/xmonad.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true; 
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+
+      version = 2;
+      backgroundColor = "#21202D";
+      configurationLimit = 30;
+
+      extraConfig = ''
+        set menu_color_normal=light-blue/black
+        set menu_color_highlight=black/light-blue
+      '';
+      splashMode = lib.mkDefault "normal";
+      splashImage = lib.mkDefault null;
+    };
+  };
 
   networking.hostName = "silverest"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.

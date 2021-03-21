@@ -6,5 +6,4 @@
   ./xmonad
   ./alacritty
   ./networkmanager
-  ./taffybar
 ]
