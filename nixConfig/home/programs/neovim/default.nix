@@ -39,8 +39,9 @@ let
 
       
   baseConfig    = builtins.readFile ./config.vim;
+  cocConfig     = builtins.readFile ./coc.vim;
   cocSettings   = builtins.toJSON (import ./coc-settings.nix);
-  vimConfig     = baseConfig; 
+  vimConfig     = baseConfig + cocConfig; 
 
   neovim-5     = pkgs.callPackage ./dev/nightly.nix {};
   nvim5-config = builtins.readFile ./dev/metals.vim;

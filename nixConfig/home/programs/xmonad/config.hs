@@ -22,12 +22,12 @@ import qualified Data.Map                      as M
 
 main :: IO ()
 main = xmonad . docks . ewmh . pagerHints $ def
-  { terminal           = "terminator"
+  { terminal           = "alacritty"
   , focusFollowsMouse  = False
   , clickJustFocuses   = False
-  , borderWidth        = 3
+  , borderWidth        = 1
   , modMask            = mod4Mask -- super as the mod key
-  , workspaces         = ["web", "oss", "dev", "chat", "music", "etc"]
+  , workspaces         = ["web", "dev", "chat", "music", "etc"]
   , normalBorderColor  = "#dddddd" -- light gray (default)
   , focusedBorderColor = "#1681f2" -- blue
 
