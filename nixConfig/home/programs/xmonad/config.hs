@@ -1,6 +1,6 @@
 import System.IO
 import System.Exit
-import System.Taffybar.Hooks.PagerHints (pagerHints)
+import System.Taffybar.Hooks.PagerHints (from Taffybar-3.2.3) (pagerHints)
 
 import qualified Data.List as L
 

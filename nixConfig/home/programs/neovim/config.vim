@@ -1,5 +1,5 @@
 " Coc config
-source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nixpkgs/programs/neovim/coc.vim
 nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 
 " theme config
