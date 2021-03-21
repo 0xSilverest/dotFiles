@@ -35,9 +35,9 @@ let
         vim-scala
         vim-surround
         ale
+        ghcid
       ];
-
-      
+ 
   baseConfig    = builtins.readFile ./config.vim;
   cocConfig     = builtins.readFile ./coc.vim;
   cocSettings   = builtins.toJSON (import ./coc-settings.nix);
@@ -49,6 +49,7 @@ let
     inherit (pkgs.vimUtils) buildVimPlugin;
     inherit (pkgs) fetchFromGitHub;
   };
+
   nvim5-plugins = with new-plugins; [
     completion-nvim
     diagnostic-nvim

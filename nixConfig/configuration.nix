@@ -17,7 +17,7 @@
   boot.loader.efi.canTouchEfiVariables = true; 
 
   networking.hostName = "silverest"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Africa/Casablanca";
@@ -44,7 +44,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.silverest = {
      isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
      shell = pkgs.fish;
   };
 
