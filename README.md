@@ -2,6 +2,7 @@
 
 Config files for my linux setup.
 
+| Tools | Software |
 | --- | --- |
 | WM | xmonad |
 | StatusBar | Polybar |
