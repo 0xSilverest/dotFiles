@@ -2,8 +2,8 @@
 
 Config files for my linux setup.
 
-| WM | xmonad |
 | --- | --- |
+| WM | xmonad |
 | StatusBar | Polybar |
 | Terminal | Alacritty |
 | Editor | Vim |
