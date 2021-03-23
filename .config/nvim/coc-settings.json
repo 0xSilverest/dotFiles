@@ -1,4 +1,4 @@
-{
+{ 
     "coc.preferences.formatOnType":true,
     "languageserver": { 
         "haskell": {
@@ -30,7 +30,7 @@
             "command": "graphql-lsp",
             "args": ["server", "-m", "stream"],
             "filetypes": ["graphql"]
-        }
+        } 
     }
 }
 

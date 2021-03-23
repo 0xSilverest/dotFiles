@@ -6,7 +6,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/node-client/'
-Plug 'shapeoflambda/dark-purple.vim'
+Plug 'keitaNakamura/neodark.vim'
 
 " File Management
 Plug 'preservim/nerdtree'
@@ -51,8 +51,8 @@ source $HOME/.config/nvim/plug-config/coc.vim
 
 " theme config
 set termguicolors
-syntax enable
-colorscheme dark_purple
+syntax on
+colorscheme neodark
 let g:airline_theme='kolor'
 
 " config

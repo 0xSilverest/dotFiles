@@ -5,7 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/node-client'
-Plug 'joshdick/onedark'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " File Management
 Plug 'preservim/nerdtree'
@@ -41,6 +41,7 @@ Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 " Linting
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
+Plug 'sheerun/vim-polyglot'
 
 " UML
 Plug 'weirongxu/plantuml-previewer.vim'
@@ -53,11 +54,12 @@ call plug#end()
 source $HOME/.config/nvim/plug-config/coc.vim
 nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 
+
 " theme config
 set termguicolors
 syntax enable
-colorscheme onedark
-let g:airline_theme='kolor'
+colorscheme palenight
+let g:airline_theme='palenight'
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 let g:python3='usr/bin/python3'
