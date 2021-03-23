@@ -42,23 +42,11 @@ list=(
 lightdm
 nnn
 alacritty
-xmonad
-xmobar
-xmonad-contrib
-haskell-dbus
-xmonad-utils
-xmonad-log
-feh
+rofi
 checkupdates-aur
 perl-checkupdates-aur
-polybar
-arcolinux-polybar-git
 awesome-terminal-fonts
 dmenu
-arcolinux-xmonad-polybar-git
-arcolinux-config-xmonad-git
-arcolinux-xmonad-dconf-git
-arcolinux-logout-git
 )
 
 count=0

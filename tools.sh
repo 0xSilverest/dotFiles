@@ -43,7 +43,8 @@ git
 firefox
 neovim
 flameshot
-meld
+zip
+unrar
 the_platinum_searcher-bin
 discord
 )

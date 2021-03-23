@@ -1,13 +1,13 @@
 #!/bin/sh
 
-echo "export EDITOR='vim'" >> ~/.bashrc
-echo "export VISUAL='vim'" >> ~/.bashrc
+#echo "export EDITOR='vim'" >> ~/.bashrc
+#echo "export VISUAL='vim'" >> ~/.bashrc
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim -c PlugInstall
-vim -c PlugUpdate
+#vim -c PlugInstall
+#vim -c PlugUpdate
 vim -c "CocInstall coc-metals"
 vim -c "CocInstall coc-texlab"
 vim -c "CocInstall coc-pyright"
