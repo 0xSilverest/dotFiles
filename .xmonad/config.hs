@@ -1,3 +1,4 @@
+
 import XMonad
 import XMonad.Hooks.SetWMName
 --import XMonad.Hooks.DynamicLog
@@ -9,7 +10,6 @@ import XMonad.Config.Desktop
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.CycleWS
 
-import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spiral(spiral)
@@ -22,14 +22,17 @@ import XMonad.Actions.Minimize
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
---import Control.Monad (liftM2)
---import qualified DBus as D
---import qualified DBus.Client as D
+import           XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 
+--import Control.Monad (liftM2)
+import qualified Codec.Binary.UTF8.String as UTF8
+import qualified DBus as D
+import qualified DBus.Client as D
+import           XMonad.Hooks.DynamicLog
 
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh"
-    spawn "$HOME/.cabal/bin/taffybar"
+    spawn "$HOME/.config/polybar/launch.sh"
     spawn "$HOME/.scripts/monitor.sh"
     setWMName "LG3D"
 
@@ -48,9 +51,7 @@ focdBord = "#775eac"
 mymodm = mod4Mask
 myFocusFollowsMouse = True
 myBorderWidth = 2
---myWorkspaces    = ["\61612","\61899","\61947","\61635","\61502","\61501","\61705","\61564","\62150","\61872"]
---myWorkspaces    = ["1","2","3","4","5","6","7","8","9","10"]
-myWorkspaces    = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
+myWorkspaces    = ["\61728","\61729","\59744","\59761","\59658","\59881","\59909","\61928", "\61724", "\61832"]
 
 myBaseConfig = desktopConfig
 
@@ -61,16 +62,16 @@ myManageHook = composeAll . concat $
     , [title =? t --> doFloat | t <- myTFloats]
     , [resource =? r --> doFloat | r <- myRFloats]
     , [resource =? i --> doIgnore | i <- myIgnores]
-    --, [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61612" | x <- my1Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61899" | x <- my2Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61947" | x <- my3Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61635" | x <- my4Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61502" | x <- my5Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61501" | x <- my6Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61705" | x <- my7Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61564" | x <- my8Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\62150" | x <- my9Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61872" | x <- my10Shifts]
+    --, [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61728" | x <- my1Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61729" | x <- my2Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59744" | x <- my3Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59761" | x <- my4Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59658" | x <- my5Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59881" | x <- my6Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59909" | x <- my7Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61928" | x <- my8Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61724" | x <- my9Shifts]
+    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61832" | x <- my10Shifts]
     ]
     where
     -- doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
@@ -92,7 +93,7 @@ myManageHook = composeAll . concat $
 
 
 
-myLayout = spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True 
+myLayout = spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True 
             $ avoidStruts 
             $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) 
             $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
@@ -280,21 +281,52 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
       | (key, sc) <- zip [xK_w, xK_e] [0..]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
+mkDbusClient :: IO D.Client
+mkDbusClient = do
+  dbus <- D.connectSession
+  _ <- D.requestName dbus (D.busName_ "org.xmonad.log") opts
+  return dbus
+ where
+  opts = [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 
---myBar = "taffybar"
+-- Emit a DBus signal on log updates
+dbusOutput :: D.Client -> String -> IO ()
+dbusOutput dbus str =
+  let opath  = D.objectPath_ "/org/xmonad/Log"
+      iname  = D.interfaceName_ "org.xmonad.Log"
+      mname  = D.memberName_ "Update"
+      signal = D.signal opath iname mname
+      body   = [D.toVariant $ UTF8.decodeString str]
+  in  D.emit dbus $ signal { D.signalBody = body }
+
+polybarHook :: D.Client -> PP
+polybarHook dbus =
+  let wrapper c s | s /= "NSP" = wrap ("%{F" <> c <> "} ") " %{F-}" s
+                  | otherwise  = mempty
+      blue   = "#2E9AFE"
+      gray   = "#7F7F7F"
+      orange = "#ea4300"
+      purple = "#9058c7"
+      red    = "#722222"
+  in  def { ppOutput          = dbusOutput dbus
+          , ppCurrent         = wrapper blue
+          , ppVisible         = wrapper gray
+          , ppUrgent          = wrapper orange
+          , ppHidden          = wrapper gray
+          , ppHiddenNoWindows = wrapper red
+          , ppTitle           = shorten 100 . wrapper purple
+          }
+
+myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
+
+myLogHook = fadeInactiveLogHook 0.98
 
 main :: IO ()
 main = do
-    --dbus <- D.connectSession
-    -- Request access to the DBus name
-    {--_ <- D.requestName 
-            dbus (D.busName_ "org.xmonad.Log")
-            [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-    --} 
-    xmonad . 
+      dbus <- mkDbusClient
+      xmonad . 
         docks .
-        ewmh . 
-        pagerHints $ 
+        ewmh $
             myBaseConfig
                 {startupHook = myStartupHook
 , layoutHook = gaps [(U,35), (D,5), (R,5), (L,5)] $ myLayout ||| layoutHook myBaseConfig
@@ -307,5 +339,6 @@ main = do
 , focusedBorderColor = focdBord
 , normalBorderColor = normBord
 , keys = myKeys
+, logHook = myPolybarLogHook dbus
 , mouseBindings = myMouseBindings
 }
