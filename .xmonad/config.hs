@@ -7,29 +7,17 @@ import XMonad.Hooks.ManageHelpers (doCenterFloat, isDialog)
 import XMonad.Config.Desktop
 --import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.SpawnOn
---import XMonad.Util.EZConfig (additionalKeys, additionalMouseBindings)
 import XMonad.Actions.CycleWS
---import XMonad.Hooks.UrgencyHook
---import qualified Codec.Binary.UTF8.String as UTF8
 
 import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
---import XMonad.Layout.ResizableTile
----import XMonad.Layout.NoBorders
---import XMonad.Layout.Fullscreen (fullscreenFull)
---import XMonad.Layout.Cross(simpleCross)
 import XMonad.Layout.Spiral(spiral)
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
---import XMonad.Layout.IndependentScreens
---import XMonad.Layout.Minimize
-
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Minimize
-
---import XMonad.Layout.CenteredMaster(centerMaster)
 
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
@@ -41,6 +29,7 @@ import qualified Data.Map as M
 
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh"
+    spawn "$HOME/.cabal/bin/taffybar"
     spawn "$HOME/.scripts/monitor.sh"
     setWMName "LG3D"
 
@@ -72,7 +61,7 @@ myManageHook = composeAll . concat $
     , [title =? t --> doFloat | t <- myTFloats]
     , [resource =? r --> doFloat | r <- myRFloats]
     , [resource =? i --> doIgnore | i <- myIgnores]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61612" | x <- my1Shifts]
+    --, [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61612" | x <- my1Shifts]
     -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61899" | x <- my2Shifts]
     -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61947" | x <- my3Shifts]
     -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61635" | x <- my4Shifts]
@@ -89,16 +78,16 @@ myManageHook = composeAll . concat $
     myTFloats = ["Downloads", "Save As..."]
     myRFloats = []
     myIgnores = ["desktop_window"]
-    -- my1Shifts = ["Chromium", "Vivaldi-stable", "Firefox"]
-    -- my2Shifts = []
-    -- my3Shifts = ["Inkscape"]
-    -- my4Shifts = []
+    --my1Shifts = ["alacritty", "kitty"]
+    --my2Shifts = [""]
+    --my3Shifts = ["qpdfview"]
+    --my4Shifts = []
     -- my5Shifts = ["Gimp", "feh"]
     -- my6Shifts = ["vlc", "mpv"]
     -- my7Shifts = ["Virtualbox"]
     -- my8Shifts = ["Thunar"]
     -- my9Shifts = []
-    -- my10Shifts = ["discord"]
+    --my10Shifts = ["discord"]
 
 
 
@@ -138,12 +127,12 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
   , ((modm, xK_q), kill )
   , ((modm, xK_f), spawn "rofi -show run" )
   , ((modm, xK_r), spawn "rofi-theme-selector" )
-  , ((modm, xK_t), spawn "alacritty" )
+  , ((modm, xK_t), spawn "kitty" )
   , ((modm, xK_v), spawn "pavucontrol" )
   , ((modm, xK_y), spawn "polybar-msg cmd toggle" )
   , ((modm, xK_x), spawn "arcolinux-logout" )
   , ((modm, xK_Escape), spawn "xkill" )
-  , ((modm, xK_Return), spawn "alacritty" )
+  , ((modm, xK_Return), spawn "kitty" )
   , ((modm, xK_F2), spawn "kdenlive" )
   , ((modm, xK_F3), spawn "inkscape" )
   , ((modm, xK_F4), spawn "gimp" )
@@ -177,9 +166,9 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
   , ((controlMask .|. mod1Mask , xK_p ), spawn "pamac-manager")
   , ((controlMask .|. mod1Mask , xK_r ), spawn "rofi-theme-selector")
   , ((controlMask .|. mod1Mask , xK_s ), spawn "spotify")
-  , ((controlMask .|. mod1Mask , xK_t ), spawn "alacritty")
+  , ((controlMask .|. mod1Mask , xK_t ), spawn "kitty")
   , ((controlMask .|. mod1Mask , xK_u ), spawn "pavucontrol")
-  , ((controlMask .|. mod1Mask , xK_Return ), spawn "alacritty")
+  , ((controlMask .|. mod1Mask , xK_Return ), spawn "kitty")
 
   -- ALT + ... KEYS
   
@@ -205,11 +194,13 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
   -- Increase volume
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 5%+")
 
+
+  -- Disabled because of laptop drivers problems
   -- Increase brightness
-  , ((0, xF86XK_MonBrightnessUp),  spawn "xbacklight -inc 5")
+  -- , ((0, xF86XK_MonBrightnessUp),  spawn "xbacklight -inc 5")
 
   -- Decrease brightness
-  , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5")
+  -- , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5")
 
 --  , ((0, xF86XK_AudioPlay), spawn $ "mpc toggle")
 --  , ((0, xF86XK_AudioNext), spawn $ "mpc next")
@@ -290,6 +281,8 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
+--myBar = "taffybar"
+
 main :: IO ()
 main = do
     --dbus <- D.connectSession
@@ -297,10 +290,11 @@ main = do
     {--_ <- D.requestName 
             dbus (D.busName_ "org.xmonad.Log")
             [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-    --}
-    xmonad 
-    . pagerHints 
-    . ewmh $ 
+    --} 
+    xmonad . 
+        docks .
+        ewmh . 
+        pagerHints $ 
             myBaseConfig
                 {startupHook = myStartupHook
 , layoutHook = gaps [(U,35), (D,5), (R,5), (L,5)] $ myLayout ||| layoutHook myBaseConfig
