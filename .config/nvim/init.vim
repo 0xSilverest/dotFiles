@@ -14,6 +14,7 @@ Plug 'ryanoasis/vim-devicons'
 " Utils
 Plug 'justinmk/vim-syntax-extra'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'mcchrish/nnn.vim'
 
 " Python Plugins
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
@@ -85,6 +86,12 @@ let g:tex_flavor = "latex"
 let g:vimtex_compiler_progname = 'nvr'
 let g:syntastic_tex_checkers = ['lacheck']
 
+" NNN config
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
+
 " Settings
 set encoding=UTF-8
 set nocompatible
@@ -110,24 +117,16 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set relativenumber
 augroup END
 
-autocmd InsertEnter,InsertLeave * set cul!
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-
-augroup myCmds
-    au!
-    autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
-
 " Shortcuts
 let g:mapleader = ','
 map <Leader>tt :bel new term://fish<CR> 
+map <Leader>lh :OpenBrowser localhost<CR>
 
 " Travel between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <S-J> <C-W><C-J>
+nnoremap <S-K> <C-W><C-K>
+nnoremap <S-L> <C-W><C-L>
+nnoremap <S-H> <C-W><C-H>
 
 " Resize splits
 noremap <silent> <C-Left> : vertical resize -3<CR>

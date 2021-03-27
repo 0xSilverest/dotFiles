@@ -1,5 +1,0 @@
-[
-  ./dunst
-  ./networkmanager
-  ./picom
-]

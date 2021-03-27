@@ -1,4 +1,3 @@
-
 import XMonad
 import XMonad.Hooks.SetWMName
 --import XMonad.Hooks.DynamicLog
@@ -12,7 +11,6 @@ import XMonad.Actions.CycleWS
 
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
-import XMonad.Layout.Spiral(spiral)
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
@@ -22,9 +20,8 @@ import XMonad.Actions.Minimize
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
-import           XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 
---import Control.Monad (liftM2)
+import Control.Monad (liftM2)
 import qualified Codec.Binary.UTF8.String as UTF8
 import qualified DBus as D
 import qualified DBus.Client as D
@@ -37,8 +34,8 @@ myStartupHook = do
     setWMName "LG3D"
 
 -- colours
-normBord = "#4c566a"
-focdBord = "#775eac"
+normBord = "#292d3e"
+focdBord = "#b19cd9"
 --fore     = "#DEE3E0"
 --back     = "#282c34"
 --winType  = "#c678dd"
@@ -51,7 +48,7 @@ focdBord = "#775eac"
 mymodm = mod4Mask
 myFocusFollowsMouse = True
 myBorderWidth = 2
-myWorkspaces    = ["\61728","\61729","\59744","\59761","\59658","\59881","\59909","\61928", "\61724", "\61832"]
+myWorkspaces    = ["λ","β", "γ","δ","ε","τ","θ","ϕ", "π", "σ"]
 
 myBaseConfig = desktopConfig
 
@@ -62,41 +59,38 @@ myManageHook = composeAll . concat $
     , [title =? t --> doFloat | t <- myTFloats]
     , [resource =? r --> doFloat | r <- myRFloats]
     , [resource =? i --> doIgnore | i <- myIgnores]
-    --, [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61728" | x <- my1Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61729" | x <- my2Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59744" | x <- my3Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59761" | x <- my4Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59658" | x <- my5Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59881" | x <- my6Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\59909" | x <- my7Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61928" | x <- my8Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61724" | x <- my9Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61832" | x <- my10Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "λ" | x <- my1Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "β" | x <- my2Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "γ" | x <- my3Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "δ" | x <- my4Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ε" | x <- my5Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "τ" | x <- my6Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "θ" | x <- my7Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ϕ" | x <- my8Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "π" | x <- my9Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "σ" | x <- my10Shifts]
     ]
     where
-    -- doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
-    myCFloats = ["Arandr", "Arcolinux-calamares-tool.py", "Arcolinux-tweak-tool.py", "Arcolinux-welcome-app.py", "Galculator", "feh", "mpv", "steam", "lutris"]
+    doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
+    myCFloats = ["Arandr", "Arcolinux-calamares-tool.py", "Arcolinux-tweak-tool.py", "Arcolinux-welcome-app.py", "feh", "mpv"]
     myTFloats = ["Downloads", "Save As..."]
-    myRFloats = []
+    myRFloats = ["steam", "lutris"]
     myIgnores = ["desktop_window"]
-    --my1Shifts = ["alacritty", "kitty"]
-    --my2Shifts = [""]
-    --my3Shifts = ["qpdfview"]
-    --my4Shifts = []
-    -- my5Shifts = ["Gimp", "feh"]
-    -- my6Shifts = ["vlc", "mpv"]
-    -- my7Shifts = ["Virtualbox"]
-    -- my8Shifts = ["Thunar"]
-    -- my9Shifts = []
-    --my10Shifts = ["discord"]
-
-
-
+    my1Shifts = []
+    my2Shifts = []
+    my3Shifts = ["qpdfview", "zathura"]
+    my4Shifts = []
+    my5Shifts = ["gimp", "kdenlive", "inkscape"]
+    my6Shifts = ["vlc", "mpv"]
+    my7Shifts = ["VirtualBox"]
+    my8Shifts = ["brave"]
+    my9Shifts = ["steam", "lutris"]
+    my10Shifts = ["discord"]
 
 myLayout = spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True 
             $ avoidStruts 
             $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) 
-            $ tiled ||| Mirror tiled ||| spiral (6/7)  ||| ThreeColMid 1 (3/100) (1/2) ||| Full 
+            $ tiled ||| Mirror tiled ||| Full 
     where
         tiled = Tall nmaster delta tiled_ratio
         nmaster = 1
@@ -143,8 +137,7 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
   , ((modm, xK_F9), spawn "steam" )
   , ((modm, xK_F10), spawn "spotify" )
   , ((modm, xK_F11), spawn "rofi -show run -fullscreen" )
-  , ((modm, xK_F12), spawn "rofi -show run" )
-
+  , ((modm, xK_F12), spawn "rofi -show run" ) 
   -- FUNCTION KEYS
   , ((0, xK_F12), spawn "xfce4-terminal --drop-down" )
 
@@ -181,8 +174,7 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
 
   --SCREENSHOTS
 
-  , ((0, xK_Print ), spawn "flameshot launcher")
-
+  , ((0, xK_Print ), spawn "flameshot screen -c")
 
   --MULTIMEDIA KEYS
 
@@ -203,10 +195,10 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
   -- Decrease brightness
   -- , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5")
 
---  , ((0, xF86XK_AudioPlay), spawn $ "mpc toggle")
---  , ((0, xF86XK_AudioNext), spawn $ "mpc next")
---  , ((0, xF86XK_AudioPrev), spawn $ "mpc prev")
---  , ((0, xF86XK_AudioStop), spawn $ "mpc stop")
+  , ((modm, xF86XK_AudioPlay), spawn "mpc toggle")
+  , ((modm, xF86XK_AudioNext), spawn "mpc next")
+  , ((modm, xF86XK_AudioPrev), spawn "mpc prev")
+  , ((modm, xF86XK_AudioStop), spawn "mpc stop")
 
   , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
   , ((0, xF86XK_AudioNext), spawn "playerctl next")
@@ -241,6 +233,9 @@ myKeys conf@XConfig {modMask = modm} = M.fromList $
 
   -- Move focus to the master window.
   , ((modm .|. shiftMask, xK_m), windows W.focusMaster  )
+
+  -- 
+  , ((modm .|. shiftMask, xK_m), focus w >> windows W.shiftMaster)  
 
   -- Swap the focused window with the next window.
   , ((mod1Mask .|. modm, xK_j), windows W.swapDown  )
@@ -289,7 +284,6 @@ mkDbusClient = do
  where
   opts = [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 
--- Emit a DBus signal on log updates
 dbusOutput :: D.Client -> String -> IO ()
 dbusOutput dbus str =
   let opath  = D.objectPath_ "/org/xmonad/Log"
@@ -317,14 +311,12 @@ polybarHook dbus =
           , ppTitle           = shorten 100 . wrapper purple
           }
 
-myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
-
-myLogHook = fadeInactiveLogHook 0.98
+myPolybarLogHook dbus = dynamicLogWithPP (polybarHook dbus)
 
 main :: IO ()
 main = do
       dbus <- mkDbusClient
-      xmonad . 
+      xmonad .
         docks .
         ewmh $
             myBaseConfig
