@@ -19,3 +19,4 @@ executable xmonad-build
                , dbus
                , containers
                , taffybar
+               , utf8-string

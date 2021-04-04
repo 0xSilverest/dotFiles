@@ -4,33 +4,35 @@
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": ["--lsp"],
-            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml"],
+            "rootPatterns": ["*.cabal"
+                           , "stack.yaml"
+                           , "cabal.project"
+                           , "package.yaml"],
             "filetypes": ["haskell", "lhaskell"]
         },
         "metals": {
             "command": "metals-vim",
             "rootPatterns": ["build.sbt"],
-            "filetypes": ["scala", "sbt"],
-            "settings": {
-                "codeLens.enable":true, 
-                "metals.statusBarEnabled": true
-            }
-        },
+            "filetypes": ["scala", "sbt"] 
+        }, 
         "latex": {
                 "command": "/home/silverest/.local/share/nvim/plugged/vimtex/plugin/vimtex.vim",
                 "ignoredRootPaths": ["~"],
                 "filetypes": ["tex", "bib", "plaintex", "context"]
         },
-        "rust.": {
-            "command": "rust-analyzer",
-            "filetypes": ["rust"],
-            "rootPatterns": ["Cargo.toml"]
-        },
         "graphql": {
             "command": "graphql-lsp",
             "args": ["server", "-m", "stream"],
             "filetypes": ["graphql"]
-        } 
+        },
+        "xml": {
+            "command": "lemminx",
+            "filetypes": ["xml"]
+        },
+        "java": {
+            "command": "java-lsp",
+            "filetypes": [".java"]
+        }
     }
 }
 

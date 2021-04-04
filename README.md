@@ -1,6 +1,6 @@
 # dotFiles
 
-Config files for my linux setup.
+### Tools
 
 | Tools | Software |
 | --- | --- |
@@ -10,3 +10,8 @@ Config files for my linux setup.
 | Editor | Vim |
 | File Manager | nnn |
 
+
+### Fixes
+
+GRUB config for Huawei Matebook 14D AMD Ryzen 2500U to random freezes issues
+quiet idle=nomwait acpi_backlight=video apparmor=1

@@ -30,13 +30,12 @@ fenv source /etc/profile.d/nix.sh
 
 # NNN configs
 export NNN_BMS='d:~/Documents;u:/home/user/Cam Uploads;D:~/Downloads/'
-export NNN_OPENER=/home/silverest/.config/nnn/plugins/nuke
 export NNN_SSHFS='sshfs -o follow_symlinks'
 export NNN_COLORS='#b19cd9;5'                  
 export NNN_FCOLORS='e3c58677006033f700abc4'
 export NNN_TRASH=1      
 export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_PLUG='z:fzopen;j:autojump;p:preview-tabbed;n:nuke;'
+export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext'
 export PAGER='less -R'
 export TERMINAL='kitty'
 
@@ -49,10 +48,9 @@ alias cat='bat'
 alias ping='prettyping'
 alias nna='nnn -a'
 alias nnc='nnn -c'
+alias del='$HOME/.scripts/del.sh'
 
 #colors
-
-
 set fish_color_error "#ff5370"
 set fish_color_command "#1fcaf4" --medium
 set fish_color_param "#5fdfff"

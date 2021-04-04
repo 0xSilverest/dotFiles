@@ -1,9 +1,0 @@
-[Unit]
-Description= Fixing screen brightness on boot
-
-[Service]
-Type=oneshot
-ExecStart=/opt/fixBrightness.sh
-
-[Install]
-WantedBy=systemd-backlight@backlight:amdgpu_bl0.service

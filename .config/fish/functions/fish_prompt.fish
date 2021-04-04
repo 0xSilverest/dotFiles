@@ -1,1 +1,1 @@
-/home/silverest/.local/share/omf/themes/lambda/fish_prompt.fish
+/home/silverest/.local/share/omf/themes/harleen/fish_prompt.fish

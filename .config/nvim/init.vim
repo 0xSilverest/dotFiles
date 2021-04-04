@@ -1,4 +1,4 @@
-" Plugins Download
+" Plugint Download
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Theme
@@ -6,6 +6,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/node-client'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ap/vim-css-color'
 
 " File Management
 Plug 'preservim/nerdtree'
@@ -53,8 +54,10 @@ call plug#end()
 
 " Coc config
 source $HOME/.config/nvim/plug-config/coc.vim
-nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 
+" Scala Metals
+source $HOME/.config/nvim/plug-config/metals.vim
+nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 
 " theme config
 set termguicolors
@@ -106,6 +109,7 @@ set autoindent
 set number
 set wildmode=longest,list
 set clipboard+=unnamedplus
+set inccommand=split
 
 filetype plugin indent on
 syntax on

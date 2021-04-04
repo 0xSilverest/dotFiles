@@ -1,1 +1,0 @@
-quiet ipv6.disable=1 idle=nomwait acpi_backlight=video apparmor=1

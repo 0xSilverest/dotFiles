@@ -21,3 +21,5 @@ blueberry-tray &
 picom --config $HOME/.xmonad/scripts/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nitrogen --restore &
+unclutter -idle 0.01 -root &
+fusuma -d &
