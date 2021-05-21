@@ -1,9 +1,10 @@
-" Plugint Download
+"Plug 'vim-scripts/dbext.vim' Plugint Download
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'enricobacis/vim-airline-clock'
 Plug 'neovim/node-client'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ap/vim-css-color'
@@ -13,20 +14,17 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
 " Utils
+Plug 'machakann/vim-sandwich'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mcchrish/nnn.vim'
 
-" Python Plugins
-Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+" Clojure Plugins
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'vim-scripts/VimClojure', {'for': 'clojure'}
 
 " Haskell Plugins
 Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
-Plug 'alx741/vim-hindent', {'for': 'haskell'}
-Plug 'dense-analysis/ale', {'for': 'haskell'}
-
-" Kotlin Plugins
-Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 
 " Latex Plugins
 Plug 'lervag/vimtex', {'for': 'latex'}
@@ -41,18 +39,20 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 
 " Linting
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
 Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
 
 " UML
 Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'tyru/open-browser.vim'
 
+" Db
+Plug 'vim-scripts/dbext.vim'
 call plug#end()
 
 " Coc config
+"let g:omni_sql_no_default_maps = 1
 source $HOME/.config/nvim/plug-config/coc.vim
 
 " Scala Metals
@@ -62,15 +62,16 @@ nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
 " theme config
 set termguicolors
 syntax enable
+let g:palenight_color_overrides = {
+\    'black': { 'gui': '#1e2127', "cterm": "0", "cterm16": "0" },
+\}
 colorscheme palenight
 let g:airline_theme='palenight'
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 let g:python3='usr/bin/python3'
 let g:python2='usr/lib/python2.7'
 
 " haskell config
-setlocal formatprg=hindent
 let g:haskellmode_completion_ghc = 1
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:necoghc_enable_detailed_browse = 1 
@@ -127,10 +128,10 @@ map <Leader>tt :bel new term://fish<CR>
 map <Leader>lh :OpenBrowser localhost<CR>
 
 " Travel between splits
-nnoremap <S-J> <C-W><C-J>
-nnoremap <S-K> <C-W><C-K>
-nnoremap <S-L> <C-W><C-L>
-nnoremap <S-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Resize splits
 noremap <silent> <C-Left> : vertical resize -3<CR>

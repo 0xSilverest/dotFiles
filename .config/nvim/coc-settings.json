@@ -1,5 +1,4 @@
 { 
-    "coc.preferences.formatOnType":true,
     "languageserver": { 
         "haskell": {
             "command": "haskell-language-server-wrapper",
@@ -16,7 +15,7 @@
             "filetypes": ["scala", "sbt"] 
         }, 
         "latex": {
-                "command": "/home/silverest/.local/share/nvim/plugged/vimtex/plugin/vimtex.vim",
+                "command": "texlab",
                 "ignoredRootPaths": ["~"],
                 "filetypes": ["tex", "bib", "plaintex", "context"]
         },
@@ -28,10 +27,6 @@
         "xml": {
             "command": "lemminx",
             "filetypes": ["xml"]
-        },
-        "java": {
-            "command": "java-lsp",
-            "filetypes": [".java"]
         }
     }
 }

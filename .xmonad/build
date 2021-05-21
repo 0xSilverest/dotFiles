@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/sh
 
 # Your source directory. Default is the config dir, if it can be found.
 SRC_DIR=

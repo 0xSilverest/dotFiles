@@ -1,4 +1,4 @@
 function fish_greeting
     pfetch
-    task project: list
+    task 
 end

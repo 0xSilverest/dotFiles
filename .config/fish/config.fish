@@ -1,5 +1,9 @@
 set EDITOR nvim 
 
+function __fish_command_not_found_handler --on-event fish_command_not_found
+    echo "fish: Unknown command '$argv'"
+end
+
 function __jump_add --on-variable PWD
   status --is-command-substitution; and return
   jump chdir
@@ -21,12 +25,16 @@ complete --command j --exclusive --arguments '(__jump_hint)'
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f /home/silverest/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /home/silverest/.ghcup/bin $PATH
 
+# coursier
+export PATH="$PATH:/home/silverest/.local/share/coursier/bin"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR='/home/silverest/.sdkman'
 
 set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
 fenv source /etc/profile.d/nix.sh
+export JAVA_HOME="/usr/lib/jvm/default/"
 
 # NNN configs
 export NNN_BMS='d:~/Documents;u:/home/user/Cam Uploads;D:~/Downloads/'
@@ -49,6 +57,7 @@ alias ping='prettyping'
 alias nna='nnn -a'
 alias nnc='nnn -c'
 alias del='$HOME/.scripts/del.sh'
+alias pencil='strace pencil'
 
 #colors
 set fish_color_error "#ff5370"
