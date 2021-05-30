@@ -1,20 +1,6 @@
 #!/bin/bash
 #set -e
 
-###############################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-###############################################################################
-
-
-###############################################################################
-#
-#   DECLARATION OF FUNCTIONS
-#
-###############################################################################
-
-
 func_install() {
 	if pacman -Qi $1 &> /dev/null; then
 		tput setaf 2
@@ -46,7 +32,8 @@ flameshot
 zip
 unrar
 the_platinum_searcher-bin
-discord
+brave
+zathura
 )
 
 count=0

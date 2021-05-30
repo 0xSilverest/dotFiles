@@ -1,20 +1,6 @@
 #!/bin/bash
 #set -e
 
-###############################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-###############################################################################
-
-
-###############################################################################
-#
-#   DECLARATION OF FUNCTIONS
-#
-###############################################################################
-
-
 func_install() {
 	if pacman -Qi $1 &> /dev/null; then
 		tput setaf 2
@@ -40,13 +26,13 @@ echo "Installation of the core software"
 
 list=(
 lightdm
-nnn
-alacritty
 rofi
+kitty
 checkupdates-aur
 perl-checkupdates-aur
 awesome-terminal-fonts
 dmenu
+polybar
 )
 
 count=0
