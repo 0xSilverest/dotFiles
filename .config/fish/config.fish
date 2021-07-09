@@ -28,13 +28,11 @@ test -f /home/silverest/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /home/sil
 # coursier
 export PATH="$PATH:/home/silverest/.local/share/coursier/bin"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR='/home/silverest/.sdkman'
+export JAVA_HOME="/usr/lib/jvm/default/"
 
 set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
 fenv source /etc/profile.d/nix.sh
-export JAVA_HOME="/usr/lib/jvm/default/"
 
 # NNN configs
 export NNN_BMS='d:~/Documents;u:/home/user/Cam Uploads;D:~/Downloads/'
@@ -46,6 +44,7 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext'
 export PAGER='less -R'
 export TERMINAL='kitty'
+export PGDATA=/usr/local/var/postgres
 
 # Aliases
 alias vim='nvim'
@@ -56,7 +55,6 @@ alias cat='bat'
 alias ping='prettyping'
 alias nna='nnn -a'
 alias nnc='nnn -c'
-alias del='$HOME/.scripts/del.sh'
 alias pencil='strace pencil'
 
 #colors
@@ -70,3 +68,6 @@ set fish_pager_color_progress white --bold
 set fish_pager_color_selected_prefix "#ff5370" --bold --underline
 set fish_pager_color_selected_description "#e3be7a" --bold
 set fish_pager_color_selected_completion "#ff5370" --underline
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR='/home/silverest/.sdkman'

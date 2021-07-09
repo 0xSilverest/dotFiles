@@ -1,0 +1,97 @@
+{
+  "codeLens.enable": true,
+
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+
+  "metals.statusBarEnabled": true,
+
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "latex",
+    "json",
+    "yaml",
+    "xml"
+  ],
+
+  "cSpell.enabled": false,
+
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    },
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    },
+    "latex": {
+      "command": "texlab",
+      "ignoredRootPaths": ["~"],
+      "filetypes": ["tex", "bib", "plaintex", "context"]
+    },
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["graphql"]
+    },
+    "xml": {
+      "command": "lemminx",
+      "filetypes": ["xml"]
+    },
+    "clojure-lsp": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+      }
+    }
+  },
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "en",
+    "eng",
+    "git-commit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "vim",
+    "yaml",
+    "yml"
+  ]
+}
