@@ -1,8 +1,8 @@
 " theme config
+let g:nvcode_termcolors=256
+
 set termguicolors
-syntax enable
-let g:palenight_color_overrides = {
-\    'black': { 'gui': '#1e2127', "cterm": "0", "cterm16": "0" },
-\}
+hi LineNr ctermbg=NONE guibg=NONE
+
 colorscheme palenight
-let g:airline_theme='palenight'
+

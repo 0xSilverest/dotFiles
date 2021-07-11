@@ -1,15 +1,3 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local servers = {'hls', 'metals', 'sumneko_lua', 'jdtls',
-                 'clojure_lsp', 'yamlls', 'vimls', 'texlab',
-                 'jsonls', 'bashls'}
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    capabilities = capabilities,
-  }
-end
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noinsert'
 

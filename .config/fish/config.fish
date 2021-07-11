@@ -41,6 +41,7 @@ export NNN_COLORS='#b19cd9;5'
 export NNN_FCOLORS='e3c58677006033f700abc4'
 export NNN_TRASH=1      
 export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_OPTS="H"
 export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext'
 export PAGER='less -R'
 export TERMINAL='kitty'

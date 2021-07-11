@@ -48,6 +48,7 @@ func_category Fonts
 
 list=(
 ttf-fira-code
+ttf-nerd-fonts-symnols-mono
 adobe-source-sans-pro-fonts
 ttf-roboto
 )

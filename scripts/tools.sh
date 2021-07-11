@@ -26,14 +26,21 @@ echo "Installation of the development packages"
 
 list=(
 git
-firefox
 neovim
+brave
+qutebrowser
+firefox
+the_platinum_searcher-bin
 flameshot
 zip
 unrar
-the_platinum_searcher-bin
-brave
+fish
 zathura
+zathura-djvu
+zathura-pdf-mupdf
+yay
+yarn
+npm
 )
 
 count=0

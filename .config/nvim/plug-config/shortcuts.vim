@@ -3,21 +3,11 @@ let g:mapleader = ','
 map <Leader>tt :bel new term://fish<CR> 
 map <Leader>lh :OpenBrowser localhost<CR>
 
-" Travel between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " Resize splits
-noremap <silent> <C-Left> : vertical resize -3<CR>
-noremap <silent> <C-Right> : vertical resize +3<CR>
-noremap <silent> <C-Up> : resize +3<CR>
-noremap <silent> <C-Down> : resize -3<CR>
-
-" Swap between hs and vs
-map <Leader>th <C-w>t<C-w>H
-map <Leader>tk <C-w>t<C-w>K
+nnoremap <silent> <M-H> : vertical resize -3<CR>
+nnoremap <silent> <M-L> : vertical resize +3<CR>
+nnoremap <silent> <M-K> : resize +3<CR>
+nnoremap <silent> <M-J> : resize -3<CR>
 
 map q: <Nop>
 nnoremap Q <nop>
@@ -34,7 +24,13 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 " Compe 
 inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" Telescope
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+
+" File Tree
+map <C-s> :NvimTreeToggle<CR>

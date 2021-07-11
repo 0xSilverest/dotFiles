@@ -1,17 +1,32 @@
 # dotFiles
 
+### Preview 
+
+![Preview](./Imgs/preview1.png)
+
 ### Tools
 
 | Tools | Software |
 | --- | --- |
-| WM | xmonad |
-| StatusBar | Polybar |
-| Terminal | Kitty |
-| Editor | Vim |
-| File Manager | nnn |
+| WM | [xmonad](.xmonad/config.hs) |
+| StatusBar | [Polybar](.config/polybar) |
+| Terminal | [Kitty](.config/kitty) |
+| Editor | [Neovim](.config/nvim) |
+| File Manager | [nnn](.config/nnn) |
 
 
 ### Fixes
 
 GRUB config for Huawei Matebook 14D AMD Ryzen 2500U to random freezes issues
-quiet idle=nomwait acpi_backlight=video apparmor=1
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet idle=nomwait acpi_backlight=video apparmor=1"
+```
+
+### Todo
+
+- [ ] Clean up init.vim
+- [ ] Move nvim config to lua
+- [ ] Add nix config
+- [ ] Make install scripts
+

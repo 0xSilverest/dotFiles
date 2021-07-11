@@ -29,4 +29,3 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set relativenumber
 augroup END
 
-

@@ -1,19 +1,12 @@
 #!/bin/sh
 
+cp -r ../.config/nvim $HOME/.config/
+
 echo "export EDITOR='vim'" >> ~/.bashrc
 echo "export VISUAL='vim'" >> ~/.bashrc
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim -c PlugInstall
-vim -c PlugUpdate
-vim -c "CocInstall coc-metals"
-vim -c "CocInstall coc-texlab"
-vim -c "CocInstall coc-pyright"
-vim -c "CocInstall coc-python"
-vim -c "CocInstall coc-rls"
-vim -c "CocInstall coc-rust-analyzer"
-vim -c "CocInstall coc-json"
-vim -c "CocInstall coc-todolist"
-
+nvim -c PlugInstall \
+    -c PlugUpdate

@@ -9,50 +9,68 @@ Plug 'L3MON4D3/LuaSnip'
 
 " Linting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'dense-analysis/ale'
+Plug 'ray-x/lsp_signature.nvim'
+
+" Async brrr
+Plug 'tpope/vim-dispatch'
+
+" Some Debug Thing
 Plug 'mfussenegger/nvim-dap'
+Plug 'folke/trouble.nvim'
 
-" Theme
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'enricobacis/vim-airline-clock'
-Plug 'drewtempelmeyer/palenight.vim'
-
-" File Management
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
-
-" Utils
+" Find Things brrrrrrrrrr
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'mcchrish/nnn.vim'
-Plug 'ap/vim-css-color'
-Plug 'windwp/nvim-autopairs'
+            
+" Scala
+Plug 'scalameta/nvim-metals'
 
 " Haskell 
-Plug 'mpickering/hlint-refactor-vim'
+Plug 'neovimhaskell/haskell-vim' , {'for': 'haskell'}
+Plug 'mpickering/hlint-refactor-vim', {'for': 'haskell'}
+
+" Java 
+Plug 'mfussenegger/nvim-jdtls'
+
+"Waiting for Treesitter Support for haskell and Scala
+Plug 'sheerun/vim-polyglot' 
 
 " Latex Plugins
 Plug 'lervag/vimtex', {'for': 'latex'}
+Plug 'jghauser/auto-pandoc.nvim'
 
-" UML
-Plug 'weirongxu/plantuml-previewer.vim'
-Plug 'aklt/plantuml-syntax'
+" Theme
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'hoob3rt/lualine.nvim'
+
+" File Management
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
+" Utils
+Plug 'simrat39/symbols-outline.nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'folke/which-key.nvim'
+Plug 'sunjon/shade.nvim'
+Plug 'ap/vim-css-color'
+Plug 'romainl/vim-cool'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'kevinhwang91/nvim-hlslens'
 Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
 " Lua config
-source $HOME/.config/nvim/plug-config/luaConf.lua
+source $HOME/.config/nvim/plug-config/lsp-config.lua
+source $HOME/.config/nvim/plug-config/init.lua
 source $HOME/.config/nvim/plug-config/compe-config.lua
 source $HOME/.config/nvim/plug-config/sumneko_lua.lua
 
 " Vim config
 source $HOME/.config/nvim/plug-config/defaultSettings.vim
 source $HOME/.config/nvim/plug-config/themeConf.vim
-source $HOME/.config/nvim/plug-config/lsp-config.vim
-source $HOME/.config/nvim/plug-config/shortcuts.vim
 source $HOME/.config/nvim/plug-config/plugsConf.vim
-
-
+source $HOME/.config/nvim/plug-config/shortcuts.vim
