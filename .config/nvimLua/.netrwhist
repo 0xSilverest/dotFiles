@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/silverest/Coding/scalaCode/example/src/main/scala/example'
+let g:netrw_dirhist_1='/home/silverest/Coding/haskellCode'
+let g:netrw_dirhist_0='/home/silverest/Coding'
+let g:netrw_dirhist_9='/home/silverest/.config/fish'
+let g:netrw_dirhist_8='/home/silverest/.config/fish/conf.d'
+let g:netrw_dirhist_7='/home/silverest/.config/fish'
+let g:netrw_dirhist_6='/home/silverest/.config/fish/conf.d'
+let g:netrw_dirhist_5='/home/silverest/.config/fish'
+let g:netrw_dirhist_4='/home/silverest/.config/fish/conf.d'
+let g:netrw_dirhist_3='/home/silverest/.config/fish'
