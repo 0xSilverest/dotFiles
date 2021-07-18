@@ -1,5 +1,4 @@
-lspconfig = require "lspconfig"
-_G.Util = {}
+local lspconfig = require "lspconfig"
 
 -- override handlers
 pcall(require, "modules.lsp.handlers")
@@ -17,7 +16,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local servers = {
     hls = {},
     clojure_lsp = {},
-    --sumneko_lua = require("modules.lsp.sumneko").config{},
+    sumneko_lua = require("modules.lsp.sumneko").config,
     yamlls = {},
     jsonls = {},
     bashls = {},

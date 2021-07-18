@@ -1,5 +1,6 @@
 local o = vim.opt
 
+o.encoding = "UTF-8"
 o.number = true
 o.relativenumber = true
 o.wrap = false
@@ -14,8 +15,10 @@ o.equalalways = true
 o.smartcase = true
 o.ignorecase = true
 o.hlsearch = true
+o.syntax = "on"
 
-o.backupcopy     = "yes"
+o.foldmethod="marker"
+o.backupcopy = "yes"
 
 o.completeopt    = {
   "menu",
@@ -37,3 +40,5 @@ o.tabstop = 2
 o.timeoutlen = 400
 o.updatetime = 1000
 o.joinspaces = false
+o.clipboard = "unnamedplus"
+o.wildmode = "longest,list"
