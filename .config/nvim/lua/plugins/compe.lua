@@ -15,6 +15,7 @@ require'compe'.setup {
   max_kind_width = 100;
   max_menu_width = 100;
   documentation = {
+    enable = true,
     border = "solid",
     winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
     max_width = 120,
@@ -24,50 +25,22 @@ require'compe'.setup {
   },
 
   source = {
-    path = true;
+    path = true,
     buffer = {
         enable=true,
-        priority = 1};
+        priority = 1},
     luasnip = true,
     nvim_lsp = {
         enable = true,
-        priority = 10001,
-    };
+        priority = 1000,
+    },
     tabnine = {
         enable = true,
         priority = 2,
-    };
-    latex_symbols = true;
-    conjure = true;
-    spell = true;
-    tags = true;
+    },
+    latex_symbols = true,
+    conjure = true,
+    spell = true,
+    tags = true,
   };
 }
-
-remap(
-  "i",
-  "<Tab>",
-  'pumvisible() ? "<C-n>" : "<Tab>"',
-  { silent = true, noremap = true, expr = true }
-)
-
-remap(
-  "i",
-  "<S-Tab>",
-  'pumvisible() ? "<C-p>" : "<S-Tab>"',
-  { silent = true, noremap = true, expr = true }
-)
-
-remap(
-  "i",
-  "<C-a>",
-  "v:lua.Util.trigger_completion()",
-  { silent = true, expr = true }
-)
-
-remap(
-  "i",
-  "<C-Space>",
-  "compe#complete()",
-  { noremap = true, expr = true, silent = true }
-)

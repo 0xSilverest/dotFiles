@@ -1,76 +1,44 @@
-"Plugin Download
-call plug#begin('~/.local/share/nvim/plugged')
+" Taken from Elianiva / dotfiles
+function! Ensure(user, repo)
+  let l:install_path = stdpath("data") . "/site/pack/packer/opt/" . a:repo
+  if empty(glob(l:install_path)) > 0
+    execute printf("!git clone https://github.com/%s/%s %s", a:user, a:repo, l:install_path)
+    packadd repo
+  endif
+endfunction
 
-" Autocompletion/Intellisense
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-Plug 'L3MON4D3/LuaSnip'
+" Bootstrap essential plugins required for installing and loading the rest.
+call Ensure("wbthomason", "packer.nvim")
 
-" Linting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-Plug 'dense-analysis/ale'
-Plug 'ray-x/lsp_signature.nvim'
+" map leader key to ,
+let g:mapleader = ","
+let g:maplocalleader = ","
 
-" Async brrr
-Plug 'tpope/vim-dispatch'
+" disable builtin plugins I don't use
+let g:loaded_gzip         = 1
+let g:loaded_tar          = 1
+let g:loaded_tarPlugin    = 1
+let g:loaded_zipPlugin    = 1
+let g:loaded_2html_plugin = 1
+let g:loaded_netrw        = 1
+let g:loaded_netrwPlugin  = 1
+let g:loaded_matchit      = 1
+let g:loaded_matchparen   = 1
+let g:loaded_spec         = 1
 
-" Some Debug Thing
-Plug 'mfussenegger/nvim-dap'
-Plug 'folke/trouble.nvim'
+" prevent typo when pressing `wq` or `q`
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
+cnoreabbrev <expr> WQ ((getcmdtype() is# ':' && getcmdline() is# 'WQ')?('wq'):('WQ'))
+cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('Wq'))
 
-" Find Things brrrrrrrrrr
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-            
-" Scala
-Plug 'scalameta/nvim-metals'
+lua require 'init'
 
-" Haskell 
-Plug 'neovimhaskell/haskell-vim' , {'for': 'haskell'}
-Plug 'mpickering/hlint-refactor-vim', {'for': 'haskell'}
+runtime! lua/modules/shortcuts.vim
 
-" Java 
-Plug 'mfussenegger/nvim-jdtls'
+let g:nvcode_termcolors=256
 
-"Waiting for Treesitter Support for haskell and Scala
-Plug 'sheerun/vim-polyglot' 
+set termguicolors
+hi LineNr ctermbg=NONE guibg=NONE
 
-" Latex Plugins
-Plug 'lervag/vimtex', {'for': 'latex'}
-Plug 'jghauser/auto-pandoc.nvim'
-
-" Theme
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
-Plug 'hoob3rt/lualine.nvim'
-
-" File Management
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-
-" Utils
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'windwp/nvim-autopairs'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'folke/which-key.nvim'
-Plug 'sunjon/shade.nvim'
-Plug 'ap/vim-css-color'
-Plug 'romainl/vim-cool'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'kevinhwang91/nvim-hlslens'
-Plug 'tyru/open-browser.vim'
-
-call plug#end()
-
-" Lua config
-source $HOME/.config/nvim/plug-config/lsp-config.lua
-source $HOME/.config/nvim/plug-config/init.lua
-source $HOME/.config/nvim/plug-config/compe-config.lua
-source $HOME/.config/nvim/plug-config/sumneko_lua.lua
-
-" Vim config
-source $HOME/.config/nvim/plug-config/defaultSettings.vim
-source $HOME/.config/nvim/plug-config/themeConf.vim
-source $HOME/.config/nvim/plug-config/plugsConf.vim
-source $HOME/.config/nvim/plug-config/shortcuts.vim
+colorscheme palenight

@@ -19,14 +19,12 @@ packer.init {
   },
 }
 
-
 local plugins = {
     { "wbthomason/packer.nvim", opt = true },
 
     require("plugins.telescope").plugin,
     require("plugins.treesitter").plugin,
     require("plugins.jdtls").plugin,
-    require("plugins.metals").plugin,
 
     {"nvim-lua/plenary.nvim",
       module = "plenary"},
@@ -38,8 +36,8 @@ local plugins = {
 -- Autocompletion/Intellisense
     {"neovim/nvim-lspconfig",
         config = function()
-            require "modules.lsp"
-        end,
+          require "modules.lsp"
+				end,
     },
     {"hrsh7th/nvim-compe",
         event = "InsertEnter",
@@ -67,7 +65,7 @@ local plugins = {
     'ray-x/lsp_signature.nvim',
 
 -- Async brrr
-    'tpope/vim-dispatch',
+    {'tpope/vim-dispatch', ft={'clf'}},
     {'Olical/conjure' , ft={'clj'}},
 
 -- Some Debug Thing
@@ -80,11 +78,13 @@ local plugins = {
     {"folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-        require("trouble").setup {
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
+        require("trouble").setup {}
+      end},
+
+-- Scala
+    {'scalameta/nvim-metals',
+      config = function()
+        require "plugins.metals"
       end},
 
 -- Haskell
@@ -115,23 +115,24 @@ local plugins = {
     {'dhruvasagar/vim-table-mode', ft = {'text', 'markdown'}},
 
 -- Theme
-    'christianchiarulli/nvcode-color-schemes.vim',{
-  'hoob3rt/lualine.nvim',
-  requires = {'kyazdani42/nvim-web-devicons', opt = true}
-},-- File Management
+    'christianchiarulli/nvcode-color-schemes.vim',
+    {'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        options = {theme = palenight }
+    },
+-- File Management
     {'kyazdani42/nvim-web-devicons',
       module = "nvim-web-devicons",
       config = function()
         require("nvim-web-devicons").setup { default = true }
       end,},
 
-    {'kyazdani42/nvim-tree.lua', 
+    {'kyazdani42/nvim-tree.lua',
       config = function()
         require "plugins.nvim-tree"
       end,},
 
 -- Helper tools
-    'simrat39/symbols-outline.nvim',
     {"phaazon/hop.nvim",
         cmd = "HopWord",
         setup = function()
