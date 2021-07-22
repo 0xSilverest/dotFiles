@@ -1,5 +1,3 @@
-local remap = vim.api.nvim_set_keymap
-
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -26,18 +24,10 @@ require'compe'.setup {
 
   source = {
     path = true,
-    buffer = {
-        enable=true,
-        priority = 1},
+    buffer = true,
     luasnip = true,
-    nvim_lsp = {
-        enable = true,
-        priority = 1000,
-    },
-    tabnine = {
-        enable = true,
-        priority = 2,
-    },
+    nvim_lsp = true,
+    tabnine = true,
     latex_symbols = true,
     conjure = true,
     spell = true,
