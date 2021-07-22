@@ -4,6 +4,8 @@
 
 ![Preview](./Imgs/preview1.png)
 
+Credit: ![background image](https://www.artstation.com/artwork/BL919)
+
 ### Tools
 
 | Tools | Software |
@@ -25,8 +27,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet idle=nomwait acpi_backlight=video apparmor=1"
 
 ### Todo
 
-- [ ] Clean up init.vim
-- [ ] Move nvim config to lua
+- [ ] Move XMonad to stack instead of cabal
 - [ ] Add nix config
 - [ ] Make install scripts
 

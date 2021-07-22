@@ -3,9 +3,10 @@ require("modules.options")
 require("modules.util")
 require("plugins.plugins")
 
-local palenight = require'lualine.themes.palenight'
-palenight.normal.c.bg = '#222635'
+vim.g.tokyonight_lualine_bold=true
+
 require('lualine').setup{
-    options = { theme = palenight}
+    options = { theme = 'tokyonight'}
 }
+
 require "lsp_signature".setup()

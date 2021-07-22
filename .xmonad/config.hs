@@ -1,4 +1,4 @@
-import XMonad
+mport XMonad
 
 import XMonad.Hooks.SetWMName
 
@@ -25,6 +25,7 @@ import XMonad.Layout.Spacing
 --import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import qualified XMonad.Layout.Magnifier as MG
 
 import qualified Data.Map as M
 import Graphics.X11.ExtraTypes.XF86
@@ -64,36 +65,16 @@ myManageHook =
   , [title =? t --> doFloat | t <- myTFloats]
   , [resource =? r --> doFloat | r <- myRFloats]
   , [resource =? i --> doIgnore | i <- myIgnores]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "λ"
-    | x <- my1Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "β"
-    | x <- my2Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "γ"
-    | x <- my3Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "δ"
-    | x <- my4Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ε"
-    | x <- my5Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "τ"
-    | x <- my6Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "θ"
-    | x <- my7Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ϕ"
-    | x <- my8Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "π"
-    | x <- my9Shifts
-    ]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "σ"
-    | x <- my10Shifts
-    ]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "λ" | x <- my1Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "β" | x <- my2Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "γ" | x <- my3Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "δ" | x <- my4Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ε" | x <- my5Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "τ" | x <- my6Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "θ" | x <- my7Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ϕ" | x <- my8Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "π" | x <- my9Shifts]
+  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "σ" | x <- my10Shifts]
   , [isFullscreen --> (doF W.focusDown <+> doFullFloat)]
   ]
   where
@@ -104,8 +85,7 @@ myManageHook =
       , "Arcolinux-tweak-tool.py"
       , "Arcolinux-welcome-app.py"
       , "feh"
-      , "mpv" 
-      ]
+      , "mpv" ]
     myTFloats = ["Downloads", "Save As...", "pavucontrol"]
     myRFloats = []
     myIgnores = ["desktop_window"]
@@ -120,10 +100,10 @@ myManageHook =
     my9Shifts = ["steam", "lutris"]
     my10Shifts = ["discord"]
 
-myLayout =
+myLayout = MG.magnifierOff (
   spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $
   avoidStruts $
-  mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| Full
+  mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| Full)
   where
     tiled = Tall nmaster delta tiled_ratio
     nmaster = 1
@@ -134,8 +114,10 @@ myMouseBindings XConfig {modMask = modm} =
   M.fromList
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, 1), \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster)
+
     -- mod-button2, Raise the window to the top of the stack
     , ((modm, 2), \w -> focus w >> windows W.shiftMaster)
+
     -- mod-button3, Set the window to floating mode and resize by dragging
     , ((modm, 3), \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster)
     ]
@@ -152,19 +134,23 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm, xK_p), spawn "zathura")
   , ((modm, xK_y), spawn "polybar-msg cmd toggle")
   , ((modm, xK_x), spawn "arcolinux-logout")
+
   , ((modm, xK_Escape), spawn "xkill")
-  , ((modm, xK_Return), spawn "kitty")
+
   , ((modm, xK_F2), spawn "kdenlive")
   , ((modm, xK_F3), spawn "inkscape")
   , ((modm, xK_F4), spawn "gimp")
   , ((modm, xK_F5), spawn "blender")
   , ((modm, xK_F6), spawn "pencil")
-  , ((modm, xK_F7), spawn "virtualbox")
   , ((modm, xK_F8), spawn "lutris")
   , ((modm, xK_F9), spawn "steam")
-  , ((modm, xK_F10), spawn "spotify")
-  , ((modm, xK_F11), spawn "rofi -show run -fullscreen")
-  , ((modm, xK_F12), spawn "rofi -show run")
+  , ((modm, xK_F10), spawn "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify")
+
+  , ((modm .|. controlMask              , xK_equal ), sendMessage MG.MagnifyMore)
+  , ((modm .|. controlMask              , xK_minus), sendMessage MG.MagnifyLess)
+  , ((modm .|. controlMask              , xK_o    ), sendMessage MG.ToggleOff  )
+  , ((modm .|. controlMask .|. shiftMask, xK_o    ), sendMessage MG.ToggleOn   )
+  , ((modm .|. controlMask              , xK_m    ), sendMessage MG.Toggle     )
   -- FUNCTION KEYS
   , ((0, xK_F12), spawn "xfce4-terminal --drop-down")
   -- SUPER + SHIFT KEYS
@@ -181,14 +167,11 @@ myKeys conf@XConfig {modMask = modm} =
   , ( (controlMask .|. mod1Mask, xK_k)
     , spawn "/home/silverest/.config/polybar/launch.sh")
   , ((controlMask .|. mod1Mask, xK_l), spawn "pkill polybar")
-  , ( (controlMask .|. mod1Mask, xK_o)
+  , ((controlMask .|. mod1Mask, xK_o)
     , spawn "$HOME/.xmonad/scripts/picom-toggle.sh")
   , ((controlMask .|. mod1Mask, xK_p), spawn "pamac-manager")
-  , ((controlMask .|. mod1Mask, xK_r), spawn "rofi-theme-selector")
   , ((controlMask .|. mod1Mask, xK_s), spawn "spotify")
-  , ((controlMask .|. mod1Mask, xK_t), spawn "kitty")
   , ((controlMask .|. mod1Mask, xK_u), spawn "pavucontrol")
-  , ((controlMask .|. mod1Mask, xK_Return), spawn "kitty")
   -- ALT + ... KEYS
   --CONTROL + SHIFT KEYS
   , ((controlMask .|. shiftMask, xK_Escape), spawn "xfce4-taskmanager")
