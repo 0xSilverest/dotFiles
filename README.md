@@ -4,7 +4,7 @@
 
 ![Preview](./Imgs/preview1.png)
 
-Credit: ![background image](https://www.artstation.com/artwork/BL919)
+Credit: [The Witcher Dear Guest - Ismail Inceoglu](https://www.artstation.com/artwork/BL919)
 
 ### Tools
 

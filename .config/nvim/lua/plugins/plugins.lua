@@ -33,7 +33,6 @@ local plugins = {
   	{"nvim-lua/popup.nvim",
   	  	module = "popup"},
 
-
 -- Autocompletion/Intellisense
   	{"neovim/nvim-lspconfig",
   	  	config = function()
@@ -42,7 +41,11 @@ local plugins = {
   	},
   	{"hrsh7th/nvim-compe",
   	  	event = "InsertEnter",
-  	  	wants = "LuaSnip",
+  	  	wants = {
+			'LuaSnip',
+			'compe-tabnine',
+			'compe-conjure'
+		},
   	  	config = function()
   	  	  	require "plugins.compe"
   	  	end,
@@ -54,13 +57,12 @@ local plugins = {
   	    	  	  	require "plugins.luasnip"
   	    	  	end,
   	    	},
-  	  	},
+			{'tzachar/compe-tabnine',
+				run = './install.sh'},
+			{'tami5/compe-conjure'},
+		},
   	},
-  	{'tzachar/compe-tabnine',
-		run = './install.sh'},
-  	{'tami5/compe-conjure'},
-  	'L3MON4D3/LuaSnip',
-  	'kosayoda/nvim-lightbulb',
+	'Raimondi/delimitMate',
 
 -- Linting
   	'dense-analysis/ale',
@@ -126,9 +128,22 @@ local plugins = {
 	'folke/tokyonight.nvim',
    'christianchiarulli/nvcode-color-schemes.vim',
    {'hoob3rt/lualine.nvim',
-     	requires = {'kyazdani42/nvim-web-devicons',
-	  	opt = true},
+		config = function()
+			require 'lualine'.setup {
+     			requires = {'kyazdani42/nvim-web-devicons',
+	  			opt = true},
+    			options = { theme = 'tokyonight'},
+				sections = {
+               lualine_c = {{ 'diagnostics', sources = { 'nvim_lsp' } }},
+               lualine_x = {},
+               lualine_y = {},
+            },
+			}
+
+			vim.cmd 'set noshowmode'
+		end
    },
+
 -- File Management
    {'kyazdani42/nvim-web-devicons',
      	module = "nvim-web-devicons",
@@ -137,11 +152,13 @@ local plugins = {
      	end,},
 
    {'kyazdani42/nvim-tree.lua',
+		requires = {'kyazdani42/nvim-web-devicons'},
      	config = function()
      	 	require "plugins.nvim-tree"
      	end,},
 
 -- Helper tools
+	'kosayoda/nvim-lightbulb',
    {"phaazon/hop.nvim",
       cmd = "HopWord",
       setup = function()
@@ -167,10 +184,6 @@ local plugins = {
 		end,},
 
 -- Utils
-   {'windwp/nvim-autopairs',
-     config = function()
-      require "plugins.autopairs"
-     end},
    {'machakann/vim-sandwich', keys = 's'},
    'romainl/vim-cool',
    'jghauser/mkdir.nvim',
