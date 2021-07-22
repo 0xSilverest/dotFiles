@@ -7,7 +7,7 @@ M.plugin = {
     vim.cmd [[
       augroup jdtls
       au!
-      au FileType java lua require("plugins.nvim-jdtls").setup()
+      au FileType java lua require("plugins.jdtls").setup()
       augroup END
     ]]
   end,

@@ -4,170 +4,183 @@ vim.cmd [[packadd packer.nvim]]
 
 local packer_ok, packer = pcall(require, "packer")
 if not packer_ok then
-  return
+  	return
 end
 
 packer.init {
-  compile_path = fn.stdpath('data').."/site/pack/loader/start/packer.nvim/plugin/packer_compiled.lua",
-  git = {
-    clone_timeout = 300,
-  },
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = Util.borders }
-    end,
-  },
+  	compile_path = fn.stdpath('data').."/site/pack/loader/start/packer.nvim/plugin/packer_compiled.lua",
+  	git = {
+  	  	clone_timeout = 300,
+  	},
+  	display = {
+  	  	open_fn = function()
+  	  	  	return require("packer.util").float { border = Util.borders }
+  	  	end,
+  	},
 }
 
 local plugins = {
-    { "wbthomason/packer.nvim", opt = true },
+  	{"wbthomason/packer.nvim",
+		opt = true},
 
-    require("plugins.telescope").plugin,
-    require("plugins.treesitter").plugin,
-    require("plugins.jdtls").plugin,
+  	require("plugins.telescope").plugin,
+  	require("plugins.treesitter").plugin,
+  	require("plugins.jdtls").plugin,
 
-    {"nvim-lua/plenary.nvim",
-      module = "plenary"},
+  	{"nvim-lua/plenary.nvim",
+  	  	module = "plenary"},
 
-    {"nvim-lua/popup.nvim",
-      module = "popup"},
+  	{"nvim-lua/popup.nvim",
+  	  	module = "popup"},
 
 
 -- Autocompletion/Intellisense
-    {"neovim/nvim-lspconfig",
-        config = function()
-          require "modules.lsp"
-				end,
-    },
-    {"hrsh7th/nvim-compe",
-        event = "InsertEnter",
-        wants = "LuaSnip",
-        config = function()
-          require "plugins.compe"
-        end,
-        requires = {
-          {
-            "L3MON4D3/LuaSnip",
-            opt = true,
-            config = function()
-              require "plugins.luasnip"
-            end,
-          },
-        },
-    },
-    {'tzachar/compe-tabnine', run = './install.sh'},
-    {'tami5/compe-conjure'},
-    'L3MON4D3/LuaSnip',
-    'kosayoda/nvim-lightbulb',
+  	{"neovim/nvim-lspconfig",
+  	  	config = function()
+  	    	require "modules.lsp"
+  	 	end,
+  	},
+  	{"hrsh7th/nvim-compe",
+  	  	event = "InsertEnter",
+  	  	wants = "LuaSnip",
+  	  	config = function()
+  	  	  	require "plugins.compe"
+  	  	end,
+  	  	requires = {
+  	    	{
+  	    	  	"L3MON4D3/LuaSnip",
+  	    	  	opt = true,
+  	    	  	config = function()
+  	    	  	  	require "plugins.luasnip"
+  	    	  	end,
+  	    	},
+  	  	},
+  	},
+  	{'tzachar/compe-tabnine',
+		run = './install.sh'},
+  	{'tami5/compe-conjure'},
+  	'L3MON4D3/LuaSnip',
+  	'kosayoda/nvim-lightbulb',
 
 -- Linting
-    'dense-analysis/ale',
-    'ray-x/lsp_signature.nvim',
+  	'dense-analysis/ale',
+  	'ray-x/lsp_signature.nvim',
 
 -- Async brrr
-    {'tpope/vim-dispatch', ft={'clf'}},
-    {'Olical/conjure' , ft={'clj'}},
+  	'tpope/vim-dispatch',
+  	'Olical/conjure',
 
 -- Some Debug Thing
-    {"mfussenegger/nvim-dap",
-      keys = "<Leader>d",
-      config = function()
-        require "modules.dap"
-      end,
-    },
-    {"folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {}
-      end},
+  	{"mfussenegger/nvim-dap",
+  	 	keys = "<Leader>d",
+  	 	config = function()
+  	 	  	require "modules.dap"
+  	 	end,
+  	},
+  	{"folke/trouble.nvim",
+  	  	requires = "kyazdani42/nvim-web-devicons",
+  	  	config = function()
+  	  	  	require("trouble").setup {}
+  	  	end},
 
 -- Scala
-    {'scalameta/nvim-metals',
-      config = function()
-        require "plugins.metals"
-      end},
+  	{'scalameta/nvim-metals',
+    	ft = 'scala',
+    	config = function()
+    	  	require "plugins.metals"
+    	end},
 
 -- Haskell
-    {'neovimhaskell/haskell-vim' , ft = {'hs'}},
-    {'mpickering/hlint-refactor-vim', ft = {'hs'}},
+  	{'neovimhaskell/haskell-vim',
+		ft = {'haskell'}},
+  	{'mpickering/hlint-refactor-vim',
+		ft = {'haskell'}},
 
--- Waiting for Treesitter Support for haskell and Scala
-    'sheerun/vim-polyglot',
+-- Nix
+	{"LnL7/vim-nix",
+		ft= {'nix'}},
 
 -- Latex Plugins
-    {'lervag/vimtex', ft = 'latex',
-        setup = function()
-            vim.g.vimtex_quickfix_enabled = false
-            vim.g.vimtex_view_method = 'zathura'
-            vim.g.vimtex_compiler_latexmk = {
-              options = {
-                "--shell-escape",
-                "-verbose",
-                "-file-line-error",
-                "-synctex=1",
-                "-interaction=nonstopmode",
-              },
-            }
-        end,
-    },
-    {'GoldsteinE/compe-latex-symbols'},
-    {'jghauser/auto-pandoc.nvim', ft = {'markdown', 'latex'}},
-    {'dhruvasagar/vim-table-mode', ft = {'text', 'markdown'}},
+   {'lervag/vimtex', ft = 'latex',
+      setup = function()
+         vim.g.vimtex_quickfix_enabled = false
+         vim.g.vimtex_view_method = 'zathura'
+         vim.g.vimtex_compiler_latexmk = {
+           	options = {
+           	 	"--shell-escape",
+           	 	"-verbose",
+           	 	"-file-line-error",
+           	 	"-synctex=1",
+           	 	"-interaction=nonstopmode",
+           	},
+         }
+      end,
+   },
+   {'GoldsteinE/compe-latex-symbols'},
+   {'jghauser/auto-pandoc.nvim',
+		ft = {'markdown', 'latex'}},
+   {'dhruvasagar/vim-table-mode',
+		ft = {'text', 'markdown'}},
 
 -- Theme
-    'christianchiarulli/nvcode-color-schemes.vim',
-    {'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
-        options = {theme = palenight }
-    },
+	'folke/tokyonight.nvim',
+   'christianchiarulli/nvcode-color-schemes.vim',
+   {'hoob3rt/lualine.nvim',
+     	requires = {'kyazdani42/nvim-web-devicons',
+	  	opt = true},
+   },
 -- File Management
-    {'kyazdani42/nvim-web-devicons',
-      module = "nvim-web-devicons",
-      config = function()
-        require("nvim-web-devicons").setup { default = true }
-      end,},
+   {'kyazdani42/nvim-web-devicons',
+     	module = "nvim-web-devicons",
+     	config = function()
+     	 	require("nvim-web-devicons").setup { default = true }
+     	end,},
 
-    {'kyazdani42/nvim-tree.lua',
-      config = function()
-        require "plugins.nvim-tree"
-      end,},
+   {'kyazdani42/nvim-tree.lua',
+     	config = function()
+     	 	require "plugins.nvim-tree"
+     	end,},
 
 -- Helper tools
-    {"phaazon/hop.nvim",
-        cmd = "HopWord",
-        setup = function()
-          vim.api.nvim_set_keymap(
-            "n",
-            "<Leader>w",
-            "<CMD>HopWord<CR>",
-            { noremap = true }
-          )
-        end,
-        config = function()
-          require("hop").setup {}
-        end},
-    {'AndrewRadev/splitjoin.vim', keys = 'gS' },
-    {"andymass/vim-matchup",
-    after = "nvim-treesitter",
-    setup = function()
-      vim.g.matchup_matchparen_offscreen = {
-        method = "popup",
-        fullwidth = true,
-        highlight = "Normal",
-      }
-    end,},
+   {"phaazon/hop.nvim",
+      cmd = "HopWord",
+      setup = function()
+        vim.api.nvim_set_keymap(
+         "n",
+         "<Leader>w",
+         "<CMD>HopWord<CR>",
+         { noremap = true }
+        )
+      end,
+      config = function()
+        require("hop").setup {}
+      end},
+   {'AndrewRadev/splitjoin.vim', keys = 'gS'},
+   {"andymass/vim-matchup",
+   	after = "nvim-treesitter",
+   	setup = function()
+   	  	vim.g.matchup_matchparen_offscreen = {
+   	  	 	method = "popup",
+   	  	 	fullwidth = true,
+   	  	 	highlight = "Normal",
+   	  	}
+		end,},
 
--- Utils 
-    {'machakann/vim-sandwich', keys = 's' },
-    'romainl/vim-cool',
-    'pbrisbin/vim-mkdir',
-    'lukas-reineke/indent-blankline.nvim',
-    'sunjon/shade.nvim',
-    'ap/vim-css-color',
+-- Utils
+   {'windwp/nvim-autopairs',
+     config = function()
+      require "plugins.autopairs"
+     end},
+   {'machakann/vim-sandwich', keys = 's'},
+   'romainl/vim-cool',
+   'jghauser/mkdir.nvim',
+   'lukas-reineke/indent-blankline.nvim',
+   'sunjon/shade.nvim',
+   'ap/vim-css-color',
 }
 
 return packer.startup(function(use)
-  for _, v in pairs(plugins) do
-    use(v)
-  end
+  	for _, v in pairs(plugins) do
+		use(v)
+  	end
 end)

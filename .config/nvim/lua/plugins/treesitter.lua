@@ -1,18 +1,20 @@
 local M = {}
 
 M.plugin = {
-  "nvim-treesitter/nvim-treesitter",
-  module = "nvim-treesitter",
-  event = "BufRead",
-  opt = true,
-	run = ':TSUpdate',
-  requires = {
-    -- context aware commentstring
-    "JoosepAlviste/nvim-ts-context-commentstring",
-  },
-  config = function()
-    require("plugins.treesitter").config()
-  end,
+  	"nvim-treesitter/nvim-treesitter",
+  	module = "nvim-treesitter",
+  	opt = true,
+  	run = ':TSUpdate',
+  	requires = {
+  		-- double rainbow
+  		'p00f/nvim-ts-rainbow',
+
+  		-- context aware commentstring
+  		"JoosepAlviste/nvim-ts-context-commentstring",
+  	},
+  	config = function()
+  	  	require("plugins.treesitter").config()
+  	end,
 }
 
 M.config = function()
@@ -21,74 +23,55 @@ M.config = function()
   local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 
   ts_config.setup {
-    ensure_installed = {
-      "haskell",
-      "scala",
-      "java",
-      "clojure",
-      "kotlin",
-      "html",
-      "css",
-      "lua",
-      "rust",
-      "query",
-      "python",
-      "yaml",
-      "json",
-      "comment",
-    },
+   ensure_installed = {
+     	"haskell",
+     	"scala",
+     	"java",
+     	"clojure",
+     	"nix",
+     	"html",
+     	"css",
+     	"lua",
+     	"python",
+     	"yaml",
+     	"json",
+     	"comment",
+		"html",
+		"css"
+   },
 
-    highlight = { 
-      enable = true,
-      disable = {"haskell"}
-    },
-    indent = { enable = false },
-    playground = { enable = true },
+   highlight = {
+     	enable = true,
+     	disable = {"haskell"}
+   },
 
-    context_commentstring = {
-      enable = true,
-      config = {
-        lua = "-- %s",
-        haskell = "-- %s",
-      },
-    },
+   indent = { enable = false },
 
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<Enter>",
-        node_incremental = "<Enter>",
-        node_decremental = "<BS>",
-      },
-    },
+   rainbow = {
+     	enable = true,
+     	extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+     	max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+   },
 
-    autopairs = {enable = true},
+   context_commentstring = {
+     	enable = true,
+     	config = {
+     	  	lua = "-- %s",
+     	  	haskell = "-- %s",
+     	},
+   },
 
-    textobjects = {
-      select = {
-        enable = true,
-        keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-          ["ab"] = "@block.outer",
-          ["ib"] = "@block.inner",
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<Leader>a"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<Leader>A"] = "@parameter.inner",
-        },
-      },
-      lsp_interop = {
-        enable = true,
-      },
-    },
+   incremental_selection = {
+     	enable = true,
+     	keymaps = {
+     	  	init_selection = "<Enter>",
+     	  	node_incremental = "<Enter>",
+     	  	node_decremental = "<BS>",
+     	},
+   },
+
+   autopairs = {enable = true},
+   lsp_interop = {enable = true},
   }
 end
 
