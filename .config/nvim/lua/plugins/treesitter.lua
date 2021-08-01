@@ -6,13 +6,8 @@ M.plugin = {
   	opt = true,
   	run = ':TSUpdate',
   	requires = {
-		'nvim-treesitter/playground',
-
   		-- double rainbow
   		'p00f/nvim-ts-rainbow',
-
-  		-- context aware commentstring
-  		'JoosepAlviste/nvim-ts-context-commentstring',
   	},
   	config = function()
   	  	require("plugins.treesitter").config()
@@ -30,22 +25,18 @@ M.config = function()
    	  	"scala",
    	  	"java",
    	  	"clojure",
-			"rust",
+		"rust",
    	  	"nix",
-   	  	"html",
-   	  	"css",
    	  	"lua",
    	  	"python",
    	  	"yaml",
    	  	"json",
    	  	"comment",
-			"html",
-			"css"
    	},
 
    	highlight = {
    	  	enable = true,
-   	  	disable = {"haskell"}
+   	  	disable = {'haskell', 'rust', 'scala'}
    	},
 
    	indent = { enable = false },
@@ -54,14 +45,6 @@ M.config = function()
    	  	enable = true,
    	  	extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
    	  	max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-   	},
-
-   	context_commentstring = {
-   	  	enable = true,
-   	  	config = {
-   	  	  	lua = "-- %s",
-   	  	  	haskell = "-- %s",
-   	  	},
    	},
 
    	incremental_selection = {
@@ -73,7 +56,7 @@ M.config = function()
    	  	},
    	},
 
-   	lsp_interop = {enable = true},
+   	--lsp_interop = {enable = true},
   	}
 end
 

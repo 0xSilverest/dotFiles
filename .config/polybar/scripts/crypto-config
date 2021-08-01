@@ -1,0 +1,12 @@
+[general]
+base_currency = USD
+display = price
+
+[bitcoin]
+icon = BTC 
+
+[kusama]
+icon = KSM
+
+[cardano]
+icon = ADA

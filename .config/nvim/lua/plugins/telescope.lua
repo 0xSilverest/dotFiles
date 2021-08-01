@@ -16,28 +16,22 @@ M.plugin = {
         "popup.nvim",
         "plenary.nvim",
         "telescope-fzf-native.nvim",
-        "telescope-frecency.nvim",
-        "telescope-media-files.nvim",
-        "telescope-hop.nvim"
     },
 
     requires = {
-        {"nvim-telescope/telescope-media-files.nvim",
-          opt = true},
-        {"nvim-telescope/telescope-hop",
-          opt = true},
-        {"nvim-telescope/telescope-frecency.nvim",
-          opt = true,
-          requires = {
-            {"tami5/sql.nvim",
-              module = "sql"},
-          }},
-        {"nvim-telescope/telescope-fzf-native.nvim",
-          opt = true,
-          run = "make"},
-        },
-        {"nvim-telescope/telescope-arecibo.nvim",
-          rocks = {"openssl", "lua-http-parser"}},
+      {"nvim-telescope/telescope-media-files.nvim",
+        opt = true},
+      {"nvim-telescope/telescope-frecency.nvim",
+        opt = true,
+        requires = {
+          {"tami5/sql.nvim",
+            module = "sql"},
+        }},
+      {"nvim-telescope/telescope-fzf-native.nvim",
+        opt = true,
+        run = "make"
+      },
+    },
 
     config = function()
         require("plugins.telescope").config()
@@ -48,9 +42,6 @@ M.config = function()
     local _, telescope = pcall(require, "telescope")
     local actions = require "telescope.actions"
     local previewers = require "telescope.previewers"
-
-    local k = vim.keymap
-    local nnoremap = k.nnoremap
 
     local delta = previewers.new_termopen_previewer {
       get_command = function(entry)
@@ -134,16 +125,7 @@ M.config = function()
             previewer = false,
             mappings = {
                i = {
-                  ["<c-m>"] = telescope.extensions.metals.commands(),
                   ["<c-d>"] = actions.delete_buffer,
-                  ["<C-h>"] = telescope.extensions.hop.hop,  -- hop.hop_toggle_selection
-                  ["<C-space>"] = function(prompt_bufnr)
-                     local opts = {
-                        callback = actions.toggle_selection,
-                        loop_callback = actions.send_selected_to_qflist,
-                     }
-                     telescope.extensions.hop._hop_loop(prompt_bufnr, opts)
-                  end,
                },
                n = {
                   ["<c-d>"] = actions.delete_buffer,
@@ -187,26 +169,16 @@ M.config = function()
                ["haskell"] = "/home/silverest/Coding/haskell",
             },
          },
-         arecibo = {
-            ["selected_engine"]   = 'google',
-            ["url_open_command"]  = 'xdg-open',
-            ["show_http_headers"] = false,
-            ["show_domain_icons"] = false,
-         },
       }
     }
 
    local builtin = require "telescope.builtin"
 
-   local plugins = {'fzf', 'media_files', 'hop',
-                    'frecency', 'dap', 'arecibo'}
+   local plugins = {'fzf', 'media_files',
+                    'frecency', 'dap'}
 
    for _, plug in ipairs(plugins) do
       pcall(telescope.load_extension, plug)
-   end
-
-   M.arecibo = function()
-      telescope.extension.arecibo.websearch(M.no_preview())
    end
 
    M.frecency = function()

@@ -38,9 +38,8 @@ runtime! lua/modules/shortcuts.vim
 
 let g:nvcode_termcolors=256
 
-colorscheme tokyonight
-
 if (has("termguicolors"))
-   set termguicolors
-   hi LineNr ctermbg=NONE guibg=NONE
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+    colorscheme tokyonight
 endif
