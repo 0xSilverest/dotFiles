@@ -15,12 +15,6 @@ vim.g.nvim_tree_ignore = {
   ".cache",
 }
 
-vim.g.nvim_tree_show_icons = {
-  git = 0,
-  folders = 1,
-  files = 1,
-}
-
 vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_auto_close = 0
 vim.g.nvim_tree_auto_open = 0

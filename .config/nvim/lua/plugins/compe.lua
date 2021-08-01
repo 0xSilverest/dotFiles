@@ -1,36 +1,41 @@
 require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  map_cr = true;
-  map_complete = true;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = {
-    enable = true,
-    border = "solid",
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
-  },
+  	enabled = true,
+  	autocomplete = true,
+  	debug = false,
+  	min_length = 1,
+  	preselect = 'enable',
+  	throttle_time = 80,
+  	source_timeout = 200,
+  	incomplete_delay = 400,
+  	max_abbr_width = 100,
+  	max_kind_width = 100,
+  	max_menu_width = 100,
+  	documentation = true,
 
-  source = {
-    path = true,
-    buffer = true,
-    luasnip = true,
-    nvim_lsp = true,
-    tabnine = true,
-    latex_symbols = true,
-    conjure = true,
-    spell = true,
-    tags = true,
-  };
+  	source = {
+  	  	path = true,
+        luasnip = {
+            enable = true,
+            priority = 10,
+        },
+  	  	buffer = {
+            enable = true,
+            priority = 1,
+        },
+  	  	nvim_lsp = {
+            enable = true,
+            priority = 9001, -- Over 9K :dab:
+        },
+        tabnine = {
+            enable = true,
+            priority = 8,
+        },
+  	  	latex_symbols = {
+            enable = true,
+            priority = 101, -- Latex dab over AI
+            filetypes = {"latex", "tex"}
+        },
+  	  	spell = true,
+  	  	tags = true,
+  	},
 }
