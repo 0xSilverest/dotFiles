@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm "$HOME/bin/$1"
+sudo rm /bin/$1

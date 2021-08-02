@@ -3,24 +3,26 @@
 ### Preview 
 
 ![Preview1](./Imgs/preview1.png)
-![Preview3](./Imgs/preview3)
-
-[Preview1](./Imgs/preview1.png) [Preview2](./Imgs/preview2.png) [Preview3](./Imgs/preview3) [Preview4](./Imgs/preview4.png)
+![Preview2](./Imgs/preview2.png)
 
 Credit:
-[The Witcher Dear Guest - Ismail Inceoglu](https://www.artstation.com/artwork/BL919)
-I don't know the rest will update once i find them.
+
+[ Dear wishes - Ismail Inceoglu](https://www.artstation.com/artwork/X13Q3Y)
 
 ### Tools
 
 | Tools | Software |
 | --- | --- |
-| WM | [xmonad](.xmonad/config.hs) |
+| WM | [xmonad](.xmonad) |
+| Compositor | [picom](.xmonad/scripts/picom.conf) |
 | StatusBar | [Polybar](.config/polybar) |
 | Terminal | [Kitty](.config/kitty) |
+| Shell | [fish](.config/fish) |
 | Editor | [Neovim](.config/nvim) |
 | File Manager | [nnn](.config/nnn) |
-
+| Notifications | [dunst](.config/dunst) |
+| Pdf Reader | [zathura](.config/zathura/) |
+| Launcher | [rofi](.config/rofi/) |
 
 ### Fixes
 
@@ -32,6 +34,4 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet idle=nomwait acpi_backlight=video apparmor=1"
 
 ### Todo
 
-- [ ] Move XMonad to stack instead of cabal
-- [ ] Make install scripts
-
+- Add script to install fonts

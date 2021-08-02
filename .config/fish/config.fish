@@ -4,39 +4,27 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"
 end
 
-function __jump_add --on-variable PWD
-  status --is-command-substitution; and return
-  jump chdir
-end
-
-function __jump_hint
-  set -l term (string replace -r '^j ' '' -- (commandline -cp))
-  jump hint "$term"
-end
-
-function j
-  set -l dir (jump cd "$argv")
-  test -d "$dir"; and cd "$dir"
-end
-
-complete --command j --exclusive --arguments '(__jump_hint)'
+zoxide init fish | source
 
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
-test -f /home/silverest/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /home/silverest/.ghcup/bin $PATH
+test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH
 
 # coursier
-export PATH="$PATH:/home/silverest/.local/share/coursier/bin"
-export PATH="$PATH:/home/silverest/.yarn/bin"
+export PATH="$PATH:$HOME/.local/share/coursier/bin"
+export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/texlive/2022/bin/x86_64-linux/"
 
-export JAVA_HOME="/usr/lib/jvm/default/"
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
+
+export JAVA_HOME=$(sdk home java current)
 
 set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
-fenv source /etc/profile.d/nix.sh
-
 # NNN configs
-export NNN_BMS='d:~/Documents;u:/home/user/Cam Uploads;D:~/Downloads/'
+export NNN_BMS="d:~/Documents;u:/home/silverst/Cam Uploads;D:~/Downloads/"
 export NNN_SSHFS='sshfs -o follow_symlinks'
 export NNN_COLORS='#b19cd9;5'                  
 export NNN_FCOLORS='e3c58677006033f700abc4'
@@ -54,10 +42,13 @@ alias ls='exa'
 alias ll='exa -l'
 alias la='exa -al'
 alias cat='bat'
-alias ping='prettyping'
+# alias ping='prettyping'
 alias nna='nnn -a'
 alias nnc='nnn -c'
-alias pencil='strace pencil'
+alias reboot='systemctl reboot'
+alias shutdown='systemctl poweroff'
+alias cp='cpg -g'
+alias mv='mvg -g'
 
 #colors
 set -l foreground c0caf5
@@ -94,4 +85,8 @@ set -g fish_pager_color_completion $foreground --underline
 set -g fish_pager_color_description $comment
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR='/home/silverest/.sdkman'
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+
+export SDKMAN_DIR="$HOME/.sdkman"

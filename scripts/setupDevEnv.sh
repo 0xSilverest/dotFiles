@@ -17,25 +17,32 @@ ghcup install stack
 ################################
 
 sdkList=(
-    scala 3.0.0
-    scala 2.13.6
-    java 16-open
-    java 11.0.10-open
+    scala
+    scala 2.13.8
+    java 
+    java 11.0.12-open
     gradle
     maven 
-    kotlin 
-    spark 
-    leiningen
 )
 
-for name in "${list[@]}"
+for name in "${sdkList[@]}"
 do
     tput setaf 3; echo "Installing: " $name; tput sgr0;
     sdk install $name
 done
 
-sudo pacman -S --noconfirm --needed clojure
+curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz | gzip -d > cs
+chmod +x cs
+./cs setup
+rm cs
 
-yay -S --noconfirm --needed coursier
+zypperList=(
+    cargo
+    go
+)
 
-curl -L -o coursier https://git.io/coursier-cli
+for name in "${zypperList}"
+do
+    tput setaf 3; echo "Installing: " $name; tput sgr0;
+    zypper in --no-confirm $name
+done

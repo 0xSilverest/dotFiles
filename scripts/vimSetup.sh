@@ -1,12 +1,12 @@
 #!/bin/sh
 
-cp -r ../.config/nvim $HOME/.config/
+zypper in --no-confirm neovim
+
+rm -r $HOME/.config/nvim/
+cp -r $HOME/dotFiles/.config/nvim/ $HOME/.config/nvim/
 
 echo "export EDITOR='vim'" >> ~/.bashrc
 echo "export VISUAL='vim'" >> ~/.bashrc
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-nvim -c PlugInstall \
-    -c PlugUpdate
+nvim -c PackerSync
+nvim -C COQdeps
