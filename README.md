@@ -2,9 +2,14 @@
 
 ### Preview 
 
-![Preview](./Imgs/preview1.png)
+![Preview1](./Imgs/preview1.png)
+![Preview3](./Imgs/preview3)
 
-Credit: [The Witcher Dear Guest - Ismail Inceoglu](https://www.artstation.com/artwork/BL919)
+[Preview1](./Imgs/preview1.png) [Preview2](./Imgs/preview2.png) [Preview3](./Imgs/preview3) [Preview4](./Imgs/preview4.png)
+
+Credit:
+[The Witcher Dear Guest - Ismail Inceoglu](https://www.artstation.com/artwork/BL919)
+I don't know the rest will update once i find them.
 
 ### Tools
 
@@ -28,6 +33,5 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet idle=nomwait acpi_backlight=video apparmor=1"
 ### Todo
 
 - [ ] Move XMonad to stack instead of cabal
-- [ ] Add nix config
 - [ ] Make install scripts
 
