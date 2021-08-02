@@ -1,5 +1,4 @@
-mport XMonad
-
+import XMonad
 import XMonad.Hooks.SetWMName
 
 import XMonad.Hooks.EwmhDesktops
@@ -32,10 +31,14 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 
 import qualified Codec.Binary.UTF8.String as UTF8
-import Control.Monad (liftM2)
+import Control.Monad (liftM2, join)
 import qualified DBus as D
 import qualified DBus.Client as D
 import XMonad.Hooks.DynamicLog
+
+import Data.List (sortBy)
+import Data.Function (on)
+import XMonad.Util.NamedWindows (getName)
 
 myStartupHook = do
   spawn "$HOME/.xmonad/scripts/autostart.sh"
@@ -49,7 +52,7 @@ focdBord = "#b19cd9"
 
 mymodm = mod4Mask
 
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 myBorderWidth = 2
 
@@ -81,9 +84,6 @@ myManageHook =
     doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
     myCFloats =
       [ "Arandr"
-      , "Arcolinux-calamares-tool.py"
-      , "Arcolinux-tweak-tool.py"
-      , "Arcolinux-welcome-app.py"
       , "feh"
       , "mpv" ]
     myTFloats = ["Downloads", "Save As...", "pavucontrol"]
@@ -91,7 +91,7 @@ myManageHook =
     myIgnores = ["desktop_window"]
     my1Shifts = []
     my2Shifts = []
-    my3Shifts = ["qpdfview", "zathura"]
+    my3Shifts = []
     my4Shifts = []
     my5Shifts = ["gimp", "kdenlive", "inkscape", "blender"]
     my6Shifts = ["vlc", "mpv"]
@@ -101,7 +101,7 @@ myManageHook =
     my10Shifts = ["discord"]
 
 myLayout = MG.magnifierOff (
-  spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $
+  spacingRaw False (Border 2 2 2 2) True (Border 2 2 2 2) True $
   avoidStruts $
   mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| Full)
   where
@@ -129,30 +129,30 @@ myKeys conf@XConfig {modMask = modm} =
   -- SUPER + FUNCTION KEYS
   [ ((modm, xK_q), kill)
   , ((modm, xK_f), spawn "rofi -show run")
+  , ((modm, xK_e), spawn "rofi -show window")
   , ((modm, xK_t), spawn "kitty")
   , ((modm, xK_v), spawn "pavucontrol")
   , ((modm, xK_p), spawn "zathura")
-  , ((modm, xK_y), spawn "polybar-msg cmd toggle")
-  , ((modm, xK_x), spawn "arcolinux-logout")
+  --, ((modm, xK_y), spawn "polybar-msg cmd toggle")
+  --, ((modm, xK_x), spawn "arcolinux-logout")
 
   , ((modm, xK_Escape), spawn "xkill")
 
-  , ((modm, xK_F2), spawn "kdenlive")
-  , ((modm, xK_F3), spawn "inkscape")
-  , ((modm, xK_F4), spawn "gimp")
-  , ((modm, xK_F5), spawn "blender")
-  , ((modm, xK_F6), spawn "pencil")
+  --, ((modm, xK_F2), spawn "kdenlive")
+  --, ((modm, xK_F3), spawn "inkscape")
+  --, ((modm, xK_F4), spawn "gimp")
+  --, ((modm, xK_F5), spawn "blender")
+  --, ((modm, xK_F6), spawn "pencil")
   , ((modm, xK_F8), spawn "lutris")
   , ((modm, xK_F9), spawn "steam")
-  , ((modm, xK_F10), spawn "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify")
+  , ((modm, xK_F10), spawn "spotify")
 
-  , ((modm .|. controlMask              , xK_equal ), sendMessage MG.MagnifyMore)
+  , ((modm .|. controlMask              , xK_equal), sendMessage MG.MagnifyMore)
   , ((modm .|. controlMask              , xK_minus), sendMessage MG.MagnifyLess)
   , ((modm .|. controlMask              , xK_o    ), sendMessage MG.ToggleOff  )
   , ((modm .|. controlMask .|. shiftMask, xK_o    ), sendMessage MG.ToggleOn   )
   , ((modm .|. controlMask              , xK_m    ), sendMessage MG.Toggle     )
   -- FUNCTION KEYS
-  , ((0, xK_F12), spawn "xfce4-terminal --drop-down")
   -- SUPER + SHIFT KEYS
   --, ((modm .|. shiftMask , xK_d ), spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
   , ((modm .|. shiftMask, xK_r), spawn "xmonad --recompile && xmonad --restart")
@@ -160,17 +160,16 @@ myKeys conf@XConfig {modMask = modm} =
   -- , ((modm .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
   -- CONTROL + ALT KEYS
   --
-  , ((controlMask .|. mod1Mask, xK_b), spawn "qutebrowser")
-  , ((controlMask .|. mod1Mask, xK_e), spawn "arcolinux-tweak-tool")
-  , ((controlMask .|. mod1Mask, xK_f), spawn "librewolf")
+  , ((controlMask .|. mod1Mask, xK_b), spawn "firefox")
+  --, ((controlMask .|. mod1Mask, xK_e), spawn "arcolinux-tweak-tool")
   , ((controlMask .|. mod1Mask, xK_i), spawn "nitrogen")
   , ( (controlMask .|. mod1Mask, xK_k)
     , spawn "/home/silverest/.config/polybar/launch.sh")
   , ((controlMask .|. mod1Mask, xK_l), spawn "pkill polybar")
   , ((controlMask .|. mod1Mask, xK_o)
     , spawn "$HOME/.xmonad/scripts/picom-toggle.sh")
-  , ((controlMask .|. mod1Mask, xK_p), spawn "pamac-manager")
-  , ((controlMask .|. mod1Mask, xK_s), spawn "spotify")
+  --, ((controlMask .|. mod1Mask, xK_p), spawn "pamac-manager")
+  --, ((controlMask .|. mod1Mask, xK_s), spawn "spotify")
   , ((controlMask .|. mod1Mask, xK_u), spawn "pavucontrol")
   -- ALT + ... KEYS
   --CONTROL + SHIFT KEYS
@@ -252,61 +251,20 @@ myKeys conf@XConfig {modMask = modm} =
   , (f, m) <- [(W.view, 0), (W.shift, controlMask)]
   ]
 
-mkDbusClient :: IO D.Client
-mkDbusClient = do
-  dbus <- D.connectSession
-  _ <- D.requestName dbus (D.busName_ "org.xmonad.log") opts
-  return dbus
-  where
-    opts = [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-
-dbusOutput :: D.Client -> String -> IO ()
-dbusOutput dbus str =
-  let opath = D.objectPath_ "/org/xmonad/Log"
-      iname = D.interfaceName_ "org.xmonad.Log"
-      mname = D.memberName_ "Update"
-      signal = D.signal opath iname mname
-      body = [D.toVariant $ UTF8.decodeString str]
-   in D.emit dbus $ signal {D.signalBody = body}
-
-polybarHook :: D.Client -> PP
-polybarHook dbus =
-  let wrapper c s
-        | s /= "NSP" = wrap ("%{F" <> c <> "} ") " %{F-}" s
-        | otherwise = mempty
-      blue = "#2E9AFE"
-      gray = "#7F7F7F"
-      orange = "#ea4300"
-      purple = "#9058c7"
-      red = "#722222"
-   in def
-        { ppOutput = dbusOutput dbus
-        , ppCurrent = wrapper blue
-        , ppVisible = wrapper gray
-        , ppUrgent = wrapper orange
-        , ppHidden = wrapper gray
-        , ppHiddenNoWindows = wrapper red
-        , ppTitle = shorten 100 . wrapper purple
-        }
-
-myPolybarLogHook dbus = dynamicLogWithPP (polybarHook dbus)
-
 main :: IO ()
 main = do
-  dbus <- mkDbusClient
-  xmonad . docks . ewmh $
+  xmonad . docks $ ewmhFullscreen . ewmh $
     myBaseConfig
       { startupHook = myStartupHook
       , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
       , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
       , modMask = mymodm
       , borderWidth = myBorderWidth
-      , handleEventHook = handleEventHook myBaseConfig <+> fullscreenEventHook
+      , handleEventHook = handleEventHook myBaseConfig
       , focusFollowsMouse = myFocusFollowsMouse
       , workspaces = myWorkspaces
       , focusedBorderColor = focdBord
       , normalBorderColor = normBord
       , keys = myKeys
-      , logHook = myPolybarLogHook dbus
       , mouseBindings = myMouseBindings
       }

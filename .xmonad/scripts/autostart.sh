@@ -7,19 +7,15 @@ function run {
   fi
 }
 
-taffybar &
-
 xsetroot -cursor_name left_ptr &
 
 run variety &
 run nm-applet &
-run pamac-tray &
 run xfce4-power-manager &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
 numlockx on &
-blueberry-tray &
+udiskie &
 picom --config $HOME/.xmonad/scripts/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dunst &
 nitrogen --restore &
-unclutter -idle 0.01 -root &
-fusuma -d &
+unclutter -idle 1 -root &

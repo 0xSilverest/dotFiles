@@ -2,7 +2,7 @@
 #set -e
 
 func_install() {
-	if pacman -Qi $1 &> /dev/null; then
+	if zypper search -i $1 &> /dev/null; then
 		tput setaf 2
   		echo "###############################################################################"
   		echo "################## The package "$1" is already installed"
@@ -16,31 +16,54 @@ func_install() {
     	echo "###############################################################################"
     	echo
     	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1 
+    	sudo zypper in --no-confirm $1 
     fi
 }
 
-###############################################################################
-echo "Installation of the development packages"
-###############################################################################
+echo "My shit sires!"
 
 list=(
-git
-neovim
-brave
-qutebrowser
-firefox
-the_platinum_searcher-bin
-flameshot
-zip
-unrar
-fish
-zathura
-zathura-djvu
-zathura-pdf-mupdf
-yay
-yarn
-npm
+    picom
+    dunst
+    unclutter
+    kitty
+    nitrogen
+    git
+    chromium
+    chromium-ffmpeg-extra
+    sxiv
+    docker
+    firefox
+    flameshot
+
+    # backends
+    node
+    yarn
+    npm
+
+    #terminal
+    fish
+    bat
+    exa
+    gksu
+    ncdu
+
+    #zathura
+    zathura
+    zathura-plugin-djvu
+    zathura-plugin-pdf-mupdf
+
+    # nvim plugins req
+    neovim
+    ripgrep
+    fd
+    libstdc++-devel
+    tree-sitter-devel
+    gcc-c++
+
+    # tools
+    zip
+    unrar
 )
 
 count=0
@@ -55,6 +78,23 @@ done
 
 tput setaf 11;
 echo "################################################################"
-echo "Software has been installed"
+echo "Softwares has been installed"
 echo "################################################################"
 echo;tput sgr0
+
+tput setaf 11;
+echo "################################################################"
+echo "Setting fish to default shell"
+echo "################################################################"
+echo;tput sgr0
+
+echo /usr/bin/fish | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+
+tput setaf 11;
+echo "################################################################"
+echo "Installing NeoVim Plugins"
+echo "################################################################"
+echo;tput sgr0
+
+./vimSetup.sh

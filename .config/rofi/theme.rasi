@@ -1,14 +1,3 @@
-configuration {
-  display-run: "   ";
-  display-drun: "  ";
-  display-window: "  ";
-  drun-display-format: "{icon} {name}";
-  font: "JetBrainsMono Nerd Font Medium 12";
-  modi: "window,run,drun";
-  show-icons: true;
-  width: 30;
-}
-
 * {
   polar-1: #292d3e;
   polar-2: #3B4252;
@@ -38,18 +27,26 @@ configuration {
   spacing: 0;
 }
 
+window {
+  width: 30%;
+}
+
 element {
   padding: 12;
   orientation: vertical;
-  text-color: #ffffff;
+  spacing: 0.4em;
 }
 
-element selected {
-  text-color: #e06c75;
+element-text {
+  text-color: #fff;
+}
+
+element-text selected {
+  text-color: #f7768e;
 }
 
 entry {
-  background-color: #34394f;
+  background-color: #3c4159;
   padding: 12 0 12 3;
   text-color: #ffffff;
 }
@@ -61,6 +58,7 @@ inputbar {
 listview {
   columns: 1;
   lines: 8;
+  width: 10;
 }
 
 mainbox {

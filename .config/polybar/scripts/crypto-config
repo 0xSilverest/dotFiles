@@ -3,10 +3,10 @@ base_currency = USD
 display = price
 
 [bitcoin]
-icon = BTC 
+icon = btc 
 
-[kusama]
-icon = KSM
+[ethereum]
+icon = eth
 
-[cardano]
-icon = ADA
+[near]
+icon = near

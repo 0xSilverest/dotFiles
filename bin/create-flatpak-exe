@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "#!/bin/bash
+
+flatpak run" $1 > "$HOME/bin/$2"
+
+chmod +x "$HOME/bin/$2"
+sudo ln -s $HOME/bin/$2 /bin/$2
