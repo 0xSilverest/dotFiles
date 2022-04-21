@@ -28,7 +28,6 @@ require('packer').startup(function(use)
 
     use {
         'scalameta/nvim-metals',
-        commit = '049646944796674fb221136b2440eee0c7102ab0',
         requires = {
             "nvim-lua/plenary.nvim",
             "mfussenegger/nvim-dap"
@@ -79,12 +78,6 @@ require('packer').startup(function(use)
     use "Pocco81/AutoSave.nvim"
     use "nacro90/numb.nvim"
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
-    use {
-        'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
-        end
-    }
 
 end)
 
