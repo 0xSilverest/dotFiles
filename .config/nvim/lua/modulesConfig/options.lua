@@ -27,7 +27,7 @@ o.completeopt = {
   "noinsert",
 }
 
-o.mouse = "n"
+o.mouse = "a"
 o.shell = "/usr/bin/bash"
 
 o.laststatus = 2

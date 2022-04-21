@@ -21,29 +21,43 @@ set guioptions ""
 
 set font "inconsolata 15"
 
-set default-bg              "#292d3e"
-set default-fg              "#c5cfd8"
-set statusbar-fg            "#c5cfd8"
-set statusbar-bg            "#292d3e"
-set inputbar-bg             "#c5cfd8"
-set inputbar-fg             "#292d3e" 
+set default-bg              "#1a1b26"
+set default-fg              "#c0caf5"
+
+set tabbar-bg               "#1a1b26"
+set tabbar-fg               "#c0caf5"
+
+set statusbar-fg            "#c0caf5"
+set statusbar-bg            "#1a1b26"
+
+set inputbar-bg             "#c0caf5"
+set inputbar-fg             "#1a1b26" 
+
 set notification-error-bg   "#AC4142"
 set notification-error-fg   "#151515"
 set notification-warning-bg "#AC4142"
 set notification-warning-fg "#151515"
+
 set highlight-color         "#e06c75"
 set highlight-active-color  "#6A9FB5"
+
 set completion-highlight-fg "#222530"
 set completion-highlight-bg "#bcc7f4"
-set completion-bg           "#292d3e"
+set completion-bg           "#1a1b26"
 set completion-fg           "#E0E0E0"
 set completion-group-bg     "#939ede" 
-set completion-group-fg     "#292d3e"
+set completion-group-fg     "#1a1b26"
+
 set notification-bg         "#f9526f"
 set notification-fg         "#151515"
 
+set index-bg                "#1a1b26"
+set index-fg                "#c0caf5"
+set index-active-bg         "#414868"
+set index-active-fg         "#c0caf5"
+
 set recolor                 "true"
-set recolor-lightcolor      "#292d3e"
+set recolor-lightcolor      "#1a1b26"
 set recolor-darkcolor       "#E0E0E0"
 set recolor-reverse-video   "true"
 set recolor-keephue         "true"

@@ -35,7 +35,7 @@ SETUVAR fish_pager_color_description:\x23e3be7a
 SETUVAR fish_pager_color_prefix:white
 SETUVAR fish_pager_color_progress:white\x1e\x2d\x2dbold
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/silverest/\x2elocal/share/gem/ruby/2\x2e7\x2e0/bin\x1e/home/silverest/\x2ecargo/bin/\x1e/home/silverest/\x2elocal/bin\x1e/usr/bin/gh\x1e/home/silverest/\x2egem/ruby/2\x2e7\x2e0/bin/\x1e/usr/bin\x1e/usr/local/bin
+SETUVAR fish_user_paths:/home/silverest/\x2espicetify\x1e/home/silverest/\x2elocal/share/gem/ruby/2\x2e7\x2e0/bin\x1e/home/silverest/\x2ecargo/bin/\x1e/home/silverest/\x2elocal/bin\x1e/usr/bin/gh\x1e/home/silverest/\x2egem/ruby/2\x2e7\x2e0/bin/\x1e/usr/bin\x1e/usr/local/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_color_command_duration:pure_color_warning
 SETUVAR pure_color_current_directory:pure_color_primary
