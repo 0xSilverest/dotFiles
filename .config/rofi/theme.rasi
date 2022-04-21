@@ -1,26 +1,10 @@
 * {
-  polar-1: #292d3e;
-  polar-2: #3B4252;
-  polar-3: #434C5E;
-  polar-4: #4C566A;
+  red: #f7768e;
+  purple: #9d7cd8;
+  cyan: #7dcfff;
 
-  snow-1: #D8DEE9;
-  snow-2: #E5E9F0;
-  snow-3: #ECEFF4;
+  background-color: #1a1b26;
 
-  frost-1: #8FBCBB;
-  frost-2: #88C0D0;
-  frost-3: #81A1C1;
-  frost-4: #5E81AC;
-
-  aurora-1: #BF616A;
-  aurora-2: #D08770;
-  aurora-3: #EBCB8B;
-  aurora-4: #A3BE8C;
-  aurora-5: #B48EAD;
-
-  background-color: #292d3e;
-  
   border: 0;
   margin: 0;
   padding: 0;
@@ -46,13 +30,13 @@ element-text selected {
 }
 
 entry {
-  background-color: #3c4159;
-  padding: 12 0 12 3;
+  background-color: #252636;
+  padding: 12 12 12 12;
   text-color: #ffffff;
 }
 
 inputbar {
-  children: [prompt, entry];
+  children: [entry];
 }
 
 listview {
@@ -66,11 +50,11 @@ mainbox {
 }
 
 prompt {
-  background-color: #222635;
+  background-color: #c0caf5;
   enabled: true;
-  font: "FontAwesome 14";
-  padding: 12 3 0 12;
-  text-color: #b19cd9;
+  font: "fontAwesome 20";
+  padding: 3 12 3 12;
+  text-color: #9d7cd8;
 }
 
 window {

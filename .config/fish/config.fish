@@ -26,15 +26,14 @@ set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-en
 # NNN configs
 export NNN_BMS="d:~/Documents;u:/home/silverst/Cam Uploads;D:~/Downloads/"
 export NNN_SSHFS='sshfs -o follow_symlinks'
-export NNN_COLORS='#b19cd9;5'                  
+export NNN_COLORS='#b19cd9;5'
 export NNN_FCOLORS='e3c58677006033f700abc4'
-export NNN_TRASH=1      
+export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
 # export NNN_OPTS="H"
 export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext'
 export PAGER='less -R'
 export TERMINAL='kitty'
-export PGDATA=/usr/local/var/postgres
 
 # Aliases
 alias vim='nvim'
@@ -42,17 +41,14 @@ alias ls='exa'
 alias ll='exa -l'
 alias la='exa -al'
 alias cat='bat'
-# alias ping='prettyping'
-alias nna='nnn -a'
-alias nnc='nnn -c'
 alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
 alias cp='cpg -g'
 alias mv='mvg -g'
 
-#colors
+# TokyoNight Color Palette
 set -l foreground c0caf5
-set -l selection 364A82
+set -l selection 33467C
 set -l comment 565f89
 set -l red f7768e
 set -l orange ff9e64
@@ -70,18 +66,18 @@ set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground
 set -g fish_color_end $orange
 set -g fish_color_error $red
-set -g fish_color_param $cyan
+set -g fish_color_param $purple
 set -g fish_color_comment $comment
 set -g fish_color_selection --background=$selection
 set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $purple
+set -g fish_color_operator $green
 set -g fish_color_escape $pink
 set -g fish_color_autosuggestion $comment
 
 # Completion Pager Colors
 set -g fish_pager_color_progress $comment
 set -g fish_pager_color_prefix $cyan
-set -g fish_pager_color_completion $foreground --underline
+set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -90,3 +86,4 @@ set -g fish_pager_color_description $comment
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 
 export SDKMAN_DIR="$HOME/.sdkman"
+fish_add_path /home/silverest/.spicetify

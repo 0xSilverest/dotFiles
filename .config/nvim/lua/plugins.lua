@@ -14,7 +14,6 @@ require('packer').startup(function(use)
     use 'ms-jpq/coq_nvim'
     use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
 
-    use {'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }}
     use 'ray-x/lsp_signature.nvim'
 
     use 'mfussenegger/nvim-dap'
@@ -26,6 +25,19 @@ require('packer').startup(function(use)
             require("trouble").setup {}
         end
     }
+
+    use {
+        'scalameta/nvim-metals',
+        commit = '049646944796674fb221136b2440eee0c7102ab0',
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "mfussenegger/nvim-dap"
+        },
+    }
+
+    use 'aklt/plantuml-syntax'
+    use 'weirongxu/plantuml-previewer.vim'
+    use 'tyru/open-browser.vim'
 
 -- Cuz I can't code for myself
     use 'github/copilot.vim'
@@ -39,7 +51,6 @@ require('packer').startup(function(use)
 
 -- Theme
     use 'folke/tokyonight.nvim'
-    use 'christianchiarulli/nvcode-color-schemes.vim'
 
     use 'kyazdani42/nvim-web-devicons'
 
@@ -68,20 +79,22 @@ require('packer').startup(function(use)
     use "Pocco81/AutoSave.nvim"
     use "nacro90/numb.nvim"
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
+
 end)
 
 require'nvim-web-devicons'.setup {
   default = true;
 }
 
---vim.g.nvcode_termcolors = 256
+vim.g.tokyonight_style = "night"
+vim.cmd[[colorscheme tokyonight]]
 
-vim.api.nvim_exec(
-[[if (has("termguicolors"))
-    set termguicolors
-    hi LineNr ctermbg=NONE guibg=NONE
-    colorscheme palenight
-endif]], true)
 
 vim.g.tokyonight_lualine_bold = true
 
