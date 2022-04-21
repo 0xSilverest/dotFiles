@@ -32,17 +32,12 @@ metals_config.on_attach = function(client, bufnr)
   require("metals").setup_dap()
 end
 
-vim.cmd [[augroup lsp]]
-vim.cmd [[au!]]
-vim.cmd [[au FileType scala,sbt lua require("metals").initialize_or_attach({metals_config})]]
-vim.cmd [[augroup end]]
-
---local api = vim.api
---local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
---api.nvim_create_autocmd("FileType", {
---  pattern = { "scala", "sbt" },
---  callback = function()
---    require("metals").initialize_or_attach(metals_config)
---  end,
---  group = nvim_metals_group,
---})
+local api = vim.api
+local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
+api.nvim_create_autocmd("FileType", {
+  pattern = { "scala", "sbt" },
+  callback = function()
+    require("metals").initialize_or_attach(metals_config)
+  end,
+  group = nvim_metals_group,
+})
