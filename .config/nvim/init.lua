@@ -26,3 +26,4 @@ cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('
 require 'modules'
 require 'plugins'
 
+vim.g.neovide_transparency=0.93

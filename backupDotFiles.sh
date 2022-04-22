@@ -44,4 +44,9 @@ for name in "${bkpsBins[@]}"; do
 done
 
 git add . 
-git commit -am "$1"
+if(($#>=1))
+then
+    git commit -am "$1"
+else
+    git commit -am "backing up dotFiles"
+fi

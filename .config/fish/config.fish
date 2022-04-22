@@ -1,4 +1,4 @@
-set EDITOR nvim 
+set EDITOR nvim
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
     echo "fish: Unknown command '$argv'"
@@ -23,14 +23,25 @@ export JAVA_HOME=$(sdk home java current)
 
 set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
+set BLK "04"
+set CHR "04"
+set DIR "04"
+set EXE "00"
+set REG "00"
+set HARDLINK "00"
+set SYMLINK "06"
+set MISSING "00"
+set ORPHAN "01"
+set FIFO "0F"
+set SOCK "0F"
+set OTHER "02"
+
 # NNN configs
 export NNN_BMS="d:~/Documents;u:/home/silverst/Cam Uploads;D:~/Downloads/"
 export NNN_SSHFS='sshfs -o follow_symlinks'
-export NNN_COLORS='#b19cd9;5'
-export NNN_FCOLORS='e3c58677006033f700abc4'
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
-# export NNN_OPTS="H"
 export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext'
 export PAGER='less -R'
 export TERMINAL='kitty'
@@ -45,6 +56,7 @@ alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
 alias cp='cpg -g'
 alias mv='mvg -g'
+alias ssh='kitty +kitten ssh'
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
