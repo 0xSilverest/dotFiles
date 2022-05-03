@@ -27,7 +27,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = {
     'rust_analyzer', 'pyright', 'bashls', 'solc', 'yamlls',
     'diagnosticls', 'hls', 'jsonls', 'gopls', 'dockerls',
-    'clojure_lsp', 'grammarly', 'texlab'
+    'clojure_lsp', 'grammarly', 'texlab', 'clangd'
 }
 
 for _, lsp in ipairs(servers) do

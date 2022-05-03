@@ -2,7 +2,6 @@
 -- Ctrl + s -> Opens Tree
 vim.api.nvim_set_keymap('n', '<C-s>', ':NvimTreeToggle<CR>',
     { noremap = true, silent = true })
-
 vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>',
     { noremap = true, silent = true })
 
@@ -94,3 +93,7 @@ vim.api.nvim_set_keymap('n', '<leader>to',
 vim.api.nvim_set_keymap('n', '<leader>e',
     [[<cmd>lua vim.diagnostic.open_float()<CR>]],
     { noremap = true, silent = true })
+
+-- Copilot
+vim.cmd [[imap <silent><script><expr> <C-e> copilot#Accept('\<CR>')]]
+
