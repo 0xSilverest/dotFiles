@@ -24,9 +24,6 @@ set font "inconsolata 15"
 set default-bg              "#1a1b26"
 set default-fg              "#c0caf5"
 
-set tabbar-bg               "#1a1b26"
-set tabbar-fg               "#c0caf5"
-
 set statusbar-fg            "#c0caf5"
 set statusbar-bg            "#1a1b26"
 

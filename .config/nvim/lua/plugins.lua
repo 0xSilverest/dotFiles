@@ -107,7 +107,11 @@ require'lualine'.setup {
 	}
 }
 
-vim.cmd [[let g:coq_settings = { 'auto_start': v:true }]]
+vim.g.coq_settings = {
+    auto_start= true
+}
+
+vim.g.copilot_assume_mapped = true
 
 require 'pluginsConfig.lsp'
 require 'pluginsConfig.gitsigns'

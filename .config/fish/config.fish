@@ -42,7 +42,7 @@ export NNN_SSHFS='sshfs -o follow_symlinks'
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export NNN_TRASH=1
 export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext'
+export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext;n:!neovide;'
 export PAGER='less -R'
 export TERMINAL='kitty'
 
