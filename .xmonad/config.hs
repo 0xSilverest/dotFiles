@@ -30,15 +30,7 @@ import qualified Data.Map as M
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 
-import qualified Codec.Binary.UTF8.String as UTF8
-import Control.Monad (liftM2, join)
-import qualified DBus as D
-import qualified DBus.Client as D
-import XMonad.Hooks.DynamicLog
-
-import Data.List (sortBy)
-import Data.Function (on)
-import XMonad.Util.NamedWindows (getName)
+import Control.Monad (liftM2)
 
 myStartupHook = do
   spawn "$HOME/.xmonad/scripts/autostart.sh"
@@ -101,7 +93,7 @@ myManageHook =
     my10Shifts = ["discord"]
 
 myLayout = MG.magnifierOff (
-  spacingRaw False (Border 2 2 2 2) True (Border 2 2 2 2) True $
+  spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
   avoidStruts $
   mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| Full)
   where
@@ -133,16 +125,10 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm, xK_t), spawn "kitty")
   , ((modm, xK_v), spawn "pavucontrol")
   , ((modm, xK_p), spawn "zathura")
-  --, ((modm, xK_y), spawn "polybar-msg cmd toggle")
-  --, ((modm, xK_x), spawn "arcolinux-logout")
 
   , ((modm, xK_Escape), spawn "xkill")
 
-  --, ((modm, xK_F2), spawn "kdenlive")
-  --, ((modm, xK_F3), spawn "inkscape")
-  --, ((modm, xK_F4), spawn "gimp")
-  --, ((modm, xK_F5), spawn "blender")
-  --, ((modm, xK_F6), spawn "pencil")
+  , ((modm, xK_F5), spawn "blender")
   , ((modm, xK_F8), spawn "lutris")
   , ((modm, xK_F9), spawn "steam")
   , ((modm, xK_F10), spawn "spotify")
@@ -152,6 +138,7 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm .|. controlMask              , xK_o    ), sendMessage MG.ToggleOff  )
   , ((modm .|. controlMask .|. shiftMask, xK_o    ), sendMessage MG.ToggleOn   )
   , ((modm .|. controlMask              , xK_m    ), sendMessage MG.Toggle     )
+  
   -- FUNCTION KEYS
   -- SUPER + SHIFT KEYS
   --, ((modm .|. shiftMask , xK_d ), spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
@@ -197,8 +184,8 @@ myKeys conf@XConfig {modMask = modm} =
   , ((0, xF86XK_AudioPrev), spawn "playerctl previous")
   , ((0, xF86XK_AudioStop), spawn "playerctl stop")
   -- Navigation
-  , ((modm, xK_Right), screenGo R False)
-  , ((modm, xK_Left), screenGo L False)
+  , ((modm, xK_l), screenGo R False)
+  , ((modm, xK_h), screenGo L False)
   , ((modm .|. controlMask, xK_l), screenSwap R False)
   , ((modm .|. controlMask, xK_h), screenSwap L False)
   --------------------------------------------------------------------
