@@ -17,9 +17,13 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:/usr/local/texlive/2022/bin/x86_64-linux/"
 
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.google/google_credentials.json"
+
 export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
 
 export JAVA_HOME=$(sdk home java current)
+
+export GRAAL_HOME="/home/silverest/.sdkman/candidates/java/22.0.0.2.r17-grl"
 
 set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 

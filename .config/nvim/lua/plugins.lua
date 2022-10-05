@@ -12,7 +12,7 @@ require('packer').startup(function(use)
 
     use 'neovim/nvim-lspconfig'
     use 'ms-jpq/coq_nvim'
-    use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
+    --use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
 
     use 'ray-x/lsp_signature.nvim'
 
@@ -38,9 +38,6 @@ require('packer').startup(function(use)
     use 'weirongxu/plantuml-previewer.vim'
     use 'tyru/open-browser.vim'
 
--- Cuz I can't code for myself
-    use 'github/copilot.vim'
-
 -- git shitshow
     use {'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -65,6 +62,11 @@ require('packer').startup(function(use)
         }
 
 -- Quality of life
+    use({"olimorris/persisted.nvim",
+        config = function()
+            require("persisted").setup()
+            require("telescope").load_extension("persisted")
+        end,})
     use 'lukas-reineke/indent-blankline.nvim'
     use 'p00f/nvim-ts-rainbow'
     use {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end}
@@ -75,7 +77,6 @@ require('packer').startup(function(use)
         config = function()
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end}
-    use "Pocco81/AutoSave.nvim"
     use "nacro90/numb.nvim"
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
 
@@ -86,7 +87,7 @@ require'nvim-web-devicons'.setup {
 }
 
 vim.g.tokyonight_style = "night"
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme tokyonight-night]]
 
 
 vim.g.tokyonight_lualine_bold = true
@@ -120,7 +121,6 @@ require 'pluginsConfig.treesitter'
 require 'pluginsConfig.dap'
 require 'pluginsConfig.metals'
 require 'pluginsConfig.nvimtree'
-require 'pluginsConfig.autosave'
 
 require "lsp_signature".setup({
   bind = true,

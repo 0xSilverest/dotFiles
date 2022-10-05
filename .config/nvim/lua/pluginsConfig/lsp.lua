@@ -25,9 +25,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
 local servers = {
-    'rust_analyzer', 'pyright', 'bashls', 'solc', 'yamlls',
-    'diagnosticls', 'hls', 'jsonls', 'gopls', 'dockerls',
-    'clojure_lsp', 'grammarly', 'texlab', 'clangd'
+    'rust_analyzer', 'pyright', 'bashls', 'yamlls',
+    'diagnosticls', 'hls', 'jsonls', 'dockerls',
+    'texlab', 'tsserver', 'svelte', 'tailwindcss',
+    'html', 'cssls', 'elixirls'
 }
 
 for _, lsp in ipairs(servers) do
@@ -36,3 +37,7 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   })
 end
+
+require'lspconfig'.elixirls.setup{
+    cmd = { "/home/silverest/lsp/elixir-ls/language_server.sh" };
+}

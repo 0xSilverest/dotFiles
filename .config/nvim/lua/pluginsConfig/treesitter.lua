@@ -1,7 +1,9 @@
 require('nvim-treesitter.configs').setup {
-    ensure_installed = { "scala", "java",
-        "bash", "rust", "yaml", "json", "solidity", "clojure",
-        "latex", "fish", "bibtex", "dockerfile", "lua" },
+    ensure_installed = { "scala", "java", "haskell",
+        "bash", "rust", "yaml", "json", "elixir",
+        "latex", "fish", "bibtex", "dockerfile", "lua",
+        "typescript", "svelte", "css", "html"
+    },
     
     highlight = {
         enable = true, -- false will disable the whole extension
