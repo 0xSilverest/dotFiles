@@ -9,6 +9,9 @@ function run {
 
 xsetroot -cursor_name left_ptr &
 
+xrandr --output HDMI-1 --left-of DP-2
+xrandr --output DP-2 --mode 2560x1440 --rate 120.00
+
 run variety &
 run nm-applet &
 run xfce4-power-manager &

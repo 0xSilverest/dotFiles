@@ -17,13 +17,14 @@ import XMonad.Actions.Navigation2D
 
 --import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.SpawnOn
-
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spacing
+import XMonad.Actions.Minimize
 
 --import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
+
 import qualified XMonad.Layout.Magnifier as MG
 
 import qualified Data.Map as M
@@ -191,7 +192,7 @@ myKeys conf@XConfig {modMask = modm} =
   --------------------------------------------------------------------
   --  XMONAD LAYOUT KEYS
   -- Minimize
-  --, ((modm, xK_m), withFocused minimizeWindow)
+  , ((modm, xK_m), withFocused minimizeWindow)
   -- Cycle through the available layout algorithms.
   , ((modm, xK_space), sendMessage NextLayout)
   --Focus selected desktop
