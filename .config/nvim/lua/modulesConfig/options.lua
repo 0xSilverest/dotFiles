@@ -50,5 +50,3 @@ o.expandtab = true
 
 o.clipboard = "unnamedplus"
 o.wildmode = "longest,list"
-
-o.shortmess:remove("F"):append("c")
