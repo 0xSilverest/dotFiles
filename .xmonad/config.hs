@@ -14,10 +14,9 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Config.Desktop 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.Navigation2D
+import XMonad.Actions.SpawnOn
 
 --import XMonad.Util.Run(spawnPipe)
-import XMonad.Actions.SpawnOn
-import XMonad.Actions.Minimize
 
 --import XMonad.Layout.Gaps
 import XMonad.Layout.MultiToggle
@@ -49,7 +48,7 @@ myFocusFollowsMouse = False
 
 myBorderWidth = 2
 
-myWorkspaces = ["λ", "β", "γ", "δ", "ε", "τ", "θ", "ϕ", "π", "σ"]
+myWorkspaces = ["λ", "β", "γ", "δ", "ε"] --, "τ", "θ", "ϕ", "π", "σ"]
 
 myBaseConfig = desktopConfig
 
@@ -66,11 +65,11 @@ myManageHook =
   , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "γ" | x <- my3Shifts]
   , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "δ" | x <- my4Shifts]
   , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ε" | x <- my5Shifts]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "τ" | x <- my6Shifts]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "θ" | x <- my7Shifts]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ϕ" | x <- my8Shifts]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "π" | x <- my9Shifts]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "σ" | x <- my10Shifts]
+  --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "τ" | x <- my6Shifts]
+  --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "θ" | x <- my7Shifts]
+  --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ϕ" | x <- my8Shifts]
+  --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "π" | x <- my9Shifts]
+  --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "σ" | x <- my10Shifts]
   , [isFullscreen --> (doF W.focusDown <+> doFullFloat)]
   ]
   where
@@ -86,12 +85,12 @@ myManageHook =
     my2Shifts = []
     my3Shifts = []
     my4Shifts = []
-    my5Shifts = ["gimp", "kdenlive", "inkscape", "blender"]
-    my6Shifts = ["vlc", "mpv"]
-    my7Shifts = ["VirtualBox"]
-    my8Shifts = []
-    my9Shifts = ["steam", "lutris"]
-    my10Shifts = ["discord"]
+    my5Shifts = ["steam", "lutris", "discord"]
+    --my6Shifts = ["vlc", "mpv"]
+    --my7Shifts = ["VirtualBox"]
+    --my8Shifts = []
+    --my9Shifts = ["steam", "lutris"]
+    --my10Shifts = ["discord"]
 
 myLayout = MG.magnifierOff (
   spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
@@ -145,7 +144,7 @@ myKeys conf@XConfig {modMask = modm} =
   --, ((modm .|. shiftMask , xK_d ), spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
   , ((modm .|. shiftMask, xK_r), spawn "xmonad --recompile && xmonad --restart")
   , ((modm .|. shiftMask, xK_q), kill)
-  -- , ((modm .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
+  , ((modm, xK_x ), spawn "xfce4-session-logout")
   -- CONTROL + ALT KEYS
   --
   , ((controlMask .|. mod1Mask, xK_b), spawn "firefox")
@@ -191,8 +190,6 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm .|. controlMask, xK_h), screenSwap L False)
   --------------------------------------------------------------------
   --  XMONAD LAYOUT KEYS
-  -- Minimize
-  , ((modm, xK_m), withFocused minimizeWindow)
   -- Cycle through the available layout algorithms.
   , ((modm, xK_space), sendMessage NextLayout)
   --Focus selected desktop
