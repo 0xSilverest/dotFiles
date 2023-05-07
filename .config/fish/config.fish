@@ -13,8 +13,10 @@ test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $P
 # coursier
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.npm/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/lib/node_modules/"
 export PATH="$PATH:/usr/local/texlive/2022/bin/x86_64-linux/"
 
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.google/google_credentials.json"
@@ -23,7 +25,7 @@ export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silver
 
 export JAVA_HOME=$(sdk home java current)
 
-export GRAAL_HOME="/home/silverest/.sdkman/candidates/java/22.0.0.2.r17-grl"
+export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/22.0.0.2.r17-grl/"
 
 set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
@@ -61,6 +63,8 @@ alias shutdown='systemctl poweroff'
 alias cp='cpg -g'
 alias mv='mvg -g'
 alias ssh='kitty +kitten ssh'
+alias clipboard='strings ~/.local/share/parcellite/history'
+alias hx='helix'
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
@@ -96,10 +100,10 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 
+export NODE_OPTIONS=--openssl-legacy-provider
+
+export SDKMAN_DIR="$HOME/.sdkman"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
-
-export SDKMAN_DIR="$HOME/.sdkman"
-fish_add_path /home/silverest/.spicetify

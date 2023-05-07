@@ -6,13 +6,15 @@ require('packer').startup(function(use)
     use {'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'}}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'jvgrootveld/telescope-zoxide'   
-
+    --
 -- LSPs and stuff
     use 'nvim-treesitter/nvim-treesitter'
 
     use 'neovim/nvim-lspconfig'
-    use 'ms-jpq/coq_nvim'
-    --use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
+    use {'ms-jpq/coq_nvim', branch = 'coq'}
+    use {'ms-jpq/coq.thirdparty', branch = '3p'}
+    use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
+    use 'github/copilot.vim'
 
     use 'ray-x/lsp_signature.nvim'
 

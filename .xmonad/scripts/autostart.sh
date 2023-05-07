@@ -10,7 +10,8 @@ function run {
 xsetroot -cursor_name left_ptr &
 
 xrandr --output HDMI-1 --left-of DP-2
-xrandr --output DP-2 --mode 2560x1440 --rate 120.00
+xrandr --output DP-2 --mode 2560x1440 --rate 120.00 --primary
+xrandr --output HDMI-1 --mode 1920x1080 --rate 60.00
 
 run variety &
 run nm-applet &

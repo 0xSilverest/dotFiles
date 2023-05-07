@@ -95,5 +95,4 @@ vim.api.nvim_set_keymap('n', '<leader>e',
     { noremap = true, silent = true })
 
 -- Copilot
-vim.cmd [[imap <silent><script><expr> <C-e> copilot#Accept('\<CR>')]]
-
+vim.cmd [[imap <silent><script><expr> <C-s> copilot#Accept('\<CR>')]]
