@@ -17,6 +17,8 @@ run variety &
 run nm-applet &
 run xfce4-power-manager &
 
+xboxdrv --detach-kernel-driver --daemon &
+
 numlockx on &
 udiskie &
 

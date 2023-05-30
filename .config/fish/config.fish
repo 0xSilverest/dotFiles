@@ -1,33 +1,66 @@
 set EDITOR nvim
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
-    echo "fish: Unknown command '$argv'"
+    cnf $argv
 end
 
-zoxide init fish | source
+# aliases
+function ls
+    command exa $argv
+end
+
+function ll
+    command exa -l $argv
+end
+
+function la
+    command exa -al $argv
+end 
+
+function cat
+    command bat $argv
+end
+
+function reboot
+    command systemctl reboot $argv
+end
+
+function shutdown
+    command systemctl poweroff $argv
+end
+
+function cp
+    command cpg -g $argv
+end
+
+function mv
+    command mvg -g $argv
+end
+
+function ssh
+    command kitty +kitten ssh $argv
+end
+
+function clipboard
+    command strings $argv ~/.local/share/parcellite/history
+end
 
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH
 
 # coursier
-export PATH="$PATH:$HOME/.local/share/coursier/bin"
-export PATH="$PATH:$HOME/.yarn/bin"
-export PATH="$PATH:$HOME/.npm/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:/usr/local/lib/node_modules/"
-export PATH="$PATH:/usr/local/texlive/2022/bin/x86_64-linux/"
+set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm/bin:$HOME/bin:/usr/local/lib/node_modules/"
 
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.google/google_credentials.json"
+set GOOGLE_APPLICATION_CREDENTIALS "$HOME/.google/google_credentials.json"
 
-export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
+set XDG_DATA_DIRS "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
 
-export JAVA_HOME=$(sdk home java current)
+set JAVA_HOME "/home/silverest/.sdkman/candidates/java/current"
 
-export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/22.0.0.2.r17-grl/"
+#export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/22.0.0.2.r17-grl/"
 
-set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
+#set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
 set BLK "04"
 set CHR "04"
@@ -43,28 +76,14 @@ set SOCK "0F"
 set OTHER "02"
 
 # NNN configs
-export NNN_BMS="d:~/Documents;u:/home/silverst/Cam Uploads;D:~/Downloads/"
-export NNN_SSHFS='sshfs -o follow_symlinks'
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-export NNN_TRASH=1
-export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_PLUG='z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext;n:!neovide;'
-export PAGER='less -R'
-export TERMINAL='kitty'
-
-# Aliases
-alias vim='nvim'
-alias ls='exa'
-alias ll='exa -l'
-alias la='exa -al'
-alias cat='bat'
-alias reboot='systemctl reboot'
-alias shutdown='systemctl poweroff'
-alias cp='cpg -g'
-alias mv='mvg -g'
-alias ssh='kitty +kitten ssh'
-alias clipboard='strings ~/.local/share/parcellite/history'
-alias hx='helix'
+set NNN_BMS "d:~/Documents;u:/home/silverst/Cam Uploads;D:~/Downloads/"
+set NNN_SSHFS 'sshfs -o follow_symlinks'
+set NNN_FCOLORS "$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
+set NNN_TRASH 1
+set NNN_FIFO '/tmp/nnn.fifo'
+set NNN_PLUG 'z:fzopen;j:autojump;p:preview-tui;t:preview-tui-ext;n:!neovide;'
+set PAGER 'less -R'
+set TERMINAL 'kitty'
 
 # TokyoNight Color Palette
 set -l foreground c0caf5
@@ -100,10 +119,14 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 
-export NODE_OPTIONS=--openssl-legacy-provider
-
-export SDKMAN_DIR="$HOME/.sdkman"
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#set -g NODE_OPTIONS --openssl-legacy-provider
+set -e NODE_OPTIONS
 
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+
+zoxide init fish | source
+
+set SDKMAN_DIR "$HOME/.sdkman"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
