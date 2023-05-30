@@ -36,10 +36,6 @@ require('packer').startup(function(use)
         },
     }
 
-    use 'aklt/plantuml-syntax'
-    use 'weirongxu/plantuml-previewer.vim'
-    use 'tyru/open-browser.vim'
-
 -- git shitshow
     use {'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -80,8 +76,6 @@ require('packer').startup(function(use)
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end}
     use "nacro90/numb.nvim"
-    use { 'michaelb/sniprun', run = 'bash ./install.sh'}
-
 end)
 
 require'nvim-web-devicons'.setup {
@@ -133,3 +127,4 @@ require "lsp_signature".setup({
 
 require'hop'.setup()
 require('numb').setup()
+
