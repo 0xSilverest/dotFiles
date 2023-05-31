@@ -1,0 +1,40 @@
+[INFO] [default] [2023-05-27T19:01:37.956Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:01:39.215Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 1259 ms
+[INFO] [default] [2023-05-27T19:01:59.756Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:02:00.888Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 1131 ms
+[INFO] [streamChoices] [2023-05-27T19:02:02.723Z] request done: headerRequestId: [ace7ab99-9c83-4640-b3c8-d4533462566b] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:02:06.840Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:02:07.490Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 650 ms
+[INFO] [streamMessages] [2023-05-27T19:02:07.492Z] message 1 returned. finish reason: [stop]
+[INFO] [streamMessages] [2023-05-27T19:02:07.493Z] message 2 returned. finish reason: [stop]
+[INFO] [streamMessages] [2023-05-27T19:02:07.493Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:02:07.494Z] request done: headerRequestId: [5e4cf06d-4306-48e5-b37d-a48c0a839ebc] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:02:07.495Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:02:08.561Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 1065 ms
+[INFO] [streamMessages] [2023-05-27T19:02:11.621Z] message 0 returned. finish reason: [null]
+[ERROR] [streamChoices] [2023-05-27T19:02:11.622Z] Error parsing extraData: data: {"id":"chatcmpl-7KtSxV2A5N2oZThGN6ztWkrdNOX6B","object
+[INFO] [streamChoices] [2023-05-27T19:02:11.623Z] request done: headerRequestId: [9920b922-9dba-464a-bf17-3dc4f30e5e9a] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:11:17.100Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:11:17.865Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 764 ms
+[INFO] [streamMessages] [2023-05-27T19:11:18.484Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:11:18.485Z] request done: headerRequestId: [0ffd9912-0417-4fc1-aec6-2e14e70d894b] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:11:18.486Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:11:19.249Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 763 ms
+[INFO] [streamMessages] [2023-05-27T19:11:19.250Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:11:19.250Z] request done: headerRequestId: [9b759449-a042-4ff9-9a2f-050e1333eedd] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:11:50.748Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:11:51.465Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 716 ms
+[INFO] [streamMessages] [2023-05-27T19:11:52.809Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:11:52.810Z] request done: headerRequestId: [ae0e9ee0-85a4-4557-8fb3-02d16c5be9d2] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:11:52.811Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:11:53.283Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 471 ms
+[INFO] [streamMessages] [2023-05-27T19:11:53.295Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:11:53.296Z] request done: headerRequestId: [98fd4b6e-5bb7-4d4c-895a-d5e55e50c078] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:12:41.566Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:12:42.058Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 491 ms
+[INFO] [streamMessages] [2023-05-27T19:12:42.060Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:12:42.061Z] request done: headerRequestId: [1f99a437-4e3b-44b1-a82d-620d6780ec89] model deployment ID: [xa68ad36c6722]
+[INFO] [default] [2023-05-27T19:12:42.063Z] [fetchChat] engine https://copilot-proxy.githubusercontent.com/v1/chat
+[INFO] [default] [2023-05-27T19:12:42.524Z] request.response: [https://copilot-proxy.githubusercontent.com/v1/chat/completions] took 461 ms
+[INFO] [streamMessages] [2023-05-27T19:12:42.525Z] message 0 returned. finish reason: [stop]
+[INFO] [streamChoices] [2023-05-27T19:12:42.526Z] request done: headerRequestId: [4570ac38-2eaf-4d20-a230-5674c66cf19d] model deployment ID: [xa68ad36c6722]

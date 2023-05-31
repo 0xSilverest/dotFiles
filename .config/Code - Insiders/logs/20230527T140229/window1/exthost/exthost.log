@@ -1,0 +1,56 @@
+2023-05-27 14:02:29.755 [info] Extension host with pid 26305 started
+2023-05-27 14:02:29.773 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-05-27 14:02:29.777 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-05-27 14:02:29.819 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-27 14:02:29.850 [info] Eager extensions activated
+2023-05-27 14:02:29.854 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:02:29.855 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:02:31.553 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-27 14:02:31.585 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-27 14:02:34.573 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 14:02:34.612 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 14:02:34.637 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-27 14:05:16.076 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:21.815 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:24.559 [info] ExtensionService#_doActivateExtension GitHub.copilot, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:24.701 [error] Activating extension GitHub.copilot failed due to an error:
+2023-05-27 14:05:24.701 [error] Error: command 'github.copilot.toggleCopilot' already exists
+    at e.ExtHostCommands.registerCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:128963)
+    at Object.registerCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:117:23415)
+    at t.registerCommandWithTelemetry (/home/silverest/.vscode-insiders/extensions/github.copilot-1.86.82/dist/extension.js:8:845036)
+    at /home/silverest/.vscode-insiders/extensions/github.copilot-1.86.82/dist/extension.js:8:829316
+    at t.activate (/home/silverest/.vscode-insiders/extensions/github.copilot-1.86.82/dist/extension.js:8:829532)
+    at b.n (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:6644)
+    at b.m (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:6607)
+    at b.l (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:6064)
+2023-05-27 14:05:52.401 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-27 14:05:52.416 [info] Extension host with pid 26305 exiting with code 0
+2023-05-27 14:05:52.971 [info] Extension host with pid 17138 started
+2023-05-27 14:05:52.986 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-27 14:05:52.996 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-05-27 14:05:52.998 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-05-27 14:05:53.009 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-27 14:05:53.028 [info] Eager extensions activated
+2023-05-27 14:05:53.045 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:53.046 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:53.050 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:53.115 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 14:05:53.193 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-27 14:05:53.213 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-27 14:06:05.045 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 14:06:05.055 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 14:07:43.177 [info] ExtensionService#_doActivateExtension scalameta.metals, startup: false, activationEvent: 'onLanguage:scala'
+2023-05-27 14:07:43.348 [error] Error: Unable to write to Workspace Settings because no workspace is opened. Please open a workspace first and try again.
+    at e.ConfigurationEditing.y (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:51215)
+    at e.ConfigurationEditing.E (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:54132)
+    at e.ConfigurationEditing.n (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:48244)
+    at Object.factory (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:48144)
+    at A.h (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:97:15915)
+    at A.j (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:97:16019)
+    at vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:97:15957
+2023-05-27 14:11:17.827 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: false, activationEvent: '*'
+2023-05-27 14:11:18.907 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 14:13:01.617 [info] ExtensionService#_doActivateExtension vscode.grunt, startup: false, activationEvent: 'onTaskType:grunt'
+2023-05-27 14:13:01.619 [info] ExtensionService#_doActivateExtension vscode.gulp, startup: false, activationEvent: 'onTaskType:gulp'
+2023-05-27 14:13:01.621 [info] ExtensionService#_doActivateExtension vscode.jake, startup: false, activationEvent: 'onTaskType:jake'
+2023-05-27 14:13:01.622 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTaskType:npm'

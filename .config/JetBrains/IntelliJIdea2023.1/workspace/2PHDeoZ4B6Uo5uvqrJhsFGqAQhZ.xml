@@ -1,0 +1,208 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="reikning" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file>
+        <entry file="file://$PROJECT_DIR$/src/main/scala/reikning/App.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/reikning/core/Converter.scala">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="Markdown">
+      <summary usageCount="1" lastUsed="1683105213150" />
+    </fileType>
+    <fileType name="Scala">
+      <summary usageCount="2" lastUsed="1683105285509" />
+    </fileType>
+    <fileType name="textmate">
+      <summary usageCount="3" lastUsed="1683105325641" />
+    </fileType>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/main/scala/reikning/App.scala" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="Markdown">
+      <summary usageCount="1" lastUsage="1683105213150" />
+    </language>
+    <language id="Scala">
+      <summary usageCount="2" lastUsage="1683105285509" />
+    </language>
+    <language id="textmate">
+      <summary usageCount="3" lastUsage="1683105325641" />
+    </language>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="reikning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reikning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reikning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reikning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main/scala}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reikning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main/scala}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main/scala/reikning}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="reikning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main/scala}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main/scala/reikning}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/reikning/src/main/scala/reikning/core}" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="Application.app" />
+    </history>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1775000" />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layoutV2>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17731191" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" show_stripe_button="false" weight="0.3301282" />
+      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Dependencies" order="4" show_stripe_button="false" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="Database" order="1" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.25" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="sbt" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="Web Inspector" order="4" weight="0.25" />
+      <unified_weights bottom="0.3301282" left="0.17731191" />
+    </layoutV2>
+    <recentWindows>
+      <value>Project</value>
+      <value>Run</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2798" y="432" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1683105498558">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2798" y="432" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1683105498558" />
+    <state width="2486" height="431" key="GridCell.Tab.0.bottom" timestamp="1683105528144">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2486" height="431" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1683105528144" />
+    <state width="2486" height="431" key="GridCell.Tab.0.center" timestamp="1683105528144">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2486" height="431" key="GridCell.Tab.0.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1683105528144" />
+    <state width="2486" height="431" key="GridCell.Tab.0.left" timestamp="1683105528144">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2486" height="431" key="GridCell.Tab.0.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1683105528144" />
+    <state width="2486" height="431" key="GridCell.Tab.0.right" timestamp="1683105528144">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2486" height="431" key="GridCell.Tab.0.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1683105528144" />
+    <state x="2611" y="404" width="1226" height="789" key="new project wizard" timestamp="1683109782992">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2611" y="404" width="1226" height="789" key="new project wizard/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1683109782992" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SHOW_PREVIEW" is_vertical_split="false">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MMSoft_Facture_23-03.tex" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MMSoft_Facture_23-04.tex" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/reikning/core/Converter.scala" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MMSoft_Facture_23-05.tex" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1243" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/reikning/App.scala" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

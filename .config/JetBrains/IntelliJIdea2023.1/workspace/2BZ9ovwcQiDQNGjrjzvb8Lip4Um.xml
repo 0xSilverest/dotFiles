@@ -1,0 +1,772 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="mmcall-cloudprnt" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="DatabaseView">
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/CPUtilService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/controllers/PrinterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/PollRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/messaging/RedisMessageSubscriber.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/MmCallCloudPrntApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrinterStatusService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2580">
+              <caret line="145" column="2" selection-start-line="145" selection-start-column="2" selection-end-line="145" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrintJobManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <folding>
+                <element signature="e#1828#1829#0" expanded="true" />
+                <element signature="e#1902#1903#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="AUTO_DETECTED">
+      <summary usageCount="1" lastUsed="1666363619976" />
+    </fileType>
+    <fileType name="GitIgnore file">
+      <summary usageCount="11" lastUsed="1667402943127" />
+    </fileType>
+    <fileType name="Gradle">
+      <summary usageCount="16" lastUsed="1668439390861" />
+    </fileType>
+    <fileType name="JAVA">
+      <summary usageCount="332" lastUsed="1669020174839" />
+    </fileType>
+    <fileType name="Markdown">
+      <summary usageCount="1" lastUsed="1666363624206" />
+    </fileType>
+    <fileType name="PLAIN_TEXT">
+      <summary usageCount="1" lastUsed="1666363619994" />
+    </fileType>
+    <fileType name="Properties">
+      <summary usageCount="3" lastUsed="1669020174881" />
+    </fileType>
+    <fileType name="YAML">
+      <summary usageCount="15" lastUsed="1669020174673" />
+    </fileType>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Publishing</find>
+      <find>phone</find>
+      <find>Mac address already</find>
+      <find>SetId</find>
+      <find>update</find>
+      <find>printer</find>
+      <find>ToUppe</find>
+      <find>urgen</find>
+      <find>&quot;PrinterEvent</find>
+      <find>adding</find>
+      <find>info(prin</find>
+      <find>Printer MAC</find>
+      <find>Received</find>
+      <find>Generatin</find>
+      <find>PrinterIdEntr</find>
+      <find>print</find>
+      <find>status</find>
+      <find>unable</find>
+      <find>for(</find>
+      <find>unab</find>
+      <find>Error decoding</find>
+      <find>ifP</find>
+      <find>orElse</find>
+      <find>process ti</find>
+      <find>Failed</find>
+      <find>convertDoc</find>
+      <find>parsing</find>
+      <find>decoded s</find>
+      <find>Getting</find>
+      <find>Timed</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/documents</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp/controllers</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/messaging</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterEntry.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/ClientActionRequest.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/MessagingPublisher.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrinterManager.java" />
+      <option value="$PROJECT_DIR$/tmp--463255121.stm" />
+      <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/ClientActions.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/messaging/RedisMessageSubscriber.java" />
+      <option value="$PROJECT_DIR$/build.gradle" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/MessagingReceiver.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/documents/MarkupDocumentBuilder.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/RequestsLogger.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/MarkupService.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/PrinterStatus.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/EntryEventType.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterIdEntry.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterError.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterEmailEntry.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterErrorSnapshot.java" />
+      <option value="$PROJECT_DIR$/application.yml" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/MmCallCloudPrntApplication.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrintJobManager.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/controllers/PrinterController.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrinterStatusService.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/CPUtilService.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="GitIgnore">
+      <summary usageCount="11" lastUsage="1667402943127" />
+    </language>
+    <language id="Groovy">
+      <summary usageCount="16" lastUsage="1668439390861" />
+    </language>
+    <language id="JAVA">
+      <summary usageCount="332" lastUsage="1669020174839" />
+    </language>
+    <language id="Markdown">
+      <summary usageCount="1" lastUsage="1666363624206" />
+    </language>
+    <language id="Properties">
+      <summary usageCount="3" lastUsage="1669020174881" />
+    </language>
+    <language id="TEXT">
+      <summary usageCount="1" lastUsage="1666363619994" />
+    </language>
+    <language id="yaml">
+      <summary usageCount="15" lastUsage="1669020174673" />
+    </language>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcp" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcp" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="PrinterController" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcp" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mcp" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MMCallCloudPrnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mmcall-cloudprnt" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="Spring Boot.MmCallCloudPrntApplication" executorId="Run" />
+      <element setting="Spring Boot.MmCallCloudPrntApplication" executorId="Debug" />
+    </history>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="79038000" />
+  </component>
+  <component name="ToolWindowManager">
+    <layout>
+      <window_info id="Space Code Reviews" />
+      <window_info id="Pull Requests" />
+      <window_info id="Commit" />
+      <window_info id="Bookmarks" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20474139" />
+      <window_info id="Learn" order="2" />
+      <window_info id="Structure" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="scala-trace-log-viewer" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="internal-profiler" />
+      <window_info anchor="bottom" id="Internal Method Tracing" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" />
+      <window_info anchor="bottom" id="Dependency Checker" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32941598" />
+      <window_info anchor="bottom" id="Run" order="2" show_stripe_button="false" weight="0.2923789" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Problems View" order="6" weight="0.4312678" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Endpoints" order="9" />
+      <window_info anchor="bottom" id="Services" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Build" order="12" weight="0.43143657" />
+      <window_info anchor="bottom" id="Dependencies" order="13" weight="0.32975745" />
+      <window_info anchor="right" id="sbt" />
+      <window_info anchor="right" id="documentation.v2" side_tool="true" />
+      <window_info anchor="right" id="Layout Validation" />
+      <window_info anchor="right" id="bsp" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="0" />
+      <window_info anchor="right" id="Database" order="1" weight="0.3303221" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Notifications" order="3" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Space Code Reviews" />
+      <window_info id="Pull Requests" />
+      <window_info id="Commit" />
+      <window_info id="Bookmarks" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.27376276" />
+      <window_info id="Learn" order="2" />
+      <window_info id="Structure" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="scala-trace-log-viewer" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="internal-profiler" />
+      <window_info anchor="bottom" id="Internal Method Tracing" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" />
+      <window_info anchor="bottom" id="Dependency Checker" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32941598" />
+      <window_info anchor="bottom" id="Run" order="2" show_stripe_button="false" weight="0.2923789" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Problems View" order="6" weight="0.4312678" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Endpoints" order="9" />
+      <window_info anchor="bottom" id="Services" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Build" order="12" weight="0.43143657" />
+      <window_info anchor="bottom" id="Dependencies" order="13" weight="0.32975745" />
+      <window_info anchor="right" id="sbt" />
+      <window_info anchor="right" id="documentation.v2" side_tool="true" />
+      <window_info anchor="right" id="Layout Validation" />
+      <window_info anchor="right" id="bsp" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="0" />
+      <window_info anchor="right" id="Database" order="1" weight="0.3303221" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Notifications" order="3" weight="0.25" />
+    </layout-to-restore>
+    <recentWindows>
+      <value>Project</value>
+      <value>Find</value>
+      <value>Build</value>
+      <value>Run</value>
+      <value>Debug</value>
+      <value>Database</value>
+      <value>Problems View</value>
+      <value>Dependencies</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2848" y="401" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1666363629966">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="696" y="301" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1666349800630" />
+    <state x="2848" y="401" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1666363629966" />
+    <state width="1225" height="382" key="GridCell.Tab.0.bottom" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.0.center" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.0.center/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.0.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.0.left" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.0.left/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.0.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.0.right" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.0.right/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.0.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.1.bottom" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.1.bottom/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.1.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.1.center" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.1.center/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.1.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.1.left" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.1.left/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.1.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="382" key="GridCell.Tab.1.right" timestamp="1668703992154">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="905" height="766" key="GridCell.Tab.1.right/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1667555709851" />
+    <state width="1225" height="382" key="GridCell.Tab.1.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668703992154" />
+    <state width="1225" height="533" key="GridCell.Tab.2.bottom" timestamp="1667557081330">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1225" height="533" key="GridCell.Tab.2.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1667557081330" />
+    <state width="1225" height="533" key="GridCell.Tab.2.center" timestamp="1667557081330">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1225" height="533" key="GridCell.Tab.2.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1667557081330" />
+    <state width="1225" height="533" key="GridCell.Tab.2.left" timestamp="1667557081330">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1225" height="533" key="GridCell.Tab.2.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1667557081330" />
+    <state width="1225" height="533" key="GridCell.Tab.2.right" timestamp="1667557081330">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1225" height="533" key="GridCell.Tab.2.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1667557081330" />
+    <state x="417" y="274" key="caller.chooser.dialog" timestamp="1666349743657">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="417" y="274" key="caller.chooser.dialog/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1666349743657" />
+    <state x="2848" y="348" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1668444880526">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="696" y="261" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1666196448438" />
+    <state x="2848" y="348" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668444880526" />
+    <state x="3382" y="456" width="911" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1667555191146">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3382" y="456" width="911" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1667555191146" />
+    <state x="2913" y="464" width="573" height="508" key="find.popup" timestamp="1668775635451">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="673" y="284" width="573" height="508" key="find.popup/1920.0.2560.1440/0.0.1920.1080@0.0.1920.1080" timestamp="1668702632780" />
+    <state x="2913" y="464" width="573" height="508" key="find.popup/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1668775635451" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/ClientActionRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/MessagingPublisher.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrinterManager.java" />
+    <entry file="file://$PROJECT_DIR$/tmp--463255121.bin" />
+    <entry file="file://$PROJECT_DIR$/tmp--463255121.stm" />
+    <entry file="file://$PROJECT_DIR$/HELP.md" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/ClientActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/documents/MarkupDocumentBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="e#2140#2141#0" expanded="true" />
+            <element signature="e#2183#2184#0" expanded="true" />
+            <element signature="e#3841#3842#0" expanded="true" />
+            <element signature="e#3929#3930#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrintJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/BarcodeReaderInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/DisplayInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/BarcodeReaderScan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/EntryEventType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/messaging/MessagePublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/messaging/RedisMessagePublisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/ApplicationConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/RequestsLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/RedisConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/MessagingReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/MarkupService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="87" selection-start-line="28" selection-start-column="87" selection-end-line="28" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/PollResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterErrorEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/PrinterErrorSnapshot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" selection-start-column="31" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/PrinterStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/CPUtilService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/controllers/PrinterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/entities/message/PollRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/configuration/messaging/RedisMessageSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/MmCallCloudPrntApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrinterStatusService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="145" column="2" selection-start-line="145" selection-start-column="2" selection-end-line="145" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmcall/mcp/services/PrintJobManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="e#1828#1829#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

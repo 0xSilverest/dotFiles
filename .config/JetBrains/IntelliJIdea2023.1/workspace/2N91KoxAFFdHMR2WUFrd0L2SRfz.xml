@@ -1,0 +1,271 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="loom-test" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file>
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/PatternMatching.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="864">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/LenTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="JAVA">
+      <summary usageCount="11" lastUsed="1681477023755" />
+    </fileType>
+    <fileType name="XML">
+      <summary usageCount="1" lastUsed="1679061424754" />
+    </fileType>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/main/java/org/example/PatternMatching.java" />
+      <option value="$PROJECT_DIR$/src/main/java/org/example/LenTest.java" />
+      <option value="$PROJECT_DIR$/src/main/java/org/example/Main.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="JAVA">
+      <summary usageCount="11" lastUsage="1681477023755" />
+    </language>
+    <language id="XML">
+      <summary usageCount="1" lastUsage="1679061424754" />
+    </language>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="loom-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loom-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loom-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/main}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loom-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/main/java}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loom-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/main/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/main/java/org/example}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="loom-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/loom-test/src/test}" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="Application.Main" />
+      <element setting="Application.LenTest" />
+      <element setting="Application.PatternMatching" />
+    </history>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7481000" />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layoutV2>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11665358" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" show_stripe_button="false" weight="0.32941598" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Build" order="5" weight="0.32941598" />
+      <window_info anchor="bottom" id="Dependencies" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Debug" order="7" show_stripe_button="false" weight="0.3297568" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="Database" order="1" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.25" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="Web Inspector" order="5" weight="0.25" />
+      <unified_weights bottom="0.32941598" left="0.11665358" />
+    </layoutV2>
+    <recentWindows>
+      <value>Run</value>
+      <value>Build</value>
+      <value>Project</value>
+      <value>Debug</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2921" y="360" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1679061749769">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2921" y="360" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679061749769" />
+    <state width="1207" height="430" key="GridCell.Tab.0.bottom" timestamp="1681477064397">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="430" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1681477064397" />
+    <state width="1207" height="430" key="GridCell.Tab.0.center" timestamp="1681477064397">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="430" key="GridCell.Tab.0.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1681477064397" />
+    <state width="1207" height="430" key="GridCell.Tab.0.left" timestamp="1681477064397">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="430" key="GridCell.Tab.0.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1681477064397" />
+    <state width="1207" height="430" key="GridCell.Tab.0.right" timestamp="1681477064397">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="430" key="GridCell.Tab.0.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1681477064397" />
+    <state width="1191" height="188" key="GridCell.Tab.1.bottom" timestamp="1679931250510">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1191" height="188" key="GridCell.Tab.1.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679931250510" />
+    <state width="1191" height="188" key="GridCell.Tab.1.center" timestamp="1679931250510">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1191" height="188" key="GridCell.Tab.1.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679931250510" />
+    <state width="1191" height="188" key="GridCell.Tab.1.left" timestamp="1679931250510">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1191" height="188" key="GridCell.Tab.1.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679931250510" />
+    <state width="1191" height="188" key="GridCell.Tab.1.right" timestamp="1679931250510">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1191" height="188" key="GridCell.Tab.1.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679931250510" />
+    <state x="2073" y="490" width="971" height="496" key="IDE.errors.dialog" timestamp="1680268310873">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2073" y="490" width="971" height="496" key="IDE.errors.dialog/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1680268310873" />
+    <state x="2668" y="324" key="SettingsEditor" timestamp="1679061839633">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2668" y="324" key="SettingsEditor/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679061839633" />
+    <state x="2611" y="401" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1680275481188">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2611" y="401" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1680275481188" />
+    <state x="2861" y="345" width="790" height="697" key="search.everywhere.popup" timestamp="1679674282494">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2861" y="345" width="790" height="697" key="search.everywhere.popup/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1679674282494" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/example/PatternMatching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/example/LenTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/example/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI" />
+      <state key="GlobalLibrariesConfigurable.UI" />
+      <state key="JdkListConfigurable.UI" />
+      <state key="ModuleStructureConfigurable.UI" />
+      <state key="ProjectLibrariesConfigurable.UI" />
+    </states>
+  </component>
+</project>

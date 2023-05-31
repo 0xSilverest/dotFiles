@@ -1,0 +1,1 @@
+Select * from clients left join client_tags on clients.id = client_tags.client_id where 'TQiFKK-GGrXLpA' in (client_tags.tags);

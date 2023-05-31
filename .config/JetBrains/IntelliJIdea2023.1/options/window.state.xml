@@ -1,0 +1,70 @@
+<application>
+  <component name="DimensionService">
+    <location key="find.popup.1920.0.2560.1440" x="2677" y="470" />
+    <location key="find.popup.0.0.1920.1080" x="449" y="247" />
+    <location key="find.popup.0.360.1920.1080" x="689" y="644" />
+    <location key="find.popup.1920.0.2560.1440@144dpi" x="2732" y="325" />
+    <size key="GridCell.Tab.0.left.1920.0.2560.1440" width="2486" height="431" />
+    <size key="GridCell.Tab.0.center.1920.0.2560.1440" width="2486" height="431" />
+    <size key="GridCell.Tab.0.right.1920.0.2560.1440" width="2486" height="431" />
+    <size key="GridCell.Tab.0.bottom.1920.0.2560.1440" width="2486" height="431" />
+    <size key="find.popup.1920.0.2560.1440" width="1042" height="496" />
+    <size key="find.popup.0.0.1920.1080" width="1017" height="582" />
+    <size key="GridCell.Tab.0.left.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.0.center.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.0.right.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.0.bottom.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.1.left.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.1.center.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.1.right.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.1.bottom.0.0.1920.1080" width="1528" height="570" />
+    <size key="GridCell.Tab.2.left.0.0.1920.1080" width="635" height="421" />
+    <size key="GridCell.Tab.2.center.0.0.1920.1080" width="635" height="421" />
+    <size key="GridCell.Tab.2.right.0.0.1920.1080" width="635" height="421" />
+    <size key="GridCell.Tab.2.bottom.0.0.1920.1080" width="635" height="421" />
+    <size key="GridCell.Tab.1.left.1920.0.2560.1440" width="1785" height="321" />
+    <size key="GridCell.Tab.1.center.1920.0.2560.1440" width="1785" height="321" />
+    <size key="GridCell.Tab.1.right.1920.0.2560.1440" width="1785" height="321" />
+    <size key="GridCell.Tab.1.bottom.1920.0.2560.1440" width="1785" height="321" />
+    <size key="GridCell.Tab.2.left.1920.0.2560.1440" width="2138" height="685" />
+    <size key="GridCell.Tab.2.center.1920.0.2560.1440" width="2138" height="685" />
+    <size key="GridCell.Tab.2.right.1920.0.2560.1440" width="2138" height="685" />
+    <size key="GridCell.Tab.2.bottom.1920.0.2560.1440" width="2138" height="685" />
+    <size key="find.popup.0.360.1920.1080" width="747" height="508" />
+    <size key="find.popup.1920.0.2560.1440@144dpi" width="961" height="786" />
+    <size key="GridCell.Tab.0.left.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.0.center.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.0.right.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.0.bottom.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.1.left.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.1.center.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.1.right.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.1.bottom.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.2.left.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.2.center.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.2.right.0.360.1920.1080" width="1260" height="446" />
+    <size key="GridCell.Tab.2.bottom.0.360.1920.1080" width="1260" height="446" />
+  </component>
+  <component name="WindowManager">
+    <frame x="2" y="2" width="1912" height="1072" />
+  </component>
+  <component name="WindowStateApplicationService">
+    <state x="2930" y="623" width="520" height="140" key="ProcessPopupWindow" timestamp="1684254642030">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2947" y="645" width="532" height="152" key="ProcessPopupWindow/1920.0.2560.1440/0.0.1920.1080" timestamp="1678661264978" />
+    <state x="2930" y="623" width="520" height="140" key="ProcessPopupWindow/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684254642030" />
+    <state width="1559" height="123" key="ShowUsagesActions.dimensionServiceKey" timestamp="1685523377916">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1559" height="123" key="ShowUsagesActions.dimensionServiceKey/1920.0.2560.1440/0.0.1920.1080" timestamp="1685523377916" />
+    <state width="300" height="422" key="Vcs.CompareWithSelectedRevision.Popup" timestamp="1677591347247">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="300" height="422" key="Vcs.CompareWithSelectedRevision.Popup/1920.0.2560.1440/0.0.1920.1080" timestamp="1677591347247" />
+    <state x="3198" y="732" width="2552" height="1404" key="WELCOME_SCREEN" timestamp="1677865385415">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3198" y="732" width="2552" height="1404" key="WELCOME_SCREEN/1920.0.2560.1440/0.0.1920.1080" timestamp="1677865385415" />
+  </component>
+</application>

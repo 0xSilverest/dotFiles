@@ -1,0 +1,1 @@
+set synchronous_commit = OFF;

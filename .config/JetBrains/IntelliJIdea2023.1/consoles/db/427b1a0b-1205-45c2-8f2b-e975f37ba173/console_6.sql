@@ -1,0 +1,1 @@
+SELECT * FROM clients WHERE site_id='site10';

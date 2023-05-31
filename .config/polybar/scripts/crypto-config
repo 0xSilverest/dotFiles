@@ -1,0 +1,12 @@
+[general]
+base_currency = USD
+display = price
+
+[bitcoin]
+icon = btc 
+
+[ethereum]
+icon = eth
+
+[near]
+icon = near

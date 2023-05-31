@@ -1,0 +1,1 @@
+select * from clients c join coordinator_info ci on c.id = ci.client_id where c.tags ? 'UuumljTH';

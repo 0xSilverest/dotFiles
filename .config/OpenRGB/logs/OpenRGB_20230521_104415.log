@@ -1,0 +1,181 @@
+    OpenRGB v0.8
+    Commit:  from 
+    Launched: 20230521_104415
+====================================================================================================
+
+0     |Info:    Found file: RGB ZBI.orp attempting to validate header
+0     |Info:    Valid v3 profile found for RGB ZBI
+1001  |Info:    ------------------------------------------------------
+1001  |Info:    |               Start device detection               |
+1001  |Info:    ------------------------------------------------------
+1001  |Info:    Initializing HID interfaces: Success
+1005  |Info:    ------------------------------------------------------
+1005  |Info:    |             Detecting I2C interfaces               |
+1005  |Info:    ------------------------------------------------------
+1007  |Info:    Registering I2C interface: /dev/i2c-3 Device 10DE:2504 Subsystem: 1458:407B
+1007  |Info:    Registering I2C interface: /dev/i2c-1 Device 10DE:2504 Subsystem: 1458:407B
+1007  |Info:    Registering I2C interface: /dev/i2c-6 Device 1022:790B Subsystem: 1462:7D14
+1007  |Info:    Registering I2C interface: /dev/i2c-4 Device 10DE:2504 Subsystem: 1458:407B
+1007  |Info:    Registering I2C interface: /dev/i2c-2 Device 10DE:2504 Subsystem: 1458:407B
+1008  |Info:    Registering I2C interface: /dev/i2c-0 Device 10DE:2504 Subsystem: 1458:407B
+1008  |Info:    Registering I2C interface: /dev/i2c-7 Device 1022:790B Subsystem: 1462:7D14
+1008  |Info:    Registering I2C interface: /dev/i2c-5 Device 1022:790B Subsystem: 1462:7D14
+1008  |Info:    ------------------------------------------------------
+1008  |Info:    |               Detecting I2C devices                |
+1008  |Info:    ------------------------------------------------------
+1270  |Info:    [ENE DRAM] Registering RGB controller
+1422  |Info:    [ENE DRAM] Registering RGB controller
+2032  |Info:    ------------------------------------------------------
+2032  |Info:    |               Detecting I2C PCI devices            |
+2032  |Info:    ------------------------------------------------------
+2121  |Info:    [Gigabyte AORUS RTX3060 ELITE 12G] Registering RGB controller
+2166  |Info:    [Gigabyte AORUS RTX3060 ELITE 12G] Registering RGB controller
+2167  |Info:    ------------------------------------------------------
+2167  |Info:    |               Detecting HID devices                |
+2167  |Info:    ------------------------------------------------------
+2167  |Info:    ------------------------------------------------------
+2167  |Info:    |              Detecting other devices               |
+2167  |Info:    ------------------------------------------------------
+2170  |Info:    ------------------------------------------------------
+2170  |Info:    |                Detection completed                 |
+2170  |Info:    ------------------------------------------------------
+3693  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+3693  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+3693  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+3693  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+4215  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+4215  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+4215  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+4215  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+7323  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+7324  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+7324  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+7324  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+7701  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+7701  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+7701  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+7701  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+7923  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+7923  |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+7923  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+7924  |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+16215 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+16215 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+16215 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+16215 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+17189 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+17189 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+17189 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+17189 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+26052 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+26052 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+26052 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+26052 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+42318 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+42318 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+42318 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+42318 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+42570 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+42570 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+42570 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+42570 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+42854 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+42854 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+42854 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+42854 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+46122 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+46122 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+46122 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+46122 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+46406 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+46407 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+46407 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+46407 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+46609 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+46609 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+46609 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+46609 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+52225 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+52225 |Info:    Profile loading: FAILED! for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+52225 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+52225 |Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+129677|Info:    Found file: RGB ZBI.orp attempting to validate header
+129677|Info:    Valid v3 profile found for RGB ZBI
+133972|Info:    Found file: RGB ZBI.orp attempting to validate header
+133972|Info:    Valid v3 profile found for RGB ZBI
+134142|Info:    Found file: RGB ZBI.orp attempting to validate header
+134142|Info:    Valid v3 profile found for RGB ZBI
+134957|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+134957|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+134957|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+134957|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+137375|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+137375|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+137375|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+137375|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+137771|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+137771|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+137771|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+137771|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+138173|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+138173|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+138173|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+138173|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+138422|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+138422|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+138422|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+138422|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+138917|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+138917|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+138917|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+138917|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+145973|Info:    ------------------------------------------------------
+145973|Info:    |               Start device detection               |
+145973|Info:    ------------------------------------------------------
+145973|Info:    Initializing HID interfaces: Success
+145978|Info:    ------------------------------------------------------
+145978|Info:    |             Detecting I2C interfaces               |
+145978|Info:    ------------------------------------------------------
+145978|Info:    Registering I2C interface: /dev/i2c-3 Device 10DE:2504 Subsystem: 1458:407B
+145978|Info:    Registering I2C interface: /dev/i2c-1 Device 10DE:2504 Subsystem: 1458:407B
+145978|Info:    Registering I2C interface: /dev/i2c-6 Device 1022:790B Subsystem: 1462:7D14
+145978|Info:    Registering I2C interface: /dev/i2c-4 Device 10DE:2504 Subsystem: 1458:407B
+145978|Info:    Registering I2C interface: /dev/i2c-2 Device 10DE:2504 Subsystem: 1458:407B
+145978|Info:    Registering I2C interface: /dev/i2c-0 Device 10DE:2504 Subsystem: 1458:407B
+145978|Info:    Registering I2C interface: /dev/i2c-7 Device 1022:790B Subsystem: 1462:7D14
+145978|Info:    Registering I2C interface: /dev/i2c-5 Device 1022:790B Subsystem: 1462:7D14
+145978|Info:    ------------------------------------------------------
+145978|Info:    |               Detecting I2C devices                |
+145978|Info:    ------------------------------------------------------
+146239|Info:    [ENE DRAM] Registering RGB controller
+146392|Info:    [ENE DRAM] Registering RGB controller
+147000|Info:    ------------------------------------------------------
+147000|Info:    |               Detecting I2C PCI devices            |
+147000|Info:    ------------------------------------------------------
+147088|Info:    [Gigabyte AORUS RTX3060 ELITE 12G] Registering RGB controller
+147134|Info:    [Gigabyte AORUS RTX3060 ELITE 12G] Registering RGB controller
+147134|Info:    ------------------------------------------------------
+147134|Info:    |               Detecting HID devices                |
+147134|Info:    ------------------------------------------------------
+147135|Info:    ------------------------------------------------------
+147135|Info:    |              Detecting other devices               |
+147135|Info:    ------------------------------------------------------
+147135|Info:    ------------------------------------------------------
+147135|Info:    |                Detection completed                 |
+147135|Info:    ------------------------------------------------------
+151799|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+151799|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+151799|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+151799|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+159443|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+159443|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+159443|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+159443|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+165300|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x70
+165300|Info:    Profile loading: Succeeded for ENE DRAM @ I2C: /dev/i2c-5, address 0x71
+165300|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-4, address 0x70
+165300|Info:    Profile loading: Succeeded for Gigabyte AORUS RTX3060 ELITE 12G @ I2C: /dev/i2c-0, address 0x70
+292351|Info:    Found file: RGB ZBI.orp attempting to validate header
+292351|Info:    Valid v3 profile found for RGB ZBI
+292773|Info:    Found file: RGB ZBI.orp attempting to validate header
+292773|Info:    Valid v3 profile found for RGB ZBI

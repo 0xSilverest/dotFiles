@@ -1,0 +1,52 @@
+2023-05-27 14:02:54.347 [info] Getting Manifest... enkia.tokyo-night
+2023-05-27 14:02:54.350 [info] Installing extension: enkia.tokyo-night
+2023-05-27 14:02:56.188 [info] Extension signature is verified: enkia.tokyo-night
+2023-05-27 14:02:56.206 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.83d6de78-5797-4dac-a32f-de0ac8ae22e4: enkia.tokyo-night
+2023-05-27 14:02:56.212 [info] Renamed to /home/silverest/.vscode-insiders/extensions/enkia.tokyo-night-0.9.9
+2023-05-27 14:02:56.213 [info] Extracting extension completed. enkia.tokyo-night
+2023-05-27 14:02:56.222 [info] Extension installed successfully: enkia.tokyo-night
+2023-05-27 14:03:07.873 [info] Getting Manifest... scalameta.metals
+2023-05-27 14:03:07.876 [info] Installing extension: scalameta.metals
+2023-05-27 14:03:08.136 [info] Getting Manifest... scala-lang.scala
+2023-05-27 14:03:08.195 [info] Installing extension: scala-lang.scala scalameta.metals
+2023-05-27 14:03:09.182 [info] Extension signature is verified: scala-lang.scala
+2023-05-27 14:03:09.189 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.964536f6-b1c5-4b51-8fa5-681d94b4c332: scala-lang.scala
+2023-05-27 14:03:09.195 [info] Renamed to /home/silverest/.vscode-insiders/extensions/scala-lang.scala-0.5.6
+2023-05-27 14:03:09.196 [info] Extracting extension completed. scala-lang.scala
+2023-05-27 14:03:11.467 [info] Extension signature is verified: scalameta.metals
+2023-05-27 14:03:11.940 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.e10f37db-430c-4722-b72a-ada3f5a84461: scalameta.metals
+2023-05-27 14:03:11.948 [info] Renamed to /home/silverest/.vscode-insiders/extensions/scalameta.metals-1.23.3
+2023-05-27 14:03:11.949 [info] Extracting extension completed. scalameta.metals
+2023-05-27 14:03:11.958 [info] Extension installed successfully: scala-lang.scala
+2023-05-27 14:03:11.959 [info] Extension installed successfully: scalameta.metals
+2023-05-27 14:04:43.535 [info] Getting Manifest... github.copilot
+2023-05-27 14:04:43.538 [info] Installing extension: github.copilot
+2023-05-27 14:05:00.240 [info] Getting Manifest... github.copilot-nightly
+2023-05-27 14:05:00.245 [info] Installing extension: github.copilot-nightly
+2023-05-27 14:05:14.870 [info] Getting Manifest... github.copilot-chat
+2023-05-27 14:05:14.873 [info] Installing extension: github.copilot-chat
+2023-05-27 14:05:15.910 [info] Extension signature is verified: github.copilot-nightly
+2023-05-27 14:05:15.980 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.d111a9b6-71bc-43a2-8c95-580c1d9f11c3: github.copilot-nightly
+2023-05-27 14:05:15.989 [info] Renamed to /home/silverest/.vscode-insiders/extensions/github.copilot-nightly-1.86.118
+2023-05-27 14:05:15.989 [info] Extracting extension completed. github.copilot-nightly
+2023-05-27 14:05:15.998 [info] Extension installed successfully: github.copilot-nightly
+2023-05-27 14:05:21.695 [info] Extension signature is verified: github.copilot-chat
+2023-05-27 14:05:21.748 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.063bb5f8-9be2-492d-b4b6-944998113fdd: github.copilot-chat
+2023-05-27 14:05:21.754 [info] Renamed to /home/silverest/.vscode-insiders/extensions/github.copilot-chat-0.1.2023052602
+2023-05-27 14:05:21.755 [info] Extracting extension completed. github.copilot-chat
+2023-05-27 14:05:21.763 [info] Extension installed successfully: github.copilot-chat
+2023-05-27 14:05:23.983 [info] Extension signature is verified: github.copilot
+2023-05-27 14:05:24.494 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.bddb62fc-2f6c-419c-9db4-bc4797e8c295: github.copilot
+2023-05-27 14:05:24.501 [info] Renamed to /home/silverest/.vscode-insiders/extensions/github.copilot-1.86.82
+2023-05-27 14:05:24.501 [info] Extracting extension completed. github.copilot
+2023-05-27 14:05:24.510 [info] Extension installed successfully: github.copilot
+2023-05-27 14:05:49.147 [info] Uninstalling extension from the profile: github.copilot@1.86.82 vscode-userdata:/home/silverest/.vscode-insiders/extensions/extensions.json
+2023-05-27 14:05:49.162 [info] Marked extension as uninstalled github.copilot-1.86.82
+2023-05-27 14:05:49.439 [info] Successfully uninstalled extension from the profile github.copilot@1.86.82 vscode-userdata:/home/silverest/.vscode-insiders/extensions/extensions.json
+2023-05-27 14:11:16.346 [info] Getting Manifest... vscodevim.vim
+2023-05-27 14:11:16.352 [info] Installing extension: vscodevim.vim
+2023-05-27 14:11:17.709 [info] Extension signature is verified: vscodevim.vim
+2023-05-27 14:11:17.729 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.4add119b-3ccc-43e4-b534-46048d5473f3: vscodevim.vim
+2023-05-27 14:11:17.740 [info] Renamed to /home/silverest/.vscode-insiders/extensions/vscodevim.vim-1.25.2
+2023-05-27 14:11:17.740 [info] Extracting extension completed. vscodevim.vim
+2023-05-27 14:11:17.749 [info] Extension installed successfully: vscodevim.vim
