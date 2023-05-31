@@ -1,0 +1,15 @@
+2023-05-27 17:43:58.240 [info] Deleted from disk github.copilot /home/silverest/.vscode-insiders/extensions/github.copilot-1.86.82
+2023-05-27 19:58:13.159 [info] Getting Manifest... haskell.haskell
+2023-05-27 19:58:13.164 [info] Installing extension: haskell.haskell
+2023-05-27 19:58:13.916 [info] Getting Manifest... justusadam.language-haskell
+2023-05-27 19:58:14.028 [info] Installing extension: justusadam.language-haskell haskell.haskell
+2023-05-27 19:58:16.457 [info] Extension signature is verified: justusadam.language-haskell
+2023-05-27 19:58:16.481 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.075e1d42-9547-41c9-a443-ea4fef36c59a: justusadam.language-haskell
+2023-05-27 19:58:16.484 [info] Renamed to /home/silverest/.vscode-insiders/extensions/justusadam.language-haskell-3.6.0
+2023-05-27 19:58:16.484 [info] Extracting extension completed. justusadam.language-haskell
+2023-05-27 19:58:17.761 [info] Extension signature is verified: haskell.haskell
+2023-05-27 19:58:17.772 [info] Extracted extension to /home/silverest/.vscode-insiders/extensions/.1847f3ff-6d89-4a4d-8b15-df251019533c: haskell.haskell
+2023-05-27 19:58:17.776 [info] Renamed to /home/silverest/.vscode-insiders/extensions/haskell.haskell-2.2.4
+2023-05-27 19:58:17.777 [info] Extracting extension completed. haskell.haskell
+2023-05-27 19:58:17.782 [info] Extension installed successfully: justusadam.language-haskell
+2023-05-27 19:58:17.782 [info] Extension installed successfully: haskell.haskell

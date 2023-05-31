@@ -1,0 +1,14 @@
+Infinitest
+Tasks
+color.scheme.Tokyo Night
+com.alex.tokyonight
+com.brandiico.jetbrains-nightfall-theme
+com.intellij.graalvm
+com.intellij.guice
+com.intellij.settingsSync
+com.jensteichert.themes.nightowl
+com.redhat.devtools.intellij.quarkus
+com.redhat.devtools.intellij.telemetry
+org.dynamodb4idea
+org.elixir_lang
+zio.intellij.zio-intellij

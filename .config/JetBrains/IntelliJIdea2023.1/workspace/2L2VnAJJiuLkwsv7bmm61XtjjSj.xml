@@ -1,0 +1,599 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="opticore" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Prism.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="936">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/PrismTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2304">
+              <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Iso.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="912">
+              <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file>
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Traversal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/IsoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1320">
+              <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Lens.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/Opticore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/utils/EitherTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1416">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Right.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="GitIgnore file">
+      <summary usageCount="10" lastUsed="1684432492768" />
+    </fileType>
+    <fileType name="JAVA">
+      <summary usageCount="96" lastUsed="1684696379062" />
+    </fileType>
+    <fileType name="XML">
+      <summary usageCount="9" lastUsed="1684432492801" />
+    </fileType>
+  </component>
+  <component name="FindInProjectRecents">
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/Opticore.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/Opticore.java" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore.java" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/Lens.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/FunctionU.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Maybe.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Either.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/UnionType.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Maybe.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Union.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Modifier.java" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/LensTest.java" />
+      <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/pom.xml" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/utils/Either.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Right.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Left.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Either.java" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/utils/EitherTest.java" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/PrismTest.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Lens.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Prism.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Iso.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Optional.java" />
+      <option value="$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/IsoTest.java" />
+      <option value="$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Traversal.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="GitIgnore">
+      <summary usageCount="10" lastUsage="1684432492768" />
+    </language>
+    <language id="JAVA">
+      <summary usageCount="96" lastUsage="1684696379062" />
+    </language>
+    <language id="XML">
+      <summary usageCount="9" lastUsage="1684432492801" />
+    </language>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java/com/github/silverest/opticore}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java/com/github/silverest/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java/com/github/silverest/opticore/core}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java/com/github/silverest/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java/com/github/silverest/opticore/core}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/main/java/com/github/silverest/opticore/core/utils}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test/java}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test/java/com/github/silverest/opticore}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opticore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test/java/com/github/silverest/opticore}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file:///home/silverest/Coding/opticore/src/test/java/com/github/silverest/opticore/utils}" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="JUnit.IsoTest" />
+      <element setting="JUnit.PrismTest" />
+      <element setting="JUnit.EitherTest.eitherFoldThrowError" />
+      <element setting="JUnit.EitherTest" />
+      <element setting="JUnit.EitherTest.eitherFold" />
+      <element setting="JUnit.EitherTest.eitherMap" />
+      <element setting="JUnit.EitherTest.testRight" />
+      <element setting="JUnit.LensTest.testCopy" />
+      <element setting="JUnit.LensTest" />
+      <element setting="JUnit.LensTest.compose" />
+    </history>
+  </component>
+  <component name="TerminalArrangementManager">
+    <option name="myTabStates">
+      <TerminalTabState tabName="Local" currentWorkingDirectory="$PROJECT_DIR$" commandHistoryFileName="opticore-history" />
+    </option>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="EitherTest_testRight - 2023.05.16 at 18h 30m 10s.xml">
+      <configuration name="EitherTest.testRight" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest - 2023.05.16 at 18h 30m 32s.xml">
+      <configuration name="EitherTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest_eitherMap - 2023.05.16 at 18h 31m 02s.xml">
+      <configuration name="EitherTest.eitherMap" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest_eitherFold - 2023.05.16 at 18h 31m 38s.xml">
+      <configuration name="EitherTest.eitherFold" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest_eitherFoldThrowError - 2023.05.16 at 18h 34m 56s.xml">
+      <configuration name="EitherTest.eitherFoldThrowError" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest - 2023.05.16 at 18h 37m 09s.xml">
+      <configuration name="EitherTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest_eitherFoldThrowError - 2023.05.16 at 18h 37m 50s.xml">
+      <configuration name="EitherTest.eitherFoldThrowError" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EitherTest_eitherFoldThrowError - 2023.05.16 at 18h 38m 12s.xml">
+      <configuration name="EitherTest.eitherFoldThrowError" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PrismTest - 2023.05.16 at 18h 47m 34s.xml">
+      <configuration name="PrismTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IsoTest - 2023.05.18 at 19h 01m 46s.xml">
+      <configuration name="IsoTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="40791000" />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layoutV2>
+      <window_info id="Pull Requests" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28076017" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.19195157" />
+      <window_info anchor="bottom" id="Build" order="4" weight="0.26302084" />
+      <window_info anchor="bottom" id="Run" order="5" show_stripe_button="false" weight="0.26317662" />
+      <window_info anchor="bottom" id="Dependencies" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Debug" order="7" show_stripe_button="false" weight="0.26302084" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="Database" order="1" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.25" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="4" show_stripe_button="false" />
+      <window_info anchor="right" id="Web Inspector" order="5" weight="0.25" />
+      <unified_weights bottom="0.26317662" left="0.28076017" />
+    </layoutV2>
+    <recentWindows>
+      <value>Project</value>
+      <value>Run</value>
+      <value>Debug</value>
+      <value>Build</value>
+      <value>Terminal</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2798" y="432" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1676021334982">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2798" y="432" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1676021334982" />
+    <state width="1207" height="337" key="GridCell.Tab.0.bottom" timestamp="1684443872604">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="337" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684443872604" />
+    <state width="1207" height="337" key="GridCell.Tab.0.center" timestamp="1684443872604">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="337" key="GridCell.Tab.0.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684443872604" />
+    <state width="1207" height="337" key="GridCell.Tab.0.left" timestamp="1684443872604">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="337" key="GridCell.Tab.0.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684443872604" />
+    <state width="1207" height="337" key="GridCell.Tab.0.right" timestamp="1684443872604">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1207" height="337" key="GridCell.Tab.0.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684443872604" />
+    <state width="1785" height="321" key="GridCell.Tab.1.bottom" timestamp="1684260604328">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1785" height="321" key="GridCell.Tab.1.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684260604328" />
+    <state width="1785" height="321" key="GridCell.Tab.1.center" timestamp="1684260604328">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1785" height="321" key="GridCell.Tab.1.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684260604328" />
+    <state width="1785" height="321" key="GridCell.Tab.1.left" timestamp="1684260604328">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1785" height="321" key="GridCell.Tab.1.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684260604328" />
+    <state width="1785" height="321" key="GridCell.Tab.1.right" timestamp="1684260604328">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1785" height="321" key="GridCell.Tab.1.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684260604328" />
+    <state x="2671" y="379" width="1189" height="815" key="SettingsEditor" timestamp="1684258204968">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2671" y="379" width="1189" height="815" key="SettingsEditor/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684258204968" />
+    <state x="2936" y="455" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1684438105418">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2936" y="455" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684438105418" />
+    <state x="2783" y="437" width="829" height="562" key="find.popup" timestamp="1684088781768">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2783" y="437" width="829" height="562" key="find.popup/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684088781768" />
+    <state x="2861" y="345" width="790" height="696" key="search.everywhere.popup" timestamp="1684433505105">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2861" y="345" width="790" height="696" key="search.everywhere.popup/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1684433505105" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/FunctionU.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/UnionType.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Maybe.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Union.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Modifier.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Left.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#172#173#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Either.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/Opticore.java" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/utils/EitherTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1416">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/utils/Right.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/PrismTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2304">
+          <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Prism.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Lens.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/LensTest.java" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="136" column="3" selection-start-line="136" selection-start-column="3" selection-end-line="136" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Iso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Optional.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/github/silverest/opticore/IsoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/silverest/opticore/core/Traversal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI" />
+      <state key="GlobalLibrariesConfigurable.UI" />
+      <state key="JdkListConfigurable.UI" />
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>opticore</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.09199631" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: junit:junit:4.13.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.09199631" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

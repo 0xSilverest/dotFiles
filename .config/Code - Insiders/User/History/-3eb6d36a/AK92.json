@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Tokyo Night",
+    "editor.inlineSuggest.enabled": true,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    }
+}

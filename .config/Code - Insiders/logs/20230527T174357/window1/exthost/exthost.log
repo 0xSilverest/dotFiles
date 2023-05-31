@@ -1,0 +1,156 @@
+2023-05-27 17:43:57.976 [info] Extension host with pid 6261 started
+2023-05-27 17:43:58.040 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-27 17:43:58.046 [info] ExtensionService#_doActivateExtension scalameta.metals, startup: false, activationEvent: 'onLanguage:scala'
+2023-05-27 17:43:58.241 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-05-27 17:43:58.242 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2023-05-27 17:43:58.278 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-27 17:43:58.316 [error] Error: Unable to write to Workspace Settings because no workspace is opened. Please open a workspace first and try again.
+    at e.ConfigurationEditing.y (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:51215)
+    at e.ConfigurationEditing.E (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:54132)
+    at e.ConfigurationEditing.n (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:48244)
+    at Object.factory (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2269:48144)
+    at A.h (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:97:15915)
+    at A.j (vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:97:16019)
+    at vscode-file://vscode-app/usr/share/code-insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:97:15957
+2023-05-27 17:43:58.327 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-05-27 17:43:58.345 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-27 17:43:58.351 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 17:43:58.368 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 17:43:58.416 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-27 17:43:58.431 [info] Eager extensions activated
+2023-05-27 17:43:58.448 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 17:43:58.449 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 17:43:58.456 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 17:43:58.518 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 17:43:59.321 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:48:27.909 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-27 19:48:27.920 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:48:27.922 [info] Extension host with pid 6261 exiting with code 0
+2023-05-27 19:48:28.412 [info] Extension host with pid 23938 started
+2023-05-27 19:48:28.412 [info] Skipping acquiring lock for /home/silverest/.config/Code - Insiders/User/workspaceStorage/9f3d3057ee4e413656eab025ff02185d.
+2023-05-27 19:48:28.435 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2023-05-27 19:48:28.437 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2023-05-27 19:48:28.482 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-27 19:48:28.499 [info] Eager extensions activated
+2023-05-27 19:48:28.500 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:28.501 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:28.577 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-27 19:48:28.622 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-27 19:48:29.482 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:48:32.661 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2023-05-27 19:48:32.704 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:32.774 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:55.157 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-27 19:48:55.167 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:48:55.168 [info] Extension host with pid 23938 exiting with code 0
+2023-05-27 19:48:55.691 [info] Extension host with pid 26160 started
+2023-05-27 19:48:55.691 [info] Skipping acquiring lock for /home/silverest/.config/Code - Insiders/User/workspaceStorage/5e3ec6efac342d483417a600c8596779.
+2023-05-27 19:48:55.708 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2023-05-27 19:48:55.710 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2023-05-27 19:48:55.765 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-27 19:48:55.790 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-27 19:48:55.798 [info] Eager extensions activated
+2023-05-27 19:48:55.825 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:55.826 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:55.847 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-27 19:48:56.758 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:48:58.906 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2023-05-27 19:48:58.931 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:58.991 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:48:59.052 [info] ExtensionService#_doActivateExtension scalameta.metals, startup: false, activationEvent: 'workspaceContains:build.sbt'
+2023-05-27 19:48:59.238 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 19:48:59.248 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 19:48:59.256 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-27 19:54:43.797 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-27 19:54:43.812 [error] Canceled: Canceled
+    at new l (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:105731)
+    at c.O (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:11731)
+    at Proxy.$.<computed>.j.charCodeAt.$.<computed> (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:9021)
+    at e.ExtHostCommands.g (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129904)
+    at e.ExtHostCommands.executeCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129280)
+    at k.registerCommand.description (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:128573)
+    at e.ExtHostCommands.h (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:130490)
+    at e.ExtHostCommands.g (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129380)
+    at e.ExtHostCommands.executeCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129280)
+    at Object.executeCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:117:24232)
+    at D (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1261258)
+    at b.invoke (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:63:145)
+    at deliver (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:63:2121)
+    at n.fire (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:63:1729)
+    at Object.m [as dispose] (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1276091)
+    at /usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1280592
+    at Array.forEach (<anonymous>)
+    at g.dispose (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1280578)
+    at r.<anonymous> (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:12524)
+    at r.dispose (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:12659)
+    at r.<anonymous> (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1263388)
+    at r.dispose (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:12659)
+    at I (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:10:12081)
+    at n.Z (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:11216)
+    at /usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:9185
+    at Array.map (<anonymous>)
+    at n.S (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:9172)
+    at n.terminate (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:9444)
+    at h.terminate (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:117:1544)
+    at g (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:127:34497)
+    at MessagePortMain.<anonymous> (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:127:30636)
+    at MessagePortMain.emit (node:events:513:28)
+    at Object.MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:367) setContext undefined
+2023-05-27 19:54:43.814 [error] Canceled: Canceled
+    at new l (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:105731)
+    at c.O (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:11731)
+    at Proxy.$.<computed>.j.charCodeAt.$.<computed> (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:9021)
+    at e.ExtHostCommands.g (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129904)
+    at e.ExtHostCommands.executeCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129280)
+    at k.registerCommand.description (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:128573)
+    at e.ExtHostCommands.h (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:130490)
+    at e.ExtHostCommands.g (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129380)
+    at e.ExtHostCommands.executeCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:99:129280)
+    at Object.executeCommand (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:117:24232)
+    at p.VscodeDevShareProvider.set b [as b] (/usr/share/code-insiders/resources/app/extensions/github/dist/extension.js:2:152873)
+    at /usr/share/code-insiders/resources/app/extensions/github/dist/extension.js:2:153583
+    at /usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1348798
+    at b.invoke (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:63:145)
+    at deliver (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:63:2121)
+    at n.fire (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:63:1729)
+    at Object.m [as dispose] (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1276091)
+    at /usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1280592
+    at Array.forEach (<anonymous>)
+    at g.dispose (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1280578)
+    at r.<anonymous> (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:12524)
+    at r.dispose (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:12659)
+    at r.<anonymous> (/usr/share/code-insiders/resources/app/extensions/git/dist/main.js:2:1263388)
+    at r.dispose (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:97:12659)
+    at I (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:10:12081)
+    at n.Z (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:11216)
+    at /usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:9185
+    at Array.map (<anonymous>)
+    at n.S (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:9172)
+    at n.terminate (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:113:9444)
+    at h.terminate (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:117:1544)
+    at g (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:127:34497)
+    at MessagePortMain.<anonymous> (/usr/share/code-insiders/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:127:30636)
+    at MessagePortMain.emit (node:events:513:28)
+    at Object.MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:367) setContext undefined
+2023-05-27 19:54:43.822 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:54:43.844 [info] Extension host with pid 26160 exiting with code 0
+2023-05-27 19:54:44.388 [info] Extension host with pid 22834 started
+2023-05-27 19:54:44.388 [info] Skipping acquiring lock for /home/silverest/.config/Code - Insiders/User/workspaceStorage/756594d6dc0c2b46691c72e6f8bb9e28.
+2023-05-27 19:54:44.408 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2023-05-27 19:54:44.411 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2023-05-27 19:54:44.477 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-27 19:54:44.511 [info] Eager extensions activated
+2023-05-27 19:54:44.512 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:54:44.513 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:54:44.537 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-27 19:54:44.593 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-27 19:54:45.469 [error] Error: ENOENT: no such file or directory, open '/home/silverest/.config/Code - Insiders/User/globalStorage/vscodevim.vim/.registers'
+2023-05-27 19:54:45.851 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2023-05-27 19:54:45.876 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:54:45.933 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-27 19:54:45.965 [info] ExtensionService#_doActivateExtension scalameta.metals, startup: false, activationEvent: 'workspaceContains:build.sbt'
+2023-05-27 19:54:46.144 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 19:54:46.154 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-27 19:54:46.163 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-27 20:20:16.827 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-27 20:20:16.903 [info] Extension host with pid 22834 exiting with code 0

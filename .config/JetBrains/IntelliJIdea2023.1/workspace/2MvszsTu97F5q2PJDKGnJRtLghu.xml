@@ -1,0 +1,242 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="shorty" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="DatabaseView">
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SHOW_PREVIEW" is_vertical_split="false">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/vfs/VFSDocumentSyncListener.kt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" preview="true">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="Kotlin">
+      <summary usageCount="12" lastUsed="1678661093319" />
+    </fileType>
+    <fileType name="Markdown">
+      <summary usageCount="2" lastUsed="1678661093085" />
+    </fileType>
+    <fileType name="Properties">
+      <summary usageCount="1" lastUsed="1678660426237" />
+    </fileType>
+    <fileType name="SVG">
+      <summary usageCount="2" lastUsed="1678661093428" />
+    </fileType>
+    <fileType name="XML">
+      <summary usageCount="2" lastUsed="1678661093549" />
+    </fileType>
+    <fileType name="textmate">
+      <summary usageCount="1" lastUsed="1678660407772" />
+    </fileType>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>android</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/local.properties" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="Markdown">
+      <summary usageCount="2" lastUsage="1678661093087" />
+    </language>
+    <language id="Properties">
+      <summary usageCount="1" lastUsage="1678660426237" />
+    </language>
+    <language id="SVG">
+      <summary usageCount="2" lastUsage="1678661093428" />
+    </language>
+    <language id="XML">
+      <summary usageCount="2" lastUsage="1678661093549" />
+    </language>
+    <language id="kotlin">
+      <summary usageCount="12" lastUsage="1678661093319" />
+    </language>
+    <language id="textmate">
+      <summary usageCount="1" lastUsage="1678660407772" />
+    </language>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="Gradle.run all tests" executorId="Run" />
+    </history>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="run_all_tests - 2023.03.12 at 23h 24m 54s.xml">
+      <configuration name="run all tests" configurationId="GradleRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1404000" />
+  </component>
+  <component name="ToolWindowManager">
+    <layoutV2>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24984168" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" show_stripe_button="false" weight="0.3301282" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Build" order="5" show_stripe_button="false" weight="0.3301282" />
+      <window_info anchor="bottom" id="Dependencies" order="6" show_stripe_button="false" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="Database" order="1" weight="0.24984168" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.24984168" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.25" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="4" weight="0.33027232" />
+      <window_info anchor="right" id="Web Inspector" order="5" weight="0.25" />
+    </layoutV2>
+    <recentWindows>
+      <value>Project</value>
+      <value>github.copilotToolWindow</value>
+      <value>Gradle</value>
+      <value>Database</value>
+      <value>Build</value>
+      <value>Run</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2491" y="505" key="FileChooserDialogImpl" timestamp="1678661102787">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2491" y="505" key="FileChooserDialogImpl/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1678661102787" />
+    <state width="1497" height="421" key="GridCell.Tab.0.bottom" timestamp="1678660521808">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1497" height="421" key="GridCell.Tab.0.bottom/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1678660521808" />
+    <state width="1497" height="421" key="GridCell.Tab.0.center" timestamp="1678660521808">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1497" height="421" key="GridCell.Tab.0.center/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1678660521808" />
+    <state width="1497" height="421" key="GridCell.Tab.0.left" timestamp="1678660521808">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1497" height="421" key="GridCell.Tab.0.left/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1678660521808" />
+    <state width="1497" height="421" key="GridCell.Tab.0.right" timestamp="1678660521808">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1497" height="421" key="GridCell.Tab.0.right/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1678660521808" />
+    <state x="2903" y="446" width="702" height="544" key="find.popup" timestamp="1678660426201">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2903" y="446" width="702" height="544" key="find.popup/1920.0.2560.1440/0.0.1920.1080@1920.0.2560.1440" timestamp="1678660426201" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/ui/SettingsUIConfigurable.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/ui/SettingsUIPanel.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/psi/MarkdownPsiUtils.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/actions/ActionUtils.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle.kts" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew.bat" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle.kts" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Utils.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/actions/EditorReplaceLink.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1328">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SHOW_PREVIEW" is_vertical_split="false">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/vfs/VFSDocumentSyncListener.kt" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" preview="true">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" preview="true">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

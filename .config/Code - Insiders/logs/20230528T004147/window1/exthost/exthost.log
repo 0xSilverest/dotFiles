@@ -1,0 +1,32 @@
+2023-05-28 00:41:47.929 [info] Extension host with pid 20468 started
+2023-05-28 00:41:47.962 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-28 00:41:47.971 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2023-05-28 00:41:47.972 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2023-05-28 00:41:48.013 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-28 00:41:48.046 [info] Eager extensions activated
+2023-05-28 00:41:48.047 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-28 00:41:48.048 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-28 00:41:48.140 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-28 00:41:48.167 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-28 00:42:11.434 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-28 00:42:11.438 [info] Extension host with pid 20468 exiting with code 0
+2023-05-28 00:42:12.002 [info] Extension host with pid 22409 started
+2023-05-28 00:42:12.002 [info] Skipping acquiring lock for /home/silverest/.config/Code - Insiders/User/workspaceStorage/756594d6dc0c2b46691c72e6f8bb9e28.
+2023-05-28 00:42:12.084 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-05-28 00:42:12.089 [info] ExtensionService#_doActivateExtension scalameta.metals, startup: false, activationEvent: 'onLanguage:scala'
+2023-05-28 00:42:12.219 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-28 00:42:12.228 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2023-05-28 00:42:12.584 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2023-05-28 00:42:12.597 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2023-05-28 00:42:13.038 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-05-28 00:42:13.039 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2023-05-28 00:42:13.094 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-05-28 00:42:13.110 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-05-28 00:42:15.157 [info] Eager extensions activated
+2023-05-28 00:42:15.170 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-05-28 00:42:15.171 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-05-28 00:42:15.175 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onStartupFinished'
+2023-05-28 00:42:15.258 [info] ExtensionService#_doActivateExtension GitHub.copilot-nightly, startup: false, activationEvent: 'onStartupFinished'
+2023-05-28 01:02:56.857 [info] ExtensionService#_doActivateExtension vscode.simple-browser, startup: false, activationEvent: 'onOpenExternalUri:https'
+2023-05-28 01:28:36.250 [info] Extension host terminating: renderer closed the MessagePort
+2023-05-28 01:28:36.288 [info] Extension host with pid 22409 exiting with code 0

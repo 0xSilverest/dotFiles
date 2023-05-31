@@ -1,0 +1,63 @@
+* {
+  red: #f7768e;
+  purple: #9d7cd8;
+  cyan: #7dcfff;
+
+  background-color: #1a1b26;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 30%;
+}
+
+element {
+  padding: 12;
+  orientation: vertical;
+  spacing: 0.4em;
+}
+
+element-text {
+  text-color: #fff;
+}
+
+element-text selected {
+  text-color: #f7768e;
+}
+
+entry {
+  background-color: #252636;
+  padding: 12 12 12 12;
+  text-color: #ffffff;
+}
+
+inputbar {
+  children: [entry];
+}
+
+listview {
+  columns: 1;
+  lines: 8;
+  width: 10;
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+prompt {
+  background-color: #c0caf5;
+  enabled: true;
+  font: "fontAwesome 20";
+  padding: 3 12 3 12;
+  text-color: #9d7cd8;
+}
+
+window {
+  transparency: "real";
+}
+

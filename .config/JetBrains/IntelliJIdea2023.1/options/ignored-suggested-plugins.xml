@@ -1,0 +1,10 @@
+<application>
+  <component name="IgnoredPluginSuggestions">
+    <option name="pluginIds">
+      <list>
+        <option value="com.intellij.graalvm" />
+        <option value="aws.toolkit" />
+      </list>
+    </option>
+  </component>
+</application>

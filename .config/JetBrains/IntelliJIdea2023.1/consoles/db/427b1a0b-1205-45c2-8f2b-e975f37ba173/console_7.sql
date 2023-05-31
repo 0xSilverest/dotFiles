@@ -1,0 +1,1 @@
+DELETE FROM client_tags WHERE client_id IN (SELECT id FROM clients WHERE id='1');

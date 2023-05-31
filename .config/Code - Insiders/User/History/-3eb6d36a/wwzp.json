@@ -1,0 +1,16 @@
+{
+    "workbench.colorTheme": "Tokyo Night",
+    "editor.inlineSuggest.enabled": true,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.fontLigatures": true
+}

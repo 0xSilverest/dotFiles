@@ -1,0 +1,45 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="$USER_HOME$/Coding/Flock" value="true" />
+        <entry key="$USER_HOME$/Coding/Jazzino" value="true" />
+        <entry key="$USER_HOME$/Coding/casino" value="true" />
+        <entry key="$USER_HOME$/Coding/database-workflow" value="true" />
+        <entry key="$USER_HOME$/Coding/database-workflow/mysql_2" value="true" />
+        <entry key="$USER_HOME$/Coding/idea-plugin-example" value="true" />
+        <entry key="$USER_HOME$/Coding/java19" value="true" />
+        <entry key="$USER_HOME$/Coding/loom-test" value="true" />
+        <entry key="$USER_HOME$/Coding/mmcall/archival_script" value="true" />
+        <entry key="$USER_HOME$/Coding/mmcall/mmcall-back" value="true" />
+        <entry key="$USER_HOME$/Coding/mmcall/mmcall-cloudprnt" value="true" />
+        <entry key="$USER_HOME$/Coding/mmcall/mmlogistic" value="true" />
+        <entry key="$USER_HOME$/Coding/mmcall/scan-logistics" value="true" />
+        <entry key="$USER_HOME$/Coding/opticore" value="true" />
+        <entry key="$USER_HOME$/Coding/project_bj" value="true" />
+        <entry key="$USER_HOME$/Coding/project_cs" value="true" />
+        <entry key="$USER_HOME$/Coding/ravenote" value="true" />
+        <entry key="$USER_HOME$/Coding/restaurante" value="true" />
+        <entry key="$USER_HOME$/Coding/scala/advanced_scala" value="true" />
+        <entry key="$USER_HOME$/Coding/shorty-idea-plugin" value="true" />
+        <entry key="$USER_HOME$/Coding/test" value="true" />
+        <entry key="$USER_HOME$/Coding/test-19" value="true" />
+        <entry key="$USER_HOME$/Coding/test_compose" value="true" />
+        <entry key="$USER_HOME$/Coding/test_s" value="true" />
+        <entry key="$USER_HOME$/Coding/tunah" value="true" />
+        <entry key="$USER_HOME$/Coding/untitled" value="true" />
+        <entry key="$USER_HOME$/IdeaProjects/guitune" value="true" />
+        <entry key="$USER_HOME$/IdeaProjects/koora" value="true" />
+        <entry key="$USER_HOME$/IdeaProjects/shatter" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="Trusted.Paths.Settings">
+    <option name="TRUSTED_PATHS">
+      <list>
+        <option value="$USER_HOME$/Coding/mmcall" />
+        <option value="$USER_HOME$/Coding" />
+      </list>
+    </option>
+  </component>
+</application>
