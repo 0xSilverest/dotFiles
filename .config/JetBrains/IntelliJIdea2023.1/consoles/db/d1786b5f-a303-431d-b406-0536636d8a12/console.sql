@@ -1,1 +1,0 @@
-set synchronous_commit to off;

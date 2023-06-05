@@ -1,2 +1,0 @@
-org.dynamodb4idea
-Tasks

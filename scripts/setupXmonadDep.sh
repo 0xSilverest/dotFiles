@@ -49,8 +49,8 @@ echo "################################################################"
 echo;tput sgr0
 
 cabal install xmonad
-cabal install xmonad-contrib --flags="-use xft"
-cabal install xmonad-extras
-cabal install dbus
+cabal install --lib xmonad-contrib --flags="-use xft"
+#cabal install xmonad-extras
+cabal install --lib dbus
 
 cp -r "$HOME/dotFiles/.xmonad" "$HOME/.xmonad"

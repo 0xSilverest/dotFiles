@@ -1,7 +1,8 @@
-import XMonad
+mport XMonad
 import XMonad.Hooks.SetWMName
+import XMonad.Config.Kde
 
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.UpdateFocus
 
 --import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -11,7 +12,6 @@ import XMonad.Hooks.ManageHelpers
   , isDialog
   , isFullscreen
   )
-import XMonad.Config.Desktop 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.SpawnOn
@@ -34,9 +34,9 @@ import Control.Monad (liftM2)
 
 myStartupHook = do
   spawn "$HOME/.xmonad/scripts/autostart.sh"
-  spawn "$HOME/.config/polybar/launch.sh"
+  --spawn "$HOME/.config/polybar/launch.sh"
   spawn "$HOME/.scripts/monitor.sh"
-  setWMName "LG3D"
+  setWMName "XMonad"
 
 normBord = "#292d3e"
 
@@ -50,7 +50,7 @@ myBorderWidth = 2
 
 myWorkspaces = ["λ", "β", "γ", "δ", "ε"] --, "τ", "θ", "ϕ", "π", "σ"]
 
-myBaseConfig = desktopConfig
+myBaseConfig = kdeConfig
 
 -- window manipulations
 myManageHook =
@@ -74,23 +74,15 @@ myManageHook =
   ]
   where
     doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
-    myCFloats =
-      [ "Arandr"
-      , "feh"
-      , "mpv" ]
+    myCFloats = ["Arandr", "feh", "mpv", "vlc"]
     myTFloats = ["Downloads", "Save As...", "pavucontrol"]
     myRFloats = []
-    myIgnores = ["desktop_window"]
+    myIgnores = ["desktop_window", "dunst"]
     my1Shifts = []
     my2Shifts = []
     my3Shifts = []
     my4Shifts = []
-    my5Shifts = ["steam", "lutris", "discord"]
-    --my6Shifts = ["vlc", "mpv"]
-    --my7Shifts = ["VirtualBox"]
-    --my8Shifts = []
-    --my9Shifts = ["steam", "lutris"]
-    --my10Shifts = ["discord"]
+    my5Shifts = []
 
 myLayout = MG.magnifierOff (
   spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
@@ -120,18 +112,14 @@ myKeys conf@XConfig {modMask = modm} =
   ----------------------------------------------------------------------
   -- SUPER + FUNCTION KEYS
   [ ((modm, xK_q), kill)
-  , ((modm, xK_f), spawn "rofi -show run")
+  , ((modm, xK_f), spawn "rofi -show drun")
   , ((modm, xK_e), spawn "rofi -show window")
+  , ((modm, xK_r), spawn "rofi -show run")
+
+  , ((modm, xK_b), spawn "vivaldi")
   , ((modm, xK_t), spawn "kitty")
-  , ((modm, xK_v), spawn "pavucontrol")
-  , ((modm, xK_p), spawn "zathura")
 
   , ((modm, xK_Escape), spawn "xkill")
-
-  , ((modm, xK_F5), spawn "blender")
-  , ((modm, xK_F8), spawn "lutris")
-  , ((modm, xK_F9), spawn "steam")
-  , ((modm, xK_F10), spawn "spotify")
 
   , ((modm .|. controlMask              , xK_equal), sendMessage MG.MagnifyMore)
   , ((modm .|. controlMask              , xK_minus), sendMessage MG.MagnifyLess)
@@ -143,24 +131,20 @@ myKeys conf@XConfig {modMask = modm} =
   -- SUPER + SHIFT KEYS
   --, ((modm .|. shiftMask , xK_d ), spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
   , ((modm .|. shiftMask, xK_r), spawn "xmonad --recompile && xmonad --restart")
-  , ((modm .|. shiftMask, xK_q), kill)
-  , ((modm, xK_x ), spawn "xfce4-session-logout")
   -- CONTROL + ALT KEYS
   --
-  , ((controlMask .|. mod1Mask, xK_b), spawn "firefox")
-  --, ((controlMask .|. mod1Mask, xK_e), spawn "arcolinux-tweak-tool")
-  , ((controlMask .|. mod1Mask, xK_i), spawn "nitrogen")
-  , ( (controlMask .|. mod1Mask, xK_k)
-    , spawn "/home/silverest/.config/polybar/launch.sh")
-  , ((controlMask .|. mod1Mask, xK_l), spawn "pkill polybar")
-  , ((controlMask .|. mod1Mask, xK_o)
-    , spawn "$HOME/.xmonad/scripts/picom-toggle.sh")
+  --, ((controlMask .|. mod1Mask, xK_i), spawn "nitrogen")
+  --, ( (controlMask .|. mod1Mask, xK_k)
+  -- , spawn "/home/silverest/.config/polybar/launch.sh")
+  --, ((controlMask .|. mod1Mask, xK_l), spawn "pkill polybar")
+  --, ((controlMask .|. mod1Mask, xK_o)
+  --, spawn "$HOME/.xmonad/scripts/picom-toggle.sh")
   --, ((controlMask .|. mod1Mask, xK_p), spawn "pamac-manager")
   --, ((controlMask .|. mod1Mask, xK_s), spawn "spotify")
-  , ((controlMask .|. mod1Mask, xK_u), spawn "pavucontrol")
+  --, ((controlMask .|. mod1Mask, xK_u), spawn "pavucontrol")
   -- ALT + ... KEYS
   --CONTROL + SHIFT KEYS
-  , ((controlMask .|. shiftMask, xK_Escape), spawn "xfce4-taskmanager")
+  --, ((controlMask .|. shiftMask, xK_Escape), spawn "xfce4-taskmanager")
   --SCREENSHOTS
   , ((0, xK_Print), spawn "flameshot gui")
   --MULTIMEDIA KEYS
@@ -175,19 +159,19 @@ myKeys conf@XConfig {modMask = modm} =
   -- , ((0, xF86XK_MonBrightnessUp),  spawn "xbacklight -inc 5")
   -- Decrease brightness
   -- , ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5")
-  , ((modm, xF86XK_AudioPlay), spawn "mpc toggle")
-  , ((modm, xF86XK_AudioNext), spawn "mpc next")
-  , ((modm, xF86XK_AudioPrev), spawn "mpc prev")
-  , ((modm, xF86XK_AudioStop), spawn "mpc stop")
+  --, ((modm, xF86XK_AudioPlay), spawn "mpc toggle")
+  --, ((modm, xF86XK_AudioNext), spawn "mpc next")
+  --, ((modm, xF86XK_AudioPrev), spawn "mpc prev")
+  --, ((modm, xF86XK_AudioStop), spawn "mpc stop")
   , ((0, xF86XK_AudioPlay), spawn "playerctl play-pause")
   , ((0, xF86XK_AudioNext), spawn "playerctl next")
   , ((0, xF86XK_AudioPrev), spawn "playerctl previous")
   , ((0, xF86XK_AudioStop), spawn "playerctl stop")
   -- Navigation
-  , ((modm, xK_l), screenGo R False)
-  , ((modm, xK_h), screenGo L False)
-  , ((modm .|. controlMask, xK_l), screenSwap R False)
-  , ((modm .|. controlMask, xK_h), screenSwap L False)
+  --, ((modm, xK_l), screenGo R False)
+  --, ((modm, xK_h), screenGo L False)
+  --, ((modm .|. controlMask, xK_l), screenSwap R False)
+  --, ((modm .|. controlMask, xK_h), screenSwap L False)
   --------------------------------------------------------------------
   --  XMONAD LAYOUT KEYS
   -- Cycle through the available layout algorithms.
@@ -225,7 +209,7 @@ myKeys conf@XConfig {modMask = modm} =
   | (i, k) <-
       zip
         (XMonad.workspaces conf)
-        [xK_1, xK_2, xK_3, xK_4, xK_5, xK_6, xK_7, xK_8, xK_9, xK_0]
+        [xK_1, xK_2, xK_3, xK_4, xK_5] --, xK_6, xK_7, xK_8, xK_9, xK_0]
   , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
   ] {--, (\i -> W.greedyView i . W.shift i, shiftMask)--}
    ++
@@ -238,14 +222,14 @@ myKeys conf@XConfig {modMask = modm} =
 
 main :: IO ()
 main = do
-  xmonad . docks $ ewmhFullscreen . ewmh $
+  xmonad . docks $
     myBaseConfig
       { startupHook = myStartupHook
       , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
       , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
       , modMask = mymodm
       , borderWidth = myBorderWidth
-      , handleEventHook = handleEventHook myBaseConfig
+      , handleEventHook = focusOnMouseMove <+> handleEventHook myBaseConfig 
       , focusFollowsMouse = myFocusFollowsMouse
       , workspaces = myWorkspaces
       , focusedBorderColor = focdBord

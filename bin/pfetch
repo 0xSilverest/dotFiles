@@ -190,7 +190,7 @@ get_title() {
     esc SGR "3${PF_COL3:-1}"
     hostname=$e$hostname
 
-    log "${user}@${hostname}" " " " " >&6
+    log "${user}" " " " " >&6
 }
 
 get_os() {

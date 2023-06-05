@@ -22,7 +22,7 @@ xboxdrv --detach-kernel-driver --daemon &
 numlockx on &
 udiskie &
 
-picom --config $HOME/.xmonad/scripts/picom.conf &
+#picom --config $HOME/.xmonad/scripts/picom.conf &
 
 #nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
 #nvidia-settings -a 'AllowFlipping=0'

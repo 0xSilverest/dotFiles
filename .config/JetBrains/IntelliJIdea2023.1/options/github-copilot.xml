@@ -1,8 +1,0 @@
-<application>
-  <component name="github-copilot">
-    <option name="signinNotificationShown" value="true" />
-    <disabledLanguages>
-      <option value="Scala 3" />
-    </disabledLanguages>
-  </component>
-</application>

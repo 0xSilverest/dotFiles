@@ -1,1 +1,0 @@
-select * from clients c left join coordinator_info ci on ci.client_f_id = c.id ;
