@@ -20,6 +20,8 @@ require('packer').startup(function(use)
 
     use 'mfussenegger/nvim-dap'
 
+    use 'VidocqH/lsp-lens.nvim'
+
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -36,6 +38,20 @@ require('packer').startup(function(use)
         },
     }
 
+    use {
+      'mrcjkb/haskell-tools.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim', -- optional
+      },
+      branch = '1.10.2', -- recommended
+    }
+
+    use {
+        "williamboman/mason.nvim",
+        run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+    }
+
 -- git shitshow
     use {'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -45,6 +61,7 @@ require('packer').startup(function(use)
 
 -- Theme
     use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     use 'kyazdani42/nvim-web-devicons'
 
@@ -82,16 +99,16 @@ require'nvim-web-devicons'.setup {
   default = true;
 }
 
-vim.g.tokyonight_style = "night"
-vim.cmd[[colorscheme tokyonight-night]]
+--vim.g.tokyonight_style = "night"
+--vim.cmd[[colorscheme tokyonight-night]]
 
 
-vim.g.tokyonight_lualine_bold = true
+-- vim.g.tokyonight_lualine_bold = true
 
 require'lualine'.setup {
 	options = {
 		icons_enabled = true,
-		theme = 'tokyonight',
+		theme = 'catppuccin',
 		disabled_filetypes = {}
 	},
 	sections = {
@@ -125,6 +142,28 @@ require "lsp_signature".setup({
   }
 })
 
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
+require'lsp-lens'.setup({})
 require'hop'.setup()
 require('numb').setup()
 
+require("catppuccin").setup({
+    integrations = {
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        treesitter = true,
+        ts_rainbow = true,
+    }
+})
+
+vim.cmd.colorscheme "catppuccin-mocha"

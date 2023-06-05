@@ -1,3 +1,0 @@
-2023-05-27 20:42:39.398 [info] update#setState idle
-2023-05-27 20:42:41.628 [error] [UtilityProcessWorker]: terminated unexpectedly with code 15, signal: unknown
-2023-05-27 20:42:41.628 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 31151]: crashed with code 15 and reason 'killed'
