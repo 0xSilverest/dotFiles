@@ -1,19 +1,12 @@
-mport XMonad
+import XMonad
 import XMonad.Hooks.SetWMName
 import XMonad.Config.Kde
-
-import XMonad.Actions.UpdateFocus
+import XMonad.Hooks.EwmhDesktops
 
 --import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-  ( doCenterFloat
-  , doFullFloat
-  , isDialog
-  , isFullscreen
-  )
+import XMonad.Hooks.ManageHelpers (doCenterFloat, doFullFloat, isDialog, isFullscreen)
 import XMonad.Actions.CycleWS
-import XMonad.Actions.Navigation2D
 import XMonad.Actions.SpawnOn
 
 --import XMonad.Util.Run(spawnPipe)
@@ -34,8 +27,8 @@ import Control.Monad (liftM2)
 
 myStartupHook = do
   spawn "$HOME/.xmonad/scripts/autostart.sh"
-  --spawn "$HOME/.config/polybar/launch.sh"
-  spawn "$HOME/.scripts/monitor.sh"
+  spawn "$HOME/.config/polybar/launch.sh"
+  spawn "$HOME/.scripts/autoMonitor.sh"
   setWMName "XMonad"
 
 normBord = "#292d3e"
@@ -82,7 +75,7 @@ myManageHook =
     my2Shifts = []
     my3Shifts = []
     my4Shifts = []
-    my5Shifts = []
+    my5Shifts = ["lutris", "steam"]
 
 myLayout = MG.magnifierOff (
   spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
@@ -139,9 +132,9 @@ myKeys conf@XConfig {modMask = modm} =
   --, ((controlMask .|. mod1Mask, xK_l), spawn "pkill polybar")
   --, ((controlMask .|. mod1Mask, xK_o)
   --, spawn "$HOME/.xmonad/scripts/picom-toggle.sh")
-  --, ((controlMask .|. mod1Mask, xK_p), spawn "pamac-manager")
   --, ((controlMask .|. mod1Mask, xK_s), spawn "spotify")
-  --, ((controlMask .|. mod1Mask, xK_u), spawn "pavucontrol")
+  , ((controlMask .|. mod1Mask, xK_i), spawn "plasma-open-settings kcm_networkmanagement")
+  , ((controlMask .|. mod1Mask, xK_u), spawn "plasma-open-settings kcm_pulseaudio")
   -- ALT + ... KEYS
   --CONTROL + SHIFT KEYS
   --, ((controlMask .|. shiftMask, xK_Escape), spawn "xfce4-taskmanager")
@@ -222,14 +215,14 @@ myKeys conf@XConfig {modMask = modm} =
 
 main :: IO ()
 main = do
-  xmonad . docks $
+  xmonad . docks $ ewmhFullscreen . ewmh $
     myBaseConfig
       { startupHook = myStartupHook
       , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
       , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
       , modMask = mymodm
       , borderWidth = myBorderWidth
-      , handleEventHook = focusOnMouseMove <+> handleEventHook myBaseConfig 
+      , handleEventHook = handleEventHook myBaseConfig
       , focusFollowsMouse = myFocusFollowsMouse
       , workspaces = myWorkspaces
       , focusedBorderColor = focdBord

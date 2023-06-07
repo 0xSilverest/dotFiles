@@ -1,27 +1,30 @@
 #!/bin/bash
 
-# default monitor is eDP 
-MONITOR=eDP
+# default monitor is DP-2 
+MONITOR=DP-2
 
-# functions to switch from eDP to HDMI-A-0 and vice versa
+# functions to switch from DP-2 to HDMI-1 and vice versa
 function ActivateHDMI {
-    echo "Switching HDMI-A-0 up"
-    xrandr --output HDMI-A-0 --auto --primary --left-of eDP 
-    MONITOR=HDMI-A-0
+    echo "Switching HDMI-1 up"
+    xrandr --output HDMI-1 --left-of DP-2
+    xrandr --output DP-2 --mode 2560x1440 --rate 144.00 --primary
+    xrandr --output HDMI-1 --mode 1920x1080 --rate 75.00
+    MONITOR=HDMI-1
 }
 
 function DeactivateHDMI {
-    echo "Switching to eDP"
-    xrandr --output HDMI-A-0 --off --output eDP --auto
-    MONITOR=eDP
+    echo "Switching to DP-2"
+    xrandr --output HDMI-1 --off
+    xrandr --output DP-2 --mode 2560x1440 --rate 144.00 --primary
+    MONITOR=DP-2
 }
 
-# functions to check if HDMI-A-0 is connected and in use
+# functions to check if HDMI-1 is connected and in use
 function HDMIActive {
-    [ $MONITOR = "HDMI-A-0" ]
+    [ $MONITOR = "HDMI-1" ]
 }
 function HDMIConnected {
-    ! xrandr | grep "^HDMI-A-0" | grep disconnected
+    ! xrandr | grep "^HDMI-1" | grep disconnected
 }
 
 # actual script

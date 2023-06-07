@@ -7,22 +7,25 @@ function run {
   fi
 }
 
-xsetroot -cursor_name left_ptr &
+pkill plasmashell
 
 xrandr --output HDMI-1 --left-of DP-2
-xrandr --output DP-2 --mode 2560x1440 --rate 120.00 --primary
-xrandr --output HDMI-1 --mode 1920x1080 --rate 60.00
+xrandr --output DP-2 --mode 2560x1440 --rate 144.00 --primary
+xrandr --output HDMI-1 --mode 1920x1080 --rate 75.00
 
-run variety &
-run nm-applet &
-run xfce4-power-manager &
+nvidia-settings -l &
 
-xboxdrv --detach-kernel-driver --daemon &
+xsetroot -cursor_name left_ptr &
+
+#run nm-applet &
+#run xfce4-power-manager &
+
+#xboxdrv --detach-kernel-driver --daemon &
 
 numlockx on &
 udiskie &
 
-#picom --config $HOME/.xmonad/scripts/picom.conf &
+picom --config $HOME/.xmonad/scripts/picom.conf &
 
 #nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
 #nvidia-settings -a 'AllowFlipping=0'
