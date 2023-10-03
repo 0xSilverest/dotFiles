@@ -39,15 +39,6 @@ require('packer').startup(function(use)
     }
 
     use {
-      'mrcjkb/haskell-tools.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim', -- optional
-      },
-      branch = '1.10.2', -- recommended
-    }
-
-    use {
         "williamboman/mason.nvim",
         run = ":MasonUpdate" -- :MasonUpdate updates registry contents
     }

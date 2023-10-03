@@ -24,6 +24,7 @@ xsetroot -cursor_name left_ptr &
 
 numlockx on &
 udiskie &
+parcellite &
 
 picom --config $HOME/.xmonad/scripts/picom.conf &
 

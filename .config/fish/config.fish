@@ -5,21 +5,21 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
 end
 
 # aliases
-function ls
-    command exa $argv
-end
-
-function ll
-    command exa -l $argv
-end
-
-function la
-    command exa -al $argv
-end 
-
-function cat
-    command bat $argv
-end
+#function ls
+#    command exa $argv
+#end
+#
+#function ll
+#    command exa -l $argv
+#end
+#
+#function la
+#    command exa -al $argv
+#end 
+#
+#function cat
+#    command bat $argv
+#end
 
 function reboot
     command systemctl reboot $argv
@@ -58,15 +58,13 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH
 
 # coursier
-set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin"
-
-set GOOGLE_APPLICATION_CREDENTIALS "$HOME/.google/google_credentials.json"
+set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin:$HOME/.sdkman/candidates/java/22.3.r17-grl/bin"
 
 set XDG_DATA_DIRS "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
 
 set JAVA_HOME "/home/silverest/.sdkman/candidates/java/current"
 
-#export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/22.0.0.2.r17-grl/"
+export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/22.3.r17-grl/"
 
 #set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
