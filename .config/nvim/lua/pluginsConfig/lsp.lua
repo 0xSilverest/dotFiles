@@ -27,7 +27,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = {
     'pyright', 'bashls', 'yamlls', 'diagnosticls',
     'hls', 'jsonls', 'dockerls', 'texlab', 'tsserver',
-    'svelte', 'tailwindcss', 'html', 'cssls'
+    'svelte', 'html', 'cssls', 'rust_analyzer','gopls',
+    'gradle_ls'
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup (coq.lsp_ensure_capabilities {
