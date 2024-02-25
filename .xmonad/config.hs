@@ -3,15 +3,14 @@ import XMonad.Hooks.SetWMName
 import XMonad.Config.Kde
 import XMonad.Hooks.EwmhDesktops
 
---import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers (doCenterFloat, doFullFloat, isDialog, isFullscreen)
+import XMonad.Hooks.FadeInactive
+
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn
 
---import XMonad.Util.Run(spawnPipe)
-
---import XMonad.Layout.Gaps
+import XMonad.Layout.Tabbed
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
@@ -32,8 +31,8 @@ myStartupHook = do
   setWMName "XMonad"
 
 normBord = "#292d3e"
-
 focdBord = "#b19cd9"
+urgBord = "#f38ba8"
 
 mymodm = mod4Mask
 
@@ -44,6 +43,35 @@ myBorderWidth = 2
 myWorkspaces = ["λ", "β", "γ", "δ", "ε"] --, "τ", "θ", "ϕ", "π", "σ"]
 
 myBaseConfig = kdeConfig
+
+myFont = "xft:fira Code Mono:regular:size=11:antialias=true:hinting=true"
+
+myLogHook :: X ()
+myLogHook = fadeInactiveLogHook fadeAmount
+    where fadeAmount = 1
+
+myTabTheme = def { fontName            = myFont
+                 , activeColor         = focdBord
+                 , inactiveColor       = "#1e1e2e"
+                 , urgentColor         = urgBord
+                 , activeBorderColor   = focdBord
+                 , inactiveBorderColor = "#282c34"
+                 , urgentBorderColor   = urgBord
+                 , activeTextColor     = "#282c34"
+                 , inactiveTextColor   = "#d0d0d0"
+                 , urgentTextColor     = "#282c34"
+                 }
+
+myLayout = MG.magnifierOff (
+  spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
+  avoidStruts $
+  mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| tabed)
+  where
+    tabed = tabbed shrinkText myTabTheme
+    tiled = Tall nmaster delta tiled_ratio
+    nmaster = 1
+    delta = 3 / 100
+    tiled_ratio = 1 / 2
 
 -- window manipulations
 myManageHook =
@@ -76,16 +104,6 @@ myManageHook =
     my3Shifts = []
     my4Shifts = []
     my5Shifts = ["lutris", "steam"]
-
-myLayout = MG.magnifierOff (
-  spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
-  avoidStruts $
-  mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| Mirror tiled ||| Full)
-  where
-    tiled = Tall nmaster delta tiled_ratio
-    nmaster = 1
-    delta = 3 / 100
-    tiled_ratio = 1 / 2
 
 myMouseBindings XConfig {modMask = modm} =
   M.fromList
@@ -224,6 +242,7 @@ main = do
       , borderWidth = myBorderWidth
       , handleEventHook = handleEventHook myBaseConfig
       , focusFollowsMouse = myFocusFollowsMouse
+      , logHook = myLogHook
       , workspaces = myWorkspaces
       , focusedBorderColor = focdBord
       , normalBorderColor = normBord

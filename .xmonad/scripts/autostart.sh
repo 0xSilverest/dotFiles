@@ -1,11 +1,11 @@
 #!/bin/bash
 
-function run {
-  if ! pgrep $1 ;
-  then
-    $@&
-  fi
-}
+#function run {
+#  if ! pgrep $1 ;
+#  then
+#    $@&
+#  fi
+#}
 
 pkill plasmashell
 
@@ -28,9 +28,11 @@ parcellite &
 
 picom --config $HOME/.xmonad/scripts/picom.conf &
 
+nitrogen --restore &
+
 #nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
 #nvidia-settings -a 'AllowFlipping=0'
 
 dunst &
-nitrogen --restore &
+
 unclutter -idle 1 -root &

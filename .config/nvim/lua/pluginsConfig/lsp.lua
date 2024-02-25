@@ -1,6 +1,7 @@
-local lspconfig = require 'lspconfig'
+require('mason').setup()
+require('mason-lspconfig').setup()
 
-local coq = require "coq"
+local lspconfig = require 'lspconfig'
 
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
@@ -20,45 +21,41 @@ local on_attach = function(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- Enable the following language servers
 local servers = {
-    'pyright', 'bashls', 'yamlls', 'diagnosticls',
-    'hls', 'jsonls', 'dockerls', 'texlab', 'tsserver',
-    'svelte', 'html', 'cssls', 'rust_analyzer','gopls',
-    'gradle_ls'
+    bashls = {},
+    yamlls = {},
+    dockerls = {},
+    jsonls = {},
+    clojure_lsp = {},
+    diagnosticls = {},
+    hls = {
+        filetypes = { 'haskell', 'lhaskell', 'cabal' },
+    },
+    jsonls = {},
+    texlab = {},
+    tsserver = {},
+    svelte = {},
+    html = {},
+    cssls = {},
+    gradle_ls = {}
 }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup (coq.lsp_ensure_capabilities {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  })
-end
 
-local clangd_capabilities = capabilities
-clangd_capabilities.textDocument.semanticHighlighting = true
-clangd_capabilities.offsetEncoding = "utf-8"
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-lspconfig.clangd.setup {
-    coq.lsp_ensure_capabilities {
-        capabilities = clangd_capabilities,
-        cmd = {
-        	"clangd",
-        	"--background-index",
-        	"--pch-storage=memory",
-        	"--clang-tidy",
-        	"--suggest-missing-includes",
-        	"--cross-file-rename",
-        	"--completion-style=detailed",
-        },
-        init_options = {
-        	clangdFileStatus = true,
-        	usePlaceholders = true,
-        	completeUnimported = true,
-        	semanticHighlighting = true,
-        }
+local mason_lspconfig = require 'mason-lspconfig'
+
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
+}
+
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
     }
+  end,
 }
-
