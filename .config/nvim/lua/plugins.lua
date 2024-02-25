@@ -1,100 +1,157 @@
-require('packer').startup(function(use)
+require("lazy").setup({
 -- Package manager
-    use 'wbthomason/packer.nvim'
+     'wbthomason/packer.nvim',
 
--- UI selector go brrrr
-    use {'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim'}}
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'jvgrootveld/telescope-zoxide'   
+    -- UI selector go brrrr
+     {'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim'}},
+     {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+     'jvgrootveld/telescope-zoxide',
     --
 -- LSPs and stuff
-    use 'nvim-treesitter/nvim-treesitter'
+    {
+      'neovim/nvim-lspconfig',
+      dependencies = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
 
-    use 'neovim/nvim-lspconfig'
-    use {'ms-jpq/coq_nvim', branch = 'coq'}
-    use {'ms-jpq/coq.thirdparty', branch = '3p'}
-    use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
-    use 'github/copilot.vim'
+        { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
-    use 'ray-x/lsp_signature.nvim'
+        'folke/neodev.nvim',
+      },
+    },
 
-    use 'mfussenegger/nvim-dap'
+    {
+      -- Autocompletion
+      'hrsh7th/nvim-cmp',
+      dependencies = {
+        -- Snippet Engine & its associated nvim-cmp source
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
 
-    use 'VidocqH/lsp-lens.nvim'
+        -- Adds LSP completion capabilities
+        'hrsh7th/cmp-nvim-lsp',
 
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {}
-        end
-    }
+        -- Adds a number of user-friendly snippets
+        'rafamadriz/friendly-snippets',
+      },
+    },
 
-    use {
+    { 'folke/which-key.nvim', opts = {} },
+
+    {
+      -- Highlight, edit, and navigate code
+      'nvim-treesitter/nvim-treesitter',
+      dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+      },
+      build = ':TSUpdate',
+    },
+
+    'ray-x/lsp_signature.nvim',
+
+    --'mfussenegger/nvim-dap',
+
+    --'VidocqH/lsp-lens.nvim',
+
+    {
+       "folke/trouble.nvim",
+       dependencies = "kyazdani42/nvim-web-devicons",
+       config = function()
+           require("trouble").setup {}
+       end
+    },
+    {
         'scalameta/nvim-metals',
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "mfussenegger/nvim-dap"
         },
-    }
-
-    use {
+    },
+    {
+        'mrcjkb/haskell-tools.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+        version = "^2",
+        ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+    },
+    {
         "williamboman/mason.nvim",
-        run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-    }
+        build = ":MasonUpdate"
+    },
+    {
+        "Exafunction/codeium.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup({
+            })
+        end
+    },
 
 -- git shitshow
-    use {'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }}
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    {'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }},
+    { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 
 -- Latex
-    use 'lervag/vimtex'
+    'lervag/vimtex',
 
 -- Theme
-    use 'folke/tokyonight.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
+    'folke/tokyonight.nvim',
+    { "catppuccin/nvim", as = "catppuccin" },
 
-    use 'kyazdani42/nvim-web-devicons'
+    'kyazdani42/nvim-web-devicons',
 
 -- Status line
-    use 'nvim-lualine/lualine.nvim'
+    'nvim-lualine/lualine.nvim',
 
 -- File Management
-    use {'kyazdani42/nvim-tree.lua',
-            requires = {
-              'kyazdani42/nvim-web-devicons', -- optional, for file icon
-            },
-            config = function() require'nvim-tree'.setup {} end
-        }
+    {'kyazdani42/nvim-tree.lua',
+        dependencies = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+        config = function() require'nvim-tree'.setup {} end
+    },
 
 -- Quality of life
-    use({"olimorris/persisted.nvim",
+    ({"olimorris/persisted.nvim",
         config = function()
             require("persisted").setup()
             require("telescope").load_extension("persisted")
-        end,})
-    use 'lukas-reineke/indent-blankline.nvim'
-    use 'p00f/nvim-ts-rainbow'
-    use {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end}
-    use 'RRethy/vim-illuminate'
-    use {'machakann/vim-sandwich', keys = 's'}
-    use {'phaazon/hop.nvim',
+        end,}),
+    'lukas-reineke/indent-blankline.nvim',
+    'p00f/nvim-ts-rainbow',
+    {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end},
+    'RRethy/vim-illuminate',
+    {'machakann/vim-sandwich', keys = 's'},
+    {'phaazon/hop.nvim',
         branch = 'v1',
         config = function()
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        end}
-    use "nacro90/numb.nvim"
-end)
+    end},
+    "nacro90/numb.nvim",
+    { 'mrjones2014/smart-splits.nvim', build = './kitty/install-kittens.bash' },
+    { 'nvim-focus/focus.nvim', version = '*' },
+}, {})
+
+require("catppuccin").setup({
+    transparent_background = true,
+    integrations = {
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        treesitter = true,
+        ts_rainbow = true,
+    }
+})
+
+vim.cmd.colorscheme "catppuccin-mocha"
 
 require'nvim-web-devicons'.setup {
   default = true;
 }
-
---vim.g.tokyonight_style = "night"
---vim.cmd[[colorscheme tokyonight-night]]
-
-
--- vim.g.tokyonight_lualine_bold = true
 
 require'lualine'.setup {
 	options = {
@@ -112,19 +169,15 @@ require'lualine'.setup {
 	}
 }
 
-vim.g.coq_settings = {
-    auto_start= true
-}
-
-vim.g.copilot_assume_mapped = true
 
 require 'pluginsConfig.lsp'
 require 'pluginsConfig.gitsigns'
 require 'pluginsConfig.telescope'
 require 'pluginsConfig.treesitter'
-require 'pluginsConfig.dap'
+--require 'pluginsConfig.dap'
 require 'pluginsConfig.metals'
 require 'pluginsConfig.nvimtree'
+require 'pluginsConfig.cmp'
 
 require "lsp_signature".setup({
   bind = true,
@@ -133,28 +186,6 @@ require "lsp_signature".setup({
   }
 })
 
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
-require'lsp-lens'.setup({})
+--require'lsp-lens'.setup({})
 require'hop'.setup()
 require('numb').setup()
-
-require("catppuccin").setup({
-    integrations = {
-        gitsigns = true,
-        nvimtree = true,
-        telescope = true,
-        treesitter = true,
-        ts_rainbow = true,
-    }
-})
-
-vim.cmd.colorscheme "catppuccin-mocha"

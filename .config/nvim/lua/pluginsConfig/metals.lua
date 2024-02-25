@@ -4,6 +4,7 @@ metals_config.settings = {
   showImplicitArguments = true,
 }
 
+metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 metals_config.init_options.statusBarProvider = "on"
 
 local dap = require("dap")

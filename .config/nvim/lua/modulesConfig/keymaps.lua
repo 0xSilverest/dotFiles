@@ -49,13 +49,6 @@ vim.api.nvim_set_keymap("n", "fl", "<cmd>HopLine<cr>",
 vim.api.nvim_set_keymap("n", "fp", "<cmd>HopPattern<cr>",
     {silent = true, noremap = true})
 
--- Sniprun
-vim.api.nvim_set_keymap("n", "run", "<cmd>SnipRun<cr>",
-    {silent = true, noremap = true})
-
-vim.api.nvim_set_keymap("n", "<leader>rs", "<cmd>SnipReset<cr>",
-    {silent = true, noremap = true})
-
 -- Telescope
 vim.api.nvim_set_keymap('n', '<leader>tb',
     [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
@@ -94,5 +87,6 @@ vim.api.nvim_set_keymap('n', '<leader>e',
     [[<cmd>lua vim.diagnostic.open_float()<CR>]],
     { noremap = true, silent = true })
 
--- Copilot
-vim.cmd [[imap <silent><script><expr> <C-s> copilot#Accept('\<CR>')]]
+-- Resize
+vim.api.nvim_set_keymap('n', '<leader>rs',[[<cmd>SmartResizeMode<CR>]],
+    { noremap = true, silent = true })

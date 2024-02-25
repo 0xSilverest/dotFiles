@@ -5,21 +5,21 @@ function __fish_command_not_found_handler --on-event fish_command_not_found
 end
 
 # aliases
-#function ls
-#    command exa $argv
-#end
-#
-#function ll
-#    command exa -l $argv
-#end
-#
-#function la
-#    command exa -al $argv
-#end 
-#
-#function cat
-#    command bat $argv
-#end
+function ls
+    command eza $argv
+end
+
+function ll
+    command eza -l $argv
+end
+
+function la
+    command eza -al $argv
+end 
+
+function cat
+    command bat $argv
+end
 
 function reboot
     command systemctl reboot $argv
