@@ -22,18 +22,26 @@ func_install() {
 
 echo "My shit sires!"
 
+tput setaf 11;
+echo "################################################################"
+echo "Adding Packman repo"
+echo "################################################################"
+echo;tput sgr0
+
+sudo zypper ar -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/' packman
+sudo zypper dup --from packman --allow-vendor-change --no-confirm
+
+
 list=(
-    picom
-    dunst
+    opi
+
     unclutter
     kitty
     nitrogen
     git
     chromium
-    chromium-ffmpeg-extra
     sxiv
     docker
-    firefox
     flameshot
 
     # backends
@@ -56,6 +64,7 @@ list=(
     # nvim plugins req
     neovim
     ripgrep
+    fzf
     fd
     libstdc++-devel
     tree-sitter-devel
@@ -84,6 +93,16 @@ echo;tput sgr0
 
 tput setaf 11;
 echo "################################################################"
+echo "Downloading codecs"
+echo "################################################################"
+echo;tput sgr0
+
+opi codecs -n
+opi vivaldi -n
+opi msedge -n
+
+tput setaf 11;
+echo "################################################################"
 echo "Setting fish to default shell"
 echo "################################################################"
 echo;tput sgr0
@@ -91,10 +110,10 @@ echo;tput sgr0
 echo /usr/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
-tput setaf 11;
-echo "################################################################"
-echo "Installing NeoVim Plugins"
-echo "################################################################"
-echo;tput sgr0
+#tput setaf 11;
+#echo "################################################################"
+#echo "Installing NeoVim Plugins"
+#echo "################################################################"
+#echo;tput sgr0
 
-./vimSetup.sh
+#./vimSetup.sh

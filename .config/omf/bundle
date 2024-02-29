@@ -2,3 +2,4 @@ package bass
 package https://github.com/catppuccin/fish
 theme cbjohnson
 theme default
+theme lambda
