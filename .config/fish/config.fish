@@ -137,3 +137,6 @@ zoxide init fish | source
 set SDKMAN_DIR "$HOME/.sdkman"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 
+
+# Created by `pipx` on 2024-02-26 09:47:30
+set PATH $PATH /home/silverest/.local/bin
