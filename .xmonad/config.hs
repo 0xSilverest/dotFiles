@@ -26,8 +26,8 @@ import Control.Monad (liftM2)
 
 myStartupHook = do
   spawn "$HOME/.xmonad/scripts/autostart.sh"
-  spawn "$HOME/.config/polybar/launch.sh"
-  spawn "$HOME/.scripts/autoMonitor.sh"
+  --spawn "$HOME/.config/polybar/launch.sh"
+  --spawn "$HOME/.scripts/autoMonitor.sh"
   setWMName "XMonad"
 
 normBord = "#292d3e"
@@ -40,7 +40,7 @@ myFocusFollowsMouse = False
 
 myBorderWidth = 2
 
-myWorkspaces = ["λ", "β", "γ", "δ", "ε"] --, "τ", "θ", "ϕ", "π", "σ"]
+myWorkspaces = ["λ", "β", "γ", "δ"] --, "ε", "τ", "θ", "ϕ", "π", "σ"]
 
 myBaseConfig = kdeConfig
 
@@ -85,7 +85,7 @@ myManageHook =
   , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "β" | x <- my2Shifts]
   , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "γ" | x <- my3Shifts]
   , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "δ" | x <- my4Shifts]
-  , [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ε" | x <- my5Shifts]
+  --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ε" | x <- my5Shifts]
   --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "τ" | x <- my6Shifts]
   --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "θ" | x <- my7Shifts]
   --, [ (className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "ϕ" | x <- my8Shifts]
@@ -95,15 +95,15 @@ myManageHook =
   ]
   where
     doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
-    myCFloats = ["Arandr", "feh", "mpv", "vlc"]
-    myTFloats = ["Downloads", "Save As...", "pavucontrol"]
+    myCFloats = ["Arandr", "feh", "mpv", "vlc", "plasmashell"]
+    myTFloats = ["Downloads", "Save As...", "pavucontrol", "krunner"]
     myRFloats = []
     myIgnores = ["desktop_window", "dunst"]
     my1Shifts = []
     my2Shifts = []
     my3Shifts = []
-    my4Shifts = []
-    my5Shifts = ["lutris", "steam"]
+    my4Shifts = ["lutris", "steam"]
+  --  my5Shifts = []
 
 myMouseBindings XConfig {modMask = modm} =
   M.fromList

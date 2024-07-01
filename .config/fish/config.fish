@@ -64,7 +64,7 @@ set XDG_DATA_DIRS "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest
 
 set JAVA_HOME "/home/silverest/.sdkman/candidates/java/current"
 
-export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/22.3.r17-grl/"
+export GRAALVM_HOME="/home/silverest/.sdkman/candidates/java/17.0.9-graalce/"
 
 #set fish_function_path $fish_function_path $HOME/.local/share/omf/pkg/foreign-env/functions
 
