@@ -79,17 +79,17 @@ require("lazy").setup({
         "williamboman/mason.nvim",
         build = ":MasonUpdate"
     },
-    {
-        "Exafunction/codeium.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-        config = function()
-            require("codeium").setup({
-            })
-        end
-    },
+    --{
+    --    "Exafunction/codeium.nvim",
+    --    dependencies = {
+    --        "nvim-lua/plenary.nvim",
+    --        "hrsh7th/nvim-cmp",
+    --    },
+    --    config = function()
+    --        require("codeium").setup({
+    --        })
+    --    end
+    --},
 
 -- git shitshow
     {'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }},

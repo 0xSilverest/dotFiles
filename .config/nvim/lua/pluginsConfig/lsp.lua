@@ -31,6 +31,7 @@ local servers = {
     hls = {
         filetypes = { 'haskell', 'lhaskell', 'cabal' },
     },
+    zls = {},
     jsonls = {},
     texlab = {},
     tsserver = {},
