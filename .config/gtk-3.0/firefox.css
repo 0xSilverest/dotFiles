@@ -1,0 +1,112 @@
+@import url("colors-twilightSerpent.css");
+
+#MozillaGtkWidget menu {
+  border: none;
+  background-color: @background;
+  color: @foreground;
+}
+
+#MozillaGtkWidget menuitem {
+  color: @foreground;
+}
+
+#MozillaGtkWidget menuitem:hover {
+  background-color: @hover;
+}
+
+#MozillaGtkWidget > widget > menubar {
+  color: @muted;
+}
+
+#MozillaGtkWidget > widget > menubar:hover {
+  color: @foreground;
+}
+
+#MozillaGtkWidget > widget > menubar:disabled {
+  color: @comment;
+}
+
+#MozillaGtkWidget menu > separator {
+  color: @border;
+}
+
+window.background:not(.csd) > window > menu menuitem {
+  transition: none;
+  background-color: @background;
+}
+
+window.background:not(.csd) > window > menu menuitem:hover {
+  background-color: @hover;
+}
+
+#MozillaGtkWidget menu {
+  border: none;
+  background-color: @background;
+  color: @foreground;
+}
+
+#MozillaGtkWidget menuitem {
+  color: @foreground;
+}
+
+#MozillaGtkWidget menuitem:hover {
+  background-color: @hover;
+}
+
+#MozillaGtkWidget > widget > menubar {
+  color: @muted;
+}
+
+#MozillaGtkWidget > widget > menubar:hover {
+  color: @foreground;
+}
+
+#MozillaGtkWidget > widget > menubar:disabled {
+  color: @comment;
+}
+
+#MozillaGtkWidget menu > separator {
+  color: @border;
+}
+
+window.background:not(.csd) > window > menu menuitem {
+  transition: none;
+  background-color: @background;
+}
+
+window.background:not(.csd) > window > menu menuitem:hover {
+  background-color: @hover;
+}
+
+#MozillaGtkWidget > widget text {
+  background-color: @background;
+}
+
+#MozillaGtkWidget > widget text:selected {
+  background-color: @selection;
+  color: @foreground;
+}
+
+#MozillaGtkWidget > widget > separator {
+  color: @border;
+}
+
+#MozillaGtkWidget > widget > frame > border {
+  border-color: @border;
+}
+
+#MozillaGtkWidget > widget > entry,
+#MozillaGtkWidget > widget > button > button {
+  border: 1px solid @border;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+#MozillaGtkWidget > widget > entry {
+  background-color: @surface;
+}
+
+#MozillaGtkWidget > widget > entry:focus {
+  border-color: @primary;
+  box-shadow: inset 0 0 0 1px @primary;
+}

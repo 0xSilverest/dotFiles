@@ -1,11 +1,15 @@
 import XMonad
 import XMonad.Hooks.SetWMName
-import XMonad.Config.Kde
-import XMonad.Hooks.EwmhDesktops
+-- import XMonad.Config.Kde
+import XMonad.Config.Desktop
 
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers (doCenterFloat, doFullFloat, isDialog, isFullscreen)
 import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn
@@ -15,24 +19,25 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
-
-import qualified XMonad.Layout.Magnifier as MG
+import XMonad.Layout.LayoutModifier
 
 import qualified Data.Map as M
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 
 import Control.Monad (liftM2)
+import qualified DBus as D
+import qualified DBus.Client as D
 
 myStartupHook = do
   spawn "$HOME/.config/xmonad/scripts/autostart.sh"
-  --spawn "$HOME/.config/polybar/launch.sh"
-  --spawn "$HOME/.scripts/autoMonitor.sh"
+  spawn "$HOME/.config/polybar/launch.sh"
+  -- spawn "$HOME/.scripts/autoMonitor.sh"
   setWMName "XMonad"
 
-normBord = "#292d3e"
-focdBord = "#b19cd9"
-urgBord = "#f38ba8"
+normBord = "#292D3E"
+focdBord = "#5A4F7F"
+urgBord = "#FF3355"
 
 mymodm = mod4Mask
 
@@ -42,36 +47,41 @@ myBorderWidth = 2
 
 myWorkspaces = ["λ", "β", "γ", "δ"] --, "ε", "τ", "θ", "ϕ", "π", "σ"]
 
-myBaseConfig = kdeConfig
+-- myBaseConfig = kdeConfig
+myBaseConfig = desktopConfig
 
-myFont = "xft:fira Code Mono:regular:size=11:antialias=true:hinting=true"
+myFont = "xft:Fira Code:regular:size=11:antialias=true:hinting=true"
 
-myLogHook :: X ()
-myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 1
+myTabTheme = def
+    { fontName            = myFont
+    , activeColor         = focdBord
+    , inactiveColor       = "#181616"
+    , urgentColor         = urgBord
+    , activeBorderColor   = focdBord
+    , inactiveBorderColor = "#282c34"
+    , urgentBorderColor   = urgBord
+    , activeTextColor     = "#e5e5e5"
+    , inactiveTextColor   = "#e5e5e5"
+    , urgentTextColor     = "#e5e5e5"
+    , activeBorderWidth   = 0
+    , inactiveBorderWidth = 0
+    , urgentBorderWidth   = 0
+    , decoHeight          = 20
+    }
 
-myTabTheme = def { fontName            = myFont
-                 , activeColor         = focdBord
-                 , inactiveColor       = "#1e1e2e"
-                 , urgentColor         = urgBord
-                 , activeBorderColor   = focdBord
-                 , inactiveBorderColor = "#282c34"
-                 , urgentBorderColor   = urgBord
-                 , activeTextColor     = "#282c34"
-                 , inactiveTextColor   = "#d0d0d0"
-                 , urgentTextColor     = "#282c34"
-                 }
+bs = 2
 
-myLayout = MG.magnifierOff (
-  spacingRaw False (Border 1 1 1 1) True (Border 1 1 1 1) True $
-  avoidStruts $
-  mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ tiled ||| tabed)
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing i = spacingRaw False (Border 0 i i i) True (Border i i i i) True
+
+myLayout = avoidStruts $ smartBorders $
+           mySpacing bs tiled |||
+           noBorders (tabbed shrinkText myTabTheme)
   where
-    tabed = tabbed shrinkText myTabTheme
-    tiled = Tall nmaster delta tiled_ratio
+    tiled = Tall nmaster delta ratio
     nmaster = 1
-    delta = 3 / 100
-    tiled_ratio = 1 / 2
+    ratio = 1/2
+    delta = 3/100
 
 -- window manipulations
 myManageHook =
@@ -96,9 +106,9 @@ myManageHook =
   where
     doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
     myCFloats = ["Arandr", "feh", "mpv", "vlc"]
-    myTFloats = ["Downloads", "Save As...", "pavucontrol", "krunner", "plasmashell"]
-    myRFloats = []
-    myIgnores = ["desktop_window", "dunst"]
+    myTFloats = ["Downloads", "Save As...", "pavucontrol", "plasmashell"]
+    myRFloats = ["plasmashell"]
+    myIgnores = ["desktop_window", "dunst", "Timer"]
     my1Shifts = []
     my2Shifts = []
     my3Shifts = []
@@ -127,17 +137,13 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm, xK_e), spawn "rofi -show window")
   , ((modm, xK_r), spawn "rofi -show run")
 
-  , ((modm, xK_b), spawn "vivaldi")
+  , ((modm, xK_b), spawn "firefox")
   , ((modm, xK_t), spawn "kitty")
 
   , ((modm, xK_Escape), spawn "xkill")
 
-  , ((modm .|. controlMask              , xK_equal), sendMessage MG.MagnifyMore)
-  , ((modm .|. controlMask              , xK_minus), sendMessage MG.MagnifyLess)
-  , ((modm .|. controlMask              , xK_o    ), sendMessage MG.ToggleOff  )
-  , ((modm .|. controlMask .|. shiftMask, xK_o    ), sendMessage MG.ToggleOn   )
-  , ((modm .|. controlMask              , xK_m    ), sendMessage MG.Toggle     )
-  
+  , ((controlMask, xF86XK_AudioMute), spawn "change-audio-output")
+
   -- FUNCTION KEYS
   -- SUPER + SHIFT KEYS
   --, ((modm .|. shiftMask , xK_d ), spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
@@ -151,8 +157,8 @@ myKeys conf@XConfig {modMask = modm} =
   --, ((controlMask .|. mod1Mask, xK_o)
   --, spawn "$HOME/.xmonad/scripts/picom-toggle.sh")
   --, ((controlMask .|. mod1Mask, xK_s), spawn "spotify")
-  , ((controlMask .|. mod1Mask, xK_i), spawn "plasma-open-settings kcm_networkmanagement")
-  , ((controlMask .|. mod1Mask, xK_u), spawn "plasma-open-settings kcm_pulseaudio")
+  --, ((controlMask .|. mod1Mask, xK_i), spawn "plasma-open-settings kcm_networkmanagement")
+  --, ((controlMask .|. mod1Mask, xK_u), spawn "plasma-open-settings kcm_pulseaudio")
   -- ALT + ... KEYS
   --CONTROL + SHIFT KEYS
   --, ((controlMask .|. shiftMask, xK_Escape), spawn "xfce4-taskmanager")
@@ -197,18 +203,18 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm, xK_k), windows W.focusUp)
   -- Move focus to the master window.
   , ((modm .|. shiftMask, xK_m), windows W.focusMaster)
-  -- 
+  --
   , ((modm .|. mod1Mask, xK_m), windows W.shiftMaster)
   -- Swap the focused window with the next window.
-  , ((mod1Mask .|. modm, xK_j), windows W.swapDown)
+  , ((controlMask .|. modm, xK_j), windows W.swapDown)
   -- Swap the focused window with the previous window.
-  , ((mod1Mask .|. modm, xK_k), windows W.swapUp)
+  , ((controlMask .|. modm, xK_k), windows W.swapUp)
   -- Shrink the master area.
-  , ((controlMask .|. shiftMask, xK_h), sendMessage Shrink)
+  , ((controlMask .|. modm, xK_h), sendMessage Shrink)
   -- Expand the master area.
-  , ((controlMask .|. shiftMask, xK_l), sendMessage Expand)
+  , ((controlMask .|. modm, xK_l), sendMessage Expand)
   -- Push window back into tiling.
-  , ((controlMask .|. shiftMask, xK_t), withFocused $ windows . W.sink)
+  , ((controlMask .|. modm, xK_t), withFocused $ windows . W.sink)
   -- Increment the number of windows in the master area.
   , ((controlMask .|. modm, xK_Left), sendMessage (IncMasterN 1))
   -- Decrement the number of windows in the master area.
@@ -231,21 +237,78 @@ myKeys conf@XConfig {modMask = modm} =
   , (f, m) <- [(W.view, 0), (W.shift, controlMask)]
   ]
 
-main :: IO ()
+dbusOutput :: D.Client -> String -> IO ()
+dbusOutput dbus str =
+  let opath  = D.objectPath_ "/org/xmonad/Log"
+      iname  = D.interfaceName_ "org.xmonad.Log"
+      mname  = D.memberName_ "Update"
+      signal = D.signal opath iname mname
+      body   = [D.toVariant str]
+  in  D.emit dbus $ signal { D.signalBody = body }
+
+polybarHook :: D.Client -> PP
+polybarHook dbus =
+  let wrapper c s | s /= "NSP" = wrap ("%{F" <> c <> "} ") " %{F-}" s
+                  | otherwise  = mempty
+      blue   = "#2E9AFE"
+      gray   = "#7F7F7F"
+      orange = "#ea4300"
+      purple = "#9058c7"
+      red    = "#722222"
+  in  def { ppOutput          = dbusOutput dbus
+          , ppCurrent         = wrapper blue
+          , ppVisible         = wrapper gray
+          , ppUrgent          = wrapper orange
+          , ppHidden          = wrapper gray
+          , ppHiddenNoWindows = wrapper red
+          , ppTitle           = shorten 100 . wrapper purple
+          }
+
+myPolybarLogHook dbus = dynamicLogWithPP (polybarHook dbus)
+
+mkDbusClient :: IO D.Client
+mkDbusClient = do
+  dbus <- D.connectSession
+  _ <- D.requestName dbus (D.busName_ "org.xmonad.log") opts
+  return dbus
+ where
+  opts = [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
+
 main = do
-  xmonad . docks $ ewmhFullscreen . ewmh $
-    myBaseConfig
-      { startupHook = myStartupHook
-      , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
-      , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
-      , modMask = mymodm
-      , borderWidth = myBorderWidth
-      , handleEventHook = handleEventHook myBaseConfig
-      , focusFollowsMouse = myFocusFollowsMouse
-      , logHook = myLogHook
-      , workspaces = myWorkspaces
-      , focusedBorderColor = focdBord
-      , normalBorderColor = normBord
-      , keys = myKeys
-      , mouseBindings = myMouseBindings
-      }
+      dbus <- mkDbusClient
+      xmonad . docks . ewmh  $ myBaseConfig
+       { startupHook = myStartupHook
+       , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
+       , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
+       , modMask = mymodm
+       , borderWidth = myBorderWidth
+       , handleEventHook = handleEventHook myBaseConfig
+       , focusFollowsMouse = myFocusFollowsMouse
+       --, logHook = myLogHook
+       , logHook = myPolybarLogHook dbus
+       , workspaces = myWorkspaces
+       , focusedBorderColor = focdBord
+       , normalBorderColor = normBord
+       , keys = myKeys
+       , mouseBindings = myMouseBindings
+       }
+
+-- KDE Config
+-- main :: IO ()
+-- main = do
+--   xmonad . docks $ ewmhFullscreen . ewmh $
+--     myBaseConfig
+--       { startupHook = myStartupHook
+--       , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
+--       , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
+--       , modMask = mymodm
+--       , borderWidth = myBorderWidth
+--       , handleEventHook = handleEventHook myBaseConfig
+--       , focusFollowsMouse = myFocusFollowsMouse
+--       , logHook = myLogHook
+--       , workspaces = myWorkspaces
+--       , focusedBorderColor = focdBord
+--       , normalBorderColor = normBord
+--       , keys = myKeys
+--       , mouseBindings = myMouseBindings
+--       }

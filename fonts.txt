@@ -1,9 +1,0 @@
-NotoColorEmoji.ttf
-codicon.ttf
-icomoon-feater.ttf
-"Symbols-1000-em Nerd Font Complete.tff"
-icomoon.ttf
-fira-code
-adobe-sourcesanspro-fonts
-google-roboto-fonts
-fontawesome-fonts

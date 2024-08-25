@@ -59,6 +59,7 @@ test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $P
 
 # coursier
 set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin:$HOME/.sdkman/candidates/java/22.3.r17-grl/bin"
+set WINEDLLPATH $WINEDLLPATH:/opt/discord-rpc/bin64:/opt/discord-rpc/bin32
 
 set XDG_DATA_DIRS "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
 
@@ -124,6 +125,55 @@ set TERMINAL 'kitty'
 #set -g fish_pager_color_prefix $cyan
 #set -g fish_pager_color_completion $foreground
 #set -g fish_pager_color_description $comment
+
+## Twilight Serpent
+# Color palette
+set -l foreground e5e5e5
+set -l selection 5a4f7f
+set -l comment 434759
+set -l red ff3355
+set -l orange ff9966
+set -l yellow ffcb6b
+set -l green c3e88d
+set -l purple c792ea
+set -l cyan 89ddff
+set -l pink ff5370
+set -l blue 82aaff
+
+# Syntax Highlighting Colors
+set -g fish_color_normal $foreground
+set -g fish_color_command $cyan
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_error $red
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
+set -g fish_color_autosuggestion $comment
+
+# Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment
+
+# Prompt colors
+set -g fish_color_cwd $yellow
+set -g fish_color_user $green
+set -g fish_color_host $blue
+
+# Git prompt colors
+set -g __fish_git_prompt_color_branch $purple
+set -g __fish_git_prompt_color_upstream $cyan
+set -g __fish_git_prompt_color_staged $green
+set -g __fish_git_prompt_color_stashed $blue
+set -g __fish_git_prompt_color_unstaged $orange
+set -g __fish_git_prompt_color_untracked $red
 
 #set -g NODE_OPTIONS --openssl-legacy-provider
 set -e NODE_OPTIONS

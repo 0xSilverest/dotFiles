@@ -1,191 +1,166 @@
-require("lazy").setup({
--- Package manager
-     'wbthomason/packer.nvim',
-
-    -- UI selector go brrrr
-     {'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim'}},
-     {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-     'jvgrootveld/telescope-zoxide',
-    --
--- LSPs and stuff
+return {
+    -- Telescope and extensions
     {
-      'neovim/nvim-lspconfig',
-      dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-
-        { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-
-        'folke/neodev.nvim',
-      },
-    },
-
-    {
-      -- Autocompletion
-      'hrsh7th/nvim-cmp',
-      dependencies = {
-        -- Snippet Engine & its associated nvim-cmp source
-        'L3MON4D3/LuaSnip',
-        'saadparwaiz1/cmp_luasnip',
-
-        -- Adds LSP completion capabilities
-        'hrsh7th/cmp-nvim-lsp',
-
-        -- Adds a number of user-friendly snippets
-        'rafamadriz/friendly-snippets',
-      },
-    },
-
-    { 'folke/which-key.nvim', opts = {} },
-
-    {
-      -- Highlight, edit, and navigate code
-      'nvim-treesitter/nvim-treesitter',
-      dependencies = {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-      },
-      build = ':TSUpdate',
-    },
-
-    'ray-x/lsp_signature.nvim',
-
-    --'mfussenegger/nvim-dap',
-
-    --'VidocqH/lsp-lens.nvim',
-
-    {
-       "folke/trouble.nvim",
-       dependencies = "kyazdani42/nvim-web-devicons",
-       config = function()
-           require("trouble").setup {}
-       end
-    },
-    {
-        'scalameta/nvim-metals',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "mfussenegger/nvim-dap"
-        },
-    },
-    {
-        'mrcjkb/haskell-tools.nvim',
+        'nvim-telescope/telescope.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            'jvgrootveld/telescope-zoxide'
         },
-        version = "^2",
-        ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+        config = function()
+            require('pluginsConfig.telescope')
+        end
+    },
+
+    -- LSP and completion
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+            'folke/neodev.nvim',
+            'hrsh7th/nvim-cmp',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'rafamadriz/friendly-snippets',
+            'ray-x/lsp_signature.nvim',
+        },
+        config = function()
+            require('pluginsConfig.lsp')
+            require('pluginsConfig.cmp')
+        end
     },
     {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate"
+      "folke/trouble.nvim",
+      dependencies = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {}
+      end
     },
-    --{
-    --    "Exafunction/codeium.nvim",
-    --    dependencies = {
-    --        "nvim-lua/plenary.nvim",
-    --        "hrsh7th/nvim-cmp",
-    --    },
-    --    config = function()
-    --        require("codeium").setup({
-    --        })
-    --    end
-    --},
+    {
+      'scalameta/nvim-metals',
+      dependencies = {
+          "nvim-lua/plenary.nvim",
+          "mfussenegger/nvim-dap"
+      },
+      config = function()
+          require("pluginsConfig.metals")
+      end
+    },
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "theHamsta/nvim-dap-virtual-text",
+        },
+        config = function()
+            require("pluginsConfig.dap")
+        end,
+    },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        config = function()
+            require("nvim-dap-virtual-text").setup()
+        end,
+    },
 
--- git shitshow
-    {'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }},
+    -- Treesitter
+    {
+        'nvim-treesitter/nvim-treesitter',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            'p00f/nvim-ts-rainbow',
+        },
+        build = ':TSUpdate',
+        config = function()
+            require('pluginsConfig.treesitter')
+        end
+    },
+
+    -- Git integration
+    {
+        'lewis6991/gitsigns.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('pluginsConfig.gitsigns')
+        end
+    },
     { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 
--- Latex
+    -- Latex
     'lervag/vimtex',
 
--- Theme
-    'folke/tokyonight.nvim',
-    { "catppuccin/nvim", as = "catppuccin" },
-
-    'kyazdani42/nvim-web-devicons',
-
--- Status line
-    'nvim-lualine/lualine.nvim',
-
--- File Management
-    {'kyazdani42/nvim-tree.lua',
-        dependencies = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
-        config = function() require'nvim-tree'.setup {} end
+    -- Themes
+    {
+        "alexmozaidze/palenight.nvim",
+        lazy = false,
+        config = function()
+            local colors = require "palenight/colors/truecolor"
+            colors.black = "#181616"
+            colors.white = "#e5e5e5"
+            colors.menu = "#1d1b1b"
+        end,
     },
 
--- Quality of life
-    ({"olimorris/persisted.nvim",
+    -- Status line
+    {
+        'nvim-lualine/lualine.nvim',
+        config = function()
+            require'lualine'.setup {
+                options = {
+                    icons_enabled = true,
+                    theme = 'palenight',
+                    disabled_filetypes = {}
+                },
+                sections = {
+                   lualine_a = {'mode'},
+                   lualine_b = {'branch'},
+                   lualine_c = {'filename', 'lsp'},
+                   lualine_x = {'encoding', 'fileformat', 'filetype'},
+                   lualine_y = {'progress'},
+                   lualine_z = {'location'}
+                }
+            }
+        end
+    },
+
+    -- File explorer
+    {
+        'kyazdani42/nvim-tree.lua',
+        dependencies = { 'kyazdani42/nvim-web-devicons' },
+        config = function()
+            require('pluginsConfig.nvimtree')
+        end
+    },
+
+    -- Session management
+    {
+        "olimorris/persisted.nvim",
         config = function()
             require("persisted").setup()
             require("telescope").load_extension("persisted")
-        end,}),
+        end,
+    },
+
+    -- UI enhancements
+    { 'folke/which-key.nvim', opts = {} },
     'lukas-reineke/indent-blankline.nvim',
-    'p00f/nvim-ts-rainbow',
-    {'ZhiyuanLck/smart-pairs', event = 'InsertEnter', config = function() require('pairs'):setup() end},
+    {
+        'ZhiyuanLck/smart-pairs',
+        event = 'InsertEnter',
+        config = function() require('pairs'):setup() end
+    },
     'RRethy/vim-illuminate',
     {'machakann/vim-sandwich', keys = 's'},
-    {'phaazon/hop.nvim',
+    {
+        'phaazon/hop.nvim',
         branch = 'v1',
         config = function()
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end},
+        end
+    },
     "nacro90/numb.nvim",
     { 'mrjones2014/smart-splits.nvim', build = './kitty/install-kittens.bash' },
     { 'nvim-focus/focus.nvim', version = '*' },
-}, {})
-
-require("catppuccin").setup({
-    transparent_background = true,
-    integrations = {
-        gitsigns = true,
-        nvimtree = true,
-        telescope = true,
-        treesitter = true,
-        ts_rainbow = true,
-    }
-})
-
-vim.cmd.colorscheme "catppuccin-mocha"
-
-require'nvim-web-devicons'.setup {
-  default = true;
 }
-
-require'lualine'.setup {
-	options = {
-		icons_enabled = true,
-		theme = 'catppuccin',
-		disabled_filetypes = {}
-	},
-	sections = {
-	   lualine_a = {'mode'},
-	   lualine_b = {'branch'},
-	   lualine_c = {'filename', 'lsp'},
-	   lualine_x = {'encoding', 'fileformat', 'filetype'},
-	   lualine_y = {'progress'},
-	   lualine_z = {'location'}
-	}
-}
-
-
-require 'pluginsConfig.lsp'
-require 'pluginsConfig.gitsigns'
-require 'pluginsConfig.telescope'
-require 'pluginsConfig.treesitter'
---require 'pluginsConfig.dap'
-require 'pluginsConfig.metals'
-require 'pluginsConfig.nvimtree'
-require 'pluginsConfig.cmp'
-
-require "lsp_signature".setup({
-  bind = true,
-  handler_opts = {
-    border = "rounded"
-  }
-})
-
---require'lsp-lens'.setup({})
-require'hop'.setup()
-require('numb').setup()

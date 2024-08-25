@@ -45,7 +45,7 @@ for name in "${bkpsBins[@]}"; do
     cp $HOME/bin/$name $DOT_FILES_DIR/bin/$name
 done
 
-git add . 
+git add .
 if(($#>=1))
 then
     git commit -am "$1"
