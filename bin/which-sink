@@ -1,0 +1,13 @@
+#!/bin/sh
+
+CACHE_FILE="/tmp/polybar_sink_cache.txt"
+
+CURRENT_SINK=$(pactl get-default-sink)
+
+if [[ "$CURRENT_SINK" == *"hdmi-stereo"* ]]; then
+    echo "󰽟" > "$CACHE_FILE"
+elif [[ "$CURRENT_SINK" == *"pro-output"* ]]; then
+    echo "󰋋" > "$CACHE_FILE"
+else
+    echo "Unknown" > $CACHE_FILE
+fi

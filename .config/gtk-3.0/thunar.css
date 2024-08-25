@@ -1,0 +1,300 @@
+@import url("colors-twilightSerpent.css");
+
+/* Thunar Complete Theme */
+/* Place this in ~/.config/gtk-3.0/gtk.css */
+
+/* Color Definitions */
+@define-color primary #C792EA;
+@define-color secondary #5C97BF;
+@define-color tertiary #7A6FA6;
+@define-color foreground #E5E5E5;
+@define-color muted #C7CFE0;
+@define-color background #181616;
+@define-color surface #1a181a;
+@define-color surfaceLight #2A2626;
+@define-color accent1 #82AAFF;
+@define-color accent2 #FF8B92;
+@define-color accent3 #FFCB6B;
+@define-color accent4 #C3E88D;
+@define-color accent5 #89DDFF;
+@define-color error #FF3355;
+@define-color warning #FF9966;
+@define-color success #66CDAA;
+@define-color link #58B7FF;
+@define-color border #292424;
+@define-color selection #5A4F7F;
+@define-color hover #3D3750;
+@define-color active #4A3F5A;
+@define-color comment #434759;
+
+/* Main Window */
+.thunar {
+    background-color: @background;
+    color: @foreground;
+}
+
+/* Sidebar */
+.thunar .sidebar {
+    background-color: @surface;
+    color: @foreground;
+}
+
+.thunar .sidebar .view {
+    background-color: transparent;
+}
+
+.thunar .sidebar .view:selected {
+    background-color: @selection;
+    color: @foreground;
+    font-weight: bold;
+}
+
+/* Main View */
+.thunar .standard-view {
+    background-color: @background;
+}
+
+.thunar .standard-view .view {
+    background-color: transparent;
+    color: @foreground;
+}
+
+/* Selection Styles */
+.thunar .standard-view .view:selected,
+.thunar treeview.view:selected,
+.thunar iconview:selected,
+.thunar .sidebar .view:selected {
+    background-color: @selection;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: 1px solid @accent1;
+}
+
+/* Hover Styles */
+.thunar .standard-view .view:hover:not(:selected),
+.thunar treeview.view:hover:not(:selected),
+.thunar iconview:hover:not(:selected),
+.thunar .sidebar .view:hover:not(:selected) {
+    background-color: @hover;
+}
+
+/* Toolbar */
+.thunar toolbar {
+    background-color: @surface;
+    border-bottom: 1px solid @border;
+}
+
+.thunar toolbar button,
+.thunar .path-bar button {
+    background-color: transparent;
+    color: @foreground;
+    border: none;
+    padding: 6px;
+}
+
+.thunar toolbar button:hover,
+.thunar .path-bar button:hover {
+    background-color: @hover;
+}
+
+.thunar toolbar button:active,
+.thunar .path-bar button:active {
+    background-color: @active;
+}
+
+/* Path Bar */
+.thunar .path-bar entry {
+    background-color: @surfaceLight;
+    color: @foreground;
+    border: 1px solid @border;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+/* Status Bar */
+.thunar statusbar {
+    background-color: @surface;
+    color: @muted;
+    border-top: 1px solid @border;
+    padding: 4px;
+}
+
+/* Linked Buttons */
+.thunar .linked:not(.vertical) > button {
+    border-radius: 0;
+    background-color: @surface;
+    color: @foreground;
+    border: 1px solid @border;
+    padding: 6px;
+}
+
+.thunar .linked:not(.vertical) > button:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.thunar .linked:not(.vertical) > button:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.thunar .linked:not(.vertical) > button:hover {
+    background-color: @hover;
+}
+
+/* Entry Fields */
+.thunar entry {
+    background-color: @surfaceLight;
+    color: @foreground;
+    border: 1px solid @border;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.thunar entry:focus {
+    border-color: @primary;
+}
+
+/* Scrollbars */
+.thunar scrollbar {
+    background-color: @surface;
+}
+
+.thunar scrollbar slider {
+    background-color: @comment;
+    border-radius: 6px;
+}
+
+.thunar scrollbar slider:hover {
+    background-color: @muted;
+}
+
+/* Menu Bar */
+.thunar menubar {
+    background-color: @surface;
+    color: @foreground;
+    border-bottom: 1px solid @border;
+}
+
+.thunar menubar > menuitem {
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.thunar menubar > menuitem:hover {
+    background-color: @hover;
+}
+
+.thunar menubar > menuitem:active {
+    background-color: @active;
+}
+
+/* Dropdown Menus */
+.thunar menu {
+    background-color: @surfaceLight;
+    border: 1px solid @border;
+    border-radius: 4px;
+    padding: 4px 0;
+}
+
+.thunar menuitem {
+    padding: 6px 10px;
+}
+
+.thunar menuitem:hover {
+    background-color: @hover;
+}
+
+/* Error, Warning, Success Indicators */
+.thunar .error {
+    color: @error;
+}
+
+.thunar .warning {
+    color: @warning;
+}
+
+.thunar .success {
+    color: @success;
+}
+
+/* Ensure icons are visible when selected */
+.thunar .view:selected image {
+    color: #FFFFFF;
+}
+
+/* Dropdown and Context Menus */
+.thunar menu,
+.thunar .context-menu {
+    background-color: @background;  /* Dark background */
+    border: 1px solid @accent1;  /* Subtle border */
+    border-radius: 6px;
+    padding: 4px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.thunar menuitem,
+.thunar .menu-item {
+    padding: 6px 8px;
+    color: #E5E5E5;  /* Light text color */
+    transition: background-color 0.2s ease;
+}
+
+.thunar menuitem:hover,
+.thunar .menu-item:hover {
+    background-color: @selection;  /* Subtle hover effect */
+}
+
+/* Submenu arrows */
+.thunar menuitem arrow {
+    color: #E5E5E5;
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    margin-left: 10px;
+}
+
+/* Menu separators */
+.thunar menuitem separator {
+    background-color: #3D3D3D;
+    margin: 4px 0;
+}
+
+/* Disabled menu items */
+.thunar menuitem:disabled,
+.thunar .menu-item:disabled {
+    color: #6B7D8C;  /* Muted color for disabled items */
+}
+
+/* Checkmarks and radio indicators */
+.thunar menuitem check,
+.thunar menuitem radio {
+    color: #82AAFF;  /* Use an accent color for indicators */
+    margin-right: 6px;
+}
+
+/* Menu section headers */
+.thunar menuitem.header {
+    color: #82AAFF;  /* Accent color for headers */
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 4px;
+}
+
+/* Scrolled menus */
+.thunar menu scrolledwindow {
+    background: none;
+    border: none;
+}
+
+.thunar menu scrollbar {
+    background-color: transparent;
+}
+
+.thunar menu scrollbar slider {
+    background-color: #4A4A4A;
+    border-radius: 6px;
+}
+
+.thunar menu scrollbar slider:hover {
+    background-color: #5A5A5A;
+}
+

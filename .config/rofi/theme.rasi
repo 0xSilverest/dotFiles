@@ -1,9 +1,9 @@
 * {
-  red: #f7768e;
-  purple: #9d7cd8;
-  cyan: #7dcfff;
+  red: #ff5370;
+  purple: #8A4CA3;
+  cyan: #89ddff;
 
-  background-color: #1a1b26;
+  background-color: #181616;
 
   border: 0;
   margin: 0;
@@ -26,13 +26,13 @@ element-text {
 }
 
 element-text selected {
-  text-color: #f7768e;
+  text-color: #ff5370;
 }
 
 entry {
-  background-color: #252636;
+  background-color: #2E2C2B;
   padding: 12 12 12 12;
-  text-color: #ffffff;
+  text-color: #e5e5e5;
 }
 
 inputbar {
@@ -50,7 +50,7 @@ mainbox {
 }
 
 prompt {
-  background-color: #c0caf5;
+  background-color: #181616;
   enabled: true;
   font: "fontAwesome 20";
   padding: 3 12 3 12;

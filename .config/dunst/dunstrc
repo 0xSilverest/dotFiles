@@ -328,17 +328,17 @@
     # context = ctrl+shift+period
 
 [urgency_low]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#181616"
+foreground = "#E5E5E5"
 
 [urgency_normal]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#181616"
+foreground = "#E5E5E5"
 
 [urgency_critical]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-frame_color = "#FAB387"
+background = "#181616"
+foreground = "#E5E5E5"
+frame_color = "#FF3355"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

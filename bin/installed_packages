@@ -1,0 +1,17 @@
+#!/bin/bash
+
+filter_out=(
+    "kernel-default"
+    "glibc"
+    "systemd"
+    "texlive"
+    "zypper"
+    "yast"
+    "x"
+    "xz"
+    "lib"
+)
+
+filter_pattern=$(IFS="|"; echo "${filter_out[*]}")
+
+zypper search -is | awk -F'|' '{print $2}' | tail -n +5 | grep -vE "($filter_pattern)"

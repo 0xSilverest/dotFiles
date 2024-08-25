@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -14,13 +14,18 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- Incase of typos while saving / quitting
-vim.cmd [[
-cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
-cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
-cnoreabbrev <expr> WQ ((getcmdtype() is# ':' && getcmdline() is# 'WQ')?('wq'):('WQ'))
-cnoreabbrev <expr> Wq ((getcmdtype() is# ':' && getcmdline() is# 'Wq')?('wq'):('Wq'))
-]]
+vim.cmd([[
+  cnoreabbrev W w
+  cnoreabbrev Q q
+  cnoreabbrev Wq wq
+  cnoreabbrev WQ wq
+  cnoreabbrev QW wq
+  cnoreabbrev Qw wq
+]])
 
-require 'modules'
-require 'plugins'
+require('plugins')
+require("lazy").setup("plugins")
+
+require('modules')
+
+vim.cmd.colorscheme('palenight')

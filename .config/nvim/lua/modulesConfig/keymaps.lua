@@ -1,92 +1,67 @@
--- NvimTree shortcuts
--- Ctrl + s -> Opens Tree
-vim.api.nvim_set_keymap('n', '<C-s>', ':NvimTreeToggle<CR>',
-    { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>',
-    { noremap = true, silent = true })
+local map = vim.keymap.set
 
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>',
-    { noremap = true, silent = true })
+-- NvimTree shortcuts
+map('n', '<C-s>', ':NvimTreeToggle<CR>', { silent = true })
+map('n', '<leader>r', ':NvimTreeRefresh<CR>', { silent = true })
+map('n', '<leader>n', ':NvimTreeFindFile<CR>', { silent = true })
 
 -- Traversing splits
-vim.api.nvim_set_keymap('n', '<C-J>', '<C-W><C-J>',
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-K>',
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<C-L>', '<C-W><C-L>',
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<C-H>', '<C-W><C-H>',
-    { noremap = true, silent = true })
+map('n', '<C-J>', '<C-W><C-J>', { silent = true })
+map('n', '<C-K>', '<C-W><C-K>', { silent = true })
+map('n', '<C-L>', '<C-W><C-L>', { silent = true })
+map('n', '<C-H>', '<C-W><C-H>', { silent = true })
 
 -- Trouble
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
-    {silent = true, noremap = true})
-
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
-    {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
-    {silent = true, noremap = true})
-
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
-    {silent = true, noremap = true})
-
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
-    {silent = true, noremap = true})
-
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
-    {silent = true, noremap = true})
+map("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true })
+map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { silent = true })
+map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { silent = true })
+map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true })
+map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true })
+map("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent = true })
 
 -- Hop
-vim.api.nvim_set_keymap("n", "fw", "<cmd>HopWord<cr>",
-    {silent = true, noremap = true})
+map("n", "fw", "<cmd>HopWord<cr>", { silent = true })
+map("n", "fl", "<cmd>HopLine<cr>", { silent = true })
+map("n", "fp", "<cmd>HopPattern<cr>", { silent = true })
 
-vim.api.nvim_set_keymap("n", "fl", "<cmd>HopLine<cr>",
-    {silent = true, noremap = true})
+-- Telescope (lazy-loaded)
+local telescope_loaded = false
+local function load_telescope()
+    if not telescope_loaded then
+        telescope_loaded = true
+        local telescope = require('telescope.builtin')
+        map('n', '<leader>tb', telescope.buffers, { silent = true })
+        map('n', '<leader>tf', function() telescope.find_files({previewer = false}) end, { silent = true })
+        map('n', '<leader>tbf', telescope.current_buffer_fuzzy_find, { silent = true })
+        map('n', '<leader>th', telescope.help_tags, { silent = true })
+        map('n', '<leader>tt', telescope.tags, { silent = true })
+        map('n', '<leader>td', telescope.grep_string, { silent = true })
+        map('n', '<leader>tg', telescope.live_grep, { silent = true })
+        map('n', '<leader>fh', telescope.help_tags)
+        map('n', '<leader>to', function() telescope.tags{only_current_buffer = true} end, { silent = true })
+    end
+end
 
-vim.api.nvim_set_keymap("n", "fp", "<cmd>HopPattern<cr>",
-    {silent = true, noremap = true})
-
--- Telescope
-vim.api.nvim_set_keymap('n', '<leader>tb',
-    [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>tf',
-    [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>tbf',
-    [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>th',
-    [[<cmd>lua require('telescope.builtin').help_tags()<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>tt',
-    [[<cmd>lua require('telescope.builtin').tags()<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>td',
-    [[<cmd>lua require('telescope.builtin').grep_string()<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>tg',
-    [[<cmd>lua require('telescope.builtin').live_grep()<CR>]],
-    { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<leader>to',
-    [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]],
-    { noremap = true, silent = true })
+-- Create lazy-loaded Telescope mappings
+local telescope_keys = {'tb', 'tf', 'tbf', 'th', 'tt', 'td', 'tg', 'to'}
+for _, key in ipairs(telescope_keys) do
+    map('n', '<leader>' .. key, function()
+        load_telescope()
+        vim.api.nvim_input('<leader>' .. key)
+    end, { silent = true })
+end
 
 -- Diagnostics
-vim.api.nvim_set_keymap('n', '<leader>e',
-    [[<cmd>lua vim.diagnostic.open_float()<CR>]],
-    { noremap = true, silent = true })
+map('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
 
 -- Resize
-vim.api.nvim_set_keymap('n', '<leader>rs',[[<cmd>SmartResizeMode<CR>]],
-    { noremap = true, silent = true })
+map('n', '<leader>rs', '<cmd>SmartResizeMode<CR>', { silent = true })
+
+-- Buffer navigation
+map('n', '<leader>bn', ':bnext<CR>')
+map('n', '<leader>bp', ':bprevious<CR>')
+map('n', '<leader>bd', ':bdelete<CR>')
+
+-- Quick save
+map('n', '<leader>s', ':w<CR>')
+
