@@ -3,7 +3,7 @@ configuration {
     display-drun: "  ";
     display-window: "  ";
     drun-display-format: "{icon} {name}";
-    font: "JetBrainsMono Nerd Font Medium 12";
+    font: "FiraCode Nerd Font Medium 12";
     modi: [drun, window, ssh];
     show-icons: true;
     terminal: "kitty";

@@ -139,6 +139,7 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm, xK_f), spawn "rofi -show drun")
   , ((modm, xK_e), spawn "rofi -show window")
   , ((modm, xK_r), spawn "rofi -show run")
+  , ((modm, xK_x), spawn "rofi-power-menu")
 
   , ((modm, xK_b), spawn "firefox")
   , ((modm, xK_t), spawn "kitty")
