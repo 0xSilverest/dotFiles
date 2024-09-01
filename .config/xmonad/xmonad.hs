@@ -36,8 +36,10 @@ myStartupHook = do
   setWMName "XMonad"
 
 normBord = "#292D3E"
-focdBord = "#5A4F7F"
+focdBord = "#3D3659"
 urgBord = "#FF3355"
+bg = "#181616"
+fg = "#e5e5e5"
 
 mymodm = mod4Mask
 
@@ -55,28 +57,29 @@ myFont = "xft:Fira Code:regular:size=11:antialias=true:hinting=true"
 myTabTheme = def
     { fontName            = myFont
     , activeColor         = focdBord
-    , inactiveColor       = "#181616"
+    , inactiveColor       = bg
     , urgentColor         = urgBord
     , activeBorderColor   = focdBord
     , inactiveBorderColor = "#282c34"
     , urgentBorderColor   = urgBord
-    , activeTextColor     = "#e5e5e5"
-    , inactiveTextColor   = "#e5e5e5"
-    , urgentTextColor     = "#e5e5e5"
+    , activeTextColor     = fg
+    , inactiveTextColor   = fg
+    , urgentTextColor     = fg
     , activeBorderWidth   = 0
     , inactiveBorderWidth = 0
     , urgentBorderWidth   = 0
     , decoHeight          = 20
     }
 
-bs = 2
+defaultSpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+defaultSpacing i = spacingRaw False (Border 0 i i i) True (Border i i i i) True
 
-mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
-mySpacing i = spacingRaw False (Border 0 i i i) True (Border i i i i) True
+tabbedSpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+tabbedSpacing i = spacingRaw False (Border 0 i i i) True (Border 0 i i i) True
 
 myLayout = avoidStruts $ smartBorders $
-           mySpacing bs tiled |||
-           noBorders (tabbed shrinkText myTabTheme)
+           defaultSpacing 2 tiled |||
+           tabbedSpacing 1 (tabbed shrinkText myTabTheme)
   where
     tiled = Tall nmaster delta ratio
     nmaster = 1

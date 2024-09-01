@@ -32,7 +32,7 @@
     # geometry = "300x5-30+20"
     width = 300
     origin = top-right
-    offset = 7x35
+    offset = 10x10
 
     # Turn on the progess bar
     progress_bar = true
@@ -87,7 +87,7 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#89B4FA"
+    frame_color = "#4A9B7F"
 
     # Define a color for the separator.
     # possible values are:
@@ -330,10 +330,12 @@
 [urgency_low]
 background = "#181616"
 foreground = "#E5E5E5"
+frame_color = "#4A9B7F"
 
 [urgency_normal]
 background = "#181616"
 foreground = "#E5E5E5"
+frame_color = "#9C8CE6"
 
 [urgency_critical]
 background = "#181616"

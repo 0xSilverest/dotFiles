@@ -2,7 +2,8 @@ require('nvim-treesitter.configs').setup {
     ensure_installed = { "scala", "java", "haskell",
         "bash", "rust", "yaml", "json", "elixir",
         "latex", "fish", "bibtex", "dockerfile", "lua",
-        "typescript", "svelte", "css", "html", "c", "scala"
+        "typescript", "svelte", "css", "html", "c", "scala",
+        "clojure"
     },
 
     highlight = {
@@ -28,4 +29,15 @@ require('nvim-treesitter.configs').setup {
     indent = {
         enable = true,
     },
+
+    matchup = {
+        enable = true,
+    },
 }
+
+vim.cmd([[
+  augroup ClojureParentheses
+    autocmd!
+    autocmd FileType clojure setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
+  augroup END
+]])

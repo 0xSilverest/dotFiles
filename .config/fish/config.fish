@@ -15,7 +15,7 @@ end
 
 function la
     command eza -al $argv
-end 
+end
 
 function cat
     command bat $argv
@@ -129,13 +129,13 @@ set TERMINAL 'kitty'
 ## Twilight Serpent
 # Color palette
 set -l foreground e5e5e5
-set -l selection 5a4f7f
-set -l comment 434759
+set -l selection 4A4559
+set -l comment 5A607A
 set -l red ff3355
 set -l orange ff9966
 set -l yellow ffcb6b
 set -l green c3e88d
-set -l purple c792ea
+set -l purple 9C8CE6
 set -l cyan 89ddff
 set -l pink ff5370
 set -l blue 82aaff

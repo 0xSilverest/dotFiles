@@ -1,6 +1,5 @@
-@define-color primary #C792EA;
-@define-color secondary #5C97BF;
-@define-color tertiary #7A6FA6;
+@define-color primary #9C8CE6;
+@define-color secondary #4A9B7F;
 @define-color foreground #E5E5E5;
 @define-color muted #C7CFE0;
 @define-color background #181616;
@@ -16,8 +15,7 @@
 @define-color success #66CDAA;
 @define-color link #58B7FF;
 @define-color border #292424;
-@define-color selection #5A4F7F;
-@define-color hover #3D3750;
-@define-color active #4A3F5A;
-@define-color comment #434759;
-
+@define-color selection #4A4559;
+@define-color hover #4A4559;
+@define-color active #5A4F6A;
+@define-color comment #5A607A;
