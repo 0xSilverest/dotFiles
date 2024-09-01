@@ -6,12 +6,13 @@ configuration {
 * {
     primary:            #9C8CE6;
     secondary:          #4A9B7F;
+
     background:         #181616;
     background-alt:     #201E1E;
     foreground:         #E5E5E5;
     border:             #292424;
-    selected-bg:        #2A5647;  /* Darker shade of secondary color */
-    selected-fg:        #E5E5E5;  /* Using primary color for selected text */
+    selected-bg:        #2A5647;
+    selected-fg:        #E5E5E5;
     urgent:             #FF3355;
     accent:             #82AAFF;
 
@@ -27,28 +28,31 @@ window {
     background-color: @background;
     border: 2px;
     border-color: @border;
-    border-radius: 8px;
-    width: 25%;
-    padding: 12px;
+    border-radius: 12px;
+    width: 28%;
+    padding: 20px;
     transparency: "real";
 }
 
 mainbox {
     children: [inputbar, listview];
-    spacing: 12px;
+    spacing: 15px;
 }
 
 inputbar {
     children: [prompt, entry];
     background-color: @background-alt;
-    border-radius: 6px;
+    border: 1px;
+    border-color: @border;
+    border-radius: 8px;
     padding: 8px 12px;
+    margin: 0 0 5px 0;
 }
 
 prompt {
     enabled: true;
     font: "JetBrains Mono Nerd Font 14";
-    padding: 0 8px 0 0;
+    padding: 0 12px 0 0;
     text-color: @primary;
     content: "";
     vertical-align: 0.5;
@@ -56,7 +60,7 @@ prompt {
 
 entry {
     placeholder: "Search...";
-    placeholder-color: @foreground;
+    placeholder-color: #6B7D8C;
     text-color: @foreground;
     padding: 4px 0;
     vertical-align: 0.5;
@@ -66,22 +70,16 @@ listview {
     columns: 1;
     lines: 6;
     fixed-height: false;
-    border-radius: 6px;
+    border-radius: 8px;
     scrollbar: false;
-}
-
-scrollbar {
-    width: 3px;
-    border: 0;
-    handle-width: 5px;
-    handle-color: @primary;
-    padding: 0 1px;
+    margin: 5px 0 0 0;
 }
 
 element {
-    padding: 8px 12px;
-    spacing: 8px;
-    border-radius: 4px;
+    padding: 10px 15px;
+    spacing: 10px;
+    border-radius: 6px;
+    margin: 2px 0;
 }
 
 element normal.normal {
@@ -97,6 +95,8 @@ element alternate.normal {
 element selected.normal {
     background-color: @selected-bg;
     text-color: @selected-fg;
+    border: 1px;
+    border-color: @primary;
 }
 
 element-text {
@@ -107,12 +107,12 @@ element-text {
 
 element-icon {
     size: 1.2em;
-    padding: 0 8px 0 0;
+    padding: 0 10px 0 0;
 }
 
 error-message {
-    padding: 12px;
-    border-radius: 6px;
+    padding: 15px;
+    border-radius: 8px;
     background-color: @urgent;
     text-color: @foreground;
 }

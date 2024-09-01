@@ -1,0 +1,64 @@
+* {
+    primary:            #9C8CE6;
+    secondary:          #4A9B7F;
+
+    background:         #181616;
+    background-alt:     #201E1E;
+    foreground:         #E5E5E5;
+    border:             #292424;
+    selected-bg:        #2A5647;
+    selected-fg:        #E5E5E5;
+    urgent:             #FF3355;
+    accent:             #82AAFF;
+
+    background-color: transparent;
+    text-color: #E5E5E5;
+    font: "FiraCode Nerd Font 20";
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    border: 2px;
+    border-color: @border;
+    background-color: @background;
+    width: 435px;
+    height: 85px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+mainbox {
+    children: [ listview ];
+}
+
+listview {
+    layout: horizontal;
+    spacing: 10px;
+    lines: 6;
+}
+
+element {
+    padding: 10px 0;
+    border-radius: 15px;
+    width: 60px;
+}
+
+element-text {
+    font: "FiraCode Nerd Font 24";
+    expand: true;
+    horizontal-align: 0.1;
+    vertical-align: 0.5;
+    margin: 0;
+}
+
+element selected {
+    background-color: @selected-bg;
+    border: 1px;
+    border-color: @primary;
+}
+
+element-text selected {
+    text-color: @selected-fg;
+}
