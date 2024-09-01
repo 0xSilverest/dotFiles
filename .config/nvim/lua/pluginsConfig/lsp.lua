@@ -2,7 +2,6 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 
--- Set up mason
 mason.setup({
     ui = {
         icons = {
@@ -45,7 +44,8 @@ local on_attach = function(client, bufnr)
     end
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local servers = {
     clangd = {
@@ -95,6 +95,10 @@ mason_lspconfig.setup_handlers({
         local opts = {
             on_attach = on_attach,
             capabilities = capabilities,
+            settings = servers[server_name].settings,
+            filetypes = servers[server_name].filetypes,
+            cmd = servers[server_name].cmd,
+            root_dir = servers[server_name].root_dir,
         }
 
         if servers[server_name] then

@@ -17,6 +17,6 @@ parcellite &
 easyeffects --gapplication-service &
 nm-applet &
 
-sleep 5
+sleep 3
 
 which-sink &
