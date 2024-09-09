@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Hooks.SetWMName
 -- import XMonad.Config.Kde
 import XMonad.Config.Desktop
+import XMonad.Util.Hacks (fixSteamFlicker)
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -287,7 +288,7 @@ main = do
        , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig
        , modMask = mymodm
        , borderWidth = myBorderWidth
-       , handleEventHook = handleEventHook myBaseConfig
+       , handleEventHook = fixSteamFlicker <+> handleEventHook myBaseConfig
        , focusFollowsMouse = myFocusFollowsMouse
        --, logHook = myLogHook
        , logHook = myPolybarLogHook dbus
