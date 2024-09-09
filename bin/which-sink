@@ -9,5 +9,5 @@ if [[ "$CURRENT_SINK" == *"hdmi-stereo"* ]]; then
 elif [[ "$CURRENT_SINK" == *"pro-output"* ]]; then
     echo "󰋋" > "$CACHE_FILE"
 else
-    echo "Unknown" > $CACHE_FILE
+    echo "󰽟" > $CACHE_FILE
 fi

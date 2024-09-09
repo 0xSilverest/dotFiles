@@ -45,7 +45,7 @@ mymodm = mod4Mask
 
 myFocusFollowsMouse = False
 
-myBorderWidth = 2
+myBorderWidth = 3
 
 myWorkspaces = ["λ", "β", "γ", "δ"] --, "ε", "τ", "θ", "ϕ", "π", "σ"]
 
@@ -109,7 +109,7 @@ myManageHook =
   where
     doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
     myCFloats = ["Arandr", "feh", "mpv", "vlc"]
-    myTFloats = ["Downloads", "Save As...", "pavucontrol", "plasmashell"]
+    myTFloats = ["Downloads", "Save As...", "pavucontrol", "plasmashell", "ChronoTask"]
     myRFloats = ["plasmashell"]
     myIgnores = ["desktop_window", "dunst", "Timer"]
     my1Shifts = []
@@ -140,6 +140,7 @@ myKeys conf@XConfig {modMask = modm} =
   , ((modm, xK_e), spawn "rofi -show window")
   , ((modm, xK_r), spawn "rofi -show run")
   , ((modm, xK_x), spawn "rofi-power-menu")
+  , ((modm, xK_c), spawn "copyq show")
 
   , ((modm, xK_b), spawn "firefox")
   , ((modm, xK_t), spawn "kitty")
@@ -208,7 +209,7 @@ myKeys conf@XConfig {modMask = modm} =
   -- Move focus to the master window.
   , ((modm .|. shiftMask, xK_m), windows W.focusMaster)
   --
-  , ((modm .|. mod1Mask, xK_m), windows W.shiftMaster)
+  , ((modm .|. controlMask, xK_m), windows W.shiftMaster)
   -- Swap the focused window with the next window.
   , ((controlMask .|. modm, xK_j), windows W.swapDown)
   -- Swap the focused window with the previous window.
@@ -280,7 +281,7 @@ mkDbusClient = do
 
 main = do
       dbus <- mkDbusClient
-      xmonad . docks . ewmh  $ myBaseConfig
+      xmonad . docks . ewmhFullscreen . ewmh  $ myBaseConfig
        { startupHook = myStartupHook
        , layoutHook = smartBorders $ myLayout ||| layoutHook myBaseConfig
        , manageHook = manageSpawn <+> myManageHook <+> manageHook myBaseConfig

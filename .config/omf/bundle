@@ -1,5 +1,6 @@
 package bass
 package https://github.com/catppuccin/fish
+package zoxide
 theme cbjohnson
 theme coffeeandcode
 theme default

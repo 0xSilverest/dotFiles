@@ -39,7 +39,7 @@
 .thunar iconview:selected,
 .thunar .sidebar .view:selected {
     background-color: @selection;
-    color: #FFFFFF;
+    color: #E5E5E5;
     font-weight: bold;
     border: 1px solid @accent1;
 }

@@ -90,4 +90,7 @@ cp -r "$HOME/dotFiles/.config/xmonad" "$HOME/.config/"
 
 fc-cache -f -v
 
+xdg-mime default org.kde.okular.desktop application/pdf
+
 echo "Setup complete!"
+

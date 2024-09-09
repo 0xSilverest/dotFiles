@@ -15,8 +15,8 @@ mason.setup({
 mason_lspconfig.setup({
     ensure_installed = {
         "clangd", "bashls", "yamlls", "dockerls", "html", "clojure_lsp",
-        "diagnosticls", "hls", "jsonls", "zls", "texlab", "tsserver",
-        "cssls", "gradle_ls", "svelte"
+        "diagnosticls", "hls", "jsonls", "texlab", "tsserver", "cssls",
+        "gradle_ls", "svelte"
     },
     automatic_installation = true,
 })
@@ -80,29 +80,38 @@ local servers = {
     hls = {
         filetypes = { 'haskell', 'lhaskell', 'cabal' },
     },
-    zls = {},
     texlab = {},
     tsserver = {},
     svelte = {},
     html = {},
     cssls = {},
     gradle_ls = {},
-    metals = {}
+    metals = {},
+    gleam = {
+        filetypes = { "gleam" },
+        root_dir = function(fname)
+            return lspconfig.util.root_pattern("gleam.toml")(fname) or vim.fn.getcwd()
+        end,
+    },
 }
 
+lspconfig.gleam.setup({})
 mason_lspconfig.setup_handlers({
     function(server_name)
+        local server_config = servers[server_name] or {}
         local opts = {
             on_attach = on_attach,
             capabilities = capabilities,
-            settings = servers[server_name].settings,
-            filetypes = servers[server_name].filetypes,
-            cmd = servers[server_name].cmd,
-            root_dir = servers[server_name].root_dir,
+            filetypes = server_config.filetypes,
+            settings = server_config.settings,
+            cmd = server_config.cmd,
+            root_dir = server_config.root_dir,
         }
 
-        if servers[server_name] then
-            opts = vim.tbl_deep_extend("force", opts, servers[server_name])
+        for k, v in pairs(opts) do
+            if v == nil then
+                opts[k] = nil
+            end
         end
 
         lspconfig[server_name].setup(opts)
