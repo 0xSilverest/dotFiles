@@ -29,6 +29,8 @@ function shutdown
     command systemctl poweroff $argv
 end
 
+set -gx QT_QPA_PLATFORMTHEME qt6ct
+
 #function cp
 #    command cpg -g $argv
 #end
@@ -39,10 +41,6 @@ end
 
 function ssh
     command kitty +kitten ssh $argv
-end
-
-function clipboard
-    command strings $argv ~/.local/share/parcellite/history
 end
 
 #function rm
@@ -60,6 +58,8 @@ test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $P
 # coursier
 set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin:$HOME/.sdkman/candidates/java/22.3.r17-grl/bin"
 set WINEDLLPATH $WINEDLLPATH:/opt/discord-rpc/bin64:/opt/discord-rpc/bin32
+
+set QT_QPA_PLATFORMTHEME "qt6ct"
 
 set XDG_DATA_DIRS "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/silverest/.local/share/flatpak/exports/share"
 
@@ -177,7 +177,6 @@ set -g __fish_git_prompt_color_untracked $red
 
 #set -g NODE_OPTIONS --openssl-legacy-provider
 set -e NODE_OPTIONS
-
 
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
