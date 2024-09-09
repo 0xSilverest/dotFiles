@@ -48,7 +48,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ghcup install ghc
 ghcup install cabal
 ghcup install stack
-ghcup install hls 1.6.1.0
+ghcup install hls
 stack install haskell-dap ghci-dap haskell-debug-adapter
 
 # Java and Scala
@@ -57,14 +57,9 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install java 22.0.2-graalce
 sdk install java 17.0.7-tem
 sdk install java 17.0.7-jbr # Jetbrains distribution
-sdk install scala
-sdk install sbt
 sdk install kotlin
 sdk install gradle
 sdk install maven
-sdk install kotlin
-
-sdk default java 17.0.7-tem
 
 # 6. Set up Neovim
 echo "Setting up Neovim..."

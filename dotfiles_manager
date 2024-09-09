@@ -26,6 +26,7 @@ sync_dotfiles() {
 
     # List of configs to sync
     configs=(
+        easyeffects
         zathura
         fish
         polybar
@@ -67,8 +68,11 @@ restore_dotfiles() {
     echo "Restoring dotfiles..."
 
     configs=(
+        qt6ct
         zathura
         fish
+        fisher
+        strawberry
         polybar
         rofi
         kitty
