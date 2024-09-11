@@ -64,6 +64,23 @@ return {
             require("nvim-dap-virtual-text").setup()
         end,
     },
+    "radenling/vim-dispatch-neovim",
+    "clojure-vim/vim-jack-in",
+    {
+        'Olical/conjure',
+        ft = {'clojure'},
+        config = function()
+            vim.g['conjure#eval#result_register'] = 'c'
+            vim.g['conjure#mapping#doc_word'] = false
+            vim.g['conjure#highlight#enabled'] = true
+            vim.g['conjure#highlight#timeout'] = 150
+            vim.g['conjure#log#hud#enabled'] = true
+            vim.g['conjure#log#hud#anchor'] = 'SE'
+            vim.g['conjure#client#clojure#nrepl#eval#auto_require'] = false
+            vim.g['conjure#client#clojure#nrepl#connection#auto_repl#enabled'] = false
+        end
+    },
+
 
     -- Treesitter
     {
