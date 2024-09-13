@@ -1,16 +1,27 @@
 #!/bin/bash
 
-# Function to install packages using zypper
-install_package() {
-    if ! zypper search -i "$1" &> /dev/null; then
-        echo "Installing $1..."
-        sudo zypper in --no-confirm "$1"
-    else
-        echo "$1 is already installed."
-    fi
+print_usage() {
+    echo "Usage: $0 [--steam] [--wine] [--nvidia]"
+    echo "  --creative-suite : Install Creative Suite (GIMP, Inkscape, etc.)"
+    echo "  --nvidia         : Install NVIDIA drivers"
+    echo "  --gaming         : Install Gaming dependencies (Steam, Wine, etc.)"
 }
 
-# Personal software installation
+install_steam=false
+install_wine=false
+install_nvidia=false
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --creative-suite) install_creative_suite=true ;;
+        --nvidia) install_nvidia=true ;;
+        --gaming) install_gaming=true ;;
+        -h|--help) print_usage; exit 0 ;;
+        *) echo "Unknown parameter passed: $1"; print_usage; exit 1 ;;
+    esac
+    shift
+done
+
 echo "Installing personal software..."
 
 wm_de=(
@@ -21,12 +32,13 @@ wm_de=(
 terminal_utils=(
     kitty fish bat exa gksu ncdu ripgrep
     ripgrep-bash-completion ripgrep-fish-completion
-    bottom fzf fd
+    bottom fzf fd neovim
 )
 
 system_utils=(
     unclutter xrandr x11perf x11-tools
     udiskie NetworkManager tlp powertop
+    NetworkManager-applet
 )
 
 viewers=(
@@ -39,22 +51,7 @@ viewers=(
 tools=(
     mpv playerctl vlc ffmpeg firefox qbittorrent
     audacity obs-studio flameshot unrar
-    bitwarden
-)
-
-creative_suite=(
-    gimp inkscape darktable krita
-)
-
-nvidia=(
-    openSUSE-repos-Tumbleweed-NVIDIA nvidia-settings
-)
-
-gaming=(
-    steam wine wine-gecko wine-mono winetricks
-    protonhax vulkan-tools vulkan-devel
-    vulkan-headers Mesa vkd3d-devel
-    gamemode mangohud lutris
+    bitwarden neovide
 )
 
 fonts=(
@@ -66,15 +63,27 @@ fonts=(
     droid-fonts liberation-fonts
 )
 
+nvidia=(
+    openSUSE-repos-Tumbleweed-NVIDIA nvidia-settings
+)
+
+creative_suite=(
+    gimp inkscape darktable krita
+)
+
+gaming=(
+    steam wine wine-gecko wine-mono winetricks
+    protonhax vulkan-tools vulkan-devel
+    vulkan-headers Mesa vkd3d-devel
+    gamemode mangohud lutris
+)
+
 softs=(
     "${wm_de[@]}"
     "${terminal_utils[@]}"
     "${system_utils[@]}"
     "${viewers[@]}"
     "${tools[@]}"
-    "${creative_suite[@]}"
-    "${nvidia[@]}"
-    "${gaming[@]}"
     "${dev_tools[@]}"
     "${fonts[@]}")
 
@@ -82,15 +91,28 @@ for soft in "${softs[@]}"; do
     install_package "$soft"
 done
 
+if [ "$install_creative_suite" = true ]; then
+    packages_to_install+=("${creative_suite[@]}")
+fi
+
+if [ "$install_nvidia" = true ]; then
+    packages_to_install+=("${nvidia[@]}")
+fi
+
+if [ "$install_gaming" = true ]; then
+    packages_to_install+=("${gaming[@]}")
+fi
+
+unique_packages=($(echo "${packages_to_install[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+echo "Installing software..."
+sudo zypper in --no-confirm "${unique_packages[@]}"
+
+echo "Running additional setup steps..."
+
 opi codecs -n
 opi vivaldi -n
 
-mkdir -p "$HOME/.config/xmonad"
-cp -r "$HOME/dotFiles/.config/xmonad" "$HOME/.config/"
-
 fc-cache -f -v
 
-xdg-mime default org.kde.okular.desktop application/pdf
-
 echo "Setup complete!"
-

@@ -3,9 +3,7 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
-    "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
     lazypath,
   })
 end
@@ -29,3 +27,26 @@ require("lazy").setup("plugins")
 require('modules')
 
 vim.cmd.colorscheme('palenight')
+
+if vim.g.neovide then
+  vim.g.neovide_input_use_logo = 1
+  vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
+  vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+  vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+  vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+
+  vim.o.guifont = "FiraCode Nerd Font:h12"
+
+  vim.g.neovide_line_space = 0
+
+  vim.g.neovide_refresh_rate = 90
+
+  vim.g.neovide_cursor_animation_length = 0.03
+
+  vim.g.neovide_cursor_trail_length = 0
+
+  vim.g.neovide_cursor_vfx_mode = ""
+
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+end

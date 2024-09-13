@@ -20,7 +20,10 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
+import XMonad.Layout.ResizableTile
 import XMonad.Layout.LayoutModifier
+import XMonad.Layout.Renamed (renamed, Rename(Replace))
+import XMonad.Layout.GridVariants (Grid(Grid))
 
 import qualified Data.Map as M
 import Graphics.X11.ExtraTypes.XF86
@@ -79,10 +82,11 @@ tabbedSpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout S
 tabbedSpacing i = spacingRaw False (Border 0 i i i) True (Border 0 i i i) True
 
 myLayout = avoidStruts $ smartBorders $
-           defaultSpacing 2 tiled |||
+           defaultSpacing 2 tiledTall |||
+           defaultSpacing 2 (Grid (16/10)) |||
            tabbedSpacing 1 (tabbed shrinkText myTabTheme)
   where
-    tiled = Tall nmaster delta ratio
+    tiledTall = ResizableTall nmaster delta ratio []
     nmaster = 1
     ratio = 1/2
     delta = 3/100
