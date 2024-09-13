@@ -8,6 +8,8 @@ xrandr --output HDMI-1 --mode 1920x1080 --rate 75.00
 
 nvidia-settings -l &
 
+xset s off -dpms &
+
 export QT_QPA_PLATFORMTHEME=qt6ct
 
 xsetroot -cursor_name left_ptr &
