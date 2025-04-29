@@ -64,4 +64,3 @@ map('n', '<leader>bd', ':bdelete<CR>')
 
 -- Quick save
 map('n', '<leader>s', ':w<CR>')
-
