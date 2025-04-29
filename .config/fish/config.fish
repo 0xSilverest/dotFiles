@@ -1,4 +1,5 @@
 set EDITOR nvim
+set VISUAL nvim
 
 function __fish_command_not_found_handler --on-event fish_command_not_found
     cnf $argv
@@ -29,6 +30,10 @@ function shutdown
     command systemctl poweroff $argv
 end
 
+function map-pen
+    command xinput map-to-output "HID 256c:006d Pen Pen (0)" DP-2
+end
+
 set -gx QT_QPA_PLATFORMTHEME qt6ct
 
 #function cp
@@ -47,16 +52,12 @@ end
 #    command trash $argv
 #end
 
-function nvm
-    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-end
-
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH
 
 # coursier
-set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin:$HOME/.sdkman/candidates/java/22.3.r17-grl/bin"
+set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin:$HOME/.sdkman/candidates/java/22.3.r17-grl/bin"
 set WINEDLLPATH $WINEDLLPATH:/opt/discord-rpc/bin64:/opt/discord-rpc/bin32
 
 set QT_QPA_PLATFORMTHEME "qt6ct"
@@ -189,3 +190,12 @@ set SDKMAN_DIR "$HOME/.sdkman"
 
 # Created by `pipx` on 2024-02-26 09:47:30
 set PATH $PATH /home/silverest/.local/bin
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/silverest/.opam/opam-init/init.fish' && source '/home/silverest/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+# END opam configuration

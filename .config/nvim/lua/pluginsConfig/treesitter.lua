@@ -3,7 +3,7 @@ require('nvim-treesitter.configs').setup {
         "bash", "rust", "yaml", "json", "elixir",
         "latex", "fish", "bibtex", "dockerfile", "lua",
         "typescript", "svelte", "css", "html", "c", "scala",
-        "clojure", "gleam"
+        "clojure"
     },
 
     highlight = {

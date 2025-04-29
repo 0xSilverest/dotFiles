@@ -29,7 +29,7 @@ window {
     border: 2px;
     border-color: @border;
     border-radius: 12px;
-    width: 28%;
+    width: 700px;
     padding: 20px;
     transparency: "real";
 }

@@ -16,7 +16,7 @@ mason_lspconfig.setup({
     ensure_installed = {
         "clangd", "bashls", "yamlls", "dockerls", "html", "clojure_lsp",
         "diagnosticls", "hls", "jsonls", "texlab", "cssls", "gradle_ls",
-        "svelte"
+        "svelte", "elixirls"
     },
     automatic_installation = true,
 })
