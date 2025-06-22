@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get all active players
+players=$(playerctl --list-all)
+player_count=$(echo "$players" | wc -l)
+
+# If only one player, control it directly
+if [ "$player_count" -eq 1 ]; then
+    playerctl $1
+else
+    # If multiple players, let user choose with rofi
+    selected_player=$(echo "$players" | rofi -dmenu -p "Select player:")
+
+    # If a player was selected, control it
+    if [ -n "$selected_player" ]; then
+        playerctl --player="$selected_player" $1
+    fi
+fi

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+SCRIPT_DIR="$HOME/.local/share/rofi-firefox"
+HISTORY_FILE="$SCRIPT_DIR/url_history.txt"
+
+mkdir -p "$SCRIPT_DIR"
+touch "$HISTORY_FILE"
+
+add_to_history() {
+    local url="$1"
+    echo "$url" | cat - "$HISTORY_FILE" | awk '!seen[$0]++' > "/tmp/url_history.tmp"
+    mv "/tmp/url_history.tmp" "$HISTORY_FILE"
+}
+
+validate_url() {
+    local url="$1"
+    if [[ $url =~ ^(http|https):// ]] || [[ $url =~ ^www\. ]]; then
+        echo "$url"
+        return 0
+    elif [[ $url =~ \. ]]; then
+        echo "https://$url"
+        return 0
+    else
+        echo "https://www.google.com/search?q=$url"
+        return 0
+    fi
+}
+
+url=$(cat "$HISTORY_FILE" | rofi -dmenu -i -p "URL:" -i)
+
+[[ -z "$url" ]] && exit 1
+
+formatted_url=$(validate_url "$url")
+
+firefox "$formatted_url"

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+CACHE_FILE="/tmp/polybar_sink_cache.txt"
+
+AVAILABLE_SINKS=$(pactl list short sinks | grep -v 'easyeffects_sink' | awk '{print $2}')
+
+SINKS=($AVAILABLE_SINKS)
+
+CURRENT_SINK=$(pactl get-default-sink)
+
+for i in "${!SINKS[@]}"; do
+  if [[ "${SINKS[$i]}" == "$CURRENT_SINK" ]]; then
+    CURRENT_INDEX=$i
+    break
+  fi
+done
+
+NEXT_INDEX=$(( (CURRENT_INDEX + 1) % ${#SINKS[@]} ))
+NEXT_SINK=${SINKS[$NEXT_INDEX]}
+
+pactl set-default-sink $NEXT_SINK
+
+if [[ "$NEXT_SINK" == *"hdmi-stereo"* ]]; then
+    notify-send "Switched to Monitor Output"
+    echo "󰽟" > "$CACHE_FILE"
+elif [[ "$NEXT_SINK" == *"pro-output"* ]]; then
+    notify-send "Switched to IEMs Output"
+    echo "󰋋" > "$CACHE_FILE"
+elif [[ "$NEXT_SINK" == *"analog-stereo"* ]]; then
+    notify-send "Switched to IEMs Output"
+    echo "󰋋" > "$CACHE_FILE"
+elif [[ "$NEXT_SINK" == *"bluez_output"* ]]; then
+    notify-send "Switched to Bluetooth Output"
+    echo "󰋋" > "$CACHE_FILE"
+else
+    echo "Unknown" > "$CACHE_FILE"
+fi
