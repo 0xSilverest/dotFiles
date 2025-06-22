@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Define the options
+options=("Lock" "Logout" "Shutdown" "Reboot" "Sleep")
+
+# Define icons for each option
+icons=("" "󰗽" "" "" "󰤄")
+
+# Combine options with icons
+combined_options=()
+for i in "${!options[@]}"; do
+    combined_options+=("${icons[$i]}")
+done
+
+# Use Rofi to display the menu and get user selection
+selected=$(printf '%s\n' "${combined_options[@]}" | rofi -dmenu -i -theme ~/.config/rofi/power-menu-theme.rasi)
+
+# Extract the option without the icon
+selected_option=$(echo "$selected")
+
+# Execute the selected option
+case $selected_option in
+    "")
+        loginctl lock-session
+        ;;
+    "󰗽")
+        loginctl terminate-user $USER
+        ;;
+    "")
+        systemctl poweroff
+        ;;
+    "")
+        systemctl reboot
+        ;;
+    "󰤄")
+        systemctl suspend
+        ;;
+    *)
+        exit 0
+        ;;
+esac

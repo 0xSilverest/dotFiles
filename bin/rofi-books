@@ -1,0 +1,29 @@
+#!/bin/bash
+
+BOOKS_DIR="$HOME/Books"
+
+extract_title() {
+    local filename="$1"
+    local title
+
+    title="${filename%.*}"
+
+    echo "$title"
+}
+
+books=$(find "$BOOKS_DIR" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
+    filename=$(basename "$file")
+    title=$(extract_title "$filename")
+    echo "$title|$file"
+done)
+
+selected=$(echo "$books" | cut -d'|' -f1 | rofi -dmenu -i -p "Select a book:")
+
+if [ -n "$selected" ]; then
+    file=$(echo "$books" | grep "^$selected|" | cut -d'|' -f2)
+    if [ -n "$file" ]; then
+        zathura "$file" &
+    else
+        echo "Error: Could not find the file for the selected book." >&2
+    fi
+fi
