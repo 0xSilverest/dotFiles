@@ -1,5 +1,31 @@
 #!/bin/bash
 
+install_package() {
+    local package="$1"
+
+    if [ -z "$package" ]; then
+        echo "Error: No package name provided"
+        return 1
+    fi
+
+    echo "Installing $package..."
+
+    # Check if package is already installed
+    if zypper se -i "$package" &>/dev/null && zypper se -i "$package" | grep -q "^i"; then
+        echo "$package is already installed, skipping..."
+        return 0
+    fi
+
+    # Try to install the package
+    if sudo zypper in -y "$package" &>/dev/null; then
+        echo "✓ Successfully installed $package"
+        return 0
+    else
+        echo "✗ Failed to install $package"
+        return 1
+    fi
+}
+
 print_usage() {
     echo "Usage: $0 [--steam] [--wine] [--nvidia]"
     echo "  --creative-suite : Install Creative Suite (GIMP, Inkscape, etc.)"
