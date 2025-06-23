@@ -1,0 +1,219 @@
+/* vim:fileencoding=utf-8:foldmethod=marker */
+
+/* Define colors */ /* {{{ */
+@define-color background  rgba(21, 21, 32, 0.75);
+@define-color warning     #f38ba8;
+@define-color caution     #45475a;
+@define-color performance #f5c2e7;
+@define-color audio       #cba6f7;
+@define-color misc        #94e2d5;
+@define-color date        #a6e3a1;
+@define-color work        #b4befe;
+@define-color window      #b4befe;
+@define-color resize      #eba0ac;
+@define-color process     #89b4fa;
+/* }}} */
+
+/* Reset all styles */ /* {{{ */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  text-shadow: none;
+} /* }}} */
+
+/* Main bar keyframes */ /* {{{ */
+@keyframes blink-critical-text {
+  to {
+    color: @warning;
+  }
+}
+
+@keyframes blink-modifier-text {
+  to {
+    color: @caution;
+  }
+} /* }}} */
+
+/* Main bar defaults */ /* {{{ */
+#waybar {
+  background: transparent;
+  font-family: "Fira Code", "JetbrainsMono Nerd Font", "Symbols Nerd Font Mono", monospace;
+  font-size: 10pt;
+  font-weight: 500;
+}
+
+#waybar button {
+  font-family: "Fira Code", "Symbols Nerd Font Mono";
+  font-size: 10pt;
+  font-weight: 500;
+  transition: all 0.15s ease-in-out;
+} /* }}} */
+
+/* Main bar modules */ /* {{{ */
+#battery,
+#backlight,
+#clock,
+#cpu,
+#memory,
+#pulseaudio.input,
+#pulseaudio.output,
+#temperature,
+#tray,
+#window {
+  padding-left: 8pt;
+  padding-right: 8pt;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  background: transparent;
+}
+
+#tray {
+  padding-right: 6pt;
+}
+/* }}} */
+
+/* Module colors */ /* {{{ */
+#cpu,
+#temperature,
+#memory {
+  color: @performance;
+}
+
+#pulseaudio.input,
+#pulseaudio.output {
+  color: @audio;
+}
+
+#battery,
+#backlight {
+  color: @misc;
+}
+
+#clock {
+  color: @date;
+}
+
+#window {
+  color: @window;
+  margin-top: -0px;
+}
+/* }}} */
+
+/* Main bar criticals */ /* {{{ */
+#workspaces button.urgent,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical:not(.charging) {
+  color: @caution;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: blink-critical-text;
+  animation-duration: 1s;
+  animation-timing-function: steps(15);
+} /* }}} */
+
+/* Main bar warnings */ /* {{{ */
+#pulseaudio.output.muted,
+#pulseaudio.input.source-muted {
+  color: @caution;
+}
+
+#battery.warning:not(.charging) {
+  color: @warning;
+} /* }}} */
+
+/* Battery charging */ /* {{{ */
+#battery.charging {
+  color: @misc;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: blink-modifier-text;
+  animation-duration: 1s;
+  animation-timing-function: steps(15);
+} /* }}} */
+
+/* Workspace */ /* {{{ */
+#workspaces button {
+  color: @caution;
+  background: transparent;
+  border: 1.5px solid transparent;
+  padding-left: 8pt;
+  padding-right: 8pt;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+  transition: all 0.25s ease;
+  font-weight: bold;
+}
+
+/* Visible workspace on other monitor */
+#workspaces button.visible {
+  color: @work;
+}
+
+/* Active workspace */
+#workspaces button.active {
+  color: @work;
+  border: 1.5px solid @caution;
+}
+
+/* Hover effect */
+#workspaces button:hover {
+  color: @work;
+}
+
+/* Urgent workspace */
+#workspaces button.urgent {
+  color: @warning;
+  border: 1.5px solid @warning;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: blink-critical-text;
+  animation-duration: 1s;
+  animation-timing-function: steps(15);
+}
+/* }}} */
+
+/* Custom spacers */ /* {{{ */
+#custom-spacer1,
+#custom-spacer3 {
+  font-size: 10pt;
+  font-weight: bold;
+  color: @caution;
+  background: transparent;
+}
+/* }}} */
+
+/* Custom tray icon */ /* {{{ */
+#custom-trayicon {
+  font-size: 11pt;
+  font-weight: bold;
+  font-style: italic;
+  color: @process;
+  background: transparent;
+  padding-right: 6pt;
+  padding-left: 2pt;
+}
+/* }}} */
+
+/* Tooltip */ /* {{{ */
+tooltip {
+  background: @background;
+  border: 3px solid @caution;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: "FiraCode Nerd Font", monospace;
+}
+
+#tray menu {
+  background: @background;
+  border: 3px solid @caution;
+  border-radius: 8px;
+} /* }}} */
