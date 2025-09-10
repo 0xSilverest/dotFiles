@@ -10,6 +10,23 @@ extract_title() {
     echo "$title"
 }
 
+open_book() {
+    local file="$1"
+    local extension="${file##*.}"
+
+    case "$extension" in
+        pdf|djvu)
+            sioyek "$file" &
+            ;;
+        epub)
+            foliate "$file" &
+            ;;
+        *)
+            echo "Unsupported file type: $extension" >&2
+            ;;
+    esac
+}
+
 show_books_with_categories() {
     find "$BOOKS_DIR" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
         filename=$(basename "$file")
@@ -21,52 +38,43 @@ show_books_with_categories() {
 
 select_by_category() {
     category=$(find "$BOOKS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort | rofi -dmenu -i -p "Select category:")
-
     if [ -z "$category" ]; then
         exit 0
     fi
-
     books=$(find "$BOOKS_DIR/$category" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
         filename=$(basename "$file")
         title=$(extract_title "$filename")
         echo "$title|$file"
     done)
-
     if [ -z "$books" ]; then
         echo "No books found in category: $category" >&2
         exit 1
     fi
-
     selected=$(echo "$books" | cut -d'|' -f1 | rofi -dmenu -i -p "Select book from $category:")
-
     if [ -n "$selected" ]; then
         file=$(echo "$books" | grep "^$selected|" | cut -d'|' -f2)
         if [ -n "$file" ]; then
-            okular "$file" &
+            open_book "$file"
         fi
     fi
 }
 
 show_hierarchical() {
     temp_file=$(mktemp)
-
     find "$BOOKS_DIR" -mindepth 1 -maxdepth 1 -type d | sort | while read -r category_path; do
         category=$(basename "$category_path")
         echo "📁 $category" >> "$temp_file"
-
         find "$category_path" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
             filename=$(basename "$file")
             title=$(extract_title "$filename")
             echo "   📖 $title|$file" >> "$temp_file"
         done
     done
-
     selected=$(cat "$temp_file" | rofi -dmenu -i -p "Select:")
     rm "$temp_file"
-
     if [[ "$selected" == *"|"* ]]; then
         file=$(echo "$selected" | cut -d'|' -f2)
-        zathura "$file" &
+        open_book "$file"
     fi
 }
 
@@ -77,7 +85,7 @@ case "${1:-category}" in
         if [ -n "$selected" ]; then
             file=$(echo "$books" | grep "^$(echo "$selected" | sed 's/\[/\\[/g; s/\]/\\]/g')|" | cut -d'|' -f2)
             if [ -n "$file" ]; then
-                zathura "$file" &
+                open_book "$file"
             fi
         fi
         ;;
