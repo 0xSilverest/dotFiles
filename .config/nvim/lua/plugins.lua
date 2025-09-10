@@ -34,9 +34,13 @@ return {
     },
     {
       "folke/trouble.nvim",
-      dependencies = "kyazdani42/nvim-web-devicons",
+      dependencies = "nvim-tree/nvim-web-devicons",
       config = function()
-        require("trouble").setup {}
+        require("trouble").setup {
+            auto_open = false,
+            auto_close = true,
+            use_diagnostic_signs = true
+        }
       end
     },
     {
@@ -64,23 +68,6 @@ return {
             require("nvim-dap-virtual-text").setup()
         end,
     },
-    "radenling/vim-dispatch-neovim",
-    "clojure-vim/vim-jack-in",
-    {
-        'Olical/conjure',
-        ft = {'clojure'},
-        config = function()
-            vim.g['conjure#eval#result_register'] = 'c'
-            vim.g['conjure#mapping#doc_word'] = false
-            vim.g['conjure#highlight#enabled'] = true
-            vim.g['conjure#highlight#timeout'] = 150
-            vim.g['conjure#log#hud#enabled'] = true
-            vim.g['conjure#log#hud#anchor'] = 'SE'
-            vim.g['conjure#client#clojure#nrepl#eval#auto_require'] = false
-            vim.g['conjure#client#clojure#nrepl#connection#auto_repl#enabled'] = false
-        end
-    },
-
 
     -- Treesitter
     {
@@ -144,11 +131,9 @@ return {
 
     -- File explorer
     {
-        'kyazdani42/nvim-tree.lua',
-        dependencies = { 'kyazdani42/nvim-web-devicons' },
-        config = function()
-            require('pluginsConfig.nvimtree')
-        end
+      'stevearc/oil.nvim',
+      opts = {},
+      dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     -- Session management
@@ -161,13 +146,7 @@ return {
     },
 
     -- UI enhancements
-    { 'folke/which-key.nvim', opts = {} },
     'lukas-reineke/indent-blankline.nvim',
-    {
-        'ZhiyuanLck/smart-pairs',
-        event = 'InsertEnter',
-        config = function() require('pairs'):setup() end
-    },
     'RRethy/vim-illuminate',
     {'machakann/vim-sandwich', keys = 's'},
     {
@@ -177,7 +156,17 @@ return {
             require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     },
-    "nacro90/numb.nvim",
+    {
+      "nacro90/numb.nvim",
+      config = function()
+        require('numb').setup({
+          show_numbers = true,
+          show_cursorline = true,
+          hide_relativenumbers = true,
+          number_only = false,
+        })
+      end
+    },
     { 'mrjones2014/smart-splits.nvim', build = './kitty/install-kittens.bash' },
     { 'nvim-focus/focus.nvim', version = '*' },
 }

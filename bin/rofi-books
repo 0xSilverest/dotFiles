@@ -5,25 +5,86 @@ BOOKS_DIR="$HOME/Books"
 extract_title() {
     local filename="$1"
     local title
-
     title="${filename%.*}"
-
+    title=$(echo "$title" | sed 's/ - / │ /g')
     echo "$title"
 }
 
-books=$(find "$BOOKS_DIR" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
-    filename=$(basename "$file")
-    title=$(extract_title "$filename")
-    echo "$title|$file"
-done)
+show_books_with_categories() {
+    find "$BOOKS_DIR" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
+        filename=$(basename "$file")
+        category=$(basename "$(dirname "$file")")
+        title=$(extract_title "$filename")
+        echo "[$category] $title|$file"
+    done
+}
 
-selected=$(echo "$books" | cut -d'|' -f1 | rofi -dmenu -i -p "Select a book:")
+select_by_category() {
+    category=$(find "$BOOKS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort | rofi -dmenu -i -p "Select category:")
 
-if [ -n "$selected" ]; then
-    file=$(echo "$books" | grep "^$selected|" | cut -d'|' -f2)
-    if [ -n "$file" ]; then
-        zathura "$file" &
-    else
-        echo "Error: Could not find the file for the selected book." >&2
+    if [ -z "$category" ]; then
+        exit 0
     fi
-fi
+
+    books=$(find "$BOOKS_DIR/$category" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
+        filename=$(basename "$file")
+        title=$(extract_title "$filename")
+        echo "$title|$file"
+    done)
+
+    if [ -z "$books" ]; then
+        echo "No books found in category: $category" >&2
+        exit 1
+    fi
+
+    selected=$(echo "$books" | cut -d'|' -f1 | rofi -dmenu -i -p "Select book from $category:")
+
+    if [ -n "$selected" ]; then
+        file=$(echo "$books" | grep "^$selected|" | cut -d'|' -f2)
+        if [ -n "$file" ]; then
+            okular "$file" &
+        fi
+    fi
+}
+
+show_hierarchical() {
+    temp_file=$(mktemp)
+
+    find "$BOOKS_DIR" -mindepth 1 -maxdepth 1 -type d | sort | while read -r category_path; do
+        category=$(basename "$category_path")
+        echo "📁 $category" >> "$temp_file"
+
+        find "$category_path" -type f \( -name "*.pdf" -o -name "*.epub" -o -name "*.djvu" \) | while read -r file; do
+            filename=$(basename "$file")
+            title=$(extract_title "$filename")
+            echo "   📖 $title|$file" >> "$temp_file"
+        done
+    done
+
+    selected=$(cat "$temp_file" | rofi -dmenu -i -p "Select:")
+    rm "$temp_file"
+
+    if [[ "$selected" == *"|"* ]]; then
+        file=$(echo "$selected" | cut -d'|' -f2)
+        zathura "$file" &
+    fi
+}
+
+case "${1:-category}" in
+    "flat")
+        books=$(show_books_with_categories)
+        selected=$(echo "$books" | cut -d'|' -f1 | rofi -dmenu -i -p "Select a book:")
+        if [ -n "$selected" ]; then
+            file=$(echo "$books" | grep "^$(echo "$selected" | sed 's/\[/\\[/g; s/\]/\\]/g')|" | cut -d'|' -f2)
+            if [ -n "$file" ]; then
+                zathura "$file" &
+            fi
+        fi
+        ;;
+    "category"|*)
+        select_by_category
+        ;;
+    "tree")
+        show_hierarchical
+        ;;
+esac

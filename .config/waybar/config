@@ -2,67 +2,37 @@
     "layer": "top",
     "position": "top",
     "name": "main",
+    "output": ["DP-2"],
 
-    "margin-top": 8,
-    "margin-left": 24,
-    "margin-right": 24,
+    "margin": "4 4 0",
 
     "modules-left": [
         "group/tray",
-        "custom/spacer3",
         "hyprland/workspaces",
-        "custom/spacer3",
         "hyprland/window"
     ],
 
     "modules-right": [
-        "custom/spacer1",
         "cpu",
         "memory",
-        "custom/spacer1",
         "pulseaudio#input",
         "pulseaudio#output",
-        "custom/spacer1",
-        "backlight",
-        "battery",
-        "custom/spacer1",
         "clock"
     ],
 
     "group/tray": {
         "orientation": "horizontal",
         "drawer": {
-            "transition-duration": "500",
-            "transition-left-to-right": "true",
+            "transition-duration": 500,
+            "transition-left-to-right": true,
             "children-class": "drawer-child"
         },
         "modules": ["custom/trayicon", "tray"]
     },
 
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["󱩎", "󱩑", "󱩓", "󱩕", "󰛨"],
-        "scroll-step": 5
-    },
-
-    "battery": {
-        "interval": 4,
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "tooltip": true,
-        "tooltip-format": "{timeTo}, {capacity}% - {power}W"
-    },
-
     "clock": {
         "interval": 1,
-        "format": " {:%H:%M:%S    %d-%m}",
+        "format": " {:%H:%M:%S   %d-%m }",
         "tooltip-format": "{:%d.%m.%Y  Week %W}\n\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -70,18 +40,18 @@
             "weeks-pos": "right",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#cba6f7'><b>{}</b></span>",
-                "days": "<span color='#cdd6f4'><b>{}</b></span>",
-                "weeks": "<span color='#94e2d5'> W{}</span>",
-                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-                "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+                "months": "<span color='#5C8374'><b>{}</b></span>",
+                "days": "<span color='#93B1A6'><b>{}</b></span>",
+                "weeks": "<span color='#183D3D'> W{}</span>",
+                "weekdays": "<span color='#5C8374'><b>{}</b></span>",
+                "today": "<span color='#93B1A6'><b><u>{}</u></b></span>"
             }
         }
     },
 
    "cpu": {
        "interval": 4,
-       "format": "  {usage}%",
+       "format": " {usage}%",
        "states": {
            "warning": 80,
            "critical": 95
@@ -90,7 +60,7 @@
 
     "memory": {
         "interval": 4,
-        "format": "  {percentage}%",
+        "format": " {percentage}%",
         "states": {
             "warning": 80,
             "critical": 95
@@ -118,11 +88,15 @@
             "2": "β",
             "3": "γ",
             "4": "δ",
-            "5": "ε"
+            "5": "ε",
+            "6": "Ψ"
         },
+        "ignore-workspaces":[ "6", "Ψ" ],
         "persistent-workspaces": {
-            "*": 5
-        }
+            "DP-2": [1, 2, 3, 4, 5]
+        },
+        "active-only": false,
+        "sort-by-number": true
     },
 
     "pulseaudio#output": {

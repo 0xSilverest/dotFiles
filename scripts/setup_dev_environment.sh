@@ -30,43 +30,39 @@ for tool in "${tools[@]}"; do
     install_package "$tool"
 done
 
-# 3. Install codecs and browsers
-opi codecs -n
-opi vivaldi -n
-opi msedge -n
-
-# 4. Set up fish shell
+# 3. Set up fish shell
 echo "Setting up fish shell..."
 echo /usr/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 
-# 5. Install language-specific tools
+# 4. Install language-specific tools
 echo "Installing language-specific tools..."
 
-# Haskell
-curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-ghcup install ghc
-ghcup install cabal
-ghcup install stack
-ghcup install hls
-stack install haskell-dap ghci-dap haskell-debug-adapter
+# Install SDKMAN
+if [ ! -d "$HOME/.sdkman" ]; then
+    curl -s "https://get.sdkman.io" | bash
+fi
 
-# Java and Scala
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-sdk install java 22.0.2-graalce
-sdk install java 17.0.7-tem
-sdk install java 17.0.7-jbr # Jetbrains distribution
-sdk install kotlin
-sdk install gradle
-sdk install maven
+# Source and install in fish shell context
+fish -c "
+    source ~/.sdkman/bin/sdkman-init.fish
+    sdk install java 17.0.10-tem
+    sdk install java 22.0.2-graalce
+    sdk install kotlin
+    sdk install gradle
+    sdk install maven
+    sdk install scala
+"
 
-# 6. Set up Neovim
+# 5. Set up Neovim
 echo "Setting up Neovim..."
 rm -rf "$HOME/.config/nvim"
 cp -r "$HOME/dotFiles/.config/nvim/" "$HOME/.config/nvim/"
-echo "export EDITOR='nvim'" >> ~/.config/fish/config.fish
-echo "export VISUAL='nvim'" >> ~/.config/fish/config.fish
+
+if ! grep -q "EDITOR.*nvim" ~/.config/fish/config.fish 2>/dev/null; then
+    echo "set -gx EDITOR nvim" >> ~/.config/fish/config.fish
+    echo "set -gx VISUAL nvim" >> ~/.config/fish/config.fish
+fi
 
 # Install Lazy for Neovim
 LAZY_PATH="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/lazy/lazy.nvim
@@ -80,12 +76,5 @@ fi
 # Install Neovim plugins using Lazy
 echo "Installing Neovim plugins..."
 nvim --headless "+Lazy! sync" +qa
-
-# 7. Set up Xmonad
-# echo "Setting up Xmonad..."
-# cabal new-install xmonad
-# cabal new-install --lib xmonad-contrib --flags="-use xft"
-# cabal new-install --lib dbus
-# cp -r "$HOME/dotFiles/.xmonad" "$HOME/.xmonad"
 
 echo "Development environment setup complete!"

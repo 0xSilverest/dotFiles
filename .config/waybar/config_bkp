@@ -1,0 +1,176 @@
+{
+    "layer": "top",
+    "position": "top",
+    "name": "main",
+    "output": ["DP-2"],
+
+    "margin-top": 2,
+    "margin-left": 24,
+    "margin-right": 24,
+
+    "modules-left": [
+        "group/tray",
+        "custom/spacer3",
+        "hyprland/workspaces",
+        "custom/spacer3",
+        "hyprland/window"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "custom/spacer1",
+        "pulseaudio#input",
+        "pulseaudio#output",
+        "custom/spacer1",
+        "clock"
+    ],
+
+    "group/tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": "500",
+            "transition-left-to-right": "true",
+            "children-class": "drawer-child"
+        },
+        "modules": ["custom/trayicon", "tray"]
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󱩎", "󱩑", "󱩓", "󱩕", "󰛨"],
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "interval": 4,
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": true,
+        "tooltip-format": "{timeTo}, {capacity}% - {power}W"
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%H:%M:%S    %d-%m}",
+        "tooltip-format": "{:%d.%m.%Y  Week %W}\n\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#cba6f7'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#94e2d5'> W{}</span>",
+                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+   "cpu": {
+       "interval": 4,
+       "format": "  {usage}%",
+       "states": {
+           "warning": 80,
+           "critical": 95
+        }
+   },
+
+    "memory": {
+        "interval": 4,
+        "format": "  {percentage}%",
+        "states": {
+            "warning": 80,
+            "critical": 95
+        },
+        "tooltip": "{}",
+        "tooltip-format": "{used}/{total} GiB"
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 48,
+        "tooltip": false,
+        "icon": true,
+        "icon-size": 18
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll-wraparound": true,
+        "smooth-scrolling-threshold": 4,
+        "enable-bar-scroll": true,
+        "format": "{icon}",
+        "show-special": false,
+        "format-icons": {
+            "1": "λ",
+            "2": "β",
+            "3": "γ",
+            "4": "δ",
+            "5": "ε",
+            "6": "Ψ"
+        },
+        "ignore-workspaces":[ "6", "Ψ" ],
+        "persistent-workspaces": {
+            "DP-2": [1, 2, 3, 4, 5]
+        },
+        "active-only": false,
+        "sort-by-number": true
+    },
+
+    "pulseaudio#output": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋋",
+            "portable": "",
+            "default": ["", "", ""]
+        },
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click": "pavucontrol",
+        "tooltip": true,
+        "scroll-step": 5
+    },
+
+    "pulseaudio#input": {
+        "format": " {format_source}%",
+        "format-source": "{volume}",
+        "format-source-muted": "",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "max-volume": "100",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click": "pavucontrol",
+        "tooltip-format": "{source_desc}"
+    },
+
+    "tray": {
+        "icon-size": 17,
+        "spacing": 8
+    },
+
+    "custom/spacer1": {
+        "format": " \\\\ ",
+        "tooltip": false
+    },
+
+    "custom/spacer3": {
+        "format": " // ",
+        "tooltip": false
+    },
+
+    "custom/trayicon": {
+        "format": "",
+        "tooltip": false
+    }
+}

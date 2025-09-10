@@ -26,6 +26,8 @@ sync_dotfiles() {
 
     # List of configs to sync
     configs=(
+        hypr
+        waybar
         easyeffects
         zathura
         fish

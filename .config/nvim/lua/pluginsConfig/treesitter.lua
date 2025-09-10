@@ -36,7 +36,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 vim.cmd([[
-  augroup ClojureParentheses
+  augroup ClojureParenthesesClojureClojure
     autocmd!
     autocmd FileType clojure setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
   augroup END

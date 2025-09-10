@@ -1,0 +1,254 @@
+/* Waybar style matching Polybar config */
+
+/* Main bar styling */
+#waybar {
+    background: rgba(21, 21, 32, 0.75); /* Semi-transparent background like Polybar */
+    color: #cdd6f4; /* foreground color */
+    font-family: "FiraCode Nerd Font", "Symbols Nerd Font Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px; /* Harder rounded edges */
+    border: none;
+    margin: 0;
+    padding: 2px 6px;
+    min-height: 20px; /* Make it thinner */
+}
+
+/* All modules default styling */
+#workspaces,
+#tray,
+#cpu,
+#memory,
+#pulseaudio,
+#clock,
+#backlight,
+#battery,
+#window,
+#custom-spacer1,
+#custom-spacer3,
+#custom-trayicon {
+    background: transparent;
+    padding: 2px 6px;
+    margin: 0;
+    border: none;
+    color: #cdd6f4;
+    min-height: 16px;
+}
+
+/* Tray and group styling */
+#tray {
+    padding: 2px 6px;
+}
+
+.drawer-child {
+    background: transparent;
+    padding: 2px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Workspaces styling - matching Polybar's xworkspaces with Greek letters */
+#workspaces {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces button {
+    padding: 2px 6px;
+    margin: 0;
+    background: transparent;
+    color: #cdd6f4; /* default foreground */
+    border: none;
+    border-radius: 0;
+    font-family: "FiraCode Nerd Font", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    min-width: 18px;
+    min-height: 16px;
+}
+
+/* Active workspace - matching label-active with underline */
+#workspaces button.active {
+    color: #f38ba8; /* active color (red from xrdb:color9) */
+    border-bottom: 2px solid #f38ba8; /* underline effect */
+    background: transparent;
+}
+
+/* Occupied workspace - matching label-occupied */
+#workspaces button.occupied {
+    color: #cba6f7; /* inactive color (purple from xrdb:color13) */
+    border-bottom: 2px solid #cba6f7;
+    background: transparent;
+}
+
+/* Empty workspace - matching label-empty */
+#workspaces button.empty {
+    color: #cdd6f4; /* foreground color */
+    border-bottom: none;
+    background: transparent;
+}
+
+/* Urgent workspace - matching label-urgent */
+#workspaces button.urgent {
+    color: #f38ba8; /* red color */
+    background: #f38ba8;
+    border-bottom: 2px solid #f38ba8;
+}
+
+/* Hover effect */
+#workspaces button:hover {
+    background: rgba(205, 214, 244, 0.1);
+    border-radius: 3px;
+}
+
+/* Window title styling */
+#window {
+    color: #b4befe; /* window color from your original CSS */
+    background: transparent;
+}
+
+/* CPU module styling */
+#cpu {
+    color: #cdd6f4;
+    background: transparent;
+}
+
+#cpu.warning {
+    color: #f9e2af;
+}
+
+#cpu.critical {
+    color: #f38ba8;
+    animation: blink 1s infinite;
+}
+
+/* Memory module styling */
+#memory {
+    color: #cdd6f4;
+    background: transparent;
+}
+
+#memory.warning {
+    color: #f9e2af;
+}
+
+#memory.critical {
+    color: #f38ba8;
+    animation: blink 1s infinite;
+}
+
+/* Battery styling */
+#battery {
+    color: #94e2d5; /* misc color */
+    background: transparent;
+}
+
+#battery.charging {
+    color: #94e2d5;
+    animation: pulse 2s infinite;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 1s infinite;
+}
+
+/* Backlight styling */
+#backlight {
+    color: #94e2d5; /* misc color */
+    background: transparent;
+}
+
+/* Pulseaudio styling */
+#pulseaudio {
+    color: #cba6f7; /* audio color */
+    background: transparent;
+}
+
+#pulseaudio.muted {
+    color: #f38ba8; /* red when muted */
+}
+
+/* Input and Output specific styling */
+pulseaudio#input,
+pulseaudio#output {
+    color: #cba6f7; /* audio color */
+}
+
+/* Custom spacers styling */
+#custom-spacer1,
+#custom-spacer3 {
+    color: #45475a; /* caution color */
+    background: transparent;
+    font-weight: bold;
+}
+
+#custom-trayicon {
+    color: #89b4fa; /* process color */
+    background: transparent;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Clock styling */
+#clock {
+    color: #a6e3a1; /* date color */
+    background: transparent;
+}
+
+/* Animations */
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Tooltips */
+tooltip {
+    background: rgba(21, 21, 32, 0.9);
+    border: 1px solid #45475a;
+    border-radius: 5px;
+    color: #cdd6f4;
+    font-family: "FiraCode Nerd Font", monospace;
+}
+
+/* Additional styling for better visual consistency */
+window#waybar {
+    border-radius: 12px;
+    background: rgba(21, 21, 32, 0.75);
+}
+
+/* Ensure proper spacing and alignment */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}

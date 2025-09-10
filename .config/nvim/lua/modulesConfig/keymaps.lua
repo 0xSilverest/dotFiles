@@ -1,9 +1,7 @@
 local map = vim.keymap.set
 
 -- NvimTree shortcuts
-map('n', '<C-s>', ':NvimTreeToggle<CR>', { silent = true })
-map('n', '<leader>r', ':NvimTreeRefresh<CR>', { silent = true })
-map('n', '<leader>n', ':NvimTreeFindFile<CR>', { silent = true })
+map('n', '<C-s>', ':Oil<CR>', { silent = true })
 
 -- Traversing splits
 map('n', '<C-J>', '<C-W><C-J>', { silent = true })
@@ -39,20 +37,18 @@ local function load_telescope()
         map('n', '<leader>tg', telescope.live_grep, { silent = true })
         map('n', '<leader>fh', telescope.help_tags)
         map('n', '<leader>to', function() telescope.tags{only_current_buffer = true} end, { silent = true })
+        map('n', '<leader>tm', function() require('telescope').extensions.metals.commands() end, { silent = true })
     end
 end
 
 -- Create lazy-loaded Telescope mappings
-local telescope_keys = {'tb', 'tf', 'tbf', 'th', 'tt', 'td', 'tg', 'to'}
+local telescope_keys = {'tb', 'tf', 'tbf', 'th', 'tt', 'td', 'tg', 'to', 'tm'}
 for _, key in ipairs(telescope_keys) do
     map('n', '<leader>' .. key, function()
         load_telescope()
         vim.api.nvim_input('<leader>' .. key)
     end, { silent = true })
 end
-
--- Diagnostics
-map('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
 
 -- Resize
 map('n', '<leader>rs', '<cmd>SmartResizeMode<CR>', { silent = true })
