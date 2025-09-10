@@ -14,15 +14,12 @@ Georgi Karadenizov : ![Wallpaper](https://www.artstation.com/artwork/LRPJBP)
 
 | Tools | Software |
 | --- | --- |
-| WM | [xmonad](.config/xmonad) |
-| Compositor | [picom](.config/xmonad/scripts/picom.conf) |
-| StatusBar | [Polybar](.config/polybar) |
+| WM | [Hyprland](.config/hypr) |
+| StatusBar | [Waybar](.config/waybar) |
 | Terminal | [Kitty](.config/kitty) |
 | Shell | [fish](.config/fish) |
 | Editor | [Neovim](.config/nvim) |
 | File Manager | [Thunar](.config/gtk3.0) |
-| Notifications | [dunst](.config/dunst) |
-| Pdf Reader | [zathura](.config/zathura/) |
 | Launcher | [rofi](.config/rofi/) |
 
 ### Fixes
