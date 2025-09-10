@@ -1,6 +1,15 @@
 set EDITOR nvim
 set VISUAL nvim
 
+functions -c fish_right_prompt __lambda_right_prompt_original
+
+function fish_right_prompt
+    set -l original_output (__lambda_right_prompt_original)
+    if test -n "$original_output"
+        printf '%s ' $original_output
+    end
+end
+
 function __fish_command_not_found_handler --on-event fish_command_not_found
     cnf $argv
 end

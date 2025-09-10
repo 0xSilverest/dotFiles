@@ -1,219 +1,208 @@
-/* vim:fileencoding=utf-8:foldmethod=marker */
-
-/* Define colors */ /* {{{ */
-@define-color background  rgba(21, 21, 32, 0.75);
-@define-color warning     #f38ba8;
-@define-color caution     #45475a;
-@define-color performance #f5c2e7;
-@define-color audio       #cba6f7;
-@define-color misc        #94e2d5;
-@define-color date        #a6e3a1;
-@define-color work        #b4befe;
-@define-color window      #b4befe;
-@define-color resize      #eba0ac;
-@define-color process     #89b4fa;
-/* }}} */
-
-/* Reset all styles */ /* {{{ */
+/* Reset all styles */
 * {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  text-shadow: none;
-} /* }}} */
-
-/* Main bar keyframes */ /* {{{ */
-@keyframes blink-critical-text {
-  to {
-    color: @warning;
-  }
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    text-shadow: none;
+    font-family: "Fira Code", "JetbrainsMono Nerd Font", "Symbols Nerd Font Mono", monospace;
+    font-weight: bold;
+    font-size: 10pt;
 }
 
-@keyframes blink-modifier-text {
-  to {
-    color: @caution;
-  }
-} /* }}} */
-
-/* Main bar defaults */ /* {{{ */
-#waybar {
-  background: transparent;
-  font-family: "Fira Code", "JetbrainsMono Nerd Font", "Symbols Nerd Font Mono", monospace;
-  font-size: 10pt;
-  font-weight: 500;
+/* Main bar */
+window#waybar {
+    background: transparent;
+    color: #e5e5e5;
 }
 
-#waybar button {
-  font-family: "Fira Code", "Symbols Nerd Font Mono";
-  font-size: 10pt;
-  font-weight: 500;
-  transition: all 0.15s ease-in-out;
-} /* }}} */
-
-/* Main bar modules */ /* {{{ */
-#battery,
-#backlight,
+/* Tooltip styling */
+tooltip {
+    background: #181616;
+    border-radius: 8px;
+    border: 3px solid #363232;
+    font-weight: 500;
+    font-family: "FiraCode Nerd Font", monospace;
+}
+tooltip label {
+    color: #e5e5e5;
+}
+/* All modules base styling */
 #clock,
 #cpu,
 #memory,
 #pulseaudio.input,
-#pulseaudio.output,
-#temperature,
-#tray,
+#pulseaudio.output {
+    padding: 2px 10px;
+    margin: 1px 3px;
+    background: #181616;
+    border-radius: 26px;
+    border: 1px solid #363232;
+    color: #e5e5e5;
+}
+
+
+box#tray.horizontal {
+    background: #181616;
+    border: 1px solid #363232;
+    border-radius: 18px;
+    padding: 4px 8px;
+    margin: 1px 3px;
+}
+
+box#tray.horizontal box#tray {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+box#tray.horizontal box#tray > widget {
+    margin: 0 5px;
+}
+
+#tray > * {
+    margin: 0 4px;
+    background: transparent;
+    border: none;
+}
+
+.drawer-child {
+    background: #181616;
+    border-radius: 18px;
+    border: none;
+    padding: 4px 12px;
+    margin: 2px 3px;
+}
+
+#custom-trayicon.drawer-child {
+    background: #181616;
+    border: none;
+    border-radius: 18px;
+    padding: 4px 12px;
+    margin: 2px 3px;
+}
+
 #window {
-  padding-left: 8pt;
-  padding-right: 8pt;
-  padding-bottom: 4px;
-  padding-top: 4px;
-  background: transparent;
+    padding: 2px 15px 2px 10px;
+    margin: 1px 8px;
+    background: #181616;
+    border-radius: 12px;
+    border: 1px solid #363232;
+    color: #82aaff;
 }
 
-#tray {
-  padding-right: 6pt;
+/* Hide window title when workspace is empty */
+window#waybar.empty #window {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
-/* }}} */
-
-/* Module colors */ /* {{{ */
+/* Module-specific colors */
 #cpu,
-#temperature,
 #memory {
-  color: @performance;
+    color: #c3e88d;
 }
 
 #pulseaudio.input,
 #pulseaudio.output {
-  color: @audio;
-}
-
-#battery,
-#backlight {
-  color: @misc;
+    color: #89ddff;
 }
 
 #clock {
-  color: @date;
+    color: #9C8CE6;
 }
 
-#window {
-  color: @window;
-  margin-top: -0px;
-}
-/* }}} */
-
-/* Main bar criticals */ /* {{{ */
-#workspaces button.urgent,
-#memory.critical,
-#cpu.critical,
-#temperature.critical,
-#battery.critical:not(.charging) {
-  color: @caution;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-name: blink-critical-text;
-  animation-duration: 1s;
-  animation-timing-function: steps(15);
-} /* }}} */
-
-/* Main bar warnings */ /* {{{ */
-#pulseaudio.output.muted,
-#pulseaudio.input.source-muted {
-  color: @caution;
+/* Updated workspace styling with underline approach */
+#workspaces {
+    margin: 1px 8px;
+    background: #181616;
+    border: 1px solid #363232;
+    padding: 6px 8px;
+    border-radius: 12px;
 }
 
-#battery.warning:not(.charging) {
-  color: @warning;
-} /* }}} */
-
-/* Battery charging */ /* {{{ */
-#battery.charging {
-  color: @misc;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-name: blink-modifier-text;
-  animation-duration: 1s;
-  animation-timing-function: steps(15);
-} /* }}} */
-
-/* Workspace */ /* {{{ */
 #workspaces button {
-  color: @caution;
-  background: transparent;
-  border: 1.5px solid transparent;
-  padding-left: 8pt;
-  padding-right: 8pt;
-  border-radius: 16px;
-  margin-bottom: 8px;
-  margin-top: 8px;
-  margin-left: 4px;
-  margin-right: 4px;
-  transition: all 0.25s ease;
-  font-weight: bold;
+    min-width: 28px;
+    min-height: 12px;
+    border-radius: 8px;
+    margin: 0 2px;
+    color: #5A607A;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 2px 2px 2px 2px;
+    transition: all 0.25s ease;
+    font-weight: bold;
+    font-size: 10pt;
 }
 
-/* Visible workspace on other monitor */
-#workspaces button.visible {
-  color: @work;
+#workspaces button:first-child {
+    margin-left: 0;
 }
 
-/* Active workspace */
+#workspaces button:last-child {
+    margin-right: 0;
+}
+
+/* Active workspace - underlined */
 #workspaces button.active {
-  color: @work;
-  border: 1.5px solid @caution;
+    color: #9C8CE6;
+    background: transparent;
+    border-bottom: 2px solid #9C8CE6;
 }
 
-/* Hover effect */
-#workspaces button:hover {
-  color: @work;
+/* Visible/occupied workspace */
+#workspaces button.visible {
+    color: #82aaff;
+    background: transparent;
+    border-bottom: 2px solid #5A607A;
+}
+
+/* Empty workspace */
+#workspaces button {
+    color: #5A607A;
+    background: transparent;
+    border-bottom: 2px solid transparent;
 }
 
 /* Urgent workspace */
 #workspaces button.urgent {
-  color: @warning;
-  border: 1.5px solid @warning;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-name: blink-critical-text;
-  animation-duration: 1s;
-  animation-timing-function: steps(15);
-}
-/* }}} */
-
-/* Custom spacers */ /* {{{ */
-#custom-spacer1,
-#custom-spacer3 {
-  font-size: 10pt;
-  font-weight: bold;
-  color: @caution;
-  background: transparent;
-}
-/* }}} */
-
-/* Custom tray icon */ /* {{{ */
-#custom-trayicon {
-  font-size: 11pt;
-  font-weight: bold;
-  font-style: italic;
-  color: @process;
-  background: transparent;
-  padding-right: 6pt;
-  padding-left: 2pt;
-}
-/* }}} */
-
-/* Tooltip */ /* {{{ */
-tooltip {
-  background: @background;
-  border: 3px solid @caution;
-  border-radius: 8px;
-  font-weight: 500;
-  font-family: "FiraCode Nerd Font", monospace;
+    color: #ff3355;
+    background: transparent;
+    border-bottom: 2px solid #ff3355;
+    animation: blink-critical 1s steps(15) infinite alternate;
 }
 
-#tray menu {
-  background: @background;
-  border: 3px solid @caution;
-  border-radius: 8px;
-} /* }}} */
+/* Hover effect */
+#workspaces button:hover {
+    color: #82aaff;
+    background: rgba(156, 140, 230, 0.1);
+    border-radius: 6px;
+    border-bottom: 2px solid #82aaff;
+}
+/* Critical states */
+#memory.critical,
+#cpu.critical {
+    color: #ff3355;
+    animation: blink-critical 1s steps(15) infinite alternate;
+}
+#memory.warning,
+#cpu.warning {
+    color: #ffcb6b;
+}
+/* Muted audio */
+#pulseaudio.output.muted,
+#pulseaudio.input.source-muted {
+    color: #5A607A;
+}
+
+/* Animations */
+@keyframes blink-critical {
+    to {
+        color: #ff3355;
+    }
+}

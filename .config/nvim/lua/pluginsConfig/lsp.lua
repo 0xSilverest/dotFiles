@@ -14,9 +14,7 @@ mason.setup({
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "clangd", "bashls", "yamlls", "dockerls", "html", "clojure_lsp",
-        "diagnosticls", "hls", "jsonls", "texlab", "cssls", "gradle_ls",
-        "svelte", "elixirls"
+        "clangd", "bashls", "yamlls", "jsonls", "dockerls", "texlab", "gradle_ls"
     },
     automatic_installation = true,
 })
@@ -36,7 +34,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>so', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
 
     if client.name == "clangd" then
         local root_dir = client.config.root_dir or vim.fn.getcwd()
@@ -73,47 +71,32 @@ local servers = {
     },
     bashls = {},
     yamlls = {},
-    dockerls = {},
     jsonls = {},
-    clojure_lsp = {},
-    diagnosticls = {},
-    hls = {
-        filetypes = { 'haskell', 'lhaskell', 'cabal' },
-    },
     texlab = {},
-    tsserver = {},
-    svelte = {},
-    html = {},
-    cssls = {},
+    ts_ls = {},
     gradle_ls = {},
-    metals = {},
-    gleam = {
-        filetypes = { "gleam" },
-        root_dir = function(fname)
-            return lspconfig.util.root_pattern("gleam.toml")(fname) or vim.fn.getcwd()
-        end,
-    },
 }
 
 lspconfig.gleam.setup({})
-mason_lspconfig.setup_handlers({
-    function(server_name)
-        local server_config = servers[server_name] or {}
-        local opts = {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            filetypes = server_config.filetypes,
-            settings = server_config.settings,
-            cmd = server_config.cmd,
-            root_dir = server_config.root_dir,
-        }
 
-        for k, v in pairs(opts) do
-            if v == nil then
-                opts[k] = nil
-            end
+-- Set up each server
+for server_name, server_config in pairs(servers) do
+    local opts = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = server_config.filetypes,
+        settings = server_config.settings,
+        cmd = server_config.cmd,
+        root_dir = server_config.root_dir,
+        init_options = server_config.init_options,
+    }
+
+    -- Remove nil values
+    for k, v in pairs(opts) do
+        if v == nil then
+            opts[k] = nil
         end
+    end
 
-        lspconfig[server_name].setup(opts)
-    end,
-})
+    lspconfig[server_name].setup(opts)
+end

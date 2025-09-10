@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Define the options
 options=("Lock" "Logout" "Shutdown" "Reboot" "Sleep")
 
-# Define icons for each option
 icons=("" "󰗽" "" "" "󰤄")
 
 # Combine options with icons
@@ -15,16 +13,24 @@ done
 # Use Rofi to display the menu and get user selection
 selected=$(printf '%s\n' "${combined_options[@]}" | rofi -dmenu -i -theme ~/.config/rofi/power-menu-theme.rasi)
 
-# Extract the option without the icon
-selected_option=$(echo "$selected")
+# Exit if nothing selected
+if [ -z "$selected" ]; then
+    exit 0
+fi
 
 # Execute the selected option
-case $selected_option in
+case $selected in
     "")
-        loginctl lock-session
+        if command -v hyprlock &> /dev/null; then
+            hyprlock
+        else
+            # Fallback to loginctl if available
+            loginctl lock-session 2>/dev/null || notify-send "Error" "No lock screen program found"
+        fi
         ;;
-    "󰗽")
-        loginctl terminate-user $USER
+    "󰗽")  # Logout
+        # Kill Hyprland session
+        hyprctl dispatch exit
         ;;
     "")
         systemctl poweroff
@@ -32,7 +38,7 @@ case $selected_option in
     "")
         systemctl reboot
         ;;
-    "󰤄")
+    "󰤄")  # Sleep
         systemctl suspend
         ;;
     *)

@@ -51,6 +51,8 @@ done
 echo "Installing personal software..."
 
 wm_de=(
+    hyprland hyprpaper hyprlock waybar
+    hyprland-fish-completion
     xmonad polybar picom nitrogen rofi
     thunar dunst lxappearance arandr
 )
@@ -68,10 +70,7 @@ system_utils=(
 )
 
 viewers=(
-    qview zathura zathura-bash-completion
-    zathura-fish-completion zathura-lang
-    zathura-plugin-djvu zathura-plugin-pdf-poppler
-    okular
+    qview okular
 )
 
 tools=(
@@ -113,9 +112,7 @@ softs=(
     "${dev_tools[@]}"
     "${fonts[@]}")
 
-for soft in "${softs[@]}"; do
-    install_package "$soft"
-done
+packages_to_install=("${softs[@]}")
 
 if [ "$install_creative_suite" = true ]; then
     packages_to_install+=("${creative_suite[@]}")
@@ -129,9 +126,9 @@ if [ "$install_gaming" = true ]; then
     packages_to_install+=("${gaming[@]}")
 fi
 
-unique_packages=($(echo "${packages_to_install[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+unique_packages=($(printf '%s\n' "${packages_to_install[@]}" | sort -u))
 
-echo "Installing software..."
+echo "Installing ${#unique_packages[@]} packages..."
 sudo zypper in --no-confirm "${unique_packages[@]}"
 
 echo "Running additional setup steps..."
@@ -140,5 +137,12 @@ opi codecs -n
 opi vivaldi -n
 
 fc-cache -f -v
+
+if [ -f "$HOME/dotFiles/scripts/setup_dev_environment.sh" ]; then
+    echo "Setting up development environment..."
+    bash "$HOME/dotFiles/scripts/setup_dev_environment.sh"
+else
+    echo "Warning: setup_dev_environment.sh not found"
+fi
 
 echo "Setup complete!"
