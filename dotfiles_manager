@@ -29,7 +29,7 @@ sync_dotfiles() {
         hypr
         waybar
         easyeffects
-        zathura
+        sioyek
         fish
         polybar
         rofi
