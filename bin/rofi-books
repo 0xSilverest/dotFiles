@@ -19,7 +19,7 @@ open_book() {
             sioyek "$file" &
             ;;
         epub)
-            foliate "$file" &
+            calibre "$file" &
             ;;
         *)
             echo "Unsupported file type: $extension" >&2

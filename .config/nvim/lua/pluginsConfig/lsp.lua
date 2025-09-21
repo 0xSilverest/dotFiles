@@ -14,7 +14,8 @@ mason.setup({
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "clangd", "bashls", "yamlls", "jsonls", "dockerls", "texlab", "gradle_ls"
+        "clangd", "bashls", "yamlls", "jsonls", "dockerls",
+        "texlab", "gradle_ls", "zls", "jdtls"
     },
     automatic_installation = true,
 })
@@ -75,28 +76,89 @@ local servers = {
     texlab = {},
     ts_ls = {},
     gradle_ls = {},
+    zls = {
+        settings = {
+            zls = {
+                enable_inlay_hints = true,
+                enable_snippets = true,
+                warn_style = true,
+            },
+        },
+    },
+    jdtls = {
+        settings = {
+            java = {
+                configuration = {
+                    runtimes = {
+                        {
+                            name = "JavaSE-17",
+                            path = vim.fn.expand("~/.sdkman/candidates/java/17.0.10-tem/"),
+                            default = true
+                        },
+                        {
+                            name = "JavaSE-21",
+                            path = vim.fn.expand("~/.sdkman/candidates/java/21.0.5-tem/"),
+                        }
+                    }
+                },
+                compile = {
+                    nullAnalysis = { mode = "automatic" },
+                },
+                completion = {
+                    favoriteStaticMembers = {
+                        "org.junit.jupiter.api.Assertions.*",
+                        "org.mockito.Mockito.*"
+                    },
+                    filteredTypes = {
+                        "com.sun.*",
+                        "io.micrometer.shaded.*"
+                    }
+                },
+                sources = {
+                    organizeImports = {
+                        starThreshold = 9999,
+                        staticStarThreshold = 9999
+                    }
+                },
+                format = { enabled = true },
+                saveActions = {
+                    organizeImports = true
+                }
+            }
+        }
+    },
 }
 
-lspconfig.gleam.setup({})
-
--- Set up each server
-for server_name, server_config in pairs(servers) do
-    local opts = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = server_config.filetypes,
-        settings = server_config.settings,
-        cmd = server_config.cmd,
-        root_dir = server_config.root_dir,
-        init_options = server_config.init_options,
+lspconfig.jdtls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = servers.jdtls.settings,
+    root_dir = function(fname)
+        return lspconfig.util.root_pattern('pom.xml', 'build.gradle', '.git')(fname) or vim.fn.getcwd()
+    end,
+    init_options = {
+        bundles = {}
     }
+})
 
-    -- Remove nil values
-    for k, v in pairs(opts) do
-        if v == nil then
-            opts[k] = nil
+for server_name, server_config in pairs(servers) do
+    if server_name ~= "jdtls" then
+        local opts = {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            filetypes = server_config.filetypes,
+            settings = server_config.settings,
+            cmd = server_config.cmd,
+            root_dir = server_config.root_dir,
+            init_options = server_config.init_options,
+        }
+
+        for k, v in pairs(opts) do
+            if v == nil then
+                opts[k] = nil
+            end
         end
-    end
 
-    lspconfig[server_name].setup(opts)
+        lspconfig[server_name].setup(opts)
+    end
 end

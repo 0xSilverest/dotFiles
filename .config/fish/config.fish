@@ -61,12 +61,9 @@ end
 #    command trash $argv
 #end
 
-# ghcup-env
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
-test -f $HOME/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH
-
 # coursier
-set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/bin:/usr/local/lib/node_modules/:$HOME/.ghcup/bin:$HOME/.sdkman/candidates/java/22.3.r17-grl/bin"
+set PATH "$PATH:$HOME/.local/share/coursier/bin:$HOME/.yarn/bin:$HOME/.npm-global/bin:$HOME/bin:/usr/local/lib/node_modules/"
+
 set WINEDLLPATH $WINEDLLPATH:/opt/discord-rpc/bin64:/opt/discord-rpc/bin32
 
 set QT_QPA_PLATFORMTHEME "qt6ct"
@@ -193,10 +190,6 @@ test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.
 
 zoxide init fish | source
 
-set SDKMAN_DIR "$HOME/.sdkman"
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-
-
 # Created by `pipx` on 2024-02-26 09:47:30
 set PATH $PATH /home/silverest/.local/bin
 
@@ -208,3 +201,6 @@ set PATH $PATH /home/silverest/.local/bin
 # This section can be safely removed at any time if needed.
 test -r '/home/silverest/.opam/opam-init/init.fish' && source '/home/silverest/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
 # END opam configuration
+
+set -gx SDKMAN_DIR "$HOME/.sdkman"
+set -gx PATH "$HOME/.sdkman/candidates/java/current/bin" $PATH

@@ -33,6 +33,7 @@ tooltip label {
 #clock,
 #cpu,
 #memory,
+#custom-mpd,
 #pulseaudio.input,
 #pulseaudio.output {
     padding: 2px 10px;
