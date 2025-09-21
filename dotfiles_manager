@@ -70,6 +70,10 @@ restore_dotfiles() {
     echo "Restoring dotfiles..."
 
     configs=(
+        hypr
+        waybar
+        easyeffects
+        sioyek
         qt6ct
         zathura
         fish

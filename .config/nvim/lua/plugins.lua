@@ -169,4 +169,9 @@ return {
     },
     { 'mrjones2014/smart-splits.nvim', build = './kitty/install-kittens.bash' },
     { 'nvim-focus/focus.nvim', version = '*' },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    }
 }
