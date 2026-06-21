@@ -1,139 +1,127 @@
 #!/bin/bash
+set -euo pipefail
+
+[ -n "${HOME:-}" ] || { echo "FATAL: \$HOME is empty"; exit 1; }
 
 DOT_FILES_DIR="$HOME/dotFiles"
 CONFIG_DIR="$HOME/.config"
 BIN_DIR="$HOME/bin"
 
-# Function to create symlinks
+CONFIGS=(
+    hypr
+    waybar
+    easyeffects
+    qt6ct
+    fish
+    strawberry
+    rofi
+    kitty
+    dunst
+    gtk-3.0
+    gtk-4.0
+    omf
+)
+
+same_link() {
+    [ -L "$1" ] && [ "$(readlink -f "$1")" = "$(readlink -f "$2")" ]
+}
+
+is_symlink_managed() {
+    same_link "$CONFIG_DIR/fish" "$DOT_FILES_DIR/.config/fish"
+}
+
 create_symlink() {
-    local source="$1"
-    local target="$2"
-    if [ -e "$target" ]; then
-        echo "Backing up existing $target"
-        mv "$target" "${target}.bak"
+    local source="$1" target="$2"
+    if [ ! -e "$source" ]; then
+        echo "  skip: backup source missing -> $source"
+        return
+    fi
+    if same_link "$target" "$source"; then
+        echo "  ok:   already linked -> $target"
+        return
+    fi
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        local bak="${target}.bak.$(date +%Y%m%d%H%M%S)"
+        mv "$target" "$bak"
+        echo "  saved existing -> $bak"
     fi
     ln -s "$source" "$target"
-    echo "Created symlink: $target -> $source"
+    echo "  linked $target -> $source"
 }
 
-# Function to sync dotfiles
 sync_dotfiles() {
-    echo "Syncing dotfiles..."
-
-    # Ensure directories exist
-    mkdir -p "$DOT_FILES_DIR/.config"
-    mkdir -p "$DOT_FILES_DIR/bin"
-
-    # List of configs to sync
-    configs=(
-        hypr
-        waybar
-        easyeffects
-        sioyek
-        fish
-        polybar
-        rofi
-        kitty
-        dunst
-        gtk-3.0
-        omf
-        xmonad
-    )
-
-    for config in "${configs[@]}"; do
-        if [ -d "$CONFIG_DIR/$config" ]; then
-            rsync -av --delete "$CONFIG_DIR/$config/" "$DOT_FILES_DIR/.config/$config/"
-            echo "Synced $config configuration"
-        else
-            echo "Warning: $config directory not found in $CONFIG_DIR"
-        fi
-    done
-
-    # Sync Neovim configuration
-    mkdir -p "$DOT_FILES_DIR/.config/nvim/"
-    cp "$CONFIG_DIR/nvim/init.lua" "$DOT_FILES_DIR/.config/nvim/init.lua"
-    rsync -av --delete "$CONFIG_DIR/nvim/lua/" "$DOT_FILES_DIR/.config/nvim/lua/"
-
-    # Sync all bin scripts
-    if [ -d "$BIN_DIR" ]; then
-        rsync -av --delete "$BIN_DIR/" "$DOT_FILES_DIR/bin/"
-        echo "Synced all scripts from $BIN_DIR"
-    else
-        echo "Warning: $BIN_DIR not found"
+    if is_symlink_managed; then
+        echo "Symlink-managed machine: configs already live in the repo via symlinks."
+        echo "Nothing to copy; changes are captured by git directly."
+        return
     fi
 
-    echo "Dotfiles sync complete!"
+    echo "Syncing dotfiles..."
+    mkdir -p "$DOT_FILES_DIR/.config" "$DOT_FILES_DIR/bin"
+
+    for config in "${CONFIGS[@]}"; do
+        local src="$CONFIG_DIR/$config"
+        if [ ! -d "$src" ]; then
+            echo "  warn: $config not found in $CONFIG_DIR (skipped)"
+            continue
+        fi
+        rsync -a --delete "$src/" "$DOT_FILES_DIR/.config/$config/"
+        echo "  synced $config"
+    done
+
+    mkdir -p "$DOT_FILES_DIR/.config/nvim/"
+    cp "$CONFIG_DIR/nvim/init.lua" "$DOT_FILES_DIR/.config/nvim/init.lua"
+    rsync -a --delete "$CONFIG_DIR/nvim/lua/" "$DOT_FILES_DIR/.config/nvim/lua/"
+    echo "  synced nvim"
+
+    if [ -d "$BIN_DIR" ]; then
+        rsync -aL --delete "$BIN_DIR/" "$DOT_FILES_DIR/bin/"
+        echo "  synced bin"
+    else
+        echo "  warn: $BIN_DIR not found"
+    fi
+
+    echo "Dotfiles sync complete."
 }
 
-# Function to restore dotfiles
 restore_dotfiles() {
-    echo "Restoring dotfiles..."
+    echo "Restoring dotfiles (symlinking repo -> system)..."
 
-    configs=(
-        hypr
-        waybar
-        easyeffects
-        sioyek
-        qt6ct
-        zathura
-        fish
-        fisher
-        strawberry
-        polybar
-        rofi
-        kitty
-        dunst
-        gtk-3.0
-        omf
-        xmonad
-    )
-
-    for config in "${configs[@]}"; do
+    for config in "${CONFIGS[@]}"; do
         create_symlink "$DOT_FILES_DIR/.config/$config" "$CONFIG_DIR/$config"
     done
 
-    # Restore Neovim configuration
+    mkdir -p "$CONFIG_DIR/nvim"
     create_symlink "$DOT_FILES_DIR/.config/nvim/init.lua" "$CONFIG_DIR/nvim/init.lua"
-    create_symlink "$DOT_FILES_DIR/.config/nvim/lua" "$CONFIG_DIR/nvim/lua"
+    create_symlink "$DOT_FILES_DIR/.config/nvim/lua"      "$CONFIG_DIR/nvim/lua"
 
-    # Restore all bin scripts
     mkdir -p "$BIN_DIR"
     if [ -d "$DOT_FILES_DIR/bin" ]; then
         for script in "$DOT_FILES_DIR"/bin/*; do
-            if [ -f "$script" ]; then
-                create_symlink "$script" "$BIN_DIR/$(basename "$script")"
-            fi
+            [ -e "$script" ] || continue
+            create_symlink "$script" "$BIN_DIR/$(basename "$script")"
         done
-        echo "Restored all scripts to $BIN_DIR"
+        echo "  restored bin"
     else
-        echo "Warning: $DOT_FILES_DIR/bin not found"
+        echo "  warn: $DOT_FILES_DIR/bin not found"
     fi
 
-    echo "Dotfiles restored successfully!"
+    echo "Dotfiles restored."
 }
 
-# Main script logic
-case "$1" in
+case "${1:-}" in
     sync)
         sync_dotfiles
+        cd "$DOT_FILES_DIR" || exit 1
+        git add -A
+        git commit -m "${2:-Backing up dotfiles}" || echo "Nothing to commit."
+        echo "Committed to git."
         ;;
     restore)
         restore_dotfiles
         ;;
     *)
-        echo "Usage: $0 {sync|restore}"
+        echo "Usage: $0 {sync [commit-msg] | restore}"
         exit 1
         ;;
 esac
-
-# Git operations
-if [ "$1" = "sync" ]; then
-    cd "$DOT_FILES_DIR" || exit
-    git add .
-    if [ $# -ge 2 ]; then
-        git commit -m "$2"
-    else
-        git commit -m "Backing up dotfiles"
-    fi
-    echo "Changes committed to git repository"
-fi

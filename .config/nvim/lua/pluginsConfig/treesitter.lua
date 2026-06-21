@@ -2,7 +2,7 @@ require('nvim-treesitter.configs').setup {
     ensure_installed = {
         "scala", "java", "bash", "yaml", "json", "elixir",
         "latex", "fish", "bibtex", "dockerfile", "lua",
-        "css", "html", "c", "clojure", "zig"
+        "css", "html", "c", "clojure", "zig", "javascript"
     },
 
     highlight = {

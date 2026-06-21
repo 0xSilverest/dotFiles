@@ -1,0 +1,25 @@
+[Presets]
+lastLoadedInputPreset=Mic
+lastLoadedOutputPreset=IEM
+
+[StreamInputs]
+inputDevice=alsa_input.usb-Razer_Inc_Razer_Seiren_Mini_UC2207L03209600-00.mono-fallback
+mostUsedPresets=Mic
+plugins=rnnoise#0,stereo_tools#0
+usedPresets=Mic:2
+visiblePage=pluginsPage
+visiblePlugin=rnnoise#0
+
+[StreamOutputs]
+mostUsedPresets=IEM,Laptop,Loudness+Autogain,Perfect EQ,Monitor
+outputDevice=alsa_output.usb-Sonata_Sonata_BHD_Pro_Sonata_BHD_Pro-00.analog-stereo
+plugins=equalizer#0,compressor#0
+usedPresets=Perfect EQ:2,Loudness+Autogain:2,Laptop:2,Boosted:1,Bass Enhancing + Perfect EQ:1,Nothing:1,Monitor:1,IEM:67
+visiblePage=pluginsPage
+visiblePlugin=equalizer#0
+
+[Window]
+height=1380
+lastLoadedOutputPreset=IEM
+visiblePage=inputPage
+width=2544

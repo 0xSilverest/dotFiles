@@ -1,0 +1,5 @@
+[soe][Maximizer#0]
+bypass=true
+outputGain=4
+release=3.149999999999997
+threshold=-3.0000000000000013

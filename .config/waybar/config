@@ -1,5 +1,5 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "name": "main",
     "output": ["DP-2"],
@@ -134,34 +134,8 @@
         "spacing": 8
     },
 
-    "custom/spacer1": {
-        "format": " \\\\ ",
-        "tooltip": false
-    },
-
-    "custom/spacer3": {
-        "format": " // ",
-        "tooltip": false
-    },
-
     "custom/trayicon": {
         "format": "",
         "tooltip": false
-    },
-
-    "custom/mpd": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "format-icons": {
-            "paused": "⏸",
-            "playing": "▶"
-        },
-        "max-length": 50,
-        "exec": "~/.config/waybar/scripts/mpd.sh",
-        "interval": 2,
-        "on-click": "mpc toggle",
-        "on-click-right": "eww open music-window",
-        "on-scroll-up": "mpc next",
-        "on-scroll-down": "mpc prev"
     }
 }
