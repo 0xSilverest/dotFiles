@@ -77,8 +77,6 @@ sync_dotfiles() {
         echo "  synced $config"
     done
 
-    scrub_secrets
-
     mkdir -p "$DOT_FILES_DIR/.config/nvim/"
     cp "$CONFIG_DIR/nvim/init.lua" "$DOT_FILES_DIR/.config/nvim/init.lua"
     rsync -a --delete "$CONFIG_DIR/nvim/lua/" "$DOT_FILES_DIR/.config/nvim/lua/"
@@ -122,6 +120,7 @@ restore_dotfiles() {
 case "${1:-}" in
     sync)
         sync_dotfiles
+        scrub_secrets
         cd "$DOT_FILES_DIR" || exit 1
         git add -A
         git commit -m "${2:-Backing up dotfiles}" || echo "Nothing to commit."
