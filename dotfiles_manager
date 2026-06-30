@@ -49,6 +49,14 @@ create_symlink() {
     echo "  linked $target -> $source"
 }
 
+scrub_secrets() {
+    local sb="$DOT_FILES_DIR/.config/strawberry/strawberry.conf"
+    if [ -f "$sb" ]; then
+        sed -i -E 's/^(access_token|refresh_token|user_token|password)=.+/\1=/' "$sb"
+        echo "  scrubbed secrets from strawberry.conf"
+    fi
+}
+
 sync_dotfiles() {
     if is_symlink_managed; then
         echo "Symlink-managed machine: configs already live in the repo via symlinks."
@@ -68,6 +76,8 @@ sync_dotfiles() {
         rsync -a --delete "$src/" "$DOT_FILES_DIR/.config/$config/"
         echo "  synced $config"
     done
+
+    scrub_secrets
 
     mkdir -p "$DOT_FILES_DIR/.config/nvim/"
     cp "$CONFIG_DIR/nvim/init.lua" "$DOT_FILES_DIR/.config/nvim/init.lua"
