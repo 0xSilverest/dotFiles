@@ -1,74 +1,30 @@
 #!/bin/bash
 
 DOT_FILES_DIR="$HOME/dotFiles"
-CONFIG_DIR="$HOME/.config"
-BIN_DIR="$HOME/bin"
 SCRIPTS_DIR="$DOT_FILES_DIR/scripts"
-
-create_symlink() {
-    local source="$1"
-    local target="$2"
-    if [ -e "$target" ]; then
-        echo "Backing up existing $target"
-        mv "$target" "${target}.bak"
-    fi
-    ln -s "$source" "$target"
-    echo "Created symlink: $target -> $source"
-}
-
-copy_config_files() {
-    echo "Copying config files..."
-
-    if [ -d "$DOT_FILES_DIR/.config" ]; then
-        for config in "$DOT_FILES_DIR/.config"/*; do
-            if [ -e "$config" ]; then
-                config_name=$(basename "$config")
-                create_symlink "$config" "$CONFIG_DIR/$config_name"
-            fi
-        done
-        echo "Copied all configurations from $DOT_FILES_DIR/.config to $CONFIG_DIR"
-    else
-        echo "Warning: .config directory not found in $DOT_FILES_DIR"
-    fi
-
-    if [ -d "$DOT_FILES_DIR/bin" ]; then
-        mkdir -p "$BIN_DIR"
-        for script in "$DOT_FILES_DIR"/bin/*; do
-            if [ -f "$script" ]; then
-                create_symlink "$script" "$BIN_DIR/$(basename "$script")"
-            fi
-        done
-        echo "Copied all scripts from $DOT_FILES_DIR/bin to $BIN_DIR"
-    else
-        echo "Warning: bin directory not found in $DOT_FILES_DIR"
-    fi
-
-    echo "Config file copying complete!"
-}
-
-run_setup_scripts() {
-    echo "Running additional setup scripts..."
-
-    if [ -f "$SCRIPTS_DIR/install_soft.sh" ]; then
-        echo "Running install_soft.sh..."
-        bash "$SCRIPTS_DIR/install_soft.sh"
-    else
-        echo "Warning: install_soft.sh not found in $SCRIPTS_DIR"
-    fi
-
-    if [ -f "$SCRIPTS_DIR/setup_dev_environment.sh" ]; then
-        echo "Running setup_dev_environment.sh..."
-        bash "$SCRIPTS_DIR/setup_dev_environment.sh"
-    else
-        echo "Warning: setup_dev_environment.sh not found in $SCRIPTS_DIR"
-    fi
-}
 
 echo "Starting comprehensive setup process..."
 
-run_setup_scripts
+if [ -f "$SCRIPTS_DIR/install_soft.sh" ]; then
+    echo "Installing software..."
+    bash "$SCRIPTS_DIR/install_soft.sh" "$@"
+else
+    echo "Warning: install_soft.sh not found in $SCRIPTS_DIR"
+fi
 
-copy_config_files
+if [ -x "$DOT_FILES_DIR/dotfiles_manager" ]; then
+    echo "Restoring dotfiles..."
+    bash "$DOT_FILES_DIR/dotfiles_manager" restore
+else
+    echo "Warning: dotfiles_manager not found in $DOT_FILES_DIR"
+fi
+
+if [ -f "$SCRIPTS_DIR/setup_dev_environment.sh" ]; then
+    echo "Setting up development environment..."
+    bash "$SCRIPTS_DIR/setup_dev_environment.sh"
+else
+    echo "Warning: setup_dev_environment.sh not found in $SCRIPTS_DIR"
+fi
 
 echo "Setting up additional configurations..."
 
@@ -90,9 +46,9 @@ if [ -x "$(command -v xdg-mime)" ]; then
 
     xdg-mime default thunar.desktop inode/directory
 
-    xdg-mime default firefox.desktop x-scheme-handler/http
-    xdg-mime default firefox.desktop x-scheme-handler/https
-    xdg-mime default firefox.desktop text/html
+    xdg-mime default vivaldi-stable.desktop x-scheme-handler/http
+    xdg-mime default vivaldi-stable.desktop x-scheme-handler/https
+    xdg-mime default vivaldi-stable.desktop text/html
 
     xdg-mime default qview.desktop image/jpeg
     xdg-mime default qview.desktop image/png
@@ -109,9 +65,7 @@ if [ -x "$(command -v xdg-mime)" ]; then
     xdg-mime default neovide.desktop text/x-c++src
     xdg-mime default neovide.desktop text/x-c
     xdg-mime default neovide.desktop text/x-java
-    xdg-mime default neovide.desktop text/x-haskell
     xdg-mime default neovide.desktop text/x-clojure
-    xdg-mime default neovide.desktop text/x-literate-haskell
     xdg-mime default neovide.desktop text/x-shellscript
     xdg-mime default neovide.desktop text/x-makefile
     xdg-mime default neovide.desktop text/x-markdown

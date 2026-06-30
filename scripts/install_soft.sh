@@ -1,41 +1,15 @@
 #!/bin/bash
 
-install_package() {
-    local package="$1"
-
-    if [ -z "$package" ]; then
-        echo "Error: No package name provided"
-        return 1
-    fi
-
-    echo "Installing $package..."
-
-    # Check if package is already installed
-    if zypper se -i "$package" &>/dev/null && zypper se -i "$package" | grep -q "^i"; then
-        echo "$package is already installed, skipping..."
-        return 0
-    fi
-
-    # Try to install the package
-    if sudo zypper in -y "$package" &>/dev/null; then
-        echo "✓ Successfully installed $package"
-        return 0
-    else
-        echo "✗ Failed to install $package"
-        return 1
-    fi
-}
-
 print_usage() {
-    echo "Usage: $0 [--steam] [--wine] [--nvidia]"
-    echo "  --creative-suite : Install Creative Suite (GIMP, Inkscape, etc.)"
-    echo "  --nvidia         : Install NVIDIA drivers"
-    echo "  --gaming         : Install Gaming dependencies (Steam, Wine, etc.)"
+    echo "Usage: $0 [--gaming] [--nvidia] [--creative-suite]"
+    echo "  --gaming         : Steam, Wine, Vulkan, Lutris, etc."
+    echo "  --nvidia         : NVIDIA drivers"
+    echo "  --creative-suite : GIMP, Inkscape, Krita, Darktable"
 }
 
-install_steam=false
-install_wine=false
+install_creative_suite=false
 install_nvidia=false
+install_gaming=false
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -51,22 +25,20 @@ done
 echo "Installing personal software..."
 
 wm_de=(
-    hyprland hyprpaper hyprlock waybar
+    hyprland hyprpaper hyprlock hypridle waybar
     hyprland-fish-completion
-    xmonad polybar picom nitrogen rofi
-    thunar dunst lxappearance arandr
+    rofi thunar dunst
 )
 
 terminal_utils=(
-    kitty fish bat exa gksu ncdu ripgrep
+    kitty fish bat eza gksu ncdu ripgrep
     ripgrep-bash-completion ripgrep-fish-completion
     bottom fzf fd neovim
 )
 
 system_utils=(
-    unclutter xrandr x11perf x11-tools
     udiskie NetworkManager tlp powertop
-    NetworkManager-applet
+    NetworkManager-applet qt6ct
 )
 
 viewers=(
@@ -74,9 +46,9 @@ viewers=(
 )
 
 tools=(
-    mpv playerctl vlc ffmpeg firefox qbittorrent
+    mpv playerctl vlc ffmpeg-7 qbittorrent
     audacity obs-studio flameshot unrar
-    bitwarden neovide
+    bitwarden neovide easyeffects strawberry
 )
 
 fonts=(
@@ -109,7 +81,6 @@ softs=(
     "${system_utils[@]}"
     "${viewers[@]}"
     "${tools[@]}"
-    "${dev_tools[@]}"
     "${fonts[@]}")
 
 packages_to_install=("${softs[@]}")
@@ -138,11 +109,4 @@ opi vivaldi -n
 
 fc-cache -f -v
 
-if [ -f "$HOME/dotFiles/scripts/setup_dev_environment.sh" ]; then
-    echo "Setting up development environment..."
-    bash "$HOME/dotFiles/scripts/setup_dev_environment.sh"
-else
-    echo "Warning: setup_dev_environment.sh not found"
-fi
-
-echo "Setup complete!"
+echo "Software install complete."

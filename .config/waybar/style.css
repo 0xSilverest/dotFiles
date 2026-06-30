@@ -94,6 +94,16 @@ box#tray.horizontal box#tray > widget {
     color: #82aaff;
 }
 
+#submap {
+    padding: 2px 14px;
+    margin: 1px 8px;
+    background: #181616;
+    border-radius: 12px;
+    border: 1px solid #363232;
+    color: #9C8CE6;
+    font-weight: bold;
+}
+
 /* Hide window title when workspace is empty */
 window#waybar.empty #window {
     background: transparent;

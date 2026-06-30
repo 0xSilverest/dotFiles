@@ -12,7 +12,12 @@
         "hyprland/window"
     ],
 
-    "modules-center": [],
+    "modules-center": ["hyprland/submap"],
+
+    "hyprland/submap": {
+        "format": "{}",
+        "tooltip": false
+    },
 
     "modules-right": [
         "cpu",
@@ -42,11 +47,11 @@
             "weeks-pos": "right",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#5C8374'><b>{}</b></span>",
-                "days": "<span color='#93B1A6'><b>{}</b></span>",
-                "weeks": "<span color='#183D3D'> W{}</span>",
-                "weekdays": "<span color='#5C8374'><b>{}</b></span>",
-                "today": "<span color='#93B1A6'><b><u>{}</u></b></span>"
+                "months": "<span color='#9C8CE6'><b>{}</b></span>",
+                "days": "<span color='#e5e5e5'><b>{}</b></span>",
+                "weeks": "<span color='#6B7D8C'> W{}</span>",
+                "weekdays": "<span color='#5A607A'><b>{}</b></span>",
+                "today": "<span color='#ffcb6b'><b><u>{}</u></b></span>"
             }
         }
     },

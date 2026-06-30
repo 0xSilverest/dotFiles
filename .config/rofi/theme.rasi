@@ -1,22 +1,12 @@
+@import "colors.rasi"
+
 configuration {
     icon-theme: "Papirus";
     show-icons: true;
 }
 
 * {
-    primary:            #9C8CE6;
-    secondary:          #4A9B7F;
-
-    background:         #181616;
-    background-alt:     #201E1E;
-    foreground:         #E5E5E5;
-    border:             #292424;
-    selected-bg:        #2A5647;
-    selected-fg:        #E5E5E5;
-    urgent:             #FF3355;
-    accent:             #82AAFF;
-
-    font: "JetBrains Mono 11";
+    font: "FiraCode Nerd Font 11";
     background-color: transparent;
     text-color: @foreground;
     margin: 0;
@@ -27,11 +17,10 @@ configuration {
 window {
     background-color: @background;
     border: 2px;
-    border-color: @border;
-    border-radius: 12px;
-    width: 700px;
-    padding: 20px;
-    transparency: "real";
+    border-color: @border-col;
+    border-radius: 16px;
+    width: 560px;
+    padding: 18px;
 }
 
 mainbox {
@@ -41,78 +30,100 @@ mainbox {
 
 inputbar {
     children: [prompt, entry];
-    background-color: @background-alt;
+    background-color: @surface-light;
     border: 1px;
-    border-color: @border;
-    border-radius: 8px;
-    padding: 8px 12px;
+    border-color: @border-col;
+    border-radius: 10px;
+    padding: 10px 14px;
+    spacing: 10px;
     margin: 0 0 5px 0;
 }
 
 prompt {
     enabled: true;
-    font: "JetBrains Mono Nerd Font 14";
-    padding: 0 12px 0 0;
+    font: "FiraCode Nerd Font 14";
     text-color: @primary;
     content: "";
     vertical-align: 0.5;
 }
 
 entry {
-    placeholder: "Search...";
-    placeholder-color: #6B7D8C;
+    placeholder: "Search…";
+    placeholder-color: @comment;
     text-color: @foreground;
-    padding: 4px 0;
     vertical-align: 0.5;
 }
 
 listview {
     columns: 1;
-    lines: 6;
+    lines: 8;
     fixed-height: false;
-    border-radius: 8px;
     scrollbar: false;
-    margin: 5px 0 0 0;
+    spacing: 4px;
+    margin: 4px 0 0 0;
 }
 
 element {
-    padding: 10px 15px;
+    padding: 7px 12px;
     spacing: 10px;
-    border-radius: 6px;
-    margin: 2px 0;
+    border-radius: 8px;
 }
 
-element normal.normal {
-    background-color: transparent;
-    text-color: @foreground;
-}
-
+element normal.normal,
 element alternate.normal {
     background-color: transparent;
     text-color: @foreground;
 }
 
+element normal.urgent,
+element alternate.urgent {
+    background-color: transparent;
+    text-color: @error;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: transparent;
+    text-color: @accent-blue;
+}
+
 element selected.normal {
-    background-color: @selected-bg;
-    text-color: @selected-fg;
-    border: 1px;
+    background-color: @selection;
+    text-color: @foreground;
+    border: 0px 0px 0px 3px;
     border-color: @primary;
+}
+
+element selected.urgent {
+    background-color: @selection;
+    text-color: @error;
+    border: 0px 0px 0px 3px;
+    border-color: @error;
+}
+
+element selected.active {
+    background-color: @selection;
+    text-color: @accent-blue;
+    border: 0px 0px 0px 3px;
+    border-color: @accent-blue;
 }
 
 element-text {
     background-color: transparent;
     text-color: inherit;
     vertical-align: 0.5;
+    cursor: pointer;
 }
 
 element-icon {
-    size: 1.2em;
+    size: 1.3em;
     padding: 0 10px 0 0;
+    cursor: pointer;
 }
 
 error-message {
     padding: 15px;
     border-radius: 8px;
-    background-color: @urgent;
-    text-color: @foreground;
+    background-color: @surface;
+    text-color: @error;
 }

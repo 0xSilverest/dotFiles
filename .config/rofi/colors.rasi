@@ -1,0 +1,31 @@
+/* TwilightSerpent — shared palette (variables only, no layout) */
+/* source: ~/Coding/TwilightSerpent theme.json */
+
+* {
+    primary:          #9C8CE6;
+    secondary:        #4A9B7F;
+    foreground:       #E5E5E5;
+    muted:            #C7CFE0;
+
+    background:       #181616;
+    surface:          #1A181A;
+    surface-light:    #2A2626;
+
+    accent-blue:      #82AAFF;
+    accent-rose:      #FF8B92;
+    accent-yellow:    #FFCB6B;
+    accent-green:     #C3E88D;
+    accent-cyan:      #89DDFF;
+
+    error:            #FF3355;
+    warning:          #FF9966;
+    success:          #66CDAA;
+    link:             #58B7FF;
+
+    border-col:       #292424;
+    selection:        #3D3659;
+    selection-focus:  #4A4169;
+    hover:            #4A4559;
+    active:           #5A4F6A;
+    comment:          #6B7D8C;
+}

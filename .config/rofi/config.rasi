@@ -4,7 +4,7 @@ configuration {
     display-window: "  ";
     drun-display-format: "{icon} {name}";
     font: "FiraCode Nerd Font Medium 12";
-    modi: [drun, window, ssh];
+    modi: [drun, run, window, ssh];
     show-icons: true;
     terminal: "kitty";
     matching: "fuzzy";

@@ -12,14 +12,14 @@ visiblePlugin=rnnoise#0
 
 [StreamOutputs]
 mostUsedPresets=IEM,Laptop,Loudness+Autogain,Perfect EQ,Monitor
-outputDevice=alsa_output.usb-Sonata_Sonata_BHD_Pro_Sonata_BHD_Pro-00.analog-stereo
+outputDevice=alsa_output.pci-0000_2b_00.1.hdmi-stereo-extra1
 plugins=equalizer#0,compressor#0
-usedPresets=Perfect EQ:2,Loudness+Autogain:2,Laptop:2,Boosted:1,Bass Enhancing + Perfect EQ:1,Nothing:1,Monitor:1,IEM:67
+usedPresets=Perfect EQ:2,Loudness+Autogain:2,Laptop:2,Boosted:1,Bass Enhancing + Perfect EQ:1,Nothing:1,Monitor:1,IEM:69
 visiblePage=pluginsPage
 visiblePlugin=equalizer#0
 
 [Window]
-height=1380
+height=1042
 lastLoadedOutputPreset=IEM
 visiblePage=inputPage
-width=2544
+width=1064

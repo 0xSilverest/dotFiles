@@ -14,7 +14,7 @@ mason.setup({
 mason_lspconfig.setup({
     ensure_installed = {
         "clangd", "bashls", "yamlls", "jsonls", "dockerls",
-        "texlab", "gradle_ls", "zls", "jdtls", "eslint"
+        "gradle_ls", "zls", "jdtls", "eslint"
     },
     automatic_installation = true,
 })
@@ -44,6 +44,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set('n', '<leader>f',  function()
             vim.lsp.buf.format({ async = true })
         end, opts)
+
+        if client and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
 
         if client and client.name == "clangd" then
             local root_dir = client.config.root_dir or vim.fn.getcwd()
@@ -133,12 +137,11 @@ vim.lsp.config('jdtls', {
 })
 
 -- Servers with no extra config beyond capabilities
-for _, server in ipairs({ 'bashls', 'yamlls', 'jsonls', 'texlab', 'ts_ls', 'gradle_ls', 'eslint' }) do
+for _, server in ipairs({ 'bashls', 'yamlls', 'jsonls', 'ts_ls', 'gradle_ls', 'eslint' }) do
     vim.lsp.config(server, { capabilities = capabilities })
 end
 
 vim.lsp.enable({
-    'clangd', 'bashls', 'yamlls', 'jsonls',
-    'texlab', 'ts_ls', 'gradle_ls', 'zls', 'jdtls',
+    'clangd', 'bashls', 'yamlls', 'jsonls', 'ts_ls', 'gradle_ls', 'zls', 'jdtls',
     'eslint',
 })

@@ -144,7 +144,7 @@ set -l yellow ffcb6b
 set -l green c3e88d
 set -l purple 9C8CE6
 set -l cyan 89ddff
-set -l pink ff5370
+set -l pink FF8B92
 set -l blue 82aaff
 
 # Syntax Highlighting Colors

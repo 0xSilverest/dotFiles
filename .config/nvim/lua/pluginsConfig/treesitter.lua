@@ -1,38 +1,25 @@
-require('nvim-treesitter.configs').setup {
-    ensure_installed = {
-        "scala", "java", "bash", "yaml", "json", "elixir",
-        "latex", "fish", "bibtex", "dockerfile", "lua",
-        "css", "html", "c", "clojure", "zig", "javascript"
-    },
-
-    highlight = {
-        enable = true,
-    },
-
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = 'gnn',
-            node_incremental = 'grn',
-            scope_incremental = 'grc',
-            node_decremental = 'grm',
-        },
-    },
-
-    rainbow = {
-      -- enable = true,
-      extended_mode = true,
-      max_file_lines = nil,
-    },
-
-    indent = {
-        enable = true,
-    },
-
-    matchup = {
-        enable = true,
-    },
+-- nvim-treesitter `main` branch API.
+-- Parsers are installed explicitly; features are enabled per-buffer.
+local parsers = {
+    "scala", "java", "bash", "yaml", "json",
+    "fish", "lua", "css", "html", "c", "clojure",
+    "zig", "javascript", "python"
 }
+
+-- Install/keep parsers up to date (async; no-op if already installed).
+require('nvim-treesitter').install(parsers)
+
+-- Enable highlighting + indentation for any buffer with an installed parser.
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function(args)
+        local buf = args.buf
+        local ft = vim.bo[buf].filetype
+        local lang = vim.treesitter.language.get_lang(ft) or ft
+        if pcall(vim.treesitter.start, buf, lang) then
+            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+    end,
+})
 
 vim.cmd([[
   augroup ClojureParenthesesClojureClojure

@@ -72,13 +72,23 @@ return {
     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
+        branch = 'main',
+        lazy = false,
         dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            'p00f/nvim-ts-rainbow',
+            { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
         },
         build = ':TSUpdate',
         config = function()
             require('pluginsConfig.treesitter')
+        end
+    },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        config = function()
+            require('treesitter-context').setup({
+                max_lines = 3,            -- cap the sticky context height
+                multiline_threshold = 1,  -- collapse multiline nodes to one line
+            })
         end
     },
 
@@ -95,18 +105,6 @@ return {
     -- Latex
     'lervag/vimtex',
 
-    -- Themes
-    {
-        "alexmozaidze/palenight.nvim",
-        lazy = false,
-        config = function()
-            local colors = require "palenight/colors/truecolor"
-            colors.black = "#181616"
-            colors.white = "#e5e5e5"
-            colors.menu = "#1d1b1b"
-        end,
-    },
-
     -- Status line
     {
         'nvim-lualine/lualine.nvim',
@@ -114,7 +112,9 @@ return {
             require'lualine'.setup {
                 options = {
                     icons_enabled = true,
-                    theme = 'palenight',
+                    theme = require('twilightserpent.lualine'),
+                    section_separators = { left = '', right = '' },
+                    component_separators = { left = '', right = '' },
                     disabled_filetypes = {}
                 },
                 sections = {
@@ -145,17 +145,25 @@ return {
         end,
     },
 
-    -- UI enhancements
-    'lukas-reineke/indent-blankline.nvim',
-    'RRethy/vim-illuminate',
-    {'machakann/vim-sandwich', keys = 's'},
     {
-        'phaazon/hop.nvim',
-        branch = 'v1',
+        'HiPhish/rainbow-delimiters.nvim',
+        submodules = false,
         config = function()
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+            require('rainbow-delimiters.setup').setup {}
         end
     },
+
+    {
+        'smoka7/hop.nvim',
+        version = '*',
+        config = function()
+            require('hop').setup {}
+        end
+    },
+
+    -- UI enhancements
+    'lukas-reineke/indent-blankline.nvim',
+    {'machakann/vim-sandwich', keys = 's'},
     {
       "nacro90/numb.nvim",
       config = function()
@@ -173,5 +181,66 @@ return {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
+    },
+
+    -- Keymap discovery
+    {
+        'folke/which-key.nvim',
+        event = "VeryLazy",
+        opts = {}
+    },
+
+    -- Highlight other uses of the word under the cursor
+    {
+        'RRethy/vim-illuminate',
+        event = "VeryLazy",
+        config = function()
+            require('illuminate').configure({
+                providers = { 'lsp', 'treesitter', 'regex' },
+                delay = 120,
+            })
+        end
+    },
+
+    -- Formatting
+    {
+        'stevearc/conform.nvim',
+        event = { 'BufWritePre' },
+        cmd = { 'ConformInfo' },
+        config = function()
+            require('conform').setup({
+                formatters_by_ft = {
+                    lua = { 'stylua' },
+                    javascript = { 'prettier' },
+                    json = { 'prettier' },
+                    css = { 'prettier' },
+                    html = { 'prettier' },
+                    -- zig, scala, etc. fall back to their LSP formatter below
+                },
+                format_on_save = {
+                    timeout_ms = 500,
+                    lsp_format = 'fallback', -- use LSP (ZLS, jdtls, metals) when no formatter listed
+                },
+            })
+        end
+    },
+
+    -- Quick file navigation
+    {
+        'ThePrimeagen/harpoon',
+        branch = 'harpoon2',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            local harpoon = require('harpoon')
+            harpoon:setup()
+            vim.keymap.set('n', '<leader>a', function() harpoon:list():add() end,
+                { desc = 'Harpoon: add file' })
+            vim.keymap.set('n', '<leader>e', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+                { desc = 'Harpoon: toggle menu' })
+            for i = 1, 4 do
+                vim.keymap.set('n', '<leader>' .. i, function() harpoon:list():select(i) end,
+                    { desc = 'Harpoon: file ' .. i })
+            end
+        end
     }
 }
