@@ -1,0 +1,46 @@
+{
+    "output": ["eDP-1"],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "battery",
+        "pulseaudio#input",
+        "pulseaudio#output",
+        "clock"
+    ],
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{timeTo}"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll-wraparound": true,
+        "smooth-scrolling-threshold": 4,
+        "enable-bar-scroll": true,
+        "format": "{icon}",
+        "show-special": false,
+        "format-icons": {
+            "1": "λ",
+            "2": "β",
+            "3": "γ",
+            "4": "δ",
+            "5": "ε",
+            "6": "Ψ"
+        },
+        "ignore-workspaces":[ "6", "Ψ" ],
+        "persistent-workspaces": {
+            "eDP-1": [1, 2, 3, 4, 5, 6]
+        },
+        "active-only": false,
+        "sort-by-number": true
+    }
+}

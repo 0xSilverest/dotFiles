@@ -92,12 +92,34 @@ sync_dotfiles() {
     echo "Dotfiles sync complete."
 }
 
+link_host_profile() {
+    local hosts_dir="$1" link_name="$2" ext="$3"
+    [ -d "$hosts_dir" ] || return
+
+    local chassis profile
+    chassis="$(hostnamectl chassis 2>/dev/null || echo desktop)"
+    case "$chassis" in
+        laptop|tablet|handset|convertible) profile="laptop" ;;
+        *) profile="desktop" ;;
+    esac
+
+    if [ -f "$hosts_dir/$profile.$ext" ]; then
+        create_symlink "$hosts_dir/$profile.$ext" "$hosts_dir/$link_name"
+        echo "  ${hosts_dir#$CONFIG_DIR/} host profile -> $profile (chassis: $chassis)"
+    else
+        echo "  warn: $hosts_dir/$profile.$ext missing, skipping host profile link"
+    fi
+}
+
 restore_dotfiles() {
     echo "Restoring dotfiles (symlinking repo -> system)..."
 
     for config in "${CONFIGS[@]}"; do
         create_symlink "$DOT_FILES_DIR/.config/$config" "$CONFIG_DIR/$config"
     done
+
+    link_host_profile "$CONFIG_DIR/hypr/hosts" "local.conf" "conf"
+    link_host_profile "$CONFIG_DIR/waybar/hosts" "local.json" "json"
 
     mkdir -p "$CONFIG_DIR/nvim"
     create_symlink "$DOT_FILES_DIR/.config/nvim/init.lua" "$CONFIG_DIR/nvim/init.lua"

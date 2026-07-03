@@ -2,7 +2,7 @@
     "layer": "bottom",
     "position": "top",
     "name": "main",
-    "output": ["DP-2"],
+    "include": ["~/.config/waybar/hosts/local.json"],
 
     "margin": "4 4 0",
 
@@ -18,14 +18,6 @@
         "format": "{}",
         "tooltip": false
     },
-
-    "modules-right": [
-        "cpu",
-        "memory",
-        "pulseaudio#input",
-        "pulseaudio#output",
-        "clock"
-    ],
 
     "group/tray": {
         "orientation": "horizontal",
@@ -82,28 +74,6 @@
         "tooltip": false,
         "icon": true,
         "icon-size": 18
-    },
-
-    "hyprland/workspaces": {
-        "disable-scroll-wraparound": true,
-        "smooth-scrolling-threshold": 4,
-        "enable-bar-scroll": true,
-        "format": "{icon}",
-        "show-special": false,
-        "format-icons": {
-            "1": "λ",
-            "2": "β",
-            "3": "γ",
-            "4": "δ",
-            "5": "ε",
-            "6": "Ψ"
-        },
-        "ignore-workspaces":[ "6", "Ψ" ],
-        "persistent-workspaces": {
-            "DP-2": [1, 2, 3, 4, 5]
-        },
-        "active-only": false,
-        "sort-by-number": true
     },
 
     "pulseaudio#output": {
