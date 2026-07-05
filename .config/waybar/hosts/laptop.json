@@ -1,6 +1,7 @@
 {
-    "output": ["eDP-1"],
-
+    "output": [
+        "eDP-1"
+    ],
     "modules-right": [
         "cpu",
         "memory",
@@ -9,13 +10,18 @@
         "pulseaudio#output",
         "clock"
     ],
-
     "battery": {
         "interval": 4,
         "format": "{icon}  {capacity}%",
         "format-charging": "{icon} {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "states": {
             "warning": 30,
             "critical": 15
@@ -23,7 +29,6 @@
         "tooltip": true,
         "tooltip-format": "{timeTo}, {capacity}% - {power}W"
     },
-
     "hyprland/workspaces": {
         "disable-scroll-wraparound": true,
         "smooth-scrolling-threshold": 4,
@@ -38,9 +43,19 @@
             "5": "ε",
             "6": "Ψ"
         },
-        "ignore-workspaces":[ "6", "Ψ" ],
+        "ignore-workspaces": [
+            "6",
+            "Ψ"
+        ],
         "persistent-workspaces": {
-            "eDP-1": [1, 2, 3, 4, 5, 6]
+            "eDP-1": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
         },
         "active-only": false,
         "sort-by-number": true
