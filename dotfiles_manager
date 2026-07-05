@@ -121,6 +121,7 @@ restore_dotfiles() {
     link_host_profile "$CONFIG_DIR/hypr/hosts" "$CONFIG_DIR/hypr/hosts/local.conf" "conf"
     link_host_profile "$CONFIG_DIR/waybar/hosts" "$CONFIG_DIR/waybar/hosts/local.json" "json"
     link_host_profile "$CONFIG_DIR/hypr/hyprpaper-hosts" "$CONFIG_DIR/hypr/hyprpaper.conf" "conf"
+    link_host_profile "$CONFIG_DIR/hypr/hyprlock-hosts" "$CONFIG_DIR/hypr/hyprlock.conf" "conf"
 
     mkdir -p "$CONFIG_DIR/nvim"
     create_symlink "$DOT_FILES_DIR/.config/nvim/init.lua" "$CONFIG_DIR/nvim/init.lua"
