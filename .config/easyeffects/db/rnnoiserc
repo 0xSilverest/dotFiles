@@ -2,4 +2,4 @@
 enableVad=true
 modelName=
 release=19.78
-vadThres=40
+vadThres=20

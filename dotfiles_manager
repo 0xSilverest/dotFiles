@@ -27,7 +27,29 @@ same_link() {
 }
 
 is_symlink_managed() {
-    same_link "$CONFIG_DIR/fish" "$DOT_FILES_DIR/.config/fish"
+    local config
+    for config in "${CONFIGS[@]}"; do
+        same_link "$CONFIG_DIR/$config" "$DOT_FILES_DIR/.config/$config" || return 1
+    done
+}
+
+cleanup_stale_symlinks() {
+    local target_dir="$1" source_dir="$2"
+    [ -d "$target_dir" ] || return
+    local item base resolved
+    for item in "$target_dir"/*; do
+        [ -L "$item" ] || continue
+        resolved="$(readlink -f "$item")"
+        case "$resolved" in
+            "$source_dir"/*)
+                base="$(basename "$item")"
+                if [ ! -e "$source_dir/$base" ]; then
+                    rm "$item"
+                    echo "  removed stale symlink -> $item"
+                fi
+                ;;
+        esac
+    done
 }
 
 create_symlink() {
@@ -97,11 +119,16 @@ link_host_profile() {
     [ -d "$hosts_dir" ] || return
 
     local chassis profile
-    chassis="$(hostnamectl chassis 2>/dev/null || echo desktop)"
-    case "$chassis" in
-        laptop|tablet|handset|convertible) profile="laptop" ;;
-        *) profile="desktop" ;;
-    esac
+    if [ -n "${DOTFILES_HOST_PROFILE:-}" ]; then
+        profile="$DOTFILES_HOST_PROFILE"
+        chassis="override"
+    else
+        chassis="$(hostnamectl chassis 2>/dev/null || echo desktop)"
+        case "$chassis" in
+            laptop|tablet|handset|convertible) profile="laptop" ;;
+            *) profile="desktop" ;;
+        esac
+    fi
 
     if [ -f "$hosts_dir/$profile.$ext" ]; then
         create_symlink "$hosts_dir/$profile.$ext" "$target"
@@ -114,11 +141,14 @@ link_host_profile() {
 restore_dotfiles() {
     echo "Restoring dotfiles (symlinking repo -> system)..."
 
+    cleanup_stale_symlinks "$CONFIG_DIR" "$DOT_FILES_DIR/.config"
+    cleanup_stale_symlinks "$BIN_DIR" "$DOT_FILES_DIR/bin"
+
     for config in "${CONFIGS[@]}"; do
         create_symlink "$DOT_FILES_DIR/.config/$config" "$CONFIG_DIR/$config"
     done
 
-    link_host_profile "$CONFIG_DIR/hypr/hosts" "$CONFIG_DIR/hypr/hosts/local.conf" "conf"
+    link_host_profile "$CONFIG_DIR/hypr/hosts" "$CONFIG_DIR/hypr/hosts/local.lua" "lua"
     link_host_profile "$CONFIG_DIR/waybar/hosts" "$CONFIG_DIR/waybar/hosts/local.json" "json"
     link_host_profile "$CONFIG_DIR/hypr/hyprpaper-hosts" "$CONFIG_DIR/hypr/hyprpaper.conf" "conf"
     link_host_profile "$CONFIG_DIR/hypr/hyprlock-hosts" "$CONFIG_DIR/hypr/hyprlock.conf" "conf"

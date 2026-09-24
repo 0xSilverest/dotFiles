@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 DOT_FILES_DIR="$HOME/dotFiles"
 SCRIPTS_DIR="$DOT_FILES_DIR/scripts"
@@ -30,8 +31,11 @@ echo "Setting up additional configurations..."
 
 if [ -x "$(command -v fish)" ]; then
     echo "Setting fish as default shell..."
-    echo /usr/bin/fish | sudo tee -a /etc/shells
-    chsh -s /usr/bin/fish
+    grep -qxF /usr/bin/fish /etc/shells || echo /usr/bin/fish | sudo tee -a /etc/shells
+    current_shell="$(getent passwd "$USER" | cut -d: -f7)"
+    if [ "$current_shell" != "/usr/bin/fish" ]; then
+        chsh -s /usr/bin/fish
+    fi
 else
     echo "Fish shell not found. Skipping default shell change."
 fi

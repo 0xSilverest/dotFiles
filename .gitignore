@@ -1,2 +1,3 @@
 .config/hypr/hosts/local.conf
+.config/hypr/hosts/local.lua
 .config/waybar/hosts/local.json
